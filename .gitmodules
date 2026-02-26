@@ -1,0 +1,3 @@
+[submodule "wp-content/themes/spinecaremw/_core_mirror"]
+	path = wp-content/themes/spinecaremw/_core_mirror
+	url = https://github.com/brethummel/springboard-core.git
