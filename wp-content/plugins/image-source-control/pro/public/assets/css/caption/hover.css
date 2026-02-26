@@ -1,0 +1,17 @@
+.isc-source-text {
+	position: relative;
+	display: inline-block;
+}
+
+.isc-source-text .isc-source-text-icon {
+	cursor: help;
+}
+
+.isc-source-text > span:last-of-type {
+	display: none;
+	padding-left: 5px;
+}
+
+.isc-source-text:hover > span:last-of-type {
+	display: inline-block;
+}

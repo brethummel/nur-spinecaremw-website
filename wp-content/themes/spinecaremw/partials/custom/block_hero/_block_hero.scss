@@ -1,0 +1,149 @@
+.block-hero {
+    position: relative;
+	&.image {
+		&.top {
+			background-position: top center;
+		}
+		&.middle {
+			background-position: center center;
+		}
+		&.bottom {
+			background-position: bottom center;
+		}
+	}
+    &.marquee {
+        background-size: cover;
+        background-position: center center;
+        height: 500px;
+        overflow: hidden;
+        @include media-breakpoint-only(md) {
+            height: 476px;
+        }
+        @include media-breakpoint-down(sm) {
+            max-height: 450px;
+            height: 85vw;
+        }
+        .title {
+            justify-content: center;
+            .text-container {
+                margin-bottom: 5%;
+            }
+        }
+    }
+    &.page-title {
+        padding-top: $p-top;
+        padding-bottom: $p-bottom;
+        background: linear-gradient(90deg, #F56600 0%, rgba(245, 102, 0, 0.6) 100%);
+        overflow: hidden;
+        &:before {
+            content: "";
+            position: absolute;
+            background-image: url("images/nura_sun_white_corner.png");
+            background-position: left bottom;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: .25;
+            bottom: 0px;
+            @include media-breakpoint-up(lg) {
+                height: 200%;
+                width: 60%;
+                right: -15%;
+            }
+            @include media-breakpoint-only(md) {
+                height: 175%;
+                width: 70%;
+                right: -10%;
+            }
+            @include media-breakpoint-down(sm) {
+                height: 150%;
+                width: 65%;
+                right: -10%;
+            }
+        }
+        &.has-subhead {
+            &:before {
+                @include media-breakpoint-up(lg) {
+                    height: 160%;
+                }
+                @include media-breakpoint-only(md) {
+                    height: 130%;
+                }
+                @include media-breakpoint-down(sm) {
+                    height: 110%;
+                }
+            }
+        }
+        .title {
+            justify-content: flex-end;
+            .text-container {
+                h1 {
+                    color: $white;
+                }
+                h2 {
+                    color: $white;
+                    @include media-breakpoint-up(lg) {
+                        font-size: 48px;
+                    }
+                    @include media-breakpoint-only(md) {
+                        font-size: 38px;
+                    }
+                    @include media-breakpoint-down(sm) {
+                        font-size: 32px;
+                    }
+                }
+                p {
+                    color: $white;
+                    @include media-breakpoint-up(lg) {
+                        padding-right: 10%;
+                    }
+                }
+                .paragraph {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+    .title-container {
+        height: 100%;
+        .container {
+            height: 100%;
+            .row {
+                height: 100%;
+            }
+        }
+        .title {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            .text-container {
+                h1 {
+                    font-family: $f-body !important;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    font-weight: $f-bold;
+                    letter-spacing: 1px;
+                    z-index: 1;
+                    margin-bottom: 16px;
+                }
+                h2 {
+                    font-family: $f-heads;
+                    font-size: 58px;
+                    font-style: normal;
+                    font-weight: $f-regular;
+                    line-height: 1.08;
+                    letter-spacing: -0.9px;
+                    z-index: 1;
+                    @include media-breakpoint-only(md) {
+                        font-size: 48px;
+                    }
+                    @include media-breakpoint-down(sm) {
+                        font-size: 38px;
+                    }
+                }
+                p {
+
+                }
+            }
+        }
+    }
+}

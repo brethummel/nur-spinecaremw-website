@@ -1,0 +1,222 @@
+html {
+    body {
+        font-family: $f-body;
+        position: relative;
+        &.no-scroll {
+            overflow: hidden !important;
+        }
+        .vert-center {
+            display: -webkit-flex; /* Safari */
+            -webkit-justify-content: center; /* Safari */
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+        .content {
+            padding: 0px;
+			@if $max-container {
+				max-width: $container-xl;
+				margin-right: auto;
+				margin-left: auto;
+			}
+        }
+        .container {
+            padding: 0px $p-container-sm;
+            position: relative;
+            @include media-breakpoint-only(xl) {
+                padding: 0px $p-container-xl;
+            }
+            @include media-breakpoint-only(lg) {
+                padding: 0px $p-container-lg;
+            }
+            @include media-breakpoint-only(xs) {
+                padding: 0px $p-container-xs;
+            }
+            @include media-breakpoint-down(xxs) {
+                padding: 0px $p-container-xxs;
+            }
+        }
+        .blocks-wrapper {
+            .block {
+                background-color: unset !important;
+                &.padded {
+                    padding-top: $p-top *.6;
+                    padding-bottom: $p-bottom *.6;
+                }
+                .container {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+            }
+            .block-text {
+                
+            }
+        }
+        .block {
+            &.padded {
+                padding-top: $p-top;
+                padding-bottom: $p-bottom;
+				@include media-breakpoint-down(xs) {
+					padding-top: $p-top-xs;
+					padding-bottom: $p-bottom-xs;
+				}
+                &.above {
+                    padding-top: 0px !important;
+                    margin-top: $p-top * -0.5;
+					@include media-breakpoint-down(xs) {
+						margin-top: $p-top-xs * -0.5;
+					}
+                }
+                &.below {
+                    padding-bottom: 0px !important;
+                    margin-bottom: $p-bottom * -0.5;
+					@include media-breakpoint-down(xs) {
+						margin-bottom: $p-bottom-xs * -0.5;
+					}
+					&.has-buttons {
+						margin-bottom: 0px !important;
+					}
+                }
+            }
+            &.left {
+                text-align: left;
+            }
+            &.center {
+                text-align: center;
+				ul {
+					text-align: center;
+    				list-style-position: inside;
+					padding: 0px;
+				}
+            }
+            &.right {
+                text-align: right;
+				ul {
+					text-align: right;
+    				list-style-position: inside;
+				}
+            }
+            &.bkgnd-white,
+			.bkgnd-white {
+                background-color: $c-bkgnd-white;
+            }
+            &.bkgnd-light,
+			.bkgnd-light {
+                background-color: $c-bkgnd-light;
+            }
+            &.bkgnd-light2,
+			.bkgnd-light2 {
+                background-color: $c-bkgnd-light2;
+            }
+            &.bkgnd-primary,
+			.bkgnd-primary {
+                background-color: $c-bkgnd-primary;
+            }
+            &.bkgnd-secondary,
+			.bkgnd-secondary {
+                background-color: $c-bkgnd-secondary;
+            }
+			@if variable-exists(c-bkgnd-tertiary) {
+				&.bkgnd-tertiary,
+				.bkgnd-tertiary {
+					background-color: $c-bkgnd-tertiary;
+				}
+			}
+			@if variable-exists(c-bkgnd-accent) {
+				&.bkgnd-accent,
+				.bkgnd-accent {
+					background-color: $c-bkgnd-accent;
+				}
+			}
+        }
+        #wpadminbar {
+            // @include media-breakpoint-down(xs) {
+            @media only screen and (max-width: 600px) {
+                top: -46px;
+            }
+        }
+		&.dev-env {
+			&:before {
+				content: "00";
+				color: $white;
+				position: absolute;
+				top: 2px;
+				left: 5px;
+				z-index: 100;
+				line-height: 1;
+				font-size: 12px;
+				@include media-breakpoint-up(xxs) {
+					content: "xxs";
+				}
+				@include media-breakpoint-up(xs) {
+					content: "xs";
+				}
+				@include media-breakpoint-up(sm) {
+					content: "sm";
+				}
+				@include media-breakpoint-up(md) {
+					content: "md";
+				}
+				@include media-breakpoint-up(lg) {
+					content: "lg";
+				}
+				@include media-breakpoint-up(xl) {
+					content: "xl";
+				}
+			}
+		}
+    }
+    
+    .pop-overlay {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        z-index: 50;
+        display: none;
+        .pop-modal {
+            position: relative;
+            display: block;
+            .pop-close {
+                position: absolute;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .nivo-lightbox-theme-default.nivo-lightbox-overlay {
+        background-color: rgba(0, 0, 0, .92) !important;
+        .nivo-lightbox-wrap {
+            left: 10vw !important;
+            right: 10vw !important;
+            height: calc(80vw * .5625) !important;
+            top: calc((100% - (80vw * .5625))/2) !important;
+            bottom: unset !important;
+        }
+    }
+    
+}
+
+@include media-breakpoint-up(xxs) {
+
+}
+@include media-breakpoint-up(xs) {
+
+}
+@include media-breakpoint-up(sm) {
+
+}
+@include media-breakpoint-up(md) {
+
+}
+@include media-breakpoint-up(lg) {
+
+}
+@include media-breakpoint-up(xl) {
+
+}

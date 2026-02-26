@@ -1,0 +1,108 @@
+.block-hero {
+    &.marquee {
+        @include media-breakpoint-down(sm) {
+            background-size: 120%;
+            background-repeat: no-repeat;
+            background-color: $softwhite;
+        }
+        &:not(.taller) {
+            background-position: top right !important;
+            @include media-breakpoint-down(sm) {
+                height: auto;
+                max-height: unset !important;
+            }
+            &:before {
+                @include media-breakpoint-down(sm) {
+                    background: linear-gradient(2deg, rgba(243, 241, 237, 1) 60%, rgba(243, 241, 237, 0.75) 64.44%, rgba(243, 241, 237, 0) 68.47%);
+                }
+            }
+            .title {
+                @include media-breakpoint-only(lg) {
+                    -ms-flex: 0 0 60%;
+                    flex: 0 0 60%;
+                    max-width: 60%;
+                }
+            }
+        }
+        &.taller {
+            height: 700px;
+            @include media-breakpoint-only(md) {
+                height: 620px;
+            }
+            @include media-breakpoint-down(sm) {
+                height: auto;
+                max-height: unset !important;
+            }
+            &:before {
+                @include media-breakpoint-up(md) {
+                    background: linear-gradient(92deg, rgba(243, 241, 237, 0.95) 0.01%, rgba(243, 241, 237, 0.8) 42.58%, rgba(243, 241, 237, 0.6) 52.44%, rgba(243, 241, 237, 0) 65.47%);
+                }
+                @include media-breakpoint-down(sm) {
+                    background: linear-gradient(2deg, rgba(243, 241, 237, 1) 60%, rgba(243, 241, 237, 0.75) 64.44%, rgba(243, 241, 237, 0) 68.47%);
+                }
+            }
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            @include media-breakpoint-up(md) {
+                background: linear-gradient(92deg, rgba(243, 241, 237, 0.95) 0.01%, rgba(243, 241, 237, 0.8) 42.58%, rgba(243, 241, 237, 0.6) 52.44%, rgba(243, 241, 237, 0) 65.47%);
+            }
+            @include media-breakpoint-only(sm) {
+                background: linear-gradient(2deg, rgba(243, 241, 237, 1) 46%, rgba(243, 241, 237, 0.75) 54%, rgba(243, 241, 237, 0) 60%);
+            }
+            @include media-breakpoint-down(xs) {
+                background: linear-gradient(2deg, rgba(243, 241, 237, 1) 50%, rgba(243, 241, 237, 0.75) 62%, rgba(243, 241, 237, 0) 70%);
+            }
+        }
+        .title {
+            @include media-breakpoint-down(sm) {
+                padding-top: 45vw;
+                padding-bottom: 36px;
+            }
+            .text-container {
+                display: flex;
+                flex-direction: column;
+                @include media-breakpoint-down(xs) {
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        height: 20vw;
+                        width: 100vw;
+                        top: 36vw;
+                        left: -10px;
+                        background: linear-gradient(0deg, rgba(243, 241, 237, 1) 20%, rgba(243, 241, 237, 0.75) 45.44%, rgba(243, 241, 237, 0) 95.47%);
+                        z-index: 0;
+                    }
+                }
+                h1 {
+                    z-index: 1;
+                }
+                h2 {
+                    z-index: 1;
+                }
+                p {
+                    &.subhead {
+                        font-size: 14px;
+                        text-transform: uppercase;
+                        font-weight: $f-bold;
+                        letter-spacing: 1px;
+                        z-index: 1;
+                    }
+                }
+                .paragraph {
+                    order: 3;
+                    margin-top: 12px;
+                }
+                .buttons {
+                    order: 3;
+                    margin-top: 14px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,118 @@
+{
+   "mapwidth":"2400",
+   "mapheight":"1697",
+   "topLat":"84.83382568312074",
+   "leftLng":"-181.9372873759479",
+   "bottomLat":"-67.8325574122815",
+   "rightLng":"201.2439555495492",
+   "defaultstyle":"defaultstyle",
+   "groups":[
+      {
+         "id":"NA",
+         "title":"North America"
+      },
+      {
+         "id":"SA",
+         "title":"South America",
+         "hide":"true"
+      },
+      {
+         "id":"EU",
+         "title":"Europe"
+      },
+      {
+         "id":"AS",
+         "title":"Asia"
+      },
+      {
+         "id":"AF",
+         "title":"Africa",
+         "hide":"true"
+      },
+      {
+         "id":"OC",
+         "title":"Oceania",
+         "hide":"true"
+      }
+   ],
+   "levels":[
+      {
+         "id":"world-us",
+         "map":"maps\/world-us.svg",
+         "locations":[
+            {
+               "id":"us-headquarters",
+               "title":"Headquarters",
+               "pin":"pin-triangle",
+               "description":"2011 Crystal Drive\r\nSuite 1102\r\nArlington, VA 22202 USA",
+               "lat":"38.8555841",
+               "lng":"-77.0485998"
+            },
+            {
+               "id":"us-california",
+               "title":"California",
+               "pin":"pin-triangle",
+               "description":"7470 Mission Valley Road\r\nSan Diego, CA 92108 USA",
+               "lat":"32.7803178",
+               "lng":"-117.1616766"
+            },
+            {
+               "id":"us-michigan",
+               "title":"Michigan",
+               "pin":"pin-triangle",
+               "description":"2141 Woodward Avenue\r\nKingsford, MI 49802 USA",
+               "lat":"45.804693",
+               "lng":"-88.1085963"
+            },
+            {
+               "id":"us-louisiana",
+               "title":"Louisiana",
+               "pin":"pin-triangle",
+               "description":"525 Elmwood Park Boulevard\r\nNew Orleans, LA 70123 USA",
+               "lat":"29.9510691",
+               "lng":"-90.1841093"
+            },
+            {
+               "id":"us-virginia",
+               "title":"Virginia",
+               "pin":"pin-triangle",
+               "description":"5690 Three Notched Road\r\nSuite 200\r\nCrozet, VA 22932 USA",
+               "lat":"38.0691786",
+               "lng":"-78.6963757"
+            },
+            {
+               "id":"us-mississippi",
+               "title":"Mississippi",
+               "pin":"pin-triangle",
+               "description":"4007 Shortcut Road\r\nPascagoula, MS  39581 USA",
+               "lat":"30.3865364",
+               "lng":"-88.5231798"
+            },
+            {
+               "id":"se-sweden",
+               "title":"Sweden",
+               "pin":"pin-triangle",
+               "description":"Lindholmsall\u00e9n 10\r\nSE-402 71 \r\nGothenburg, Sweden",
+               "lat":"57.7110371",
+               "lng":"11.9445004"
+            },
+            {
+               "id":"cn-china",
+               "title":"China",
+               "pin":"pin-triangle",
+               "description":"Room 902\r\nNo.159 Tianzhou Road\r\nCao He Jing Industrial Zone\r\nXuhui District\r\n201315 Shanghai\r\nP.R. China",
+               "lat":"31.1657",
+               "lng":"121.42973"
+            },
+            {
+               "id":"jp-japan",
+               "title":"Japan",
+               "pin":"pin-triangle",
+               "description":"\u3012850-0963 \u9577\u5d0e\u770c\u9577\u5d0e\u5e02\u30c0\u30a4\u30e4\u30e9\u30f3\u30c93\u4e01\u76ee\r\nNagasaki 850-0963 Japan",
+               "lat":"32.7009791",
+               "lng":"129.8546969"
+            }
+         ]
+      }
+   ]
+}

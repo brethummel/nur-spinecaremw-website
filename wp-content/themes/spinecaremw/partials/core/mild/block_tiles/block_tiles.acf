@@ -1,0 +1,530 @@
+<?php
+
+/*
+
+Name: Tiles
+ID: block_tiles
+Layout ID: 610c52d3666d4
+Subfield ID: 610c52d3666d5
+Group ID: 610c4d13efe23
+
+*/
+
+// ======================================= //
+//              BLOCK UPDATER              //
+// ======================================= // 
+/*
+
+!!! NEW FIELD NAMES HAVE TO BE UNIQUE !!!
+!!! FIELDS HAVE TO BE THE SAME TYPE !!!
+
+2022-12-28
+=========
+Block Display settings addition, specifically migrating the custom_class field into the Block Display group.
+
+*/
+
+$acf_migration_map = array(
+	'subfield_id' => 'field_610c52d3666d5',
+	'2022-12-28' => array(
+		'mode' => '', // reset (overwrite spr_settings), [blank] (leave as is)
+		'fields' => array(
+			'field_6179823f7a4b0' => array(
+				'old' => array('name' => 'custom_class', 'group' => 'false', 'key' => 'field_6179823f7a4b0', 'clone' => 'field_6178670b4ade0'),
+				'new' => array('name' => 'tiles_display_custom_class', 'group' => 'field_63ade3365c4d8', 'key' => 'field_63ade3435c4d9', 'clone' => 'field_6178670b4ade0'),
+			),
+		)
+	),
+); 
+spr_register_block_changes('block_tiles', $acf_migration_map);
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+	'key' => 'group_610c4d13efe23',
+	'title' => 'BLOCK: Tiles',
+	'fields' => array(
+		array(
+			'key' => 'field_617982357a4af',
+			'label' => 'Block',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_610c4d140985e',
+			'label' => 'Tiles',
+			'name' => 'tiles_tiles',
+			'aria-label' => '',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => 'field_610c528510c39',
+			'min' => 1,
+			'max' => 0,
+			'layout' => 'block',
+			'button_label' => 'Add Tile',
+			'rows_per_page' => 20,
+			'sub_fields' => array(
+				array(
+					'key' => 'field_610c527110c38',
+					'label' => 'Image',
+					'name' => 'image',
+					'aria-label' => '',
+					'type' => 'image',
+					'instructions' => 'Image template: <a target="_blank" href="https://updates.wp-springboard.com/templates/block_textimage.psd.zip">Text + Image</a> (card images)',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'array',
+					'library' => 'all',
+					'min_width' => '',
+					'min_height' => '',
+					'min_size' => '',
+					'max_width' => '',
+					'max_height' => '',
+					'max_size' => '',
+					'mime_types' => '',
+					'preview_size' => 'thumbnail',
+					'parent_repeater' => 'field_610c4d140985e',
+				),
+				array(
+					'key' => 'field_610c528510c39',
+					'label' => 'Title',
+					'name' => 'title',
+					'aria-label' => '',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+					'parent_repeater' => 'field_610c4d140985e',
+				),
+				array(
+					'key' => 'field_610c529310c3a',
+					'label' => 'Text',
+					'name' => 'text',
+					'aria-label' => '',
+					'type' => 'wysiwyg',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'tabs' => 'all',
+					'toolbar' => 'full',
+					'media_upload' => 1,
+					'delay' => 0,
+					'parent_repeater' => 'field_610c4d140985e',
+				),
+				array(
+					'key' => 'field_61b28610fd549',
+					'label' => 'Show Button?',
+					'name' => 'show_button',
+					'aria-label' => '',
+					'type' => 'true_false',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_610c4d14101e3',
+								'operator' => '==',
+								'value' => '1',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'message' => '',
+					'default_value' => 1,
+					'ui' => 1,
+					'ui_on_text' => '',
+					'ui_off_text' => '',
+					'parent_repeater' => 'field_610c4d140985e',
+				),
+				array(
+					'key' => 'field_610c532b5afe0',
+					'label' => 'Button',
+					'name' => 'button',
+					'aria-label' => '',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_610c4d14101e3',
+								'operator' => '==',
+								'value' => '1',
+							),
+							array(
+								'field' => 'field_61b28610fd549',
+								'operator' => '==',
+								'value' => '1',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'block',
+					'parent_repeater' => 'field_610c4d140985e',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_3z0lye7h48ivx',
+							'label' => 'Buttons',
+							'name' => 'buttons_clone',
+							'aria-label' => '',
+							'type' => 'clone',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'clone' => array(
+								0 => 'field_60d3bee962e7b',
+							),
+							'display' => 'seamless',
+							'layout' => 'block',
+							'prefix_label' => 0,
+							'prefix_name' => 0,
+						),
+					),
+				),
+			),
+		),
+		array(
+			'key' => 'field_6179822e7a4ae',
+			'label' => 'Settings',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_63ade3365c4d8',
+			'label' => 'Block Display',
+			'name' => 'tiles_display',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_63ade3435c4d9',
+					'label' => 'Custom Class',
+					'name' => 'custom_class',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6178670b4ade0',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_63ade35a5c4da',
+					'label' => 'Block Name',
+					'name' => 'block_name',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_63acf715515a6',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_63ade36f5c4db',
+					'label' => 'Display Block',
+					'name' => 'display_block',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6393b3ba45832',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+			),
+		),
+		array(
+			'key' => 'field_610c4d14097e3',
+			'label' => 'Settings',
+			'name' => 'tiles_settings',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_610c4ebd10c36',
+					'label' => 'Style',
+					'name' => 'style',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'columns' => 'Columns',
+						'cards' => 'Cards',
+					),
+					'default_value' => 'columns',
+					'allow_null' => 0,
+					'multiple' => 0,
+					'ui' => 0,
+					'return_format' => 'value',
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_610c4ffd10c37',
+					'label' => 'Image Type',
+					'name' => 'cards_image',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_610c4ebd10c36',
+								'operator' => '==',
+								'value' => 'cards',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'icon' => 'Icon',
+						'image' => 'Photo',
+					),
+					'default_value' => 'icon',
+					'allow_null' => 0,
+					'multiple' => 0,
+					'ui' => 0,
+					'return_format' => 'value',
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_610c56774b511',
+					'label' => 'Image Type',
+					'name' => 'columns_image',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_610c4ebd10c36',
+								'operator' => '==',
+								'value' => 'columns',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'icon' => 'Icon',
+					),
+					'default_value' => 'icon',
+					'allow_null' => 0,
+					'multiple' => 0,
+					'ui' => 0,
+					'return_format' => 'value',
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_610c4d141012d',
+					'label' => 'Background',
+					'name' => 'background',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_610c4ebd10c36',
+								'operator' => '!=',
+								'value' => 'none',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'bkgnd-white|light' => 'White',
+						'bkgnd-light|light' => 'Light Grey',
+						'bkgnd-primary|dark' => 'Green',
+						'bkgnd-secondary|dark' => 'Dark Blue',
+						'bkgnd-tertiary|dark' => 'Blue',
+					),
+					'default_value' => 'bkgnd-white|light',
+					'allow_null' => 0,
+					'multiple' => 0,
+					'ui' => 0,
+					'return_format' => 'value',
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_610c4d14101e3',
+					'label' => 'Include Button',
+					'name' => 'include_button',
+					'aria-label' => '',
+					'type' => 'true_false',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'message' => '',
+					'default_value' => 0,
+					'ui' => 1,
+					'ui_on_text' => '',
+					'ui_off_text' => '',
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => false,
+	'description' => '',
+	'show_in_rest' => 0,
+));
+
+endif;
+
+?>

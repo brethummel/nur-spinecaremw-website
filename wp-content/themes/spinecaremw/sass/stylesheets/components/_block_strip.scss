@@ -1,0 +1,12 @@
+.blocks-wrapper { /* The role of .blocks-wrapper is to apply special rules when a block is inside another block */
+    .block-strip {
+		
+    }
+}
+.block-strip {
+	padding: 12px 0px 10px 0px;
+	p {
+		font-size: 16px;
+		font-weight: $f-semibold;
+	}
+}

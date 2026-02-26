@@ -1,0 +1,1494 @@
+# Translation of Plugins - Image Source Control - Stable (latest release) in German
+# This file is distributed under the same license as the Plugins - Image Source Control - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-09-05 13:49+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Language: de_AT\n"
+"Project-Id-Version: Plugins - Image Source Control - Stable (latest release)"
+"\n"
+"Language-Team: German (Austria)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-14 09:36+0000\n"
+"Last-Translator: Thomas\n"
+"X-Loco-Version: 2.6.14; wp-6.7.1"
+
+#. %1$d is the number of unused attachments and %2$d the number of files
+#: admin/templates/sources/unused-attachments.php:22
+#, php-format
+#| msgid "%1$d possibly unused images with %1$d files."
+msgid "%1$d possibly unused images with %2$d files."
+msgstr "%1$d wahrscheinlich ungenutzte Bilder mit %2$d Dateien."
+
+#. %1$s is a starting link tag, %2$s is the closing one.
+#: pro/admin/includes/license.php:368
+#, php-format
+msgid "%1$sUpgrade%2$s for more activations."
+msgstr "%1$sUpgrade%2$s für mehr Aktivierungen."
+
+#: pro/admin/includes/ISC_SL_Plugin_Updater.php:308
+#, php-format
+msgid "%1$sView version %2$s details%3$s or %4$supdate now%5$s."
+msgstr "%1$sDetails für Version %2$s %3$s oder %4$sjetzt aktualisieren%5$s."
+
+#. 1. opening anchor tag, do not translate 2. the new plugin version 3. closing anchor tag, do not translate.
+#: pro/admin/includes/ISC_SL_Plugin_Updater.php:300
+#, php-format
+msgid "%1$sView version %2$s details%3$s."
+msgstr "%1$sDetails für Version %2$s %3$s."
+
+#. %d is the number of images in storage
+#: admin/templates/sources/storage.php:17
+msgid "%d images in storage"
+msgstr "%d Bilder im Zwischenspeicher"
+
+#. %d is the number of images without a known position
+#: pro/admin/templates/unused-images/license-invalid.php:14
+msgid "%d images without a known position."
+msgstr "%d images ohne bekannte Position."
+
+#. %d is the number of images without a known position
+#: admin/templates/notice-missing.php:14
+#, php-format
+msgid "%s image has no credits."
+msgid_plural "%s images have no credits."
+msgstr[0] "%s Bild hat keine Quellenangabe."
+msgstr[1] "%s Bilder haben keine Quellenangabe."
+
+#: includes/image-sources/renderer/global-list.php:54
+msgid "&#171; Previous"
+msgstr "&#171; Vorherige"
+
+#. %d is a number of days.
+#: pro/admin/includes/license.php:209
+msgid "(%d days left)"
+msgstr "(noch %d Tage)"
+
+#: admin/templates/sources/post-index.php:44
+msgid "A list of images and the posts they appear in."
+msgstr "Eine Liste mit Bildern und Beiträgen in denen sie erscheinen."
+
+#: admin/templates/sources/post-index.php:37
+msgid "A list of posts and the images in them."
+msgstr "Eine Liste mit Beiträgen und Bildern darin."
+
+#: admin/templates/settings/page-list/section.php:7
+msgid "A list of sources for images on the current page."
+msgstr "Ein Quellenverzeichnis von Bildern auf der aktuellen Seite."
+
+#: admin/templates/post-images-list.php:13
+#: admin/templates/image-posts-list.php:13
+#: pro/includes/unused-images/admin/list-table.php:215
+msgid "Actions"
+msgstr "Aktion"
+
+#: pro/admin/templates/settings/license-key.php:21
+msgid "Activate License"
+msgstr "Lizenz aktivieren"
+
+#: includes/image-sources/admin/menu.php:84
+msgid "Additional images"
+msgstr "Zusätzliche Bilder"
+
+#: pro/includes/unused-images/admin/list-table.php:103
+msgid "all"
+msgstr "alle"
+
+#: admin/templates/media-library-filter.php:11
+#: includes/settings/sections/global-list.php:133
+msgid "All images"
+msgstr "Alle Bilder"
+
+#: includes/image-sources/admin/menu.php:60
+msgid "All images found in the frontend have sources assigned."
+msgstr ""
+"Alle Bilder die im Frontend gefunden wurden verfügen über Quellenangaben."
+
+#: includes/settings/sections/global-list.php:140
+msgid ""
+"All images in the Media library that have an individual source or use the "
+"standard source."
+msgstr ""
+"Alle Bilder in der Mediathek mit einer expliziten Quellenangabe oder der "
+"Standardquelle."
+
+#: includes/settings/sections/global-list.php:134
+#| msgid ""
+#| "All images in the Media library, regardless of whether they are actively "
+#| "used within the post and page content or not"
+msgid ""
+"All images in the Media library, regardless of whether they are used within "
+"the post and page content or not"
+msgstr "Alle Bilder in der Mediathek, unabhängig von ihrer Nutzung."
+
+#: includes/settings/sections/page-list.php:97
+msgid "Any image URL"
+msgstr "Jede Bild-URL"
+
+#: includes/image-sources/admin/fields.php:115
+#: pro/includes/unused-images/admin/unused-images.php:107
+#: pro/includes/unused-images/admin/list-table.php:214
+#: pro/includes/unused-images/admin/appearances-column.php:45
+#: pro/includes/unused-images/admin/appearances-column.php:49
+msgid "Appearances"
+msgstr "Vorkommen"
+
+#: admin/templates/settings/page-list/enable.php:36
+msgid "Archive pages"
+msgstr "Archivseiten"
+
+#: includes/image-sources/admin/scripts.php:55
+msgid "Are you sure?"
+msgstr "Bist du dir sicher?"
+
+#: admin/templates/settings/global-list/indexed-images.php:30
+msgid ""
+"Associate images inside and outside the main content with the post they "
+"appear on."
+msgstr ""
+"Verbinde Bilder innerhalb und außerhalb des Inhaltes mit der Beitragsseite "
+"auf der sie erscheinen."
+
+#. %1$d is the number of unused attachments and %2$s the number of files
+#: admin/templates/sources/unused-attachments.php:15
+#, php-format
+msgid "At least %1$d unused images with %2$d files."
+msgstr "Mindestens %1$d ungenutzte Bilder in %2$d Dateien."
+
+#: public/views/global-list.php:19 pro/public/views/global-list.php:25
+#: includes/settings/sections/global-list.php:109
+#: admin/templates/settings/global-list/indexed-images.php:45
+msgid "Attached to"
+msgstr "Angezeigt unter"
+
+#: public/views/global-list.php:17 pro/public/views/global-list.php:19
+#: includes/settings/sections/global-list.php:101
+#: pro/admin/templates/unused-images/appearance-list/results-in-options.php:16
+#: pro/admin/templates/unused-images/appearance-list/results-in-post-content.php:19
+#| msgid "Attachment’s ID"
+msgid "Attachment ID"
+msgstr "ID des Anhangs"
+
+#: includes/standard-source.php:126
+#: admin/templates/settings/miscellaneous/standard-source.php:19
+msgid "Author name"
+msgstr "Name des Autors"
+
+#: admin/templates/settings/page-list/enable.php:15
+msgid "Automatically inserts the list of image sources below posts and pages."
+msgstr ""
+"Fügt das Bildquellenverzeichnis automatisch unterhalb von Beiträgen und "
+"Seiten ein."
+
+#: includes/settings/sections/miscellaneous.php:19
+msgid "Block options"
+msgstr "Block-Optionen"
+
+#: admin/templates/sources/images-without-sources.php:19
+msgid "Bulk edit missing sources"
+msgstr "Bildquellen nachtragen"
+
+#. %d is the number of pages.
+#: admin/templates/settings/global-list/indexed-images.php:34
+msgid "Capped at %d posts per image."
+msgstr "Auf %d Beiträge begrenzt."
+
+#: includes/standard-source.php:127
+#: pro/admin/templates/settings/standard-source-caption.php:11
+#: admin/templates/settings/miscellaneous/standard-source.php:33
+msgid "Caption"
+msgstr "Beschriftung"
+
+#. %s is a time difference string, e.g., "2 hours"
+#: pro/admin/templates/unused-images/appearance-list/checks.php:34
+#, php-format
+msgid "Checked %s ago"
+msgstr "Vor %s geprüft"
+
+#: admin/templates/settings/miscellaneous/standard-source.php:9
+msgid ""
+"Choose how to handle images with the “Use standard source” option enabled."
+msgstr ""
+"Wähle aus wie sich Bilder mit der aktivierten Option “Standardquelle nutzen” "
+"verhalten."
+
+#: includes/image-sources/admin/fields.php:103
+msgid "Choose the image license."
+msgstr "Bildlizenz wählen"
+
+#: admin/templates/settings/page-list/enable.php:51
+msgid ""
+"Choose this option if you want to display the source of the featured image "
+"below the post excerpt. The source will be attached to the excerpt and it "
+"might happen that you see it everywhere. If this happens you should display "
+"the source manually in your template."
+msgstr ""
+"Mit dieser Option werden die Quellen der Artikelbilder unterhalb des Auszugs "
+"angezeigt. Beachte dabei, dass auch andere Plugins den Auszug abfragen "
+"könnten, der dann ebenfalls die Quelle enthält. Ich empfehle daher den "
+"manuellen Einbau der Quellen auf Seiten mit Auszügen."
+
+#: admin/templates/settings/page-list/enable.php:44
+msgid ""
+"Choose this option if you want to display the sources list attached to posts "
+"on archive and category pages that display the full content."
+msgstr ""
+"Wähle diese Option, wenn die Liste mit den Bildquellen unterhalb von "
+"vollständigen Beiträgen auf Archiv und Kategorieseiten angezeit werden soll."
+
+#: admin/templates/settings/global-list/data.php:10
+msgid "Choose which data to include in the Global list."
+msgstr ""
+"Wähle die Angaben, die in der Globalen Quellenliste enthalten sein sollen."
+
+#: admin/templates/settings/page-list/included-images.php:9
+msgid ""
+"Choose which images and sources should be listed in the source list of the "
+"current page."
+msgstr ""
+"Wähle welche Bilder und Quellen der aktuellen Seite aufgelistet werden "
+"sollen."
+
+#: admin/templates/settings/global-list/included-images.php:9
+msgid "Choose which images should be included in the global list."
+msgstr "Welche Bilder sollen in der Globalen Quellenliste aufgeführt werden? "
+
+#: admin/templates/settings/caption/overlay-included-images.php:10
+msgid "Choose which images should show a source overlay."
+msgstr "Wähle welche Bilder eine Bildbeschriftung bekommen."
+
+#: admin/templates/sources/unused-attachments.php:40
+#: admin/templates/sources/unused-attachments.php:44
+msgid "Clean up unused images"
+msgstr "Ungenutzte Bilder entfernen"
+
+#: admin/templates/sources/post-index.php:49
+msgid "clear image-post index"
+msgstr "Bild-Beitrag-Index löschen"
+
+#: admin/templates/sources/storage.php:22
+msgid "clear storage"
+msgstr "Zwischenspeicher leeren"
+
+#: includes/block-options/isc-image-block-edit-link.js:54
+msgid "Click here to edit image source information in the media modal."
+msgstr "Klick hier, um Bildquellen im Medien-Fenster zu bearbeiten."
+
+#. phpcs:ignore
+#: pro/admin/includes/license.php:187
+#, php-format
+msgid ""
+"Click on %1$s if you renewed it or have a subscription or %2$srenew your "
+"license%3$s."
+msgstr ""
+"Klicke auf %1$s wenn du bereits verlängert hast oder %2$sverlängere deine "
+"Lizenz%3$s."
+
+#: admin/templates/sources/storage.php:10
+msgid "Click the button above to clear that index."
+msgstr "Klicke auf den Button oben um den Index zu leeren."
+
+#: admin/templates/sources/post-index.php:50
+msgid ""
+"Click the button to remove the connections between images and posts as "
+"listed above."
+msgstr ""
+"Klicke auf den Button um die aufgelisteten Verbindungen zwischen Bildern und "
+"Beiträgen zu entfernen."
+
+#: pro/admin/templates/iptc-suggestions.php:9
+msgid "click to use"
+msgstr "zur Auswahl klicken"
+
+#: pro/admin/includes/ISC_SL_Plugin_Updater.php:295
+msgid "Contact your network administrator to install the update."
+msgstr "Kontaktier den Netzwerkadministrator um das Update zu installieren."
+
+#: pro/admin/templates/unused-images/appearance-list/details.php:14
+#: pro/admin/templates/unused-images/appearance-list/checks.php:12
+#: pro/admin/templates/unused-images/appearance-list/checks.php:17
+msgid "Content check"
+msgstr "Frontend-Scan"
+
+#. %s is the name of an option
+#: includes/image-sources/admin/fields.php:84
+#, php-format
+msgid "Currently selected: %s"
+msgstr "Gewählt: %s"
+
+#: includes/standard-source.php:128
+#: admin/templates/settings/miscellaneous/standard-source.php:24
+msgid "Custom text"
+msgstr "Individueller Text"
+
+#: pro/admin/templates/unused-images/appearance-list/details.php:22
+#: pro/admin/templates/unused-images/appearance-list/checks.php:23
+#: pro/admin/templates/unused-images/appearance-list/checks.php:26
+msgid "Database check"
+msgstr "Datenbank-Scan"
+
+#: pro/admin/templates/settings/license-key.php:30
+msgid "Deactivate license"
+msgstr "Lizenz deaktivieren"
+
+#: includes/settings/sections/miscellaneous.php:21
+msgid "Debug log"
+msgstr "Fehlerprotokoll"
+
+#: pro/includes/unused-images/admin/settings.php:20
+#: pro/includes/unused-images/admin/list-table.php:229
+#: pro/includes/unused-images/admin/appearances-column.php:84
+#: pro/admin/templates/unused-images/deep-check-link.php:8
+#: pro/admin/templates/unused-images/column-actions.php:9
+msgid "Deep Check"
+msgstr "Tiefenanalyse"
+
+#: admin/templates/post-images-list.php:41
+#: admin/templates/image-posts-list.php:42
+msgid "Delete"
+msgstr "Löschen"
+
+#: admin/templates/sources/post-index.php:39
+msgid "Delete an entry to re-index a specific post."
+msgstr "Lösche einen Eintrag um die Seite neu zu indizieren."
+
+#: includes/settings/sections/plugin-options.php:20
+msgid "Delete data on uninstall"
+msgstr "Daten beim Deinstallieren löschen"
+
+#: pro/includes/unused-images/admin/list-table.php:228
+msgid "Delete Permanently"
+msgstr "Endgültig löschen"
+
+#: includes/settings/sections/caption.php:119
+msgid "Deliver the overlay content without any markup and style."
+msgstr ""
+"Fügt den Inhalt der Bildbeschriftung ohne Markup und Layout direkt nach dem "
+"Bild ein."
+
+#: pro/includes/unused-images/admin/settings.php:21
+#: pro/admin/templates/unused-images/appearance-list/details.php:13
+msgid "Details"
+msgstr "Details"
+
+#: admin/templates/settings/caption/overlay-advanced-included-images.php:9
+msgid "Developer Options"
+msgstr "Entwickleroptionen"
+
+#: admin/templates/feedback.php:29
+msgid "Did you expect different features?"
+msgstr "Hast du andere Funktionen erwartet?"
+
+#: admin/templates/feedback.php:30
+msgid "Did you experience a technical issue?"
+msgstr "Gab es ein technisches Problem?"
+
+#: admin/templates/feedback.php:52
+msgid "Disabling the plugin now…"
+msgstr "Das Plugin wird deaktiviert…"
+
+#: admin/templates/settings/miscellaneous/warn-source-missing.php:9
+msgid ""
+"Display an admin notice in admin pages when one or more image sources are "
+"missing."
+msgstr ""
+"Zeige einen Warnhinweis im Adminbereich, wenn ein oder mehrere Bildquellen "
+"fehlen."
+
+#: admin/templates/settings/caption/enable.php:12
+msgid "Display the image source as an overlay."
+msgstr "Bildquelle als Overlay anzeigen."
+
+#. %s is "<code>style</code>"
+#: includes/settings/sections/caption.php:194
+#, php-format
+#| msgid "Display the overlay after %s blocks"
+msgid "Display the overlay after %s tags"
+msgstr "Zeige das Overlay für %s Tags"
+
+#: includes/settings/sections/caption.php:205
+#: includes/settings/sections/caption.php:215
+msgid "Display the overlay text for background images"
+msgstr "Zeige den Overlay-Text für Hintergrundbilder"
+
+#: includes/settings/sections/caption.php:178
+msgid "Display the overlay within HTML tags that use inline styles"
+msgstr "Zeige das Overlay innerhalb von HTML-Tags mit Inline Styles"
+
+#: pro/admin/includes/storage-form.php:77
+msgid "Edit details"
+msgstr "Details bearbeiten"
+
+#: includes/block-options/isc-image-block-edit-link.js:64
+#: includes/block-options/isc-image-block-edit-link.js:66
+msgid "Edit image source"
+msgstr "Bildquelle bearbeiten"
+
+#: includes/settings/sections/licenses.php:17
+#: includes/settings/sections/page-list.php:17
+#: includes/settings/sections/caption.php:34
+msgid "Enable"
+msgstr "Aktivieren"
+
+#. %s is the name of the theme or page builder, e.g. Divi.
+#: pro/admin/templates/settings/divi.php:14
+#: admin/templates/settings/caption/divi.php:13
+#: admin/templates/settings/caption/elementor.php:13
+#, php-format
+msgid "Enable support for %s background images."
+msgstr "Unterstützung für %s Hintergrundbilder."
+
+#: pro/admin/templates/settings/elementor.php:10
+msgid "Enable support for Elementor background images."
+msgstr "Unterstützung für Hintergrundbilder von Elementor"
+
+#: admin/templates/settings/licenses/enable.php:9
+msgid ""
+"Enable this to be able to add and display copyright/copyleft licenses for "
+"your images and manage them in the field below."
+msgstr ""
+"Aktiviere diese Einstellung, wenn du Bildlizenzen anzeigen und zu Bildern "
+"hinzufügen, sowie im nächsten Feld verwalten möchtest."
+
+#: admin/includes/media-library-checks.php:34
+#: pro/admin/includes/ISC_SL_Plugin_Updater.php:552
+#: pro/includes/indexer/admin/indexer-admin.php:79
+msgid "Error"
+msgstr "Fehler"
+
+#: includes/standard-source.php:125
+#: admin/templates/settings/miscellaneous/standard-source.php:14
+msgid "Exclude from lists"
+msgstr "Vom Verzeichnis ausschließen"
+
+#: admin/templates/settings/page-list/layout.php:20
+msgid "Expandable list"
+msgstr "Eingeklappte Liste"
+
+#: admin/templates/settings/caption/overlay-advanced-included-images.php:11
+msgid ""
+"Find images and display overlays in sensitive areas in your site’s HTML. "
+"They might need additional code to work or for styling."
+msgstr ""
+"Finde Bilder und zeige Overlays in sensiblen Bereichen des HTML-Codes deiner "
+"Seite. Benötigt eigenen Code oder Layoutanpassungen."
+
+#: pro/admin/templates/indexer/post-index-section.php:8
+#: pro/admin/templates/indexer/page.php:12
+msgid "Find images in the content of all published pages."
+msgstr "Findet Bilder im Inhalt veröffentlichter Seiten."
+
+#: includes/image-sources/admin/fields.php:55
+msgid ""
+"Find the image source fields in the image block options or media library."
+msgstr ""
+"Du findest die Bildquelleneingabe in den jeweiligen Block-Optionen oder der "
+"Mediathek."
+
+#: includes/settings/sections/caption.php:104
+msgid "Full credit line"
+msgstr "Vollständige Quellenangabe"
+
+#: admin/utils.php:101
+msgid "Get ISC Pro"
+msgstr "ISC Pro anschauen"
+
+#: includes/settings/sections/global-list.php:17
+msgid "Global list"
+msgstr "Globale Quellenliste"
+
+#: includes/settings/sections/page-list.php:18
+msgid "Headline"
+msgstr "Überschrift"
+
+#: admin/templates/settings/miscellaneous/standard-source.php:16
+msgid "Hide image sources in the frontend."
+msgstr "Bildquellen im Frontend ausblenden."
+
+#: admin/templates/feedback.php:26
+msgid "How can I improve Image Source Control?"
+msgstr "Wie kann ich Image Source Control verbessern?"
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://imagesourcecontrol.com/"
+msgstr "https://imagesourcecontrol.com/"
+
+#: admin/templates/feedback.php:35
+msgid "I am open to chat"
+msgstr "Ich stehe für Nachfragen zur Verfügung"
+
+#: includes/settings/sections/plugin-options.php:94
+msgid "Identify unused images to clean up your site."
+msgstr "Identifiziere ungenutzte Bilder um deine Seite aufzuräumen."
+
+#: admin/templates/settings/miscellaneous/block-options.php:13
+msgid "If disabled, the source options will show in the media library overlay."
+msgstr ""
+"Wenn die Option deaktiviert ist, werden die Bildquellen-Felder im Mediathek-"
+"Overlay angezeigt"
+
+#: admin/templates/sources/post-index.php:9
+msgid ""
+"If you are using the Global List with “Images in the content” selected, only "
+"images from “indexed” post types appear in it."
+msgstr ""
+"Wenn du die Globale Quellenliste mit “Bilder im Inhalt” verwendest, "
+"erscheinen dort nur Bilder aus “indizierten” Beiträgen."
+
+#: admin/templates/image-posts-list.php:11
+#: admin/templates/sources/images-without-sources.php:23
+#: pro/includes/unused-images/admin/list-table.php:213
+msgid "Image"
+msgstr "Bild"
+
+#: includes/image-sources/admin/fields.php:102
+#: includes/block-options/isc-image-block.js:112
+msgid "Image License"
+msgstr "Bildlizenz"
+
+#: includes/settings/sections/licenses.php:16
+msgid "Image licenses"
+msgstr "Bildlizenz"
+
+#: includes/settings/sections/global-list.php:73
+msgctxt "image size label"
+msgid "Custom"
+msgstr "Individuell"
+
+#: includes/settings/sections/global-list.php:72
+msgctxt "image size label"
+msgid "Large"
+msgstr "Groß"
+
+#: includes/settings/sections/global-list.php:71
+msgctxt "image size label"
+msgid "Medium"
+msgstr "Mittel"
+
+#: includes/settings/sections/global-list.php:70
+msgctxt "image size label"
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: pro/admin/includes/image-sources-preview-column.php:58
+#: includes/image-sources/admin/fields.php:53
+#: includes/image-sources/admin/fields.php:68
+#: admin/templates/sources/external-images.php:13
+#: includes/block-options/isc-image-block.js:71
+msgid "Image Source"
+msgstr "Bildquelle"
+
+#: admin/templates/header.php:11 includes/image-sources/admin/menu.php:34
+#: includes/block-options/isc-image-block.js:129
+msgid "Image Source Control"
+msgstr "Image Source Control"
+
+#: admin/templates/sources/post-index.php:10
+msgid ""
+"Image Source Control knows posts that have been visited in the frontend or "
+"were saved in the backend."
+msgstr "Image Source Control kennt Beiträge, die im Frontend besucht wurden."
+
+#. Name of the plugin
+msgid "Image Source Control Lite"
+msgstr "Image Source Control Lite"
+
+#. Description of the plugin
+msgid ""
+"Image Source Control saves the source of an image, lists them and warns if "
+"it is missing."
+msgstr ""
+"Image Source Control speichert Bildquellen, gibt diese aus und warnt, wenn "
+"sie fehlen."
+
+#: includes/settings.php:41
+msgid "Image Source Control Settings"
+msgstr "Image Source Control Einstellungen"
+
+#: pro/admin/includes/image-sources-form-column.php:69
+msgid "Image Source Form"
+msgstr "Bildquellen bearbeiten"
+
+#: includes/image-sources/admin/fields.php:93
+#: includes/block-options/isc-image-block.js:96
+msgid "Image Source URL"
+msgstr "URL der Quelle"
+
+#: includes/settings.php:42 includes/image-sources/admin.php:53
+#: includes/settings/sections/plugin-options.php:87
+#: includes/image-sources/admin/menu.php:35
+#: pro/admin/templates/unused-images/appearance-list/details.php:49
+msgid "Image Sources"
+msgstr "Bildquellen"
+
+#: includes/options.php:66 pro/includes/List_Layout_Details.php:63
+msgid "image sources"
+msgstr "Bildquellen"
+
+#: admin/templates/sources/images-without-sources.php:24
+msgid "Image title"
+msgstr "Bildtitel"
+
+#: admin/templates/sources/external-images.php:12
+msgid "Image URL"
+msgstr "Bild-URL"
+
+#: admin/templates/post-images-list.php:12
+#: pro/admin/templates/indexer/page.php:37
+msgid "Images"
+msgstr "Bilder"
+
+#: includes/settings/sections/global-list.php:128
+#: includes/settings/sections/page-list.php:73
+#: includes/settings/sections/caption.php:138
+msgid "Images in the content"
+msgstr "Bilder im Inhalt"
+
+#: includes/settings/sections/page-list.php:84
+#: includes/settings/sections/caption.php:149
+msgid "Images on the whole page"
+msgstr "Bilder auf der gesamten Seite."
+
+#: includes/settings/sections/plugin-options.php:19
+msgid "Images only"
+msgstr "Nur Bilder"
+
+#: includes/settings/sections/global-list.php:19
+msgid "Images per page"
+msgstr "Bilder pro Seite"
+
+#: includes/settings/sections/global-list.php:139
+#: includes/image-sources/admin/media-library-filters.php:30
+msgid "Images with sources"
+msgstr "Bilder mit Quellen"
+
+#: includes/image-sources/admin/media-library-filters.php:35
+msgid "Images with standard source"
+msgstr "Bilder mit Standardquelle"
+
+#: includes/image-sources/admin/menu.php:57
+#: includes/image-sources/admin/media-library-filters.php:40
+#| msgid "Images with empty sources"
+msgid "Images without sources"
+msgstr "Bilder ohne Quellenangabe"
+
+#: includes/image-sources/admin/fields.php:70
+#: includes/block-options/isc-image-block.js:74
+msgid "Include the image source here."
+msgstr "Trage hier die Bildquelle ein."
+
+#: includes/settings/sections/global-list.php:20
+msgid "Included data"
+msgstr "Enthaltene Angaben"
+
+#: includes/settings/sections/global-list.php:18
+#: includes/settings/sections/page-list.php:20
+#: includes/settings/sections/caption.php:37
+msgid "Included images"
+msgstr "Enthaltene Bilder"
+
+#: includes/settings/sections/page-list.php:99
+msgid "Including CSS background, JavaScript, or HTML attributes."
+msgstr "Einschließlich CSS-Hintergründe, JavaScript oder HTML-Attribute."
+
+#: includes/settings/sections/caption.php:151
+msgid "Including featured image, header, sidebar, and footer."
+msgstr "Einschließlich Beitragsbild, Header, Sidebar und Footer."
+
+#: includes/settings/sections/page-list.php:86
+#: admin/templates/settings/global-list/indexed-images.php:31
+msgid "Including header, sidebar, and footer."
+msgstr "Einschließlich Header, Sidebar und Footer."
+
+#: includes/image-sources/admin/ajax.php:103
+msgid "Index cleared"
+msgstr "Index gelöscht"
+
+#: admin/templates/settings/global-list/indexed-images.php:23
+msgid "Index images outside the content"
+msgstr "Bilder außerhalb des Inhalts"
+
+#: admin/templates/sources/post-index.php:17
+msgid "Indexed posts"
+msgstr "Indizierte Beiträge"
+
+#: pro/includes/indexer/admin/indexer-admin.php:33
+#: pro/includes/indexer/admin/indexer-admin.php:34
+msgid "Indexer"
+msgstr "Indexer"
+
+#: pro/includes/indexer/admin/indexer-admin.php:80
+msgid "Indexing complete."
+msgstr "Indizierung abgeschlossen."
+
+#: admin/templates/settings/page-list/enable.php:48
+msgid "Insert below excerpts"
+msgstr "Unterhalb von Textauszügen einblenden"
+
+#: admin/templates/settings/page-list/enable.php:41
+msgid "Insert below full posts"
+msgstr "Unterhalb von vollständigen Texten einblenden"
+
+#: admin/templates/settings/page-list/enable.php:12
+msgid "Insert below the content"
+msgstr "Unterhalb von Texten einbinden"
+
+#: admin/templates/settings/page-list/enable.php:18
+msgid "Insert manually"
+msgstr "Händisch hinzufügen"
+
+#: includes/standard-source.php:129
+#: pro/admin/templates/settings/standard-source-iptc.php:12
+#: admin/templates/settings/miscellaneous/standard-source.php:44
+msgid "IPTC meta data"
+msgstr "IPTC Metadaten"
+
+#: admin/templates/sources/external-images.php:8
+msgid "ISC found image URLs that are not part of the media library."
+msgstr "ISC hat Bild-URLs gefunden die nicht in der Mediathek enthalten sind."
+
+#: admin/templates/sources/storage.php:9
+msgid ""
+"ISC keeps an internal index of image URLs and IDs from the media library to "
+"limit the number of database requests in the frontend."
+msgstr ""
+"ISC verwaltet einen internen Index aus Bild-URLs und IDs aus der Mediathek "
+"um die Anzahl an Datenbankanfragen im Frontend zu reduzieren."
+
+#: admin/templates/feedback.php:44
+msgid "Just deactivate"
+msgstr "Direkt deaktivieren"
+
+#: public/public.php:630
+msgctxt ""
+"label of the featured image source, when displayed below post excerpts"
+msgid "Featured image: "
+msgstr "Beitragsbild: "
+
+#: includes/settings/sections/page-list.php:19
+#: includes/settings/sections/caption.php:36
+msgid "Layout"
+msgstr "Layout"
+
+#: pro/admin/includes/license.php:155 pro/admin/includes/license.php:156
+#: pro/admin/templates/column-image-sources-form-fields.php:35
+msgid "License"
+msgstr "Lizenz"
+
+#: pro/admin/includes/license.php:340
+msgid "License couldn’t be activated. Please try again later."
+msgstr ""
+"Die Lizenz konnte nicht aktiviert werden. Bitte versuch es später noch "
+"einmal."
+
+#: pro/admin/includes/license.php:427 pro/admin/includes/license.php:441
+#: pro/admin/includes/license.php:443
+msgid "License couldn’t be deactivated. Please try again later."
+msgstr ""
+"Die Lizenz konnte nicht deaktiviert werden. Bitte versuch es später noch "
+"einmal."
+
+#. %s is a string containing information about the issue.
+#: pro/admin/includes/license.php:387
+#, php-format
+msgid "License is invalid. Reason: %s"
+msgstr "Die Lizenz ist ungültig: Grund: %s"
+
+#: pro/admin/templates/settings/license-key.php:12
+msgid "License key"
+msgstr "Lizenzschlüssel"
+
+#: admin/templates/sources/post-index.php:43
+msgid "list image-post relations"
+msgstr "Bild-Beitrag Verknüpfungen auflisten"
+
+#: includes/settings/sections/licenses.php:18
+msgid "List of licenses"
+msgstr "Liste der Lizenzen"
+
+#: admin/templates/settings/licenses/licenses.php:11
+msgid ""
+"List of licenses the author can choose for an image. Enter a license per "
+"line and separate the name from the optional link with a pipe symbol (e.g. "
+"CC BY 2.0|http://creativecommons.org/licenses/by/2.0/legalcode)."
+msgstr ""
+"Liste der zur Auswahl stehenden Lizenzen. Trage jeweils eine Lizenz pro "
+"Zeile ein. Du kannst die Lizenz auch verlinken, wenn du hinter dem Namen "
+"einen senkrechten Strich (\"|\") gefolgt von der URL eingibst. z.B. CC BY 2."
+"0|http://creativecommons.org/licenses/by/2.0/legalcode."
+
+#: admin/templates/sources/post-index.php:36
+msgid "list post-image relations"
+msgstr "Beitrag-Bild Verknüpfungen auflisten"
+
+#. %s is "<code>style</code>"
+#: includes/settings/sections/caption.php:185
+#, php-format
+msgid "Load the overlay text for %s tags"
+msgstr "Lade den Bildquellentext für %s Tags"
+
+#: includes/settings/sections/caption.php:173
+msgid "Load the overlay text for inline styles"
+msgstr "Lade den Overlay-Text für Inline Styles"
+
+#: includes/settings/sections/plugin-options.php:88
+msgid "Manage and display author attributions for images."
+msgstr "Zeige und verwalte Bildquellenangaben."
+
+#: pro/admin/templates/storage-form-fields.php:12
+msgid "Manage in the media library"
+msgstr "In der Mediathek verwalten"
+
+#: admin/templates/header.php:29 includes/settings/sections/caption.php:219
+#: admin/templates/sources/storage.php:11
+#: pro/admin/templates/settings/elementor.php:11
+#: pro/admin/templates/indexer/page.php:14
+#: admin/templates/settings/caption/overlay-advanced-included-images.php:12
+#: admin/templates/settings/caption/style.php:48
+#: admin/templates/settings/page-list/enable.php:34
+msgid "Manual"
+msgstr "Anleitung"
+
+#: includes/settings/sections/miscellaneous.php:17
+msgid "Miscellaneous settings"
+msgstr "Verschiedene Einstellungen"
+
+#: includes/settings/sections/plugin-options.php:18
+msgid "Modules"
+msgstr "Module"
+
+#: includes/settings/sections/newsletter.php:41
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: includes/image-sources/renderer/global-list.php:55
+msgid "Next &#187;"
+msgstr "Weitere &#187;"
+
+#: admin/templates/sources/images-without-sources.php:41
+msgid "no connection"
+msgstr "keine Verknüpfung"
+
+#: includes/image-sources/admin/ajax.php:50
+#: includes/image-sources/admin/ajax.php:84
+msgid "No entries found"
+msgstr "Keine Einträge gefunden"
+
+#: pro/includes/unused-images/admin/unused-images.php:274
+msgid "No image URL found."
+msgstr "Keine Bilddatei gefunden."
+
+#: admin/templates/settings/plugin/modules.php:14
+msgid "No modules selected."
+msgstr "Keine Module ausgewählt."
+
+#: pro/includes/unused-images/admin/appearance-list.php:77
+msgid "no results"
+msgstr "kein Ergebnis"
+
+#: admin/templates/settings/newsletter.php:16
+msgid "No spam, no sharing of your information with others."
+msgstr "Kein Spam, kein Weitergabe von Informationen an andere."
+
+#: includes/settings/sections/global-list.php:129
+#| msgid "Only images that are actively used within the post and page content."
+msgid "Only images that are used within the post and page content."
+msgstr "Nur Bilder die in Beiträgen und Seiten verwendet werden."
+
+#: pro/admin/templates/unused-images/appearance-list/results-in-options.php:11
+msgid "Option"
+msgstr "Option"
+
+#: includes/settings/sections/caption.php:33
+msgid "Overlay"
+msgstr "Overlay"
+
+#: admin/templates/settings/caption/overlay-position.php:8
+msgid "Overlay position"
+msgstr "Position der Beschriftung"
+
+#: includes/settings/sections/caption.php:35
+#| msgid "Overlay pre-text"
+msgid "Overlay prefix"
+msgstr "Text vor der Quellenangabe"
+
+#: includes/settings/sections/page-list.php:16
+msgid "Per-page list"
+msgstr "Beitrags-Quellenliste"
+
+#. %s is a shortcode.
+#: admin/templates/settings/page-list/enable.php:25
+#, php-format
+msgid ""
+"Place the shortcode %s anywhere in your content or widget to show the image "
+"source list."
+msgstr ""
+"Platziere den Shortcode %s überall im Inhalt oder einem Widget um das "
+"Bildquellenverzeichnis anzuzeigen."
+
+#: pro/admin/includes/image-sources-form-column.php:113
+msgctxt ""
+"Placeholder for the source input field if an image without a source is "
+"excluded from showing an attribution in the frontend"
+msgid "not displayed"
+msgstr "nicht angezeigt"
+
+#. %s marks the opening and closing link tag to the settings page
+#: pro/admin/templates/unused-images/license-invalid.php:22
+#, php-format
+#| msgid "Please %sactivate your license%s to see the list."
+msgid "Please %1$sactivate your license%2$s to see the list."
+msgstr "Bitte %1$saktiviere deine Lizenz%2$s um die Liste zu sehen."
+
+#. %s marks the opening and closing link tag to the settings page
+#: pro/admin/includes/license.php:627
+#, php-format
+#| msgid "Please %sactivate your license%s to use this feature."
+msgid "Please %1$sactivate your license%2$s to use this feature."
+msgstr "Bitte %1$saktiviere deine Lizenz%2$s um diese Funktion zu nutzen."
+
+#: includes/newsletter.php:55
+msgid "Please check your email for the confirmation message."
+msgstr "Bitte bestätige die Anmelde-E-Mail in deiner Inbox."
+
+#: pro/admin/includes/license.php:298
+msgid "Please enter a valid license key"
+msgstr "Bitte gib einen gültigen Lizenzschlüssel an"
+
+#: includes/settings/sections/plugin-options.php:17
+msgid "Plugin options"
+msgstr "Plugineinstellungen"
+
+#: admin/templates/post-images-list.php:11
+#: admin/templates/sources/images-without-sources.php:25
+msgid "Post / Page"
+msgstr "Beitrag / Seite"
+
+#: includes/image-sources/admin/menu.php:77
+#: pro/admin/templates/unused-images/appearance-list/details.php:49
+msgid "Post Index"
+msgstr "Beitragsindex"
+
+#: pro/admin/templates/unused-images/appearance-list/results-in-postmeta.php:11
+msgid "Post meta key"
+msgstr "Post-Meta-Key"
+
+#: admin/templates/sources/post-index.php:16
+#: pro/admin/templates/indexer/page.php:36
+msgid "Post type"
+msgstr "Beitragstyp"
+
+#: admin/templates/image-posts-list.php:12
+msgid "Posts"
+msgstr "Beiträge"
+
+#: includes/settings/sections/caption.php:113
+msgid "Prefix extends on click"
+msgstr "Nach Klick anzeigen"
+
+#: includes/settings/sections/caption.php:108
+msgid "Prefix extends on hover"
+msgstr "Nach Überfahren anzeigen"
+
+#: pro/includes/indexer/admin/indexer-admin.php:82
+#, php-format
+msgid "Processed %1$s pages and found a total of %2$s images."
+msgstr "%1$s Seiten verarbeitet mit %2$s gefundenen Bildern."
+
+#: pro/includes/indexer/admin/indexer-admin.php:81
+#, php-format
+msgid "Processing %1$s of %2$s pages"
+msgstr "Verarbeite %1$s von %2$s Seiten"
+
+#: admin/templates/settings/newsletter.php:12
+msgid ""
+"Receive an email about updates, new features, discounts, and images in "
+"WordPress."
+msgstr ""
+"Erhalte E-Mails zu Updates, neuen Funktionen, Rabatten und rund um Bilder in "
+"WordPress."
+
+#: admin/templates/settings/plugin/images-only.php:45
+msgid "Remove all data from non-image files."
+msgstr "Daten von allen Nicht-Bildern entfernen."
+
+#: admin/templates/settings/plugin/remove-on-uninstall.php:9
+msgid ""
+"Remove plugin options and image sources from the database when you delete "
+"the plugin."
+msgstr ""
+"Entferne die Plugineinstellungen und Bildquellen aus der Datenbank wenn das "
+"Plugin gelöscht wird."
+
+#. %s is "<code>captions.js</code>"
+#: includes/settings/sections/caption.php:122
+#, php-format
+msgid "Removes also %s."
+msgstr "Entfernt auch %s."
+
+#: pro/admin/templates/indexer/post-index-section.php:7
+#: pro/admin/templates/unused-images/page.php:23
+#: pro/admin/templates/unused-images/page.php:29
+msgid "Run indexer"
+msgstr "Indexer starten"
+
+#. %%1$s is an opening link tag, %2$s is the closing one
+#: admin/templates/settings/plugin/images-only.php:28
+#, php-format
+msgid "Run the %1$sIndexer%2$s to update all data at once."
+msgstr "Führe den %1$sIndexer%2$s aus um alle Daten zu aktualisieren."
+
+#: admin/templates/settings/settings.php:49
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: pro/admin/templates/settings/unused-images/deep-check.php:13
+msgid "Search attachment IDs in content."
+msgstr "Berücksichtige Anhang-IDs im Inhalt."
+
+#. %1$s is an opening link tag, %2$s is a closing tag.
+#: admin/templates/notice-missing.php:21
+#, php-format
+msgid "See the %1$smissing sources%2$s list."
+msgstr "Siehe %1$sListe mit fehlenden Bildquellen%2$s."
+
+#: admin/templates/feedback.php:43
+msgid "Send feedback & deactivate"
+msgstr "Feedback geben & deaktivieren"
+
+#: admin/admin.php:64 admin/admin.php:118 admin/templates/header.php:23
+#: admin/templates/header.php:27
+msgid "Settings"
+msgstr "Einstellungen"
+
+#. %%1$s is an opening link tag, %2$s is the closing one
+#: includes/image-sources/admin/fields.php:78
+#, php-format
+msgid "Show a %1$sstandard source%2$s instead of the one entered above."
+msgstr "Zeige eine %1$sStandardquelle%2$s anstelle der oben eingetragenen."
+
+#: admin/templates/settings/page-list/layout.php:25
+msgid "Show as an expandable list that opens on click."
+msgstr "Eingeklappte Liste, die sich bei Klick öffnet."
+
+#: pro/admin/templates/settings/unused-images/appearances-details.php:11
+msgid "Show more details in the Appearances list."
+msgstr "Details in der Vorkommen-Liste einblenden."
+
+#: admin/templates/sources/images-without-sources.php:38
+msgid "show parent post’s edit page"
+msgstr "Zeige die Beitragsbearbeitungsansicht"
+
+#: admin/templates/settings/miscellaneous/block-options.php:12
+msgid "Show source options in block settings."
+msgstr "Bildquellen-Optionen in den Block-Einstellungen anzeigen."
+
+#: admin/templates/sources/storage.php:29
+msgid "show storage"
+msgstr "Zwischenspeicher anzeigen"
+
+#: pro/admin/templates/settings/show-standard-source.php:10
+#: admin/templates/settings/miscellaneous/standard-source.php:53
+msgid "Show the standard source for all images that don’t have a source."
+msgstr ""
+"Zeige die Standardquelle für alle Bilder, bei denen noch keine Quelle "
+"angegeben ist."
+
+#: admin/templates/settings/newsletter.php:30
+msgid "Sign up"
+msgstr "Anmelden"
+
+#. %s is an email address
+#: admin/templates/settings/newsletter.php:21
+#, php-format
+msgid "Sign up %s."
+msgstr "Mit %s anmelden."
+
+#: admin/templates/settings/newsletter.php:33
+msgid "Sign up manually."
+msgstr "Manuell anmelden."
+
+#: includes/newsletter.php:53 includes/newsletter.php:68
+msgid "Something went wrong. Please sign up manually."
+msgstr "Etwas ist schiefgegangen. Bitte melde dich manuell an."
+
+#: public/views/global-list.php:20
+#: pro/admin/templates/column-image-sources-form-fields.php:23
+#: pro/public/views/global-list.php:28
+#: includes/settings/sections/global-list.php:113
+msgid "Source"
+msgstr "Bildquelle"
+
+#: includes/options.php:77
+msgid "Source:"
+msgstr "Quelle:"
+
+#: includes/settings/sections/miscellaneous.php:18
+msgid "Standard source"
+msgstr "Standardquelle"
+
+#: pro/admin/templates/indexer/page.php:18
+msgid "Start"
+msgstr "Start"
+
+#: includes/image-sources/admin/menu.php:90
+msgid "Storage"
+msgstr "Zwischenspeicher"
+
+#: includes/image-sources/admin/ajax.php:141
+msgid "Storage deleted"
+msgstr "Zwischenspeicher gelöscht"
+
+#: pro/admin/templates/iptc-suggestions.php:9
+msgid "Suggestions"
+msgstr "Vorschläge"
+
+#. %1$s is "img" and %2$s stands for "the_content" wrapped in "code" tags
+#: includes/settings/sections/page-list.php:76
+#, php-format
+msgid "Technically: %1$s tags within %2$s and the featured image."
+msgstr "Technisch: %1$s Tags innerhalb von %2$s und das Beitragsbild."
+
+#. %1$s is "img" and %2$s stands for "body" wrapped in "code" tags
+#. %1$s is "img" and %2$s stands for "the_content" wrapped in "code" tags
+#: includes/settings/sections/page-list.php:89
+#: includes/settings/sections/caption.php:141
+#: includes/settings/sections/caption.php:154
+#, php-format
+msgid "Technically: %1$s tags within %2$s."
+msgstr "Technisch: %1$s Tags innerhalb von %2$s."
+
+#. %s stands for "body" wrapped in "code" tags
+#: includes/settings/sections/page-list.php:102
+#, php-format
+msgid "Technically: any image URL found in %s."
+msgstr "Technisch: alle Bild-URLs die in %s gefunden werden."
+
+#: admin/templates/feedback.php:49
+msgid "Thanks for submitting your feedback. I will get in touch soon."
+msgstr "Vielen Dank für dein Feedback. Ich melde mich umgehend."
+
+#. %s is the column name.
+#: admin/templates/settings/global-list/indexed-images.php:44
+#, php-format
+msgid "The %s column is filled by reindexing all posts again."
+msgstr "Die Spalte %s wird beim bei erneuter Indexierung der Beiträge gefüllt."
+
+#: includes/newsletter.php:63
+msgid "The email address is already subscribed."
+msgstr "Die E-Mail-Adresse ist bereits angemeldet."
+
+#: includes/newsletter.php:60
+msgid "The email address is invalid."
+msgstr "Die E-Mail-Adresse ist ungültig."
+
+#: admin/templates/sources/post-index.php:35
+msgid ""
+"The following options allow you to see if ISC was able to detect all images."
+msgstr ""
+"Die folgenden Optionen helfen dabei festzustellen, ob ISC alle Bilder "
+"erkannt hat."
+
+#: admin/templates/settings/page-list/enable.php:37
+msgid ""
+"The following options try to place image sources within post content on post "
+"list pages like your home page or category archives."
+msgstr ""
+"Die folgenden Optionen versuchen, Bilderquellen innerhalb von Beiträgen in "
+"Artikellisten wie der Startseite oder Kategorieseiten zu platzieren."
+
+#: admin/includes/media-library-checks.php:121
+msgid "The GUID URL does not match the site URL."
+msgstr "Die GUID-URL entspricht nicht der Website-URL."
+
+#: admin/templates/settings/page-list/headline.php:9
+msgid ""
+"The headline of the image list added via shortcode or function in your theme."
+msgstr ""
+"Die Überschrift des Bilderverzeichnisses, das mit einem Shortcode oder einer "
+"Funktion in das Theme integriert wurde."
+
+#: includes/image-sources/admin/media-library-filters.php:157
+msgid ""
+"The Image Sources column is hidden. Please enable it in the Screen Options "
+"to bulk-edit image sources."
+msgstr ""
+"Die Bildquellen-Spalte ist ausgeblendet. Sie kann unter “Ansicht anpassen” "
+"eingeblendet werden."
+
+#: admin/templates/sources/post-index.php:51
+msgid ""
+"The index is rebuilt automatically when a page with images on it is visited "
+"in the frontend."
+msgstr ""
+"Der Index wird automatisch erstellt wenn eine Seite mit Bildern im Frontend "
+"besucht wird."
+
+#. %s is a time difference string, e.g., "2 hours"
+#: pro/admin/templates/unused-images/page.php:19
+#, php-format
+msgid "The indexer is outdated. The last check was more than %s days ago."
+msgstr "Der Index ist veraltet. Die letzte Prüfung ist mehr als %s Tage her."
+
+#. %d is the number of entries in the following table
+#: admin/templates/sources/images-without-sources.php:13
+msgid "The list only shows the last %d images."
+msgstr "Es werden nur die letzten %d Bilder aufgelistet."
+
+#: admin/templates/settings/global-list/images-per-page.php:9
+msgid "The number of entries before a pagination is added."
+msgstr "Die Anzahl an Einträgen pro Seite."
+
+#: admin/templates/sources/post-index.php:11
+msgid "The table below shows the number of indexed published posts."
+msgstr "Die Tabelle zeigt die Anzahl indizierter veröffentlichter Beiträge."
+
+#: pro/admin/includes/license.php:358
+msgid "There are no activations left."
+msgstr "Keine freien Aktivierungen verfügbar."
+
+#. the plugin name.
+#: pro/admin/includes/ISC_SL_Plugin_Updater.php:289
+#, php-format
+msgid "There is a new version of %1$s available."
+msgstr "Es gibt eine neue Version von %1$s."
+
+#. 1: add-on name 2: admin URL to license page
+#: pro/admin/includes/license.php:246
+#, php-format
+msgid ""
+"There might be a new version of %1$s. Please <strong>provide a valid license "
+"key</strong> in order to receive updates and support <a href=\"%2$s\">on "
+"this page</a>."
+msgstr ""
+"Es könnte eine neue Version von %1$s geben. Bitte gib <a href=\"%2$s\">auf "
+"dieser Seite</a> einen <strong>gültigen Lizenzschlüssel an</strong> um "
+"Updates und Support zu erhalten."
+
+#. %s is the number of unused attachments
+#: admin/templates/sources/unused-attachments.php:31
+#, php-format
+msgid "They take up at least %s in disk space on your server."
+msgstr "Sie belegen mindestens %s Speicherplatz auf dem Server."
+
+#: admin/templates/sources/post-index.php:45
+msgid "This index is used to generate the Global List."
+msgstr "Aus diesem Index wird das Globale Quellenliste generiert."
+
+#: admin/templates/sources/post-index.php:38
+msgid "This index is used to generate the Per-post List."
+msgstr "Aus diesem Index wird die Beitrags-Quellenliste generiert."
+
+#: pro/admin/includes/license.php:357
+msgid "This is not the correct key for this plugin."
+msgstr "Dies ist nicht der richtige Lizenzschlüssel für das Plugin."
+
+#: admin/includes/media-library-checks.php:122
+msgid "This might indicate a migration issue."
+msgstr "Dies kann auf einen Migrationsfehler hinweisen."
+
+#. Author of the plugin
+msgid "Thomas Maier"
+msgstr "Thomas Maier"
+
+#: public/views/global-list.php:15 pro/public/views/global-list.php:16
+#: pro/includes/unused-images/admin/list-table.php:212
+#: admin/templates/settings/global-list/thumbnail-enable.php:12
+msgid "Thumbnail"
+msgstr "Vorschaubild"
+
+#: public/views/global-list.php:18 pro/public/views/global-list.php:22
+#: includes/settings/sections/global-list.php:105
+#: pro/admin/templates/indexer/page.php:35
+msgid "Title"
+msgstr "Titel"
+
+#: admin/admin.php:121 admin/templates/header.php:20
+#: admin/templates/header.php:26
+msgid "Tools"
+msgstr "Werkzeuge"
+
+#: pro/includes/unused-images/admin/list-table.php:108
+#: pro/includes/unused-images/admin/appearance-list.php:76
+msgid "unchecked"
+msgstr "ungeprüft"
+
+#: includes/settings/sections/caption.php:118
+msgid "Unstyled credit line below the image"
+msgstr "Ohne Styling unter dem Bild"
+
+#: pro/includes/unused-images/admin/list-table.php:113
+#: pro/includes/unused-images/admin/appearance-list.php:75
+msgid "unused"
+msgstr "ungenutzt"
+
+#: pro/includes/unused-images/admin/list-table.php:38
+msgid "Unused Image"
+msgstr "Ungenutzte Bilder"
+
+#: includes/settings/sections/plugin-options.php:93
+#: includes/image-sources/admin/menu.php:71
+#: pro/includes/unused-images/admin/settings.php:19
+#: pro/includes/unused-images/admin/unused-images.php:68
+#: pro/includes/unused-images/admin/unused-images.php:69
+#: pro/includes/unused-images/admin/list-table.php:39
+msgid "Unused Images"
+msgstr "Ungenutzte Bilder"
+
+#: pro/admin/includes/license.php:179
+#: pro/admin/templates/settings/license-key.php:21
+msgid "Update license"
+msgstr "Lizenz aktualisieren"
+
+#: pro/admin/includes/ISC_SL_Plugin_Updater.php:319
+msgid "Update now."
+msgstr "Jetzt aktualisieren."
+
+#: pro/admin/templates/unused-images/column-image.php:28
+#| msgid "uploaded %s"
+msgid "uploaded"
+msgstr "hochgeladen"
+
+#: pro/admin/templates/unused-images/uploaded-to-post.php:10
+msgid "Uploaded to"
+msgstr "Hochgeladen zu"
+
+#: pro/admin/templates/column-image-sources-form-fields.php:32
+msgid "URL"
+msgstr "URL"
+
+#: includes/image-sources/admin/fields.php:95
+#: includes/block-options/isc-image-block.js:99
+msgid "URL to link the source text to."
+msgstr "Vollständige URL zur Bildquelle. Wird im Frontend verlinkt."
+
+#: admin/templates/settings/global-list/images-per-page.php:10
+msgid "Use 0 to show all entries."
+msgstr "Verwende 0 für alle Einträge."
+
+#: pro/admin/templates/column-image-sources-form-fields.php:28
+msgid "Use standard"
+msgstr "Standardquelle nutzen"
+
+#: includes/image-sources/admin/fields.php:74
+#: includes/block-options/isc-image-block.js:84
+msgid "Use standard source"
+msgstr "Standardquelle nutzen"
+
+#: pro/admin/templates/settings/standard-source-caption.php:15
+#: admin/templates/settings/miscellaneous/standard-source.php:37
+msgid "Use the caption entered in the media library."
+msgstr "Benutze die Beschriftung aus der Mediathek."
+
+#: pro/admin/templates/settings/standard-source-iptc.php:16
+msgid "Use the selected IPTC image meta data."
+msgstr "Benutze die gewählten IPTC Metadaten."
+
+#: admin/templates/settings/miscellaneous/standard-source.php:21
+msgid "Use the uploader’s public name as the image source."
+msgstr "Benutze den öffentlichen Namen des Uploaders als Bildquelle."
+
+#: pro/admin/templates/unused-images/appearance-list/results-in-usermeta.php:12
+msgid "User meta key"
+msgstr "Benutzermetadaten"
+
+#: includes/settings/sections/miscellaneous.php:20
+msgid "Warn about missing sources"
+msgstr "Warnung bei fehlenden Bildquellen"
+
+#: admin/templates/feedback.php:28
+msgid "Was anything confusing?"
+msgstr "War irgendetwas verwirrend?"
+
+#: admin/templates/settings/global-list/indexed-images.php:41
+msgid "When changing this option, the image-post index is reset."
+msgstr ""
+"Beim Ändern der Einstellung wird der Bild-Beitrags-Index zurückgesetzt."
+
+#: admin/templates/settings/plugin/images-only.php:13
+msgid ""
+"When enabled, all plugin functions will only work with image files and "
+"ignore other media types."
+msgstr ""
+"Pluginfunktionen werden nur auf Bilddateien und keine anderen Medientypen "
+"angewendet."
+
+#: includes/image-sources/admin/fields.php:116
+msgid "Where is this file used?"
+msgstr "Wo wird diese Datei verwendet?"
+
+#. $s is replaced by starting and ending a tags to create a link
+#: admin/templates/settings/miscellaneous/log-enable.php:14
+#, php-format
+msgid ""
+"Writes image source activity to the %1$sisc.log%2$s file when %3$s is added "
+"to the URL of a page."
+msgstr ""
+"Loggt die Aktivität des Plugins in der Datei %1$sisc.log%2$s wenn %3$s zur "
+"URL der besuchten Seite hinzugefügt wird."
+
+#. %1$s is an opening link tag, %2$s is a closing tag.
+#: admin/templates/notice-missing.php:37
+#, php-format
+msgid "You can %1$sdisable%2$s this warning in the settings."
+msgstr "Du kannst diesen Hinweis in den Einstellungen %1$sdeaktivieren%2$s."
+
+#: includes/block-options/isc-image-block-edit-link.js:56
+msgid ""
+"You can also enable the block options in the plugin settings to see the "
+"image source fields below."
+msgstr ""
+"Aktiviere die Block-Optionen in den Plugineinstellungen, um die Felder für "
+"Bildquellen unten zu sehen."
+
+#. "it" is the license key. %1$s is a starting link tag, %2$s is the closing one.
+#. "is" is the license key. %1$s is a starting link tag, %2$s is the closing one.
+#: pro/admin/includes/license.php:201 pro/admin/includes/license.php:376
+#, php-format
+msgid "You can extend it in %1$syour account%2$s."
+msgstr "Du kannst sie in deinem %1$sKundenkonto%2$s erweitern."
+
+#. %1$s is a starting link tag, %2$s is the closing one.
+#: pro/admin/includes/license.php:362
+#, php-format
+msgid "You can manage activations in %1$syour account%2$s."
+msgstr "Du kannst die Aktivierungen in deinem %1$sKundenkonto%2$s verwalten."
+
+#. %s is a shortcode.
+#: admin/templates/settings/global-list/section.php:11
+#, php-format
+msgid ""
+"You can show a list with all images and sources from your Media library. "
+"Just place the shortcode %s on any page."
+msgstr ""
+"Du kannst ein Verzeichnis mit allen Bildern und Quellen aus dem "
+"Medienverzeichnis auflisten. Platziere dazu einfach den Shortcode %s auf "
+"einer beliebigen Seite."
+
+#: pro/admin/includes/ISC_SL_Plugin_Updater.php:552
+msgid "You do not have permission to install plugin updates"
+msgstr "Du hast keine Berechtigung, Pluginupdates zu installieren"
+
+#: pro/admin/admin.php:139
+msgid ""
+"Your current settings show the standard source by default when the "
+"individual image source is missing."
+msgstr ""
+"Entsprechend der aktuellen Einstellungen wird die Standardquelle angezeigt, "
+"wenn die Quelle für ein Bild fehlt."
+
+#. %s is the plugin name, %d is the year the plugin was first released
+#: admin/templates/feedback.php:19
+#, php-format
+msgid "Your feedback shapes %1$s since %2$d"
+msgstr "Dein Feedback gestaltet %1$s seit %2$d"
+
+#: pro/admin/includes/license.php:183 pro/admin/includes/license.php:197
+#: pro/admin/includes/license.php:372
+msgid "Your license expired."
+msgstr "Deine Lizenz ist abgelaufen."

@@ -1,0 +1,642 @@
+.blocks-wrapper {  /* The role of .blocks-wrapper is to apply special rules when a block is inside another block */
+    .block-textimage {
+        &.padded {
+            .text-col {
+                padding-top: $p-top * .6;
+                padding-bottom: $p-bottom * .6;
+            	@include media-breakpoint-down(xs) {
+					padding-top: $p-top-xs * .6;
+					padding-bottom: $p-bottom-xs * .6;
+				}
+            }
+            .image-col {
+                .image-container,
+                .video-container {
+                    margin-top: $p-top * .6;
+                    margin-bottom: $p-bottom * .6;
+					@include media-breakpoint-down(xs) {
+						padding-top: $p-top-xs * .6;
+						padding-bottom: $p-bottom-xs * .6;
+					}
+                }
+            }
+            &.subcategories {
+                .image-col {
+                    .image-container,
+                    .video-container {
+                        margin-top: $p-top * .6;
+                        margin-bottom: $p-bottom * .6;
+						@include media-breakpoint-down(xs) {
+							padding-top: $p-top-xs * .6;
+							padding-bottom: $p-bottom-xs * .6;
+						}
+                    }
+                }
+            }
+        }
+        &.image-left,
+        &.image-right {
+            @include media-breakpoint-down(md) {
+                .text-col {
+                    padding-top: 0px;
+                }
+                .image-col {
+                    .image-container {
+                        margin-bottom: $p-bottom * .6;
+                    }
+                }
+            }
+			@include media-breakpoint-down(xs) {
+                .image-col {
+                    .image-container {
+                        margin-bottom: $p-bottom-xs * .6;
+                    }
+                }
+			}
+        }
+    }
+}
+.block-accordion {
+    &.subcategories {
+        .blocks-wrapper {
+            .block-textimage {
+                &.padded {
+                    .image-col {
+                        .image-container,
+                        .video-container {
+                            margin-top: $p-top * .6;
+                            margin-bottom: $p-bottom * .6;
+							@include media-breakpoint-down(xs) {
+								padding-top: $p-top-xs * .6;
+								padding-bottom: $p-bottom-xs * .6;
+							}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.block-textimage {
+	&.full.image {
+		position: relative;
+		.full-image-row {
+			display: flex;
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			top: 0px;
+			left: 0px;
+			@include media-breakpoint-down(md) {
+				display: none;
+			}
+			.image-col {
+				padding-left: 0px;
+				padding-right: 0px;
+				position: absolute;
+				height: 100%;
+				top: 0px;
+				left: 0px;
+				&.right {
+					left: unset !important;
+					right: 0px;
+				}
+				&.fifty {
+					width: 50%;
+				}
+				&.one-third {
+					@include media-breakpoint-only(xl) {
+						width: calc( (((100% - 1140px) / 2) + 60px - 15px) + ( .41666667 * (1140px - 60px - 60px + 15px + 15px) ) );
+					}
+					@include media-breakpoint-only(lg) {
+						width: calc( (((100% - 960px) / 2) + 30px - 15px) + ( .41666667 * (960px - 30px - 30px + 15px + 15px) ) );
+					}
+				}
+				&.two-thirds {
+					@include media-breakpoint-only(xl) {
+						width: calc( (((100% - 1140px) / 2) + 60px - 15px) + ( .58333333 * (1140px - 60px - 60px + 15px + 15px) ) );
+					}
+					@include media-breakpoint-only(lg) {
+						width: calc( (((100% - 960px) / 2) + 30px - 15px) + ( .58333333 * (960px - 30px - 30px + 15px + 15px) ) );
+					}
+				}
+				&.one-fourth {
+					@include media-breakpoint-only(xl) {
+						width: calc( (((100% - 1140px) / 2) + 60px - 15px) + ( .25 * (1140px - 60px - 60px + 15px + 15px) ) );
+					}
+					@include media-breakpoint-only(lg) {
+						width: calc( (((100% - 960px) / 2) + 30px - 15px) + ( .25* (960px - 30px - 30px + 15px + 15px) ) );
+					}
+				}
+				&.three-fourths {
+					@include media-breakpoint-only(xl) {
+						width: calc( (((100% - 1140px) / 2) + 60px - 15px) + ( .75 * (1140px - 60px - 60px + 15px + 15px) ) );
+					}
+					@include media-breakpoint-only(lg) {
+						width: calc( (((100% - 960px) / 2) + 30px - 15px) + ( .75* (960px - 30px - 30px + 15px + 15px) ) );
+					}
+				}
+				img {
+					height: 100%;
+					width: 100%;
+					object-fit: cover;
+				}
+			}
+			.text-col {
+
+			}
+		}
+		.image-col {
+            .image-container {
+				@include media-breakpoint-down(md) {
+					position: relative;
+        			width: 100vw;
+        			margin-bottom: $p-bottom * .5 !important;
+        		}
+				@include media-breakpoint-only(md) {
+					left: calc( (((100vw - 720px) / 2) + 30px) * -1 );
+        		}
+				@include media-breakpoint-only(sm) {
+					left: calc( (((100vw - 540px) / 2) + 30px) * -1 );
+        		}
+				@include media-breakpoint-only(xs) {
+					left: -25px;
+        		}
+				@include media-breakpoint-only(xxs) {
+					left: -20px;
+        		}
+            	img {
+					@include media-breakpoint-up(lg) {
+            			opacity: 0;
+            		}
+            	}
+			}
+		}
+	}
+    &.padded {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        .text-col {
+            padding-top: $p-top;
+            padding-bottom: $p-bottom;
+			@include media-breakpoint-down(xs) {
+				padding-top: $p-top-xs;
+				padding-bottom: $p-bottom-xs;
+			}
+        }
+        .image-col {
+            .image-container,
+            .video-container {
+                margin-top: $p-top;
+                margin-bottom: $p-bottom;
+				@include media-breakpoint-down(md) {
+					margin-bottom: $p-bottom * .6;
+				}
+				+p.caption {
+					margin-top: $p-top * -.45;
+                	margin-bottom: $p-bottom;
+				}
+            }
+			.lottie-container {
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+        }
+    }
+    &.image-right {
+    	.container {
+	        @include media-breakpoint-up(lg) {
+	            .text-col {
+	                padding-right: 55px;
+	            }
+				.image-col {
+					padding-left: 0px;
+				}
+	        }
+	        @include media-breakpoint-down(md) {
+	            .image-col {
+	                .image-container {
+	                    margin-bottom: 0px;
+	                }
+	            }
+	        }
+    	}
+    }
+    &.image-left {
+    	.container {
+	        @include media-breakpoint-up(lg) {
+	            .text-col {
+	                padding-left: 55px;
+	            }
+				.image-col {
+					padding-right: 0px;
+				}
+	        }
+	        @include media-breakpoint-down(md) {
+	            .image-col {
+	                .image-container {
+	                    margin-bottom: 0px;
+	                }
+	            }
+	        }
+    	}
+    }
+	.container {
+	    .text-col {
+	        display: flex;
+	        flex-direction: column;
+	        justify-content: center;
+	    }
+	    .image-col {
+	        display: flex;
+	        flex-direction: column;
+	        justify-content: flex-start;
+	        &.square {
+				&.col-lg-5 {
+					$ratio: 1;
+					$multiplier: 0.41666667;
+					.image-container,
+					.video-container {
+						@include media-breakpoint-only(xxs) {
+							/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+							height: calc((100vw - (2 * 20px)) * 1);
+						}
+						@include media-breakpoint-only(xs) {
+							/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+							height: calc((100vw - (2 * 25px)) * 1);
+						}
+						@include media-breakpoint-only(sm) {
+							height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+						}
+						@include media-breakpoint-only(md) {
+							height: ($container-md - (2 * $p-container-md)) * $ratio;
+						}
+						@include media-breakpoint-only(lg) {
+							height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+						}
+						@include media-breakpoint-only(xl) {
+							height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+						}
+					}
+				}
+				&.col-lg-6 {
+					$ratio: 1;
+					$multiplier: 0.5;
+					.image-container,
+					.video-container {
+						@include media-breakpoint-only(xxs) {
+							/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+							height: calc((100vw - (2 * 20px)) * 1);
+						}
+						@include media-breakpoint-only(xs) {
+							/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+							height: calc((100vw - (2 * 25px)) * 1);
+						}
+						@include media-breakpoint-only(sm) {
+							height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+						}
+						@include media-breakpoint-only(md) {
+							height: ($container-md - (2 * $p-container-md)) * $ratio;
+						}
+						@include media-breakpoint-only(lg) {
+							height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+						}
+						@include media-breakpoint-only(xl) {
+							height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+						}
+					}
+				}
+				&.col-lg-7 {
+					$ratio: 1;
+					$multiplier: 0.58333333;
+					.image-container,
+					.video-container {
+						@include media-breakpoint-only(xxs) {
+							/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+							height: calc((100vw - (2 * 20px)) * 1);
+						}
+						@include media-breakpoint-only(xs) {
+							/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+							height: calc((100vw - (2 * 25px)) * 1);
+						}
+						@include media-breakpoint-only(sm) {
+							height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+						}
+						@include media-breakpoint-only(md) {
+							height: ($container-md - (2 * $p-container-md)) * $ratio;
+						}
+						@include media-breakpoint-only(lg) {
+							height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+						}
+						@include media-breakpoint-only(xl) {
+							height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+						}
+					}
+				}
+	        }
+	        &.rect {
+				&.col-lg-5 {
+					$ratio: 0.666;
+					$multiplier: 0.41666667;
+					.image-container,
+					.video-container {
+						@include media-breakpoint-only(xxs) {
+							/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+							height: calc((100vw - (2 * 20px)) * 0.666);
+							padding-top: 0px;
+							padding-bottom: 0px;
+						}
+						@include media-breakpoint-only(xs) {
+							/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+							height: calc((100vw - (2 * 25px)) * 0.666);
+							padding-top: 0px;
+							padding-bottom: 0px;
+						}
+						@include media-breakpoint-only(sm) {
+							height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+						}
+						@include media-breakpoint-only(md) {
+							height: ($container-md - (2 * $p-container-md)) * $ratio;
+						}
+						@include media-breakpoint-only(lg) {
+							height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 30) * $ratio;
+						}
+						@include media-breakpoint-only(xl) {
+							height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 30) * $ratio;
+						}
+					}
+				}
+				&.col-lg-6 {
+					$ratio: 0.666;
+					$multiplier: 0.5;
+					.image-container,
+					.video-container {
+						@include media-breakpoint-only(xxs) {
+							/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+							height: calc((100vw - (2 * 20px)) * 0.666);
+							padding-top: 0px;
+							padding-bottom: 0px;
+						}
+						@include media-breakpoint-only(xs) {
+							/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+							height: calc((100vw - (2 * 25px)) * 0.666);
+							padding-top: 0px;
+							padding-bottom: 0px;
+						}
+						@include media-breakpoint-only(sm) {
+							height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+						}
+						@include media-breakpoint-only(md) {
+							height: ($container-md - (2 * $p-container-md)) * $ratio;
+						}
+						@include media-breakpoint-only(lg) {
+							height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 30) * $ratio;
+						}
+						@include media-breakpoint-only(xl) {
+							height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 30) * $ratio;
+						}
+					}
+				}
+				&.col-lg-7 {
+					$ratio: 0.666;
+					$multiplier: 0.58333333;
+					.image-container,
+					.video-container {
+						@include media-breakpoint-only(xxs) {
+							/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+							height: calc((100vw - (2 * 20px)) * 0.666);
+							padding-top: 0px;
+							padding-bottom: 0px;
+						}
+						@include media-breakpoint-only(xs) {
+							/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+							height: calc((100vw - (2 * 25px)) * 0.666);
+							padding-top: 0px;
+							padding-bottom: 0px;
+						}
+						@include media-breakpoint-only(sm) {
+							height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+						}
+						@include media-breakpoint-only(md) {
+							height: ($container-md - (2 * $p-container-md)) * $ratio;
+						}
+						@include media-breakpoint-only(lg) {
+							height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 30) * $ratio;
+						}
+						@include media-breakpoint-only(xl) {
+							height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 30) * $ratio;
+						}
+					}
+				}
+	            .image-container {
+	                position: relative;
+	                width: 100%;
+	                overflow: hidden;
+	                img,
+					video {
+	                    position: relative;
+	                    object-fit: cover;
+						height: 100%;
+						width: 100%;
+	                }
+	            }
+	        }
+	        &.circle {
+	            .image-container {
+	                border-radius: 60%;
+	                overflow: hidden;
+	            }
+	        }
+	        &.widescreen {
+				&.col-lg-5 {
+					$ratio: 0.5625;
+					$multiplier: 0.41666667;
+					.video-container {
+						@include media-breakpoint-only(xxs) {
+							/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+							height: calc((100vw - (2 * 20px)) * 0.5625);
+						}
+						@include media-breakpoint-only(xs) {
+							/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+							height: calc((100vw - (2 * 25px)) * 0.5625);
+						}
+						@include media-breakpoint-only(sm) {
+							height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+						}
+						@include media-breakpoint-only(md) {
+							height: ($container-md - (2 * $p-container-md)) * $ratio;
+						}
+						@include media-breakpoint-only(lg) {
+							height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+						}
+						@include media-breakpoint-only(xl) {
+							height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+						}
+					}
+				}
+				&.col-lg-6 {
+					$ratio: 0.5625;
+					$multiplier: 0.5;
+					.video-container {
+						@include media-breakpoint-only(xxs) {
+							/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+							height: calc((100vw - (2 * 20px)) * 0.5625);
+						}
+						@include media-breakpoint-only(xs) {
+							/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+							height: calc((100vw - (2 * 25px)) * 0.5625);
+						}
+						@include media-breakpoint-only(sm) {
+							height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+						}
+						@include media-breakpoint-only(md) {
+							height: ($container-md - (2 * $p-container-md)) * $ratio;
+						}
+						@include media-breakpoint-only(lg) {
+							height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+						}
+						@include media-breakpoint-only(xl) {
+							height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+						}
+					}
+				}
+				&.col-lg-7 {
+					$ratio: 0.5625;
+					$multiplier: 0.58333333;
+					.video-container {
+						@include media-breakpoint-only(xxs) {
+							/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+							height: calc((100vw - (2 * 20px)) * 0.5625);
+						}
+						@include media-breakpoint-only(xs) {
+							/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+							height: calc((100vw - (2 * 25px)) * 0.5625);
+						}
+						@include media-breakpoint-only(sm) {
+							height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+						}
+						@include media-breakpoint-only(md) {
+							height: ($container-md - (2 * $p-container-md)) * $ratio;
+						}
+						@include media-breakpoint-only(lg) {
+							height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+						}
+						@include media-breakpoint-only(xl) {
+							height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+						}
+					}
+				}
+	        }
+	        &.fullscreen {
+				&.col-lg-5 {
+					$ratio: 0.75;
+					$multiplier: 0.41666667;
+					.video-container {
+						@include media-breakpoint-only(xxs) {
+							/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+							height: calc((100vw - (2 * 20px)) * 0.75);
+						}
+						@include media-breakpoint-only(xs) {
+							/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+							height: calc((100vw - (2 * 25px)) * 0.75);
+						}
+						@include media-breakpoint-only(sm) {
+							height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+						}
+						@include media-breakpoint-only(md) {
+							height: ($container-md - (2 * $p-container-md)) * $ratio;
+						}
+						@include media-breakpoint-only(lg) {
+							height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+						}
+						@include media-breakpoint-only(xl) {
+							height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+						}
+					}
+				}
+				&.col-lg-6 {
+					$ratio: 0.75;
+					$multiplier: 0.5;
+					.video-container {
+						@include media-breakpoint-only(xxs) {
+							/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+							height: calc((100vw - (2 * 20px)) * 0.75);
+						}
+						@include media-breakpoint-only(xs) {
+							/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+							height: calc((100vw - (2 * 25px)) * 0.75);
+						}
+						@include media-breakpoint-only(sm) {
+							height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+						}
+						@include media-breakpoint-only(md) {
+							height: ($container-md - (2 * $p-container-md)) * $ratio;
+						}
+						@include media-breakpoint-only(lg) {
+							height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+						}
+						@include media-breakpoint-only(xl) {
+							height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+						}
+					}
+				}
+				&.col-lg-7 {
+					$ratio: 0.75;
+					$multiplier: 0.58333333;
+					.video-container {
+						@include media-breakpoint-only(xxs) {
+							/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+							height: calc((100vw - (2 * 20px)) * 0.75);
+						}
+						@include media-breakpoint-only(xs) {
+							/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+							height: calc((100vw - (2 * 25px)) * 0.75);
+						}
+						@include media-breakpoint-only(sm) {
+							height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+						}
+						@include media-breakpoint-only(md) {
+							height: ($container-md - (2 * $p-container-md)) * $ratio;
+						}
+						@include media-breakpoint-only(lg) {
+							height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+						}
+						@include media-breakpoint-only(xl) {
+							height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+						}
+					}
+				}
+	        }
+			.video-container {
+				position: relative;
+				width: 100%;
+				overflow: hidden;
+				iframe {
+					height: 100%;
+					width: 100%;
+				}
+			}
+	    }
+		.top {
+			.image-container {
+				img {
+					object-position: top center;
+				}
+			}
+		}
+		.middle {
+			.image-container {
+				img {
+					object-position: center center;
+				}
+			}
+		}
+		.bottom {
+			.image-container {
+				img {
+					object-position: bottom center;
+				}
+			}
+		}
+	}
+}

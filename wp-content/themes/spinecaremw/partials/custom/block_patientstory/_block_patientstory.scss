@@ -1,0 +1,145 @@
+.block-patientstory {
+    background-color: $c-secondary;
+    position: relative;
+    overflow: hidden;
+    &:before {
+        content: "";
+        background-image: url("images/nura_sun_tangerine.png");
+        height: 500px;
+        width: 500px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: absolute;
+        bottom: -230px;
+        left: -130px;
+        opacity: .5;
+        transform: rotate(8deg);
+        @include media-breakpoint-only(xl) {
+            left: 8%;
+        }
+        @include media-breakpoint-only(lg) {
+            left: -5%;
+        }
+        @include media-breakpoint-down(md) {
+            left: -10%;
+        }
+    }
+    .container {
+        .row {
+            .image-col {
+                .image-container {
+                    border-radius: 300px;
+                    overflow: hidden;
+                    border: 15px solid $white;
+                    box-shadow: 0px 4px 32px 0px #2A12001F;
+                    margin-top: 32px;
+                    position: relative;
+                    z-index: 1;
+                    @include media-breakpoint-down(md) {
+                        margin: 0px auto;
+                        width: 360px;
+                        height: 360px;
+                    }
+                    @include media-breakpoint-down(xs) {
+                        width: 76vw;
+                        height: 76vw;
+                    }
+                    @include media-breakpoint-up(lg) {
+                        width: 320px;
+                        height: 320px;
+                    }
+                    img {
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            .content-col {
+                .content-container {
+                    background-color: $cream;
+                    border-radius: 5px;
+                    position: relative;
+                    @include media-breakpoint-down(md) {
+                        padding: 40px 48px 48px 98px;
+                        &:before {
+                            content: "";
+                            background-color: $cream;
+                            height: 215px;
+                            width: 100%;
+                            position: absolute;
+                            top: -208px;
+                            left: 0px;
+                            border-radius: 5px;
+                        }
+                    }
+                    @include media-breakpoint-down(xs) {
+                        padding: 100px 48px 48px 48px;
+                        text-align: center;
+                        h5 {
+                            &:after {
+                                top: -65px !important;
+                                left: calc(50% - 23px) !important;
+                            }
+                        }
+                    }
+                    @include media-breakpoint-up(lg) {
+                        padding: 48px 48px 48px 6px;
+                        &:before {
+                            content: "";
+                            background-color: $cream;
+                            height: 100%;
+                            width: 266px;
+                            position: absolute;
+                            top: 0px;
+                            left: -260px;
+                            border-radius: 5px;
+                        }
+                    }
+                    h5 {
+                        margin-bottom: 4px;
+                        position: relative;
+                        &:after {
+                            content: "";
+                            background-image: url("images/icon_quote.png");
+                            height: 46px;
+                            width: 46px;
+                            background-size: cover;
+                            position: absolute;
+                            top: 5px;
+                            left: -60px;
+                        }
+                    }
+                    h4 {
+                        margin-bottom: 20px;
+                    }
+                    a {
+                        font-size: 16px;
+                        font-weight: $f-bold;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        transition: all .4s;
+                        color: $black;
+                        text-decoration: none;
+                        display: inline-block;
+                        margin-top: 10px;
+                        &:hover {
+                            color: $c-secondary;
+                            text-decoration: none;
+                        }
+                        &:after {
+                            content: "\e701";
+                            color: $c-secondary;
+                            font-family: $f-microns;
+                            display: inline-block;
+                            font-size: 18px;
+                            position: relative;
+                            top: 2px;
+                            margin-left: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

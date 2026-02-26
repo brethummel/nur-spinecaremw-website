@@ -1,0 +1,10 @@
+.block-published {
+	&.padded {
+		padding-top: $p-top;
+		padding-bottom: 0px !important;
+		margin-bottom: $p-bottom * -0.7;
+		@include media-breakpoint-down(xs) {
+			padding-top: $p-top-xs *.75 !important;
+		}
+	}
+}

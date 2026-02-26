@@ -1,0 +1,253 @@
+<?php
+
+/*
+
+Name: All Treatments / Conditions
+ID: block_alltreatments
+Layout ID: nj9th57qjj3qm1
+Subfield ID: nj9th57qjj3qm2
+Group ID: 668872b105bf8
+
+*/
+
+// ======================================= //
+//              BLOCK UPDATER              //
+// ======================================= // 
+/*
+
+!!! NEW FIELD NAMES HAVE TO BE UNIQUE !!!
+!!! FIELDS HAVE TO BE THE SAME TYPE !!!
+
+2022-12-28
+=========
+Block Display settings addition, specifically migrating the custom_class field into the Block Display group.
+
+*/
+
+// $acf_migration_map = array(
+// 	'subfield_id' => 'field_610ad192d353f',
+// 	'2022-12-28' => array(
+// 		'mode' => '', // reset (overwrite spr_settings), [blank] (leave as is)
+// 		'fields' => array(
+// 			'field_617867ccb00cf' => array(
+// 				'old' => array('name' => 'custom_class', 'group' => 'false', 'key' => 'field_617867ccb00cf', 'clone' => 'field_6178670b4ade0'),
+// 				'new' => array('name' => 'hero_display_custom_class', 'group' => 'field_63ad2557c9311', 'key' => 'field_63ad2f5cc9312', 'clone' => 'field_6178670b4ade0'),
+// 			),
+// 		)
+// 	),
+// ); 
+// spr_register_block_changes('block_hero', $acf_migration_map);
+
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group( array(
+	'key' => 'group_668872b105bf8',
+	'title' => 'BLOCK: All Treatments / Conditions',
+	'fields' => array(
+		array(
+			'key' => 'field_668872b10f915',
+			'label' => 'Block',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+			'selected' => 0,
+		),
+		array(
+			'key' => 'field_6688736c7d431',
+			'label' => 'Note',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'message',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => 'No content to enter here. Switch to the Settings tab to select whether the block displays Treatments or Conditions.',
+			'new_lines' => 'wpautop',
+			'esc_html' => 0,
+		),
+		array(
+			'key' => 'field_668872b10f984',
+			'label' => 'Settings',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+			'selected' => 0,
+		),
+		array(
+			'key' => 'field_668872b10f9bb',
+			'label' => 'Block Display',
+			'name' => 'alltreatments_display',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_668872b12232f',
+					'label' => 'Custom Class',
+					'name' => 'custom_class',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6178670b4ade0',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_668872b122367',
+					'label' => 'Block Name',
+					'name' => 'block_name',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_63acf715515a6',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_668872b12239e',
+					'label' => 'Display Block',
+					'name' => 'display_block',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6393b3ba45832',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+			),
+		),
+		array(
+			'key' => 'field_668873b37d432',
+			'label' => 'Settings',
+			'name' => 'alltreatments_settings',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_668873c97d433',
+					'label' => 'Display',
+					'name' => 'display',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'treatments' => 'All Treatments',
+						'conditions' => 'All Conditions',
+					),
+					'default_value' => 'treatments',
+					'return_format' => 'value',
+					'multiple' => 0,
+					'allow_null' => 0,
+					'ui' => 0,
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => false,
+	'description' => '',
+	'show_in_rest' => 0,
+));
+
+endif;
+
+?>

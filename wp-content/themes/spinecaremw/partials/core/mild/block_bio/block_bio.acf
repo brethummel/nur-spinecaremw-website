@@ -1,0 +1,818 @@
+<?php
+
+/*
+
+Name: Bio
+ID: block_bio
+Layout ID: 610c48b09eb09
+Subfield ID: 610c48b09eb0a
+Group ID: 610c4728eb2c2
+
+*/
+
+// ======================================= //
+//              BLOCK UPDATER              //
+// ======================================= // 
+/*
+
+!!! NEW FIELD NAMES HAVE TO BE UNIQUE !!!
+!!! FIELDS HAVE TO BE THE SAME TYPE !!!
+
+2022-12-28
+=========
+Block Display settings addition, specifically migrating the custom_class field into the Block Display group.
+
+*/
+
+$acf_migration_map = array(
+	'subfield_id' => 'field_610c48b09eb0a',
+	'2022-12-28' => array(
+		'mode' => '', // reset (overwrite spr_settings), [blank] (leave as is)
+		'fields' => array(
+			'field_6178670b4ade0' => array(
+				'old' => array('name' => 'custom_class', 'group' => 'false', 'key' => 'field_617978e5b3e4a', 'clone' => 'field_6178670b4ade0'),
+				'new' => array('name' => 'bio_display_custom_class', 'group' => 'field_662047990aa9b', 'key' => 'field_63ad16d27b120', 'clone' => 'field_6178670b4ade0'),
+			),
+		)
+	),
+	'2024-04-18' => array(
+		'mode' => '', // reset (overwrite spr_settings), [blank] (leave as is)
+		'fields' => array(
+			'field_610c476b4bd3e' => array(
+				'old' => array('name' => 'bio_image', 'group' => 'false', 'key' => 'field_610c476b4bd3e', 'clone' => 'false'),
+				'new' => array('name' => 'bio_info_images_image', 'group' => 'field_63ad16c57b11f', 'key' => 'field_662047ad0aa9c', 'clone' => 'false'),
+			),
+			'field_610c47a24bd3f' => array(
+				'old' => array('name' => 'bio_person_name', 'group' => 'field_610c49772d4a7', 'key' => 'field_610c47a24bd3f', 'clone' => 'false'),
+				'new' => array('name' => 'bio_info_info_full_name', 'group' => 'field_63ad16c57b11f', 'key' => 'field_662047e40aa9f', 'clone' => 'false'),
+			),
+			'field_610c480c4bd40' => array(
+				'old' => array('name' => 'bio_person_title', 'group' => 'field_610c49772d4a7', 'key' => 'field_610c47a24bd3f', 'clone' => 'false'),
+				'new' => array('name' => 'bio_info_info_title', 'group' => 'field_63ad16c57b11f', 'key' => 'field_662047d80aa9e', 'clone' => 'false'),
+			),
+		)
+	),
+); 
+spr_register_block_changes('block_bio', $acf_migration_map);
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group( array(
+	'key' => 'group_610c4728eb2c2',
+	'title' => 'BLOCK: Bio',
+	'fields' => array(
+		array(
+			'key' => 'field_617976d80881b',
+			'label' => 'Block',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_6620476c0aa9a',
+			'label' => 'Person',
+			'name' => 'bio_info',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_663142b9c712e',
+						'operator' => '==',
+						'value' => 'self',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_662047990aa9b',
+					'label' => 'Images',
+					'name' => 'images',
+					'aria-label' => '',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '30',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'block',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_662047ad0aa9c',
+							'label' => 'Image',
+							'name' => 'image',
+							'aria-label' => '',
+							'type' => 'image',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'return_format' => 'array',
+							'library' => 'all',
+							'min_width' => '',
+							'min_height' => '',
+							'min_size' => '',
+							'max_width' => '',
+							'max_height' => '',
+							'max_size' => '',
+							'mime_types' => '',
+							'preview_size' => 'thumbnail',
+						),
+					),
+				),
+				array(
+					'key' => 'field_662047cb0aa9d',
+					'label' => 'Info',
+					'name' => 'info',
+					'aria-label' => '',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'block',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_662047e40aa9f',
+							'label' => 'Full Name',
+							'name' => 'full_name',
+							'aria-label' => '',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 1,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'maxlength' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+						),
+						array(
+							'key' => 'field_662047d80aa9e',
+							'label' => 'Title',
+							'name' => 'title',
+							'aria-label' => '',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'maxlength' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+						),
+					),
+				),
+			),
+		),
+		array(
+			'key' => 'field_662046177f9db',
+			'label' => 'Social / Contact',
+			'name' => 'bio_social',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_663142b9c712e',
+						'operator' => '==',
+						'value' => 'self',
+					),
+					array(
+						'field' => 'field_662043ef7f9d9',
+						'operator' => '==',
+						'value' => '1',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'block',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_662046417f9dc',
+					'label' => 'LinkedIn',
+					'name' => 'linkedin',
+					'aria-label' => '',
+					'type' => 'url',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_662044247f9da',
+								'operator' => '==',
+								'value' => 'linkedin',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => 'LinkedIn',
+				),
+				array(
+					'key' => 'field_662046967f9dd',
+					'label' => 'X (Twitter)',
+					'name' => 'twitter',
+					'aria-label' => '',
+					'type' => 'url',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_662044247f9da',
+								'operator' => '==',
+								'value' => 'twitter',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => 'X (Twitter)',
+				),
+				array(
+					'key' => 'field_662046b77f9de',
+					'label' => 'Instagram',
+					'name' => 'instagram',
+					'aria-label' => '',
+					'type' => 'url',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_662044247f9da',
+								'operator' => '==',
+								'value' => 'instagram',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => 'Instagram',
+				),
+				array(
+					'key' => 'field_662046d07f9df',
+					'label' => 'Facebook',
+					'name' => 'facebook',
+					'aria-label' => '',
+					'type' => 'url',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_662044247f9da',
+								'operator' => '==',
+								'value' => 'facebook',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => 'Facebook',
+				),
+				array(
+					'key' => 'field_662046e37f9e0',
+					'label' => 'Email',
+					'name' => 'email',
+					'aria-label' => '',
+					'type' => 'email',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_662044247f9da',
+								'operator' => '==',
+								'value' => 'email',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => 'Email',
+					'prepend' => '',
+					'append' => '',
+				),
+				array(
+					'key' => 'field_66204add4bc57',
+					'label' => 'Mobile Phone',
+					'name' => 'mobile',
+					'aria-label' => '',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_662044247f9da',
+								'operator' => '==',
+								'value' => 'mobile',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'maxlength' => '',
+					'placeholder' => 'Mobile Phone',
+					'prepend' => '',
+					'append' => '',
+				),
+			),
+		),
+		array(
+			'key' => 'field_663143c6c712f',
+			'label' => 'Note',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'message',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_663142b9c712e',
+						'operator' => '!=',
+						'value' => 'self',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => 'Nothing to do here! This block will pull its data from another page/post.',
+			'new_lines' => 'wpautop',
+			'esc_html' => 0,
+		),
+		array(
+			'key' => 'field_612d4762bddeb',
+			'label' => 'Note',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'message',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_610c47290912b',
+						'operator' => '==',
+						'value' => '1',
+					),
+					array(
+						'field' => 'field_663142b9c712e',
+						'operator' => '==',
+						'value' => 'self',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => 'To control placement of the "read more" link, add a shortcode (i.e. "[read-more]") in the locations you\'d like it to appear.',
+			'new_lines' => 'wpautop',
+			'esc_html' => 0,
+		),
+		array(
+			'key' => 'field_610c47290348f',
+			'label' => 'Content',
+			'name' => 'bio_content',
+			'aria-label' => '',
+			'type' => 'wysiwyg',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_663142b9c712e',
+						'operator' => '==',
+						'value' => 'self',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'tabs' => 'all',
+			'toolbar' => 'full',
+			'media_upload' => 0,
+			'delay' => 0,
+		),
+		array(
+			'key' => 'field_617976cf0881a',
+			'label' => 'Settings',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_63ad16c57b11f',
+			'label' => 'Block Display',
+			'name' => 'bio_display',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_63ad16d27b120',
+					'label' => 'Custom Class',
+					'name' => 'custom_class',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6178670b4ade0',
+					),
+					'display' => 'seamless',
+					'layout' => 'block',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_63ad16f57b121',
+					'label' => 'Block Name',
+					'name' => 'block_name',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_63acf715515a6',
+					),
+					'display' => 'seamless',
+					'layout' => 'block',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_63ad17177b122',
+					'label' => 'Display Block',
+					'name' => 'display_block',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6393b3ba45832',
+					),
+					'display' => 'seamless',
+					'layout' => 'block',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+			),
+		),
+		array(
+			'key' => 'field_610c472903451',
+			'label' => 'Settings',
+			'name' => 'bio_settings',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_663142b9c712e',
+					'label' => 'Data Source',
+					'name' => 'data_source',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'self' => 'This Block',
+						'post' => 'Another Page/Post',
+					),
+					'default_value' => 'self',
+					'return_format' => 'value',
+					'multiple' => 0,
+					'allow_null' => 0,
+					'ui' => 0,
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_610c472909076',
+					'label' => 'Background',
+					'name' => 'background',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'bkgnd-white|light' => 'White',
+						'bkgnd-light|light' => 'Light Blue',
+						'bkgnd-primary|dark' => 'Black',
+					),
+					'default_value' => 'bkgnd-white|light',
+					'allow_null' => 0,
+					'multiple' => 0,
+					'ui' => 0,
+					'return_format' => 'value',
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_610c47290912b',
+					'label' => 'Read More?',
+					'name' => 'read_more',
+					'aria-label' => '',
+					'type' => 'true_false',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_663142b9c712e',
+								'operator' => '==',
+								'value' => 'self',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'message' => '',
+					'default_value' => 0,
+					'ui_on_text' => '',
+					'ui_off_text' => '',
+					'ui' => 1,
+				),
+				array(
+					'key' => 'field_662043ac7f9d8',
+					'label' => 'Include Social / Contact?',
+					'name' => 'social',
+					'aria-label' => '',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_663142b9c712e',
+								'operator' => '==',
+								'value' => 'self',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'block',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_662043ef7f9d9',
+							'label' => 'Include?',
+							'name' => 'include',
+							'aria-label' => '',
+							'type' => 'true_false',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'message' => '',
+							'default_value' => 0,
+							'ui_on_text' => '',
+							'ui_off_text' => '',
+							'ui' => 1,
+						),
+						array(
+							'key' => 'field_662044247f9da',
+							'label' => 'Which?',
+							'name' => 'which',
+							'aria-label' => '',
+							'type' => 'checkbox',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_662043ef7f9d9',
+										'operator' => '==',
+										'value' => '1',
+									),
+								),
+							),
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'choices' => array(
+								'linkedin' => 'LinkedIn',
+								'twitter' => 'Twitter',
+								'instagram' => 'Instagram',
+								'facebook' => 'Facebook',
+								'email' => 'Email',
+								'mobile' => 'Mobile Phone',
+							),
+							'default_value' => array(
+							),
+							'return_format' => 'value',
+							'allow_custom' => 0,
+							'layout' => 'vertical',
+							'toggle' => 0,
+							'save_custom' => 0,
+							'custom_choice_button_text' => 'Add new choice',
+						),
+					),
+				),
+			),
+		),
+		array(
+			'key' => 'field_663144e8e2f91',
+			'label' => 'Data Source',
+			'name' => 'bio_datasource',
+			'aria-label' => '',
+			'type' => 'page_link',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_663142b9c712e',
+						'operator' => '!=',
+						'value' => 'self',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => '',
+			'post_status' => array(
+				0 => 'publish',
+			),
+			'taxonomy' => '',
+			'allow_archives' => 0,
+			'multiple' => 0,
+			'allow_null' => 0,
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => false,
+	'description' => '',
+	'show_in_rest' => 0,
+) );
+
+endif;
+
+?>

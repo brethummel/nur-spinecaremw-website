@@ -1,0 +1,832 @@
+<?php
+
+/*
+
+Name: Map
+ID: block_map
+Layout ID: yrr7qd7cve1ja
+Subfield ID: yrr7qd7cve1jb
+Group ID: 6384e2682cced
+
+*/
+
+// ======================================= //
+//              BLOCK UPDATER              //
+// ======================================= // 
+/*
+
+!!! NEW FIELD NAMES HAVE TO BE UNIQUE !!!
+!!! FIELDS HAVE TO BE THE SAME TYPE !!!
+
+2022-12-28
+=========
+Block Display settings addition, specifically migrating the custom_class field into the Block Display group.
+
+*/
+
+$acf_migration_map = array(
+	'subfield_id' => 'field_yrr7qd7cve1jb',
+	'2022-12-28' => array(
+		'mode' => '', // reset (overwrite spr_settings), [blank] (leave as is)
+		'fields' => array(
+			'field_6384e26834936' => array(
+				'old' => array('name' => 'custom_class', 'group' => 'false', 'key' => 'field_6384e26834936', 'clone' => 'field_6178670b4ade0'),
+				'new' => array('name' => 'map_display_custom_class', 'group' => 'field_qcjws72vtc032', 'key' => 'field_qcjws72vtc033', 'clone' => 'field_6178670b4ade0'),
+			),
+		)
+	),
+); 
+spr_register_block_changes('block_map', $acf_migration_map);
+
+
+function spr_pop_coords($post_id) {
+	$blocks = get_fields($post_id);
+	$continents = array(
+		"AF" => array("AO", "BF", "BI", "BJ", "BW", "CD", "CF", "CG", "CI", "CM", "CV", "DJ", "DZ", "EG", "EH", "ER", "ET", "GA", "GH", "GM", "GN", "GQ", "GW", "KE", "KM", "LR", "LS", "LY", "MA", "MG", "ML", "MR", "MU", "MW", "MZ", "NA", "NE", "NG", "RE", "RW", "SC", "SD", "SH", "SL", "SN", "SO", "SS", "ST", "SZ", "TD", "TG", "TN", "TZ", "UG", "YT", "ZA", "ZM", "ZW"),
+		"AS" => array("AE", "AF", "AM", "AZ", "BD", "BH", "BN", "BT", "CC", "CN", "CX", "CY", "GE", "HK", "ID", "IL", "IN", "IO", "IQ", "IR", "JO", "JP", "KG", "KH", "KP", "KR", "KW", "KZ", "LA", "LB", "LK", "MM", "MN", "MO", "MV", "MY", "NP", "OM", "PH", "PK", "PS", "QA", "SA", "SG", "SY", "TH", "TJ", "TL", "TM", "TW", "UZ", "VN", "YE"),
+		"EU" => array("AX", "AL", "AD", "AT", "BY", "BE", "BA", "BG", "HR", "CZ", "DK", "EE", "FO", "FI", "FR", "DE", "GI", "GR", "GG", "VA", "HU", "IS", "IE", "IM", "IT", "JE", "LV", "LI", "LT", "LU", "MK", "MT", "MD", "MC", "ME", "NL", "NO", "PL", "PT", "RO", "RU", "SM", "RS", "SK", "SI", "ES", "SJ", "SE", "CH", "TR", "UA", "GB"),
+		"NA" => array("AG", "AI", "AW", "BB", "BL", "BM", "BQ", "BS", "BZ", "CA", "CR", "CU", "CW", "DM", "DO", "GD", "GL", "GP", "GT", "HN", "HT", "JM", "KN", "KY", "LC", "MF", "MQ", "MS", "MX", "NI", "PA", "PM", "PR", "SV", "SX", "TC", "TT", "US", "VC", "VG", "VI"),
+		"OC" => array("AS", "AU", "CK", "FJ", "FM", "GU", "KI", "MH", "MP", "NC", "NF", "NR", "NU", "NZ", "PF", "PG", "PN", "PW", "SB", "TK", "TO", "TV", "UM", "VU", "WF", "WS"),
+		"SA" => array("AR", "BO", "BR", "CL", "CO", "EC", "FK", "GF", "GY", "PE", "PY", "SR", "UY", "VE")
+	);
+	if (isset($blocks['content_blocks']) && $blocks['content_blocks'] != '') {
+		foreach ($blocks['content_blocks'] as $b => $block) {
+			if ($block['acf_fc_layout'] == 'block_map') {
+				if ($block['map_settings']['style'] == 'mapplic') {
+					foreach ($block['map_locations'] as $l => $location) {
+						if ($location['geocoordinates']['lat'] == '' || $location['geocoordinates']['lng'] == '' || $location['country']['country_name'] == '' || $location['country']['country_code'] == '' || $location['country']['continent_code'] == '' || $location['country']['state_code'] == '') {
+							$address = str_replace("\n", ', ', $location['details']['address']);
+							$geodata = spr_geolocate($address);
+							foreach ($continents as $c => $continent) {
+								if (in_array($geodata['country_code'], $continent)) {
+									$mycont = $c;
+								}
+							}
+							$value = array(
+								'geocoordinates' => array(
+									'lat' => $geodata['lat'],
+									'lng' => $geodata['lng'],
+								),
+								'country' => array(
+									'country_name' => $geodata['country_name'],
+									'country_code' => $geodata['country_code'],
+									'state_code' => $geodata['state_code'],
+									'continent_code' => $mycont,
+								)
+							);
+							update_sub_row(array('content_blocks', $b + 1, 'map_locations'), $l + 1, $value, $post_id);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+add_action('acf/save_post', 'spr_pop_coords', 20, 3);
+
+
+function spr_geolocate($address) {
+	
+	$mypath = substr(dirname(__FILE__), strpos(dirname(__FILE__), '/wp-content'));
+
+	$request = array(
+		'action' => 'geolocate',
+		'address' => urlencode($address),
+	);
+	
+	$curl = curl_init();
+	curl_setopt_array($curl, [
+		CURLOPT_URL => get_site_url() . $mypath . '/block_map_api.php',
+		CURLOPT_CONNECTTIMEOUT => 30,
+		CURLOPT_TIMEOUT => 30,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_HEADER => false,
+		CURLOPT_POST => true,
+		CURLOPT_POSTFIELDS => $request,
+	]);
+	
+	$response = curl_exec($curl);
+	
+	$err = curl_error($curl);
+	curl_close($curl);
+	
+	$response = json_decode($response, true);
+	
+	$lat = $response['results'][0]['geometry']['location']['lat'];
+	$lng = $response['results'][0]['geometry']['location']['lng'];
+	
+	foreach($response['results'][0]['address_components'] as $component) {
+		if (in_array('country', $component['types'])) {
+			$country_name = $component['long_name'];
+			$country_code = $component['short_name'];
+		}
+		if (in_array('administrative_area_level_1', $component['types'])) {
+			$state_code = $component['short_name'];
+		}
+	}
+
+	if ($err) {
+		return "cURL Error #:" . $err;
+	} else {
+		return array(
+			'lat' => $lat,
+			'lng' => $lng,
+			'country_name' => $country_name,
+			'country_code' => $country_code,
+			'state_code' => $state_code,
+		);
+	}
+}
+
+
+if( function_exists('acf_add_local_field_group') ):
+
+	acf_add_local_field_group( array(
+		'key' => 'group_6384e2682cced',
+		'title' => 'BLOCK: Map',
+		'fields' => array(
+			array(
+				'key' => 'field_6384e26834847',
+				'label' => 'Block',
+				'name' => '',
+				'aria-label' => '',
+				'type' => 'tab',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'placement' => 'top',
+				'endpoint' => 0,
+			),
+			array(
+				'key' => 'field_64a70dec43905',
+				'label' => 'Embed URL',
+				'name' => 'embed_url',
+				'aria-label' => '',
+				'type' => 'text',
+				'instructions' => 'Paste JUST the src url from Google\'s embed code here',
+				'required' => 1,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field' => 'field_6384e3c44c5f0',
+							'operator' => '==',
+							'value' => 'google',
+						),
+					),
+				),
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'maxlength' => '',
+				'placeholder' => 'https://www.google.com/maps/embed?pb=...',
+				'prepend' => '',
+				'append' => '',
+			),
+			array(
+				'key' => 'field_638843551f13f',
+				'label' => 'Locations',
+				'name' => 'map_locations',
+				'aria-label' => '',
+				'type' => 'repeater',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field' => 'field_6384e3c44c5f0',
+							'operator' => '==',
+							'value' => 'mapplic',
+						),
+					),
+				),
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'layout' => 'block',
+				'pagination' => 0,
+				'min' => 2,
+				'max' => 0,
+				'collapsed' => 'field_63884a645925c',
+				'button_label' => 'Add Location',
+				'rows_per_page' => 20,
+				'sub_fields' => array(
+					array(
+						'key' => 'field_638846e673146',
+						'label' => 'Contact',
+						'name' => '',
+						'aria-label' => '',
+						'type' => 'tab',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'placement' => 'top',
+						'endpoint' => 0,
+						'parent_repeater' => 'field_638843551f13f',
+					),
+					array(
+						'key' => 'field_63884a645925c',
+						'label' => 'Name',
+						'name' => 'name',
+						'aria-label' => '',
+						'type' => 'text',
+						'instructions' => '',
+						'required' => 1,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => '',
+						'maxlength' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'parent_repeater' => 'field_638843551f13f',
+					),
+					array(
+						'key' => 'field_6388436d1f140',
+						'label' => 'Details',
+						'name' => 'details',
+						'aria-label' => '',
+						'type' => 'group',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'layout' => 'table',
+						'parent_repeater' => 'field_638843551f13f',
+						'sub_fields' => array(
+							array(
+								'key' => 'field_638843891f141',
+								'label' => 'Address',
+								'name' => 'address',
+								'aria-label' => '',
+								'type' => 'textarea',
+								'instructions' => '',
+								'required' => 1,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '',
+								'maxlength' => '',
+								'rows' => 6,
+								'placeholder' => '',
+								'new_lines' => 'wpautop',
+							),
+							array(
+								'key' => 'field_638845e985b68',
+								'label' => 'Contact',
+								'name' => 'contact',
+								'aria-label' => '',
+								'type' => 'group',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'layout' => 'row',
+								'sub_fields' => array(
+									array(
+										'key' => 'field_638845ff85b69',
+										'label' => 'Phone',
+										'name' => 'phone',
+										'aria-label' => '',
+										'type' => 'text',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '',
+											'class' => '',
+											'id' => '',
+										),
+										'default_value' => '',
+										'maxlength' => '',
+										'placeholder' => '',
+										'prepend' => '',
+										'append' => '',
+									),
+									array(
+										'key' => 'field_6388460985b6a',
+										'label' => 'Email',
+										'name' => 'email',
+										'aria-label' => '',
+										'type' => 'email',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '',
+											'class' => '',
+											'id' => '',
+										),
+										'default_value' => '',
+										'placeholder' => '',
+										'prepend' => '',
+										'append' => '',
+									),
+								),
+							),
+						),
+					),
+					array(
+						'key' => 'field_6388470973147',
+						'label' => 'Geolocation',
+						'name' => '',
+						'aria-label' => '',
+						'type' => 'tab',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'placement' => 'top',
+						'endpoint' => 0,
+						'parent_repeater' => 'field_638843551f13f',
+					),
+					array(
+						'key' => 'field_63884930e2d62',
+						'label' => 'Note',
+						'name' => '',
+						'aria-label' => '',
+						'type' => 'message',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'message' => 'Do not enter data into the fields below. They will be automatically populated behind the scenes when the post is saved.',
+						'new_lines' => 'wpautop',
+						'esc_html' => 0,
+						'parent_repeater' => 'field_638843551f13f',
+					),
+					array(
+						'key' => 'field_6388495ee2d63',
+						'label' => 'Geocoordinates',
+						'name' => 'geocoordinates',
+						'aria-label' => '',
+						'type' => 'group',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'layout' => 'table',
+						'parent_repeater' => 'field_638843551f13f',
+						'sub_fields' => array(
+							array(
+								'key' => 'field_6388496fe2d64',
+								'label' => 'Latitude',
+								'name' => 'lat',
+								'aria-label' => '',
+								'type' => 'text',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '',
+								'maxlength' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+							),
+							array(
+								'key' => 'field_6388497ae2d65',
+								'label' => 'Longitude',
+								'name' => 'lng',
+								'aria-label' => '',
+								'type' => 'text',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '',
+								'maxlength' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+							),
+						),
+					),
+					array(
+						'key' => 'field_6388498ce2d66',
+						'label' => 'Country',
+						'name' => 'country',
+						'aria-label' => '',
+						'type' => 'group',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'layout' => 'table',
+						'parent_repeater' => 'field_638843551f13f',
+						'sub_fields' => array(
+							array(
+								'key' => 'field_6395635edbae1',
+								'label' => 'State Code',
+								'name' => 'state_code',
+								'aria-label' => '',
+								'type' => 'text',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '',
+								'maxlength' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+							),
+							array(
+								'key' => 'field_638849afe2d68',
+								'label' => 'Country Code',
+								'name' => 'country_code',
+								'aria-label' => '',
+								'type' => 'text',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '',
+								'maxlength' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+							),
+							array(
+								'key' => 'field_63884997e2d67',
+								'label' => 'Country',
+								'name' => 'country_name',
+								'aria-label' => '',
+								'type' => 'text',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '',
+								'maxlength' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+							),
+							array(
+								'key' => 'field_6394d172fc5d1',
+								'label' => 'Continent Code',
+								'name' => 'continent_code',
+								'aria-label' => '',
+								'type' => 'text',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '',
+								'maxlength' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+							),
+						),
+					),
+				),
+			),
+			array(
+				'key' => 'field_6384e268348fb',
+				'label' => 'Settings',
+				'name' => '',
+				'aria-label' => '',
+				'type' => 'tab',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'placement' => 'top',
+				'endpoint' => 0,
+			),
+			array(
+				'key' => 'field_6384e26834936',
+				'label' => 'Custom Class',
+				'name' => 'map_class',
+				'aria-label' => '',
+				'type' => 'clone',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'clone' => array(
+					0 => 'field_6178670b4ade0',
+				),
+				'display' => 'seamless',
+				'layout' => 'block',
+				'prefix_label' => 0,
+				'prefix_name' => 0,
+			),
+			array(
+				'key' => 'field_6384e26834971',
+				'label' => 'Settings',
+				'name' => 'map_settings',
+				'aria-label' => '',
+				'type' => 'group',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'layout' => 'table',
+				'sub_fields' => array(
+					array(
+						'key' => 'field_6384e26858acf',
+						'label' => 'Background',
+						'name' => 'background',
+						'aria-label' => '',
+						'type' => 'select',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => array(
+							array(
+								array(
+									'field' => 'field_638843551f13f',
+									'operator' => '!=empty',
+								),
+								array(
+									'field' => 'field_638843551f13f',
+									'operator' => '!=empty',
+								),
+							),
+							array(
+								array(
+									'field' => 'field_638843551f13f',
+									'operator' => '!=empty',
+								),
+							),
+						),
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'choices' => array(
+							'bkgnd-white|light' => 'White',
+							'bkgnd-light|light' => 'Light Grey',
+						),
+						'default_value' => 'bkgnd-white|light',
+						'return_format' => 'value',
+						'multiple' => 0,
+						'allow_null' => 0,
+						'ui' => 0,
+						'ajax' => 0,
+						'placeholder' => '',
+					),
+					array(
+						'key' => 'field_6384e3c44c5f0',
+						'label' => 'Style',
+						'name' => 'style',
+						'aria-label' => '',
+						'type' => 'select',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'choices' => array(
+							'google' => 'Google Map',
+							'finder' => 'Google Locator',
+							'mapplic' => 'Custom Map',
+						),
+						'default_value' => 'google',
+						'return_format' => 'value',
+						'multiple' => 0,
+						'allow_null' => 0,
+						'ui' => 0,
+						'ajax' => 0,
+						'placeholder' => '',
+					),
+					array(
+						'key' => 'field_6384e4484c5f1',
+						'label' => 'Full Width?',
+						'name' => 'full_width',
+						'aria-label' => '',
+						'type' => 'true_false',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => array(
+							array(
+								array(
+									'field' => 'field_6384e3c44c5f0',
+									'operator' => '!=',
+									'value' => 'finder',
+								),
+							),
+						),
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'message' => '',
+						'default_value' => 0,
+						'ui_on_text' => '',
+						'ui_off_text' => '',
+						'ui' => 1,
+					),
+				),
+			),
+			array(
+				'key' => 'field_6392691b73744',
+				'label' => 'Custom Map Settings',
+				'name' => 'map_mapplic_settings',
+				'aria-label' => '',
+				'type' => 'group',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field' => 'field_6384e3c44c5f0',
+							'operator' => '==',
+							'value' => 'mapplic',
+						),
+					),
+				),
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'layout' => 'table',
+				'sub_fields' => array(
+					array(
+						'key' => 'field_6392697a73745',
+						'label' => 'Choose Map',
+						'name' => 'choose_map',
+						'aria-label' => '',
+						'type' => 'select',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'choices' => array(
+							'usa' => 'United States',
+							'world-us' => 'World',
+						),
+						'default_value' => 'usa',
+						'return_format' => 'value',
+						'multiple' => 0,
+						'allow_null' => 0,
+						'ui' => 0,
+						'ajax' => 0,
+						'placeholder' => '',
+					),
+					array(
+						'key' => 'field_639269b773746',
+						'label' => 'Pin Type',
+						'name' => 'pin_type',
+						'aria-label' => '',
+						'type' => 'select',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'choices' => array(
+							'pin-triangle' => 'Pin Circular',
+							'pin-triangle|pin-rounded' => 'Pin Rounded',
+							'pin-triangle|pin-square' => 'Pin Square',
+						),
+						'default_value' => 'pin-triangle',
+						'return_format' => 'value',
+						'multiple' => 0,
+						'allow_null' => 0,
+						'ui' => 0,
+						'ajax' => 0,
+						'placeholder' => '',
+					),
+					array(
+						'key' => 'field_639269d573747',
+						'label' => 'Sidebar',
+						'name' => 'sidebar',
+						'aria-label' => '',
+						'type' => 'true_false',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'message' => '',
+						'default_value' => 0,
+						'ui_on_text' => 'On',
+						'ui_off_text' => 'Off',
+						'ui' => 1,
+					),
+				),
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'post',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'acf_after_title',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => false,
+		'description' => '',
+		'show_in_rest' => 0,
+	) );
+
+endif;
+
+?>

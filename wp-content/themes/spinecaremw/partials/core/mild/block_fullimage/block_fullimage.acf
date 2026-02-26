@@ -1,0 +1,881 @@
+<?php
+
+/*
+
+Name: Full Image
+ID: block_fullimage
+Layout ID: 610c45709eea1
+Subfield ID: 610c45709eea2
+Group ID: 610c42acc5d40
+
+*/
+
+// ======================================= //
+//              BLOCK UPDATER              //
+// ======================================= // 
+/*
+
+!!! NEW FIELD NAMES HAVE TO BE UNIQUE !!!
+!!! FIELDS HAVE TO BE THE SAME TYPE !!!
+
+2022-07-15
+=========
+Added options to handle mobile display of the full image, 
+including simple scaling (rather than cropping), and displaying 
+a unique image altogether for mobile. This necessitated the 
+creation of an Image group, and the fullimage_image field moved 
+inside the group where it was joined by a mobile image.
+
+2022-12-28
+=========
+Block Display settings addition, specifically migrating the custom_class field into the Block Display group.
+
+*/
+
+$acf_migration_map = array(
+	'subfield_id' => 'field_610c45709eea2',
+	'2022-07-15' => array(
+		'mode' => '', // reset (overwrite spr_settings), [blank] (leave as is)
+		'fields' => array(
+			'field_610c44813c7a8' => array(
+				'old' => array('name' => 'fullimage_image', 'group' => 'false', 'key' => 'field_610c44813c7a8', 'clone' => 'false'),
+				'new' => array('name' => 'fullimage_images_image', 'group' => 'field_623c8ab8e574a', 'key' => 'field_623c8f08a9c0c', 'clone' => 'false'),
+			),
+		)
+	),
+	'2022-12-28' => array(
+		'mode' => '', // reset (overwrite spr_settings), [blank] (leave as is)
+		'fields' => array(
+			'field_6179794f0730c' => array(
+				'old' => array('name' => 'custom_class', 'group' => 'false', 'key' => 'field_6179794f0730c', 'clone' => 'field_6178670b4ade0'),
+				'new' => array('name' => 'fullimage_display_custom_class', 'group' => 'field_63ad20a7cba81', 'key' => 'field_63ad20bbcba82', 'clone' => 'field_6178670b4ade0'),
+			),
+		)
+	),
+); 
+spr_register_block_changes('block_fullimage', $acf_migration_map);
+
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group( array(
+	'key' => 'group_610c42acc5d40',
+	'title' => 'BLOCK: Full Image',
+	'fields' => array(
+		array(
+			'key' => 'field_61797852d812d',
+			'label' => 'Block',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_623c8ab8e574a',
+			'label' => 'Image',
+			'name' => 'fullimage_images',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_610c436592ef1',
+						'operator' => '==',
+						'value' => 'image',
+					),
+				),
+				array(
+					array(
+						'field' => 'field_610c436592ef1',
+						'operator' => '==',
+						'value' => 'text',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_623c8f08a9c0c',
+					'label' => 'Image',
+					'name' => 'image',
+					'aria-label' => '',
+					'type' => 'image',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'array',
+					'preview_size' => 'thumbnail',
+					'library' => 'all',
+					'min_width' => '',
+					'min_height' => '',
+					'min_size' => '',
+					'max_width' => '',
+					'max_height' => '',
+					'max_size' => '',
+					'mime_types' => '',
+				),
+				array(
+					'key' => 'field_623c8b0be574b',
+					'label' => 'Mobile Image',
+					'name' => 'mobile_image',
+					'aria-label' => '',
+					'type' => 'image',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_610c436592ef1',
+								'operator' => '==',
+								'value' => 'image',
+							),
+							array(
+								'field' => 'field_623b460f66f62',
+								'operator' => '==',
+								'value' => 'swap',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'array',
+					'preview_size' => 'thumbnail',
+					'library' => 'all',
+					'min_width' => '',
+					'min_height' => '',
+					'min_size' => '',
+					'max_width' => '',
+					'max_height' => '',
+					'max_size' => '',
+					'mime_types' => '',
+				),
+			),
+		),
+		array(
+			'key' => 'field_64c14d614624d',
+			'label' => 'Carousel Images',
+			'name' => 'fullimage_carousel',
+			'aria-label' => '',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_610c436592ef1',
+						'operator' => '==',
+						'value' => 'carousel',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'pagination' => 0,
+			'min' => 2,
+			'max' => 0,
+			'collapsed' => '',
+			'button_label' => 'Add Image',
+			'rows_per_page' => 20,
+			'sub_fields' => array(
+				array(
+					'key' => 'field_64c14d8446250',
+					'label' => 'Image',
+					'name' => 'image',
+					'aria-label' => '',
+					'type' => 'image',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'array',
+					'library' => 'all',
+					'min_width' => '',
+					'min_height' => '',
+					'min_size' => '',
+					'max_width' => '',
+					'max_height' => '',
+					'max_size' => '',
+					'mime_types' => '',
+					'preview_size' => 'thumbnail',
+					'parent_repeater' => 'field_64c14d614624d',
+				),
+			),
+		),
+		array(
+			'key' => 'field_62267614d384c',
+			'label' => 'Caption',
+			'name' => 'fullimage_caption',
+			'aria-label' => '',
+			'type' => 'textarea',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_622675d5d384b',
+						'operator' => '==',
+						'value' => '1',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'maxlength' => '',
+			'rows' => 2,
+			'new_lines' => '',
+		),
+		array(
+			'key' => 'field_612e7b982af57',
+			'label' => 'Video',
+			'name' => 'fullimage_video',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_610c436592ef1',
+						'operator' => '==',
+						'value' => 'video',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'block',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_612e7be32af58',
+					'label' => 'Settings',
+					'name' => 'settings',
+					'aria-label' => '',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'table',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_612e7bf82af59',
+							'label' => 'Style',
+							'name' => 'style',
+							'aria-label' => '',
+							'type' => 'select',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'choices' => array(
+								'oembed' => 'oEmbed',
+								'lightbox' => 'Lightbox',
+							),
+							'default_value' => 'oembed',
+							'allow_null' => 0,
+							'multiple' => 0,
+							'ui' => 0,
+							'return_format' => 'value',
+							'ajax' => 0,
+							'placeholder' => '',
+						),
+					),
+				),
+				array(
+					'key' => 'field_610c44a73c7a9',
+					'label' => 'oEmbed',
+					'name' => 'oembed',
+					'aria-label' => '',
+					'type' => 'oembed',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_612e7bf82af59',
+								'operator' => '==',
+								'value' => 'oembed',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'width' => '',
+					'height' => '',
+				),
+				array(
+					'key' => 'field_612e7c352af5a',
+					'label' => 'Slate Image',
+					'name' => 'image',
+					'aria-label' => '',
+					'type' => 'image',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_612e7bf82af59',
+								'operator' => '==',
+								'value' => 'lightbox',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'array',
+					'preview_size' => 'thumbnail',
+					'library' => 'all',
+					'min_width' => '',
+					'min_height' => '',
+					'min_size' => '',
+					'max_width' => '',
+					'max_height' => '',
+					'max_size' => '',
+					'mime_types' => '',
+				),
+				array(
+					'key' => 'field_612e7c7f2af5b',
+					'label' => 'Video',
+					'name' => 'url',
+					'aria-label' => '',
+					'type' => 'url',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_612e7bf82af59',
+								'operator' => '==',
+								'value' => 'lightbox',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+				),
+			),
+		),
+		array(
+			'key' => 'field_610c42acd3719',
+			'label' => 'Content',
+			'name' => 'fullimage_content',
+			'aria-label' => '',
+			'type' => 'wysiwyg',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_610c436592ef1',
+						'operator' => '==',
+						'value' => 'text',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'tabs' => 'all',
+			'toolbar' => 'full',
+			'media_upload' => 0,
+			'delay' => 0,
+		),
+		array(
+			'key' => 'field_610c42acd3756',
+			'label' => 'Buttons',
+			'name' => 'fullimage_buttons',
+			'aria-label' => '',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_610c42acd8b65',
+						'operator' => '==',
+						'value' => '1',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => '',
+			'min' => 1,
+			'max' => 2,
+			'layout' => 'block',
+			'button_label' => 'Add Button',
+			'rows_per_page' => 20,
+			'sub_fields' => array(
+				array(
+					'key' => 'field_610c42ad0aadd',
+					'label' => 'Button Clone',
+					'name' => 'button',
+					'aria-label' => '',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_60d3bee962e7b',
+					),
+					'display' => 'seamless',
+					'layout' => 'block',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+					'parent_repeater' => 'field_610c42acd3756',
+				),
+			),
+		),
+		array(
+			'key' => 'field_6179784ad812c',
+			'label' => 'Settings',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_63ad20a7cba81',
+			'label' => 'Block Display',
+			'name' => 'fullimage_display',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_63ad20bbcba82',
+					'label' => 'Custom Class',
+					'name' => 'custom_class',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6178670b4ade0',
+					),
+					'display' => 'seamless',
+					'layout' => 'block',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_63ad20cfcba83',
+					'label' => 'Block Name',
+					'name' => 'block_name',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_63acf715515a6',
+					),
+					'display' => 'seamless',
+					'layout' => 'block',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_63ad20e4cba84',
+					'label' => 'Display Block',
+					'name' => 'display_block',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6393b3ba45832',
+					),
+					'display' => 'seamless',
+					'layout' => 'block',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+			),
+		),
+		array(
+			'key' => 'field_610c42acd36dc',
+			'label' => 'Settings',
+			'name' => 'fullimage_settings',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_610c436592ef1',
+					'label' => 'Style',
+					'name' => 'style',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'text' => 'Image + Text',
+						'image' => 'Image Only',
+						'video' => 'Video Only',
+						'carousel' => 'Carousel',
+					),
+					'default_value' => 'image',
+					'return_format' => 'value',
+					'multiple' => 0,
+					'allow_null' => 0,
+					'ui' => 0,
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_610c42acd8ab0',
+					'label' => 'Background',
+					'name' => 'background',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_610c436592ef1',
+								'operator' => '!=',
+								'value' => 'text',
+							),
+							array(
+								'field' => 'field_610c440e3c7a6',
+								'operator' => '!=',
+								'value' => '1',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'bkgnd-white|light' => 'White',
+						'bkgnd-light|light' => 'Light Grey',
+						'bkgnd-primary|dark' => 'Blue',
+						'bkgnd-secondary|dark' => 'Orange',
+					),
+					'default_value' => 'bkgnd-white|light',
+					'allow_null' => 0,
+					'multiple' => 0,
+					'ui' => 0,
+					'return_format' => 'value',
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_610c42acd8aee',
+					'label' => 'Align Text',
+					'name' => 'align_text',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_610c436592ef1',
+								'operator' => '==',
+								'value' => 'text',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'left' => 'Left',
+						'center' => 'Center',
+						'right' => 'Right',
+					),
+					'default_value' => 'center',
+					'allow_null' => 0,
+					'multiple' => 0,
+					'ui' => 0,
+					'return_format' => 'value',
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_610c42acd8b65',
+					'label' => 'Include Button',
+					'name' => 'include_button',
+					'aria-label' => '',
+					'type' => 'true_false',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_610c436592ef1',
+								'operator' => '==',
+								'value' => 'text',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'message' => '',
+					'default_value' => 0,
+					'ui' => 1,
+					'ui_on_text' => '',
+					'ui_off_text' => '',
+				),
+				array(
+					'key' => 'field_610c440e3c7a6',
+					'label' => 'Full Width?',
+					'name' => 'full_width',
+					'aria-label' => '',
+					'type' => 'true_false',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_610c436592ef1',
+								'operator' => '==',
+								'value' => 'image',
+							),
+						),
+						array(
+							array(
+								'field' => 'field_610c436592ef1',
+								'operator' => '==',
+								'value' => 'carousel',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'message' => '',
+					'default_value' => 0,
+					'ui_on_text' => '',
+					'ui_off_text' => '',
+					'ui' => 1,
+				),
+				array(
+					'key' => 'field_622675d5d384b',
+					'label' => 'Include Caption',
+					'name' => 'include_caption',
+					'aria-label' => '',
+					'type' => 'true_false',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_610c436592ef1',
+								'operator' => '==',
+								'value' => 'image',
+							),
+							array(
+								'field' => 'field_610c440e3c7a6',
+								'operator' => '!=',
+								'value' => '1',
+							),
+						),
+						array(
+							array(
+								'field' => 'field_610c436592ef1',
+								'operator' => '==',
+								'value' => 'video',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'message' => '',
+					'default_value' => 0,
+					'ui' => 1,
+					'ui_on_text' => '',
+					'ui_off_text' => '',
+				),
+				array(
+					'key' => 'field_623b460f66f62',
+					'label' => 'Mobile Display',
+					'name' => 'scale',
+					'aria-label' => '',
+					'type' => 'true_false',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_610c436592ef1',
+								'operator' => '==',
+								'value' => 'image',
+							),
+							array(
+								'field' => 'field_610c440e3c7a6',
+								'operator' => '!=',
+								'value' => '1',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'message' => '',
+					'default_value' => 0,
+					'ui' => 1,
+					'ui_on_text' => 'Scale',
+					'ui_off_text' => 'Crop',
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => false,
+	'description' => '',
+	'show_in_rest' => 0,
+) );
+
+endif;
+
+?>

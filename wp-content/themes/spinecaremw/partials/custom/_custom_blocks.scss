@@ -1,0 +1,24 @@
+
+
+// Manually register unique custom blocks that may have been created for the client
+// here, and in both _custom_blocks.acf and _custom_blocks.php. The main _blocks.scss 
+// loads this file.
+
+
+// ======================================= //
+//               TEMPLATES                 //
+// ======================================= // 
+
+@import 'custom/_templates/_posts/_posts_singlet';
+
+
+// ======================================= //
+//              CUSTOM BLOCKS              //
+// ======================================= // 
+
+@import 'custom/block_alltreatments/_block_alltreatments';
+@import 'custom/block_eventinfo/_block_eventinfo';
+@import 'custom/block_featuredevent/_block_featuredevent';
+@import 'custom/block_gatherup/_block_gatherup';
+@import 'custom/block_patientstory/_block_patientstory';
+@import 'custom/block_tabs/_block_tabs';

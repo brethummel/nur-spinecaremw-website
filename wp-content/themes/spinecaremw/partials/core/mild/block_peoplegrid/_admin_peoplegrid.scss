@@ -1,0 +1,40 @@
+.acf-field[data-name="content_blocks"] {
+	.layout[data-layout="block_peoplegrid"] {
+		.acf-fc-layout-handle {
+			.icon {
+				&:before {
+					background-image: url("partials/core/mild/block_peoplegrid/icon_peoplegrid.png") !important;
+				}
+			}
+		}
+		.acf-field-625891528d507[data-name="social"] { // settings > social
+			.acf-fields {
+				border: none !important;
+				.acf-label {
+					display: none !important;
+				}
+				.acf-field-6258916f8d508 { // true/false
+					padding: 0px !important;
+				}
+				.acf-field-625891828d509 { // checkboxes
+					margin-top: 8px !important;
+					border: 1px solid #eeeeee !important;
+				}
+			}
+		}
+		.acf-field-62588ae71778b[data-name="social"] { // block > social
+			>.acf-label {
+				display: block !important;
+			}
+			>.acf-input {
+				>.acf-fields {
+					>.acf-field {
+						.acf-label {
+							display: none !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}

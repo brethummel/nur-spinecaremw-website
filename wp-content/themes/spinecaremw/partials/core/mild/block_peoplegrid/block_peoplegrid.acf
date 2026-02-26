@@ -1,0 +1,1229 @@
+<?php
+
+/*
+
+Name: People Grid
+ID: block_peoplegrid
+Layout ID: 613114b009824
+Subfield ID: 613114be09825
+Group ID: 6130f79cac6ea
+
+*/
+
+
+// ======================================= //
+//              BLOCK UPDATER              //
+// ======================================= // 
+/*
+
+!!! NEW FIELD NAMES HAVE TO BE UNIQUE !!!
+!!! FIELDS HAVE TO BE THE SAME TYPE !!!
+
+2022-07-21
+=========
+Added options to handle mobile display of the full image, 
+including simple scaling (rather than cropping), and displaying 
+a unique image altogether for mobile. This necessitated the 
+creation of an Image group, and the fullimage_image field moved 
+inside the group where it was joined by a mobile image.
+
+2022-12-28
+=========
+Block Display settings addition, specifically migrating the custom_class field into the Block Display group.
+
+*/
+
+$acf_migration_map = array(
+	'subfield_id' => 'field_613114be09825',
+	'2022-07-21' => array(
+		'mode' => '', // reset (overwrite spr_settings), [blank] (leave as is)
+		'fields' => array(
+			'field_6130f79cb7dc1' => array(
+				'old' => array('name' => 'image', 'group' => 'false', 'key' => 'field_6130f79cb7dc1', 'clone' => 'false'),
+				'new' => array('name' => 'images_image', 'group' => 'false', 'key' => 'field_6264266816cd9', 'clone' => 'false'),
+			),
+		)
+	),
+	'2022-12-28' => array(
+		'mode' => '', // reset (overwrite spr_settings), [blank] (leave as is)
+		'fields' => array(
+			'field_61797b2dde31c' => array(
+				'old' => array('name' => 'custom_class', 'group' => 'false', 'key' => 'field_61797b2dde31c', 'clone' => 'field_6178670b4ade0'),
+				'new' => array('name' => 'peoplegrid_display_custom_class', 'group' => 'field_63ad34dd440d8', 'key' => 'field_63ad34e6440d9', 'clone' => 'field_6178670b4ade0'),
+			),
+		)
+	),
+	'2024-07-15' => array(
+		'mode' => '', // reset (overwrite spr_settings), [blank] (leave as is)
+		'fields' => array(
+			'field_6264266816cd9' => array(
+				'old' => array('name' => 'image', 'group' => 'field_6264263016cd8', 'key' => 'field_6264266816cd9', 'clone' => 'false'),
+				'new' => array('name' => 'image', 'group' => 'field_66955e7d01814', 'key' => 'field_66955e9301815', 'clone' => 'false'),
+			),
+			'field_626426a316cdb' => array(
+				'old' => array('name' => 'rollover_image', 'group' => 'field_6264263016cd8', 'key' => 'field_626426a316cdb', 'clone' => 'false'),
+				'new' => array('name' => 'rollover_image', 'group' => 'field_66955e7d01814', 'key' => 'field_669562f30181b', 'clone' => 'false'),
+			),
+			'field_6130f79cddb62' => array(
+				'old' => array('name' => 'name', 'group' => 'field_6130f79cb7dfd', 'key' => 'field_6130f79cddb62', 'clone' => 'false'),
+				'new' => array('name' => 'full_name', 'group' => 'field_66955ee101817', 'key' => 'field_66955ef301818', 'clone' => 'false'),
+			),
+			'field_6130f79cddb9f' => array(
+				'old' => array('name' => 'title', 'group' => 'field_6130f79cb7dfd', 'key' => 'field_6130f79cddb9f', 'clone' => 'false'),
+				'new' => array('name' => 'title', 'group' => 'field_66955ee101817', 'key' => 'field_66955f0401819', 'clone' => 'false'),
+			),
+		)
+	),
+); 
+spr_register_block_changes('block_peoplegrid', $acf_migration_map);
+
+
+// ======================================= //
+//    DANGER! THIS IS BUILT DYNAMICALLY    //
+// ======================================= // 
+
+$peopleposts = $GLOBALS['peopleposts'];
+
+if ($peopleposts['use'] == true) {
+	$conditionals['manually'] = array(
+		array(
+			array(
+				'field' => 'field_61c22ef149760',
+				'operator' => '==',
+				'value' => 'manually',
+			),
+		),
+	);
+	$conditionals['auto'] = array(
+		array(
+			array(
+				'field' => 'field_61c22ef149760',
+				'operator' => '==',
+				'value' => 'auto',
+			),
+		),
+	);
+	$posttypes = array(
+		0 => 'page',
+		1 => $peopleposts['slug'],
+	);
+	$populatefield = array( // goes in spot #3 (2)
+		'key' => 'field_61c22f4f49761',
+		'label' => 'Populate',
+		'name' => 'peoplegrid_populate',
+		'type' => 'group',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => $conditionals['auto'],
+		'wrapper' => array(
+			'width' => '',
+			'class' => '',
+			'id' => '',
+		),
+		'layout' => 'table',
+		'sub_fields' => array(
+			array(
+				'key' => 'field_61c22f6449762',
+				'label' => 'Post Type',
+				'name' => 'post_type',
+				'type' => 'select',
+				'instructions' => '',
+				'required' => 1,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'choices' => array(
+					$peopleposts['slug'] => $peopleposts['plural']
+				),
+				'default_value' => false,
+				'allow_null' => 0,
+				'multiple' => 0,
+				'ui' => 0,
+				'return_format' => 'value',
+				'ajax' => 0,
+				'placeholder' => '',
+			),
+			array(
+				'key' => 'field_61c2301349763',
+				'label' => 'Categories',
+				'name' => 'categories',
+				'type' => 'taxonomy',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'taxonomy' => 'category',
+				'field_type' => 'multi_select',
+				'allow_null' => 0,
+				'add_term' => 0,
+				'save_terms' => 0,
+				'load_terms' => 0,
+				'return_format' => 'object',
+				'multiple' => 0,
+			),
+			array(
+				'key' => 'field_61c2304649764',
+				'label' => 'Tags',
+				'name' => 'tags',
+				'type' => 'taxonomy',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'taxonomy' => 'post_tag',
+				'field_type' => 'multi_select',
+				'allow_null' => 0,
+				'add_term' => 0,
+				'save_terms' => 0,
+				'load_terms' => 0,
+				'return_format' => 'object',
+				'multiple' => 0,
+			),
+			array(
+				'key' => 'field_66959a364817e',
+				'label' => 'Sort By',
+				'name' => 'sort',
+				'aria-label' => '',
+				'type' => 'select',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'choices' => array(
+					'menu' => 'Menu Order',
+					'last' => 'Last Name',
+				),
+				'default_value' => 'menu',
+				'return_format' => 'value',
+				'multiple' => 0,
+				'allow_null' => 0,
+				'ui' => 0,
+				'ajax' => 0,
+				'placeholder' => '',
+			),
+		),
+	);
+	$populatesettings = array(
+		'key' => 'field_61c22ef149760',
+		'label' => 'Populate',
+		'name' => 'populate',
+		'type' => 'select',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => '',
+			'class' => '',
+			'id' => '',
+		),
+		'choices' => array(
+			'manually' => 'Manually',
+			'auto' => 'Automatically',
+		),
+		'default_value' => 'manually',
+		'allow_null' => 0,
+		'multiple' => 0,
+		'ui' => 0,
+		'return_format' => 'value',
+		'ajax' => 0,
+		'placeholder' => '',
+	);
+	$autonote = array(
+		'key' => 'field_61c24d71bdbba',
+		'label' => 'People',
+		'name' => '',
+		'type' => 'message',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field' => 'field_61c22ef149760',
+					'operator' => '==',
+					'value' => 'auto',
+				),
+			),
+		),
+		'wrapper' => array(
+			'width' => '',
+			'class' => '',
+			'id' => '',
+		),
+		'message' => 'This People Grid Block will be populated automatically using the settings below.',
+		'new_lines' => 'wpautop',
+		'esc_html' => 0,
+	);
+} else {
+	$conditionals['manually'] = 0;
+	$conditionals['auto'] = 0;
+	$posttypes = array(
+		0 => 'page',
+	);
+	$populatefield = [];
+	$populatesettings = [];
+	$autonote = [];
+}
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+	'key' => 'group_6130f79cac6ea',
+	'title' => 'BLOCK: People Grid',
+	'fields' => array(
+		array(
+			'key' => 'field_61797b23de31b',
+			'label' => 'Block',
+			'name' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_6130f82df7a59',
+			'label' => 'People',
+			'name' => 'peoplegrid_people',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => $conditionals['manually'],
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => 'field_6130f79cb7dfd',
+			'min' => 0,
+			'max' => 0,
+			'layout' => 'block',
+			'button_label' => 'Add Person',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_66955e6701813',
+					'label' => 'Person',
+					'name' => 'info',
+					'aria-label' => '',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'table',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_66955e7d01814',
+							'label' => 'Images',
+							'name' => 'images',
+							'aria-label' => '',
+							'type' => 'group',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '30',
+								'class' => '',
+								'id' => '',
+							),
+							'layout' => 'block',
+							'sub_fields' => array(
+								array(
+									'key' => 'field_66955e9301815',
+									'label' => 'Image',
+									'name' => 'image',
+									'aria-label' => '',
+									'type' => 'image',
+									'instructions' => '',
+									'required' => 0,
+									'conditional_logic' => 0,
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'return_format' => 'array',
+									'library' => 'all',
+									'min_width' => '',
+									'min_height' => '',
+									'min_size' => '',
+									'max_width' => '',
+									'max_height' => '',
+									'max_size' => '',
+									'mime_types' => '',
+									'preview_size' => 'thumbnail',
+								),
+								array(
+									'key' => 'field_669562f30181b',
+									'label' => 'Rollover Image',
+									'name' => 'rollover_image',
+									'aria-label' => '',
+									'type' => 'image',
+									'instructions' => '',
+									'required' => 0,
+									'conditional_logic' => array(
+										array(
+											array(
+												'field' => 'field_669563260181c',
+												'operator' => '==',
+												'value' => '1',
+											),
+										),
+									),
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'return_format' => 'array',
+									'library' => 'all',
+									'min_width' => '',
+									'min_height' => '',
+									'min_size' => '',
+									'max_width' => '',
+									'max_height' => '',
+									'max_size' => '',
+									'mime_types' => '',
+									'preview_size' => 'thumbnail',
+								),
+							),
+						),
+						array(
+							'key' => 'field_66955ee101817',
+							'label' => 'Info',
+							'name' => 'info',
+							'aria-label' => '',
+							'type' => 'group',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'layout' => 'block',
+							'sub_fields' => array(
+								array(
+									'key' => 'field_66955ef301818',
+									'label' => 'Full Name',
+									'name' => 'full_name',
+									'aria-label' => '',
+									'type' => 'text',
+									'instructions' => '',
+									'required' => 1,
+									'conditional_logic' => 0,
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'default_value' => '',
+									'maxlength' => '',
+									'placeholder' => '',
+									'prepend' => '',
+									'append' => '',
+								),
+								array(
+									'key' => 'field_66955f0401819',
+									'label' => 'Title',
+									'name' => 'title',
+									'aria-label' => '',
+									'type' => 'text',
+									'instructions' => '',
+									'required' => 0,
+									'conditional_logic' => 0,
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'default_value' => '',
+									'maxlength' => '',
+									'placeholder' => '',
+									'prepend' => '',
+									'append' => '',
+								),
+							),
+						),
+					),
+					'parent_repeater' => 'field_6130f82df7a59',
+				),
+				array(
+					'key' => 'field_62588ae71778b',
+					'label' => 'Social',
+					'name' => 'social',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_6258916f8d508',
+								'operator' => '==',
+								'value' => '1',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'block',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_62588afc1778c',
+							'label' => 'Linked In',
+							'name' => 'linkedin',
+							'type' => 'url',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_625891828d509',
+										'operator' => '==',
+										'value' => 'linkedin',
+									),
+								),
+							),
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+						),
+						array(
+							'key' => 'field_62588b131778d',
+							'label' => 'X (Twitter)',
+							'name' => 'twitter',
+							'type' => 'url',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_625891828d509',
+										'operator' => '==',
+										'value' => 'twitter',
+									),
+								),
+							),
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+						),
+						array(
+							'key' => 'field_62588b1b1778e',
+							'label' => 'Instagram',
+							'name' => 'instagram',
+							'type' => 'url',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_625891828d509',
+										'operator' => '==',
+										'value' => 'instagram',
+									),
+								),
+							),
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+						),
+						array(
+							'key' => 'field_62588b241778f',
+							'label' => 'Facebook',
+							'name' => 'facebook',
+							'type' => 'url',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_625891828d509',
+										'operator' => '==',
+										'value' => 'facebook',
+									),
+								),
+							),
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+						),
+						array(
+							'key' => 'field_626424016f244',
+							'label' => 'Email',
+							'name' => 'email',
+							'type' => 'email',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_625891828d509',
+										'operator' => '==',
+										'value' => 'email',
+									),
+								),
+							),
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => 'Email',
+							'prepend' => '',
+							'append' => '',
+						),
+						array(
+							'key' => 'field_66955fc90181a',
+							'label' => 'Mobile Phone',
+							'name' => 'mobile',
+							'aria-label' => '',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 1,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_625891828d509',
+										'operator' => '==',
+										'value' => 'mobile',
+									),
+								),
+							),
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'maxlength' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+						),
+					),
+				),
+				array(
+					'key' => 'field_6130f893f7a5a',
+					'label' => 'Bio Page',
+					'name' => 'bio_page',
+					'type' => 'page_link',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_6130f7c9f7a58',
+								'operator' => '==',
+								'value' => 'page',
+							),
+						),
+						array(
+							array(
+								'field' => 'field_6130f7c9f7a58',
+								'operator' => '==',
+								'value' => 'mini',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'post_type' => $posttypes,
+					'taxonomy' => '',
+					'allow_null' => 0,
+					'allow_archives' => 0,
+					'multiple' => 0,
+				),
+				array(
+					'key' => 'field_61d4e28c3a063',
+					'label' => 'Mini Bio',
+					'name' => 'mini_bio',
+					'type' => 'textarea',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_6130f7c9f7a58',
+								'operator' => '!=',
+								'value' => 'none',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '(optional)',
+					'maxlength' => '',
+					'rows' => 5,
+					'new_lines' => '',
+				),
+				array(
+					'key' => 'field_6130f79cb7e72',
+					'label' => 'Bio Content',
+					'name' => 'content',
+					'type' => 'wysiwyg',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_6130f7c9f7a58',
+								'operator' => '==',
+								'value' => 'popup',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'tabs' => 'all',
+					'toolbar' => 'full',
+					'media_upload' => 0,
+					'delay' => 0,
+				),
+				// array(
+				// 	'key' => 'field_6264263016cd8',
+				// 	'label' => 'Images',
+				// 	'name' => 'images',
+				// 	'type' => 'group',
+				// 	'instructions' => '',
+				// 	'required' => 0,
+				// 	'conditional_logic' => 0,
+				// 	'wrapper' => array(
+				// 		'width' => '',
+				// 		'class' => '',
+				// 		'id' => '',
+				// 	),
+				// 	'layout' => 'table',
+				// 	'sub_fields' => array(
+				// 		array(
+				// 			'key' => 'field_6264266816cd9',
+				// 			'label' => 'Image',
+				// 			'name' => 'image',
+				// 			'type' => 'image',
+				// 			'instructions' => '',
+				// 			'required' => 0,
+				// 			'conditional_logic' => 0,
+				// 			'wrapper' => array(
+				// 				'width' => '',
+				// 				'class' => '',
+				// 				'id' => '',
+				// 			),
+				// 			'return_format' => 'array',
+				// 			'preview_size' => 'thumbnail',
+				// 			'library' => 'all',
+				// 			'min_width' => '',
+				// 			'min_height' => '',
+				// 			'min_size' => '',
+				// 			'max_width' => '',
+				// 			'max_height' => '',
+				// 			'max_size' => '',
+				// 			'mime_types' => '',
+				// 		),
+				// 		array(
+				// 			'key' => 'field_626426a316cdb',
+				// 			'label' => 'Rollover',
+				// 			'name' => 'rollover_image',
+				// 			'type' => 'image',
+				// 			'instructions' => '',
+				// 			'required' => 1,
+				// 			'conditional_logic' => array(
+				// 				array(
+				// 					array(
+				// 						'field' => 'field_6264267916cda',
+				// 						'operator' => '==',
+				// 						'value' => '1',
+				// 					),
+				// 				),
+				// 			),
+				// 			'wrapper' => array(
+				// 				'width' => '',
+				// 				'class' => '',
+				// 				'id' => '',
+				// 			),
+				// 			'return_format' => 'array',
+				// 			'preview_size' => 'thumbnail',
+				// 			'library' => 'all',
+				// 			'min_width' => '',
+				// 			'min_height' => '',
+				// 			'min_size' => '',
+				// 			'max_width' => '',
+				// 			'max_height' => '',
+				// 			'max_size' => '',
+				// 			'mime_types' => '',
+				// 		),
+						// array(
+						// 	'key' => 'field_6264267916cda',
+						// 	'label' => 'Change on Rollover',
+						// 	'name' => 'rollover',
+						// 	'type' => 'true_false',
+						// 	'instructions' => '',
+						// 	'required' => 0,
+						// 	'conditional_logic' => 0,
+						// 	'wrapper' => array(
+						// 		'width' => '',
+						// 		'class' => '',
+						// 		'id' => '',
+						// 	),
+						// 	'message' => '',
+						// 	'default_value' => 0,
+						// 	'ui' => 1,
+						// 	'ui_on_text' => '',
+						// 	'ui_off_text' => '',
+						// ),
+				// 	),
+				// ),
+				// array(
+				// 	'key' => 'field_6130f79cb7dfd',
+				// 	'label' => 'Person',
+				// 	'name' => 'person',
+				// 	'type' => 'group',
+				// 	'instructions' => '',
+				// 	'required' => 0,
+				// 	'conditional_logic' => 0,
+				// 	'wrapper' => array(
+				// 		'width' => '',
+				// 		'class' => '',
+				// 		'id' => '',
+				// 	),
+				// 	'layout' => 'table',
+				// 	'sub_fields' => array(
+				// 		array(
+				// 			'key' => 'field_6130f79cddb62',
+				// 			'label' => 'Full Name',
+				// 			'name' => 'name',
+				// 			'type' => 'text',
+				// 			'instructions' => '',
+				// 			'required' => 1,
+				// 			'conditional_logic' => 0,
+				// 			'wrapper' => array(
+				// 				'width' => '',
+				// 				'class' => '',
+				// 				'id' => '',
+				// 			),
+				// 			'default_value' => '',
+				// 			'placeholder' => '',
+				// 			'prepend' => '',
+				// 			'append' => '',
+				// 			'maxlength' => '',
+				// 		),
+				// 		array(
+				// 			'key' => 'field_6130f79cddb9f',
+				// 			'label' => 'Title',
+				// 			'name' => 'title',
+				// 			'type' => 'text',
+				// 			'instructions' => '',
+				// 			'required' => 1,
+				// 			'conditional_logic' => 0,
+				// 			'wrapper' => array(
+				// 				'width' => '',
+				// 				'class' => '',
+				// 				'id' => '',
+				// 			),
+				// 			'default_value' => '',
+				// 			'placeholder' => '',
+				// 			'prepend' => '',
+				// 			'append' => '',
+				// 			'maxlength' => '',
+				// 		),
+				// 	),
+				// ),
+			),
+		),
+		$autonote,
+		$populatefield,
+		array(
+			'key' => 'field_61797b1ade31a',
+			'label' => 'Settings',
+			'name' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_63ad34dd440d8',
+			'label' => 'Block Display',
+			'name' => 'peoplegrid_display',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_63ad34e6440d9',
+					'label' => 'Custom Class',
+					'name' => 'custom_class',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6178670b4ade0',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_63ad3504440da',
+					'label' => 'Block Name',
+					'name' => 'block_name',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_63acf715515a6',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_63ad3515440db',
+					'label' => 'Display Block',
+					'name' => 'display_block',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6393b3ba45832',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+			),
+		),
+		array(
+			'key' => 'field_6130f79cb7d84',
+			'label' => 'Settings',
+			'name' => 'peoplegrid_settings',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				$populatesettings,
+				array(
+					'key' => 'field_6130f7c9f7a58',
+					'label' => 'Style',
+					'name' => 'style',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => $conditionals['manually'],
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'none' => 'No Bio',
+						'mini' => 'Mini Bio',
+						'page' => 'Link to Bio Page',
+						'popup' => 'Bio Popup',
+					),
+					'default_value' => 'none',
+					'allow_null' => 0,
+					'multiple' => 0,
+					'ui' => 0,
+					'return_format' => 'value',
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_61d3ca2ec272c',
+					'label' => 'Columns',
+					'name' => 'columns',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						2 => 'Two',
+						3 => 'Three',
+						4 => 'Four',
+					),
+					'default_value' => 'four-col',
+					'allow_null' => 0,
+					'multiple' => 0,
+					'ui' => 0,
+					'return_format' => 'value',
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_6130f79cbf296',
+					'label' => 'Background',
+					'name' => 'background',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'bkgnd-white|light' => 'White',
+						'bkgnd-light|light' => 'Light Grey',
+					),
+					'default_value' => 'bkgnd-white|light',
+					'allow_null' => 0,
+					'multiple' => 0,
+					'ui' => 0,
+					'return_format' => 'value',
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_669563260181c',
+					'label' => 'Enable Rollover Image',
+					'name' => 'rollover',
+					'aria-label' => '',
+					'type' => 'true_false',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'message' => '',
+					'default_value' => 0,
+					'ui_on_text' => '',
+					'ui_off_text' => '',
+					'ui' => 1,
+				),
+				// array(
+				// 	'key' => 'field_61d4eecf1ff66',
+				// 	'label' => 'Masonry?',
+				// 	'name' => 'masonry',
+				// 	'type' => 'true_false',
+				// 	'instructions' => '',
+				// 	'required' => 0,
+				// 	'conditional_logic' => array(
+				// 		array(
+				// 			array(
+				// 				'field' => 'field_6130f7c9f7a58',
+				// 				'operator' => '==',
+				// 				'value' => 'mini',
+				// 			),
+				// 		),
+				// 	),
+				// 	'wrapper' => array(
+				// 		'width' => '',
+				// 		'class' => '',
+				// 		'id' => '',
+				// 	),
+				// 	'message' => '',
+				// 	'default_value' => 0,
+				// 	'ui' => 1,
+				// 	'ui_on_text' => '',
+				// 	'ui_off_text' => '',
+				// ),
+				array(
+					'key' => 'field_625891528d507',
+					'label' => 'Include Social / Contact?',
+					'name' => 'social',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'block',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_6258916f8d508',
+							'label' => 'Include?',
+							'name' => 'include',
+							'type' => 'true_false',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'message' => '',
+							'default_value' => 0,
+							'ui' => 1,
+							'ui_on_text' => '',
+							'ui_off_text' => '',
+						),
+						array(
+							'key' => 'field_625891828d509',
+							'label' => 'Which?',
+							'name' => 'which',
+							'type' => 'checkbox',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_6258916f8d508',
+										'operator' => '==',
+										'value' => '1',
+									),
+								),
+							),
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'choices' => array(
+								'linkedin' => 'LinkedIn',
+								'twitter' => 'X (Twitter)',
+								'instagram' => 'Instagram',
+								'facebook' => 'Facebook',
+								'email' => 'Email',
+								'mobile' => 'Mobile Phone',
+							),
+							'allow_custom' => 0,
+							'default_value' => array(
+							),
+							'layout' => 'vertical',
+							'toggle' => 0,
+							'return_format' => 'value',
+							'save_custom' => 0,
+						),
+					),
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => false,
+	'description' => '',
+	'show_in_rest' => 0,
+));
+
+endif;
+
+?>

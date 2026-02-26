@@ -1,0 +1,211 @@
+.blocks-wrapper {
+    .block-text {
+        &.padded {
+            padding-top: $p-top * .75 !important;
+            padding-bottom: $p-bottom * .75 !important;
+			@include media-breakpoint-down(xs) {
+				padding-top: $p-top-xs * .75 !important;
+				padding-bottom: $p-bottom-xs * .75 !important;
+			}
+        }
+    }
+}
+.block-text {
+	&.one-col {
+		&.center {
+			.column-one {
+				.content-container {
+					margin: 0px auto;
+					@include media-breakpoint-only(xl) {
+						width: 70%;
+					}
+					@include media-breakpoint-only(lg) {
+						width: 80%;
+					}
+					@include media-breakpoint-only(md) {
+						width: 90%;
+					}
+					@include media-breakpoint-only(sm) {
+						width: 93%;
+					}
+				}
+			}
+		}
+	}
+	&.two-col {
+		&.controlled {
+			position: relative;
+			padding-top: 0px;
+			padding-bottom: 0px;
+			@include media-breakpoint-only(sm) {
+				width: 100vw;
+				overflow: hidden;
+			}
+			@include media-breakpoint-only(md) {
+				overflow: hidden;
+			}
+			&.unique-bkgnds {
+				.container {
+					.col-one {
+						padding-bottom: $p-top;
+						@include media-breakpoint-down(xs) {
+							padding-bottom: $p-top-xs;
+						}
+					}
+					.col-two {
+						padding-top: $p-top;
+						@include media-breakpoint-down(xs) {
+							padding-top: $p-top-xs;
+						}
+					}	
+				}
+			}
+			&.has-buttons {
+				.container {
+					.col-one,
+					.col-two {
+						padding-bottom: 0px;
+					}
+					.col-one {
+						
+					}
+					.buttons-container {
+						margin-top: 25px;
+						padding-bottom: $p-bottom;
+						@include media-breakpoint-down(xs) {
+							padding-bottom: $p-bottom-xs;
+						}
+					}
+				}
+				&.unique-bkgnds {
+					.container {
+						.col-one {
+							@include media-breakpoint-down(md) {
+								padding-bottom: $p-bottom;
+							}
+							@include media-breakpoint-down(xs) {
+								padding-bottom: $p-bottom-xs;
+							}
+						}
+					}
+				}
+			}
+			.backgrounds {
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				@include media-breakpoint-down(xs) {
+					overflow: hidden;
+				}
+				.row {
+					height: 100%;
+					margin-right: 0px;
+					margin-left: 0px;
+					.col-one-bkgnd,
+					.col-two-bkgnd {
+						padding-top: $p-top;
+						padding-bottom: $p-bottom;
+						@include media-breakpoint-up(lg) {
+							height: 100%;
+						}
+						@include media-breakpoint-down(xs) {
+							padding-top: $p-top-xs;
+							padding-bottom: $p-bottom-xs;
+						}
+					}
+				}
+			}
+			.container {
+				@include media-breakpoint-down(md) {
+					margin-right: 0px;
+					margin-left: 0px;
+				}
+				.row {
+					@include media-breakpoint-down(md) {
+						margin-right: 0px;
+						margin-left: 0px;
+					}
+				}
+				.col-one,
+				.col-two,
+				.buttons-container {
+					padding-top: $p-top;
+					padding-bottom: $p-bottom;
+					@include media-breakpoint-down(xs) {
+						padding-top: $p-top-xs;
+						padding-bottom: $p-bottom-xs;
+					}
+					.content-container {
+						width: 100%;
+						@include media-breakpoint-only(md) {
+							width: $container-md;
+							max-width: $container-md;
+							padding-right: $p-container-md;
+							padding-left: $p-container-md;
+							margin: 0px auto;
+						}
+						@include media-breakpoint-only(sm) {
+							width: $container-sm;
+							max-width: $container-sm;
+							padding-right: $p-container-sm;
+							padding-left: $p-container-sm;
+							margin: 0px auto;
+						}
+						@include media-breakpoint-only(xs) {
+							width: 100%;
+							max-width: 100%;
+							padding-right: $p-container-xs - 15px;
+							padding-left: $p-container-xs - 15px;
+							margin: 0px auto;
+						}
+						@include media-breakpoint-only(xxs) {
+							width: 100%;
+							max-width: 100%;
+							padding-right: $p-container-xxs - 15px;
+							padding-left: $p-container-xxs - 15px;
+							margin: 0px auto;
+						}
+					}
+				}
+				.col-one {
+					@include media-breakpoint-up(lg) {
+						padding-right: 55px;
+					}
+					@include media-breakpoint-down(md) {
+						padding-bottom: 0px;
+					}
+				}
+				.col-two {
+					@include media-breakpoint-up(lg) {
+						padding-left: 55px;
+					}
+					@include media-breakpoint-down(md) {
+						padding-top: $p-top * .5;
+					}
+					@include media-breakpoint-down(xs) {
+						padding-top: $p-top-xs * .5;
+					}
+				}
+			}
+		}
+	}
+	.col-one {
+		&.wrapped {
+			column-count: 2;
+			column-gap: 115px;
+			@include media-breakpoint-down(md) {
+				column-count: 1;
+			}
+		}
+	}
+	.col-two {
+		ul {
+			padding: 0px 0px 0px 40px;
+			margin: 15px 0px 30px 0px;
+		}
+	}
+	.buttons-container {
+		padding-top: 0px !important;
+		margin-top: 20px;
+	}
+}

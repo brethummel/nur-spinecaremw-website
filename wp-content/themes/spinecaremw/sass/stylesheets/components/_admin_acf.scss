@@ -1,0 +1,77 @@
+.acf-postbox.seamless {
+	.acf-field-flexible-content.acf-field-610ac7050d4ff {
+		>.acf-label {
+			
+		}
+		.acf-input {
+			.acf-flexible-content {
+				.values {
+					.layout {
+						&.-collapsed {
+							&.-off {
+								
+							}
+						}
+						.acf-fields {
+							.acf-tab-wrap {
+								ul.acf-tab-group {
+									li {
+										&.admin-tab { // hide/show admin tab
+											&.active {
+												
+											}
+										}
+									}
+								}
+							}
+							.acf-field-group {
+								>.acf-label {
+									
+								}
+							}
+							.acf-field-group[data-name="button"] {
+								>.acf-input {
+									>.acf-fields {
+										>.acf-field-group[data-name="button"] {
+											>.acf-label {
+												
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					.acf-fc-layout-handle {
+						
+					}
+				}
+			}
+		}
+	}
+}
+body {
+	&.show-admin-tab {
+		.acf-postbox.seamless {
+			.acf-field-flexible-content {
+				.acf-input {
+					.acf-flexible-content {
+						.layout {
+							.acf-fields {
+								.acf-tab-wrap {
+									ul.acf-tab-group {
+										li {
+											&.admin-tab {
+												
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

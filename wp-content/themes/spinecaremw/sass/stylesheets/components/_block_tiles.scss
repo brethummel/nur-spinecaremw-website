@@ -1,0 +1,266 @@
+.block-tiles {
+    .container {
+        @include media-breakpoint-only(xl) {
+			
+        }
+    }
+    &.cards {
+        .tile {
+            .card-container {
+                @include media-breakpoint-down(sm) {
+					
+                }
+                @include media-breakpoint-only(xs) {
+					
+                }
+                @include media-breakpoint-only(xxs) {
+					
+                }
+            }
+            &.image {
+                &.col-md-5 {
+                    @include media-breakpoint-only(md) {
+						
+                    }
+                }
+                .card-container {
+                    .image {
+                        @include media-breakpoint-only(sm) {
+							
+                        }
+                        @include media-breakpoint-only(xs) {
+							
+                        }
+                        img {
+							
+                        }
+                    }
+                    .text {
+                        @include media-breakpoint-down(xs) {
+							
+                        }
+                        @include media-breakpoint-only(sm) {
+							
+                        }
+                        @include media-breakpoint-only(xl) {
+							
+                        }
+                    }
+                }
+            }
+            &.button {
+                .card-container {
+                    .buttons {
+						
+                    }
+                }
+                &.image {
+                    .card-container {
+						
+                    }
+                }
+                &.icon {
+                    .card-container {
+						
+                    }
+                }
+            }
+        }
+    }
+    &.columns {
+        
+    }
+    .tile {
+        .image {
+            @include media-breakpoint-down(xs) {
+				
+            }
+            @include media-breakpoint-only(sm) {
+				
+            }
+			img {
+				
+			}
+        }
+        .text {
+            @include media-breakpoint-down(xs) {
+				
+            }
+            @include media-breakpoint-only(sm) {
+				
+            }
+            @include media-breakpoint-only(xl) {
+				
+            }
+            p {
+				
+            }
+        }
+        &.button {
+            &.icon {
+				
+            }
+            .buttons {
+				
+            }
+        }
+    }
+    &.cards {
+        &.quick-facts {
+            .container {
+                .row {
+                    @include media-breakpoint-up(md) {
+                        margin-left: -2px;
+                        margin-right: -2px;
+                    }
+                }
+            }
+            .tile {
+                margin-bottom: 4px;
+                @include media-breakpoint-up(md) {
+                    -ms-flex: 0 0 50%;
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                    padding-right: 2px;
+                    padding-left: 2px;
+                    &:first-child {
+                        .card-container {
+                            border-top-left-radius: 10px;
+                        }
+                    }
+                    &:nth-child(2) {
+                        .card-container {
+                            border-top-right-radius: 10px;
+                        }
+                    }
+                    &:nth-last-child(2) {
+                        .card-container {
+                            border-bottom-left-radius: 10px;
+                        }
+                    }
+                    &:last-child {
+                        .card-container {
+                            border-bottom-right-radius: 10px;
+                        }
+                    }
+                    .card-container {
+                        .image {
+
+                        }
+                        .text {
+                            padding-left: 24px;
+                            width: calc( 100% - 64px );
+                        }
+                    }
+                }
+                @include media-breakpoint-only(md) {
+                    .card-container {
+                        padding: 28px 40px 28px 22px !important;
+                        .image {
+                            width: 50px !important;
+                        }
+                        .text {
+                            padding-left: 20px;
+                            width: calc( 100% - 50px );
+                        }
+                    }
+                }
+                @include media-breakpoint-down(sm) {
+                    &:first-child {
+                        .card-container {
+                            border-top-right-radius: 10px;
+                            border-top-left-radius: 10px;
+                        }
+                    }
+                    &:last-child {
+                        .card-container {
+                            border-bottom-right-radius: 10px;
+                            border-bottom-left-radius: 10px;
+                        }
+                    }
+                    .card-container {
+                        width: 100%;
+                        flex-direction: column;
+                        .image {
+                            margin-bottom: 24px !important;
+                        }
+                        .text {
+                            width: 100%;
+                        }
+                    }
+                }
+                .card-container {
+                    box-shadow: none;
+                    background-color: $c-secondary;
+                    display: flex;
+                    padding: 32px 48px 32px 28px;
+                    .image {
+                        width: 64px;
+                        margin: 0px;
+                    }
+                    .text {
+                        text-align: left;
+                        h4 {
+                            display: none;
+                        }
+                        h3 {
+                            color: $white;
+                            margin-bottom: 0px;
+                            a {
+                                color: $white;
+                                text-decoration: underline;
+                                white-space: nowrap;
+                                &:hover {
+                                    color: $yellow;
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                        p {
+                            color: $white;
+                            font-size: 18px;
+                            line-height: 1.5;
+                            a {
+                                color: $white;
+                                text-decoration: underline;
+                                &:hover {
+                                    color: $yellow;
+                                    text-decoration: underline;
+                                }
+                                &:only-child {
+                                    font-size: 16px;
+                                    font-weight: $f-bold;
+                                    letter-spacing: 1px;
+                                    text-transform: uppercase;
+                                    transition: all .4s;
+                                    color: $white;
+                                    text-decoration: none;
+                                    display: inline-block;
+                                    margin-top: 10px;
+                                    &:hover {
+                                        color: $yellow;
+                                        text-decoration: none;
+                                        &:after {
+                                            color: $yellow;
+                                        }
+                                    }
+                                    &:after {
+                                        content: "\e701";
+                                        color: $yellow;
+                                        font-family: $f-microns;
+                                        transition: all .4s;
+                                        display: inline-block;
+                                        font-size: 18px;
+                                        position: relative;
+                                        top: 2px;
+                                        margin-left: 5px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

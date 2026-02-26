@@ -1,0 +1,115 @@
+.block-bio {
+    &.light {
+        .bio-col {
+            .person-container {
+                p.title {
+                    color: $c-primary;
+                }
+            }
+        }
+    }
+    &.dark {
+        .bio-col {
+            .person-container {
+                p.title {
+                    color: $white;
+                }
+            }
+        }
+    }
+    .portrait-col {
+        
+    }
+    .bio-col {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include media-breakpoint-up(md) {
+            padding-left: 40px;
+        }
+        .person-container {
+            margin-bottom: 15px;
+            h3 {
+                display: inline-block;
+                margin-right: 9px;
+            }
+            p.title {
+                display: inline-block;
+                font-size: 22px;
+                font-style: italic;
+				margin-top: 0px;
+            }
+        }
+        p.read-more {
+            display: block !important;
+            margin-top: 8px;
+            a {
+                font-size: 14px;
+                &:after {
+                    display: inline-block;
+                    position: relative;
+                    font-family: typicons !important;
+                    content: "\e01d";
+                    top: 1px;
+                    margin-left: 6px;
+                }
+                &.open {
+                    &:after {
+                        content: "\e01e";
+                    }
+                }
+            }
+        }
+        .bio-container {
+            &.read-more {
+                max-height: 280px;
+                position: relative;
+                overflow: hidden;
+                transition: max-height 2s ease-out, height .3s ease-out;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 50px;
+                    bottom: 0px;
+                    left: 0px;
+                    background-repeat: repeat-x;
+                    transition: opacity .3s;
+                    opacity: 1;
+                }
+                &.open {
+                    max-height: 2000px;
+                    &:after {
+                        opacity: 0;
+                    }
+                }
+                &.bkgnd-light {
+                    &:after {
+                        background-image: url("images/mask_bottom_light.png");
+                    }
+                }
+                &.bkgnd-white {
+                    &:after {
+                        background-image: url("images/mask_bottom_white.png");
+                    }
+                }
+                &.bkgnd-primary {
+                    &:after {
+                        background-image: url("images/mask_bottom_primary.png");
+                    }
+                }
+                &.bkgnd-secondary {
+                    &:after {
+                        background-image: url("images/mask_bottom_secondary.png");
+                    }
+                }
+            }
+            >.read-more {
+                display: none;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

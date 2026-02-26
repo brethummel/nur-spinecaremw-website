@@ -1,0 +1,1009 @@
+.blocks-wrapper {  /* The role of .blocks-wrapper is to apply special rules when a block is inside another block */
+    .block-textimage {
+        &.padded {
+            .text-col {
+                padding-top: $p-top * .6;
+                padding-bottom: $p-bottom * .6;
+            	@include media-breakpoint-down(xs) {
+					padding-top: $p-top-xs * .6;
+					padding-bottom: $p-bottom-xs * .6;
+				}
+            }
+            .image-col {
+                .image-container,
+                .video-container {
+                    margin-top: $p-top * .6;
+                    margin-bottom: $p-bottom * .6;
+					@include media-breakpoint-down(xs) {
+						padding-top: $p-top-xs * .6;
+						padding-bottom: $p-bottom-xs * .6;
+					}
+                }
+            }
+            &.subcategories {
+                .image-col {
+                    .image-container,
+                    .video-container {
+                        margin-top: $p-top * .6;
+                        margin-bottom: $p-bottom * .6;
+						@include media-breakpoint-down(xs) {
+							padding-top: $p-top-xs * .6;
+							padding-bottom: $p-bottom-xs * .6;
+						}
+                    }
+                }
+            }
+        }
+        &.image-left,
+        &.image-right {
+            @include media-breakpoint-down(md) {
+                .text-col {
+                    padding-top: 0px;
+                }
+                .image-col {
+                    .image-container {
+                        margin-bottom: $p-bottom * .6;
+                    }
+                }
+            }
+			@include media-breakpoint-down(xs) {
+                .image-col {
+                    .image-container {
+                        margin-bottom: $p-bottom-xs * .6;
+                    }
+                }
+			}
+        }
+    }
+}
+.block-accordion {
+    &.subcategories {
+        .blocks-wrapper {
+            .block-textimage {
+                &.padded {
+                    .image-col {
+                        .image-container,
+                        .video-container {
+                            margin-top: $p-top * .6;
+                            margin-bottom: $p-bottom * .6;
+							@include media-breakpoint-down(xs) {
+								padding-top: $p-top-xs * .6;
+								padding-bottom: $p-bottom-xs * .6;
+							}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.block-textimage {
+	.container {
+		.top {
+			.image-container {
+				img {
+					object-position: top center;
+				}
+			}
+		}
+		.middle {
+			.image-container {
+				img {
+					object-position: center center;
+				}
+			}
+		}
+		.bottom {
+			.image-container {
+				img {
+					object-position: bottom center;
+				}
+			}
+		}
+	}
+    &.padded {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        .text-col {
+            padding-top: $p-top;
+            padding-bottom: $p-bottom;
+			@include media-breakpoint-down(xs) {
+				padding-top: $p-top-xs;
+				padding-bottom: $p-bottom-xs;
+			}
+        }
+        .image-col {
+            .image-container,
+            .video-container {
+                margin-top: $p-top;
+                margin-bottom: $p-bottom;
+				@include media-breakpoint-down(md) {
+					margin-bottom: $p-bottom * .6;
+				}
+				+p.caption {
+					margin-top: ($p-bottom * -1) + 10px;
+                	margin-bottom: $p-bottom;
+				}
+            }
+			.lottie-container {
+				border: 1px solid #e7e7e8;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+        }
+    }
+    &.image.full,
+	&.lottie.full,
+    &.carousel.full {
+		position: relative;
+		&.bkgnd-white {
+			.text-col {
+				background-color: $c-bkgnd-white;
+			}
+		}
+		&.bkgnd-light {
+			.text-col {
+				background-color: $c-bkgnd-light;
+			}
+		}
+		.full-image,
+		.full-carousel {
+			position: absolute;
+			top: 0px;
+			height: 100%;
+			padding: 0px;
+			&.col-lg-5 { // stretches it slightly to line edge up with content container columns
+				-ms-flex: 0 0 43%;
+				flex: 0 0 43%;
+				max-width: 43%;
+			}
+			@include media-breakpoint-down(md) {
+				display: none !important;
+			}
+			img {
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+		.full-image {
+			&.top {
+				img {
+					object-position: top center;
+				}
+			}
+			&.middle {
+				img {
+					object-position: center center;
+				}
+			}
+			&.bottom {
+				img {
+					object-position: bottom center;
+				}
+			}
+		}
+        &.image-right {
+			.full-image,
+			.full-carousel {
+				right: 0px;
+/*				@include media-breakpoint-only(lg) {
+					padding-left: 25px;
+				}*/
+			}
+			.container {
+				.text-col {
+					@include media-breakpoint-up(lg) {
+						padding-right: 55px;
+					}
+				}
+			}
+        }
+        &.image-left {
+			.full-image {
+				left: 0px;
+/*				@include media-breakpoint-only(lg) {
+					padding-right: 30px;
+				}*/
+			}
+			.container {
+				.text-col {
+					@include media-breakpoint-up(lg) {
+						padding-left: 55px;
+					}
+				}
+			}
+        }
+		.container {
+			overflow: hidden;
+			.text-col {
+				padding-top: $p-top;
+				padding-bottom: $p-bottom;
+				@include media-breakpoint-down(md) {
+					padding-top: $p-top;
+				}
+				@include media-breakpoint-down(xs) {
+					padding-top: $p-top-xs;
+					padding-bottom: $p-bottom-xs;
+				}
+				@include media-breakpoint-up(lg) {
+					min-height: 480px;
+				}
+				.content-container {
+					@include media-breakpoint-only(md) {
+						width: $container-md;
+						max-width: $container-md;
+						padding-right: $p-container-md;
+						padding-left: $p-container-md;
+						margin: 0px auto;
+					}
+					@include media-breakpoint-only(sm) {
+						width: $container-sm;
+						max-width: $container-sm;
+						padding-right: $p-container-sm;
+						padding-left: $p-container-sm;
+						margin: 0px auto;
+					}
+					@include media-breakpoint-only(xs) {
+						width: 100vw;
+						max-width: 100vw;
+						padding-right: $p-container-xs;
+						padding-left: $p-container-xs;
+						margin: 0px auto;
+					}
+					@include media-breakpoint-only(xxs) {
+						width: 100vw;
+						max-width: 100vw;
+						padding-right: $p-container-xxs;
+						padding-left: $p-container-xxs;
+						margin: 0px auto;
+					}
+				}
+			}
+			.image-col {
+				&.top {
+					.image-container {
+						img {
+							object-position: top center;
+						}
+					}
+				}
+				&.middle {
+					.image-container {
+						img {
+							object-position: center center;
+						}
+					}
+				}
+				&.bottom {
+					.image-container {
+						img {
+							object-position: bottom center;
+						}
+					}
+				}
+				.image-container,
+				.lottie-container {
+					position: relative;
+					margin: 0px;
+					width: 100%;
+					height: 100%;
+					@include media-breakpoint-up(lg) {
+						display: none;
+					}
+					img,
+					video {
+						position: absolute;
+						height: 100%;
+						width: 100%;
+						object-fit: cover;
+						@if $max-container != true {
+							width: 100% !important;
+							max-height: $max-panel-height;
+						}
+					}
+					@include media-breakpoint-down(md) {
+						height: 450px;
+						overflow: hidden;
+						img,
+						video {
+							height: 100%;
+							width: 100%;
+							object-fit: cover;
+						}
+					}
+					@include media-breakpoint-down(xs) {
+						max-height: 450px;
+						height: 85vw;
+					}
+				}
+			}
+		}
+    }
+	&.carousel {
+		&.full {
+			.full-carousel { // for full only, lg and up
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: 0px;
+					left: 0px;
+					width: 100%;
+					height: 100px;
+					background-image: url("partials/core/mild/block_textimage/images/gradient_bottom.png");
+					background-size: cover;
+					background-repeat: no-repeat;
+				}
+				&.caption {
+					&:after {
+						display: none;
+					}
+					.slides {
+						.slide {
+							&:after {
+								content: "";
+								position: absolute;
+								bottom: 0px;
+								left: 0px;
+								width: 100%;
+								height: 150px;
+								background-image: url("partials/core/mild/block_textimage/images/gradient_bottom.png");
+								background-size: cover;
+								background-repeat: no-repeat;
+							}
+						}
+					}
+				}
+				.slides {
+					height: 100%;
+					.slick-list {
+						height: 100%;
+						.slick-track {
+							height: 100%;
+							.slide {
+								height: 100%;
+								position: relative;
+								.caption {
+									position: absolute;
+									bottom: 35px;
+									left: 0px;
+									width: 100%;
+									height: 32px;
+									text-align: center;
+									color: $white;
+									z-index: 3;
+								}
+							}
+						}
+					}
+				}
+				.dots.full {
+					position: absolute;
+					bottom: 0px;
+					left: 0px;
+					margin-bottom: 4px;
+					z-index: 1;
+					ul.slick-dots {
+						li {
+							background-color: $white;
+							opacity: .45;
+							&.slick-active {
+								opacity: 1;
+							}
+						}
+					}
+				}
+				.arrows.full {
+					left: 0px;
+					width: 100%;
+					@include media-breakpoint-down(md) {
+						display: none;
+					}
+					.next,
+					.prev {
+						bottom: 13px;
+						svg {
+							&:hover {
+								opacity: 1;
+							}
+							opacity: .45;
+							polyline {
+								stroke: $white;
+							}
+						}
+					}
+					.prev {
+						margin-left: 4px;
+						left: 10px;
+					}
+					.next {
+						margin-left: 4px;
+						right: 10px;
+					}
+				}
+			}
+			.carousel-container { // for full only, md and down
+				.slides {
+					height: 100%;
+					.slick-list {
+						height: 100%;
+						.slick-track {
+							height: 100%;
+							.slide {
+								height: 100%;
+								img {
+									position: relative;
+								}
+							}
+						}
+					}
+				}
+				.arrows.main {
+					@include media-breakpoint-up(lg) {
+						display: none;
+					}
+				}
+				.dots.main {
+					@include media-breakpoint-up(lg) {
+						display: none;
+					}
+					@include media-breakpoint-down(md) {
+						margin-bottom: 0px;
+					}
+				}
+			}
+		}
+		.carousel-container { // for square or rect only
+			position: relative;
+			@include media-breakpoint-up(lg) {
+				margin-bottom: $p-bottom;
+			}
+			.image-container {
+				margin-bottom: 0px !important;
+				.slick-list {
+					height: 100%;
+					.slick-track {
+						height: 100%;
+						.slide {
+							position: relative;
+							&.caption {
+								&:after {
+									content: "";
+									position: absolute;
+									bottom: 0px;
+									left: 0px;
+									width: 100%;
+									height: 100px;
+									background-image: url("partials/core/mild/block_textimage/images/gradient_bottom.png");
+									background-size: cover;
+									background-repeat: no-repeat;
+								}
+							}
+							&.top {
+								img {
+									object-position: top center;
+								}
+							}
+							&.middle {
+								img {
+									object-position: center center;
+								}
+							}
+							&.bottom {
+								img {
+									object-position: bottom center;
+								}
+							}
+							.caption {
+								position: absolute;
+								bottom: 0px;
+								left: 0px;
+								width: 100%;
+								height: 32px;
+								text-align: center;
+								color: $white;
+								z-index: 1;
+							}
+						}
+					}
+				}
+			}
+			.arrows.main {
+				bottom: -46px;
+				left: 0px;
+				width: 100%;
+				.prev {
+					left: 0px;
+				}
+				.next {
+					right: 0px;
+				}
+			}
+		}
+		.dots {
+			position: absolute;
+			width: 100%;
+			height: 32px;
+			margin-bottom: $p-bottom - 30px;
+			margin-top: 12px;
+			z-index: 1;
+			ul.slick-dots {
+				text-align: center;
+				margin: 0px auto;
+				padding: 0px 0px 10px 0px;
+				list-style: none;
+				position: relative;
+				li {
+					margin: 0px 6px;
+					padding: 0px;
+					display: inline-block;
+					height: 8px;
+					width: 8px;
+					border-radius: 8px;
+					cursor: pointer;
+					background-color: $grey;
+					opacity: .35;
+					&.slick-active {
+						opacity: 1;
+					}
+					button {
+						display: none !important;
+					}
+					&:before {
+						display: none;
+					}
+				}
+			}
+		}
+		.arrows {
+			position: absolute;
+			bottom: 0px;
+			left: 15px;
+			width: calc(100% - 30px);
+			height: 54px;
+			.prev,
+			.next {
+				position: absolute;
+				width: 30px;
+				bottom: 9px;
+				cursor: pointer;
+				z-index: 2;
+				svg {
+					height: 24px;
+					width: 24px;
+					opacity: .35;
+					&:hover {
+						opacity: 1;
+					}
+					polyline {
+						fill: none;
+						stroke: $grey;
+						stroke-miterlimit: 10;
+						stroke-width: 12px;
+					}
+				}
+			}
+			.prev {
+				left: 15px;
+				svg {
+					margin-left: 1px;
+				}
+			}
+			.next {
+				right: 15px;
+				svg {
+					margin-left: 4px;
+				}
+			}
+		}
+	}
+    &.image-right {
+        @include media-breakpoint-up(lg) {
+            .text-col {
+                padding-right: 55px;
+            }
+			.image-col {
+				padding-left: 0px;
+			}
+        }
+        @include media-breakpoint-down(md) {
+            .image-col {
+                .image-container {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+    &.image-left {
+        @include media-breakpoint-up(lg) {
+            .text-col {
+                padding-left: 55px;
+            }
+			.image-col {
+				padding-right: 0px;
+			}
+        }
+        @include media-breakpoint-down(md) {
+            .image-col {
+                .image-container {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+    .text-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .image-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+		.video-container {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+			iframe {
+				height: 100%;
+				width: 100%;
+			}
+		}
+        &.square {
+			&.col-lg-5 {
+				$ratio: 1;
+				$multiplier: 0.41666667;
+				.image-container,
+				.video-container {
+					@include media-breakpoint-only(xxs) {
+						/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+						height: calc((100vw - (2 * 20px)) * 1);
+					}
+					@include media-breakpoint-only(xs) {
+						/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+						height: calc((100vw - (2 * 25px)) * 1);
+					}
+					@include media-breakpoint-only(sm) {
+						height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+					}
+					@include media-breakpoint-only(md) {
+						height: ($container-md - (2 * $p-container-md)) * $ratio;
+					}
+					@include media-breakpoint-only(lg) {
+						height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+					}
+					@include media-breakpoint-only(xl) {
+						height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+					}
+				}
+			}
+			&.col-lg-6 {
+				$ratio: 1;
+				$multiplier: 0.5;
+				.image-container,
+				.video-container {
+					@include media-breakpoint-only(xxs) {
+						/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+						height: calc((100vw - (2 * 20px)) * 1);
+					}
+					@include media-breakpoint-only(xs) {
+						/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+						height: calc((100vw - (2 * 25px)) * 1);
+					}
+					@include media-breakpoint-only(sm) {
+						height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+					}
+					@include media-breakpoint-only(md) {
+						height: ($container-md - (2 * $p-container-md)) * $ratio;
+					}
+					@include media-breakpoint-only(lg) {
+						height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+					}
+					@include media-breakpoint-only(xl) {
+						height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+					}
+				}
+			}
+			&.col-lg-7 {
+				$ratio: 1;
+				$multiplier: 0.58333333;
+				.image-container,
+				.video-container {
+					@include media-breakpoint-only(xxs) {
+						/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+						height: calc((100vw - (2 * 20px)) * 1);
+					}
+					@include media-breakpoint-only(xs) {
+						/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+						height: calc((100vw - (2 * 25px)) * 1);
+					}
+					@include media-breakpoint-only(sm) {
+						height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+					}
+					@include media-breakpoint-only(md) {
+						height: ($container-md - (2 * $p-container-md)) * $ratio;
+					}
+					@include media-breakpoint-only(lg) {
+						height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+					}
+					@include media-breakpoint-only(xl) {
+						height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+					}
+				}
+			}
+        }
+        &.rect {
+			&.col-lg-5 {
+				$ratio: 0.666;
+				$multiplier: 0.41666667;
+				.image-container,
+				.video-container {
+					@include media-breakpoint-only(xxs) {
+						/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+						height: calc((100vw - (2 * 20px)) * 0.666);
+						padding-top: 0px;
+						padding-bottom: 0px;
+					}
+					@include media-breakpoint-only(xs) {
+						/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+						height: calc((100vw - (2 * 25px)) * 0.666);
+						padding-top: 0px;
+						padding-bottom: 0px;
+					}
+					@include media-breakpoint-only(sm) {
+						height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+					}
+					@include media-breakpoint-only(md) {
+						height: ($container-md - (2 * $p-container-md)) * $ratio;
+					}
+					@include media-breakpoint-only(lg) {
+						height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 30) * $ratio;
+					}
+					@include media-breakpoint-only(xl) {
+						height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 30) * $ratio;
+					}
+				}
+			}
+			&.col-lg-6 {
+				$ratio: 0.666;
+				$multiplier: 0.5;
+				.image-container,
+				.video-container {
+					@include media-breakpoint-only(xxs) {
+						/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+						height: calc((100vw - (2 * 20px)) * 0.666);
+						padding-top: 0px;
+						padding-bottom: 0px;
+					}
+					@include media-breakpoint-only(xs) {
+						/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+						height: calc((100vw - (2 * 25px)) * 0.666);
+						padding-top: 0px;
+						padding-bottom: 0px;
+					}
+					@include media-breakpoint-only(sm) {
+						height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+					}
+					@include media-breakpoint-only(md) {
+						height: ($container-md - (2 * $p-container-md)) * $ratio;
+					}
+					@include media-breakpoint-only(lg) {
+						height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 30) * $ratio;
+					}
+					@include media-breakpoint-only(xl) {
+						height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 30) * $ratio;
+					}
+				}
+			}
+			&.col-lg-7 {
+				$ratio: 0.666;
+				$multiplier: 0.58333333;
+				.image-container,
+				.video-container {
+					@include media-breakpoint-only(xxs) {
+						/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+						height: calc((100vw - (2 * 20px)) * 0.666);
+						padding-top: 0px;
+						padding-bottom: 0px;
+					}
+					@include media-breakpoint-only(xs) {
+						/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+						height: calc((100vw - (2 * 25px)) * 0.666);
+						padding-top: 0px;
+						padding-bottom: 0px;
+					}
+					@include media-breakpoint-only(sm) {
+						height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+					}
+					@include media-breakpoint-only(md) {
+						height: ($container-md - (2 * $p-container-md)) * $ratio;
+					}
+					@include media-breakpoint-only(lg) {
+						height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 30) * $ratio;
+					}
+					@include media-breakpoint-only(xl) {
+						height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 30) * $ratio;
+					}
+				}
+			}
+            .image-container {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                img,
+				video {
+                    position: relative;
+                    object-fit: cover;
+					height: 100%;
+					width: 100%;
+                }
+            }
+        }
+        &.circle {
+            .image-container {
+                border-radius: 60%;
+                overflow: hidden;
+            }
+        }
+        &.widescreen {
+			&.col-lg-5 {
+				$ratio: 0.5625;
+				$multiplier: 0.41666667;
+				.video-container {
+					@include media-breakpoint-only(xxs) {
+						/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+						height: calc((100vw - (2 * 20px)) * 0.5625);
+					}
+					@include media-breakpoint-only(xs) {
+						/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+						height: calc((100vw - (2 * 25px)) * 0.5625);
+					}
+					@include media-breakpoint-only(sm) {
+						height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+					}
+					@include media-breakpoint-only(md) {
+						height: ($container-md - (2 * $p-container-md)) * $ratio;
+					}
+					@include media-breakpoint-only(lg) {
+						height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+					}
+					@include media-breakpoint-only(xl) {
+						height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+					}
+				}
+			}
+			&.col-lg-6 {
+				$ratio: 0.5625;
+				$multiplier: 0.5;
+				.video-container {
+					@include media-breakpoint-only(xxs) {
+						/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+						height: calc((100vw - (2 * 20px)) * 0.5625);
+					}
+					@include media-breakpoint-only(xs) {
+						/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+						height: calc((100vw - (2 * 25px)) * 0.5625);
+					}
+					@include media-breakpoint-only(sm) {
+						height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+					}
+					@include media-breakpoint-only(md) {
+						height: ($container-md - (2 * $p-container-md)) * $ratio;
+					}
+					@include media-breakpoint-only(lg) {
+						height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+					}
+					@include media-breakpoint-only(xl) {
+						height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+					}
+				}
+			}
+			&.col-lg-7 {
+				$ratio: 0.5625;
+				$multiplier: 0.58333333;
+				.video-container {
+					@include media-breakpoint-only(xxs) {
+						/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+						height: calc((100vw - (2 * 20px)) * 0.5625);
+					}
+					@include media-breakpoint-only(xs) {
+						/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+						height: calc((100vw - (2 * 25px)) * 0.5625);
+					}
+					@include media-breakpoint-only(sm) {
+						height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+					}
+					@include media-breakpoint-only(md) {
+						height: ($container-md - (2 * $p-container-md)) * $ratio;
+					}
+					@include media-breakpoint-only(lg) {
+						height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+					}
+					@include media-breakpoint-only(xl) {
+						height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+					}
+				}
+			}
+        }
+        &.fullscreen {
+			&.col-lg-5 {
+				$ratio: 0.75;
+				$multiplier: 0.41666667;
+				.video-container {
+					@include media-breakpoint-only(xxs) {
+						/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+						height: calc((100vw - (2 * 20px)) * 0.75);
+					}
+					@include media-breakpoint-only(xs) {
+						/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+						height: calc((100vw - (2 * 25px)) * 0.75);
+					}
+					@include media-breakpoint-only(sm) {
+						height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+					}
+					@include media-breakpoint-only(md) {
+						height: ($container-md - (2 * $p-container-md)) * $ratio;
+					}
+					@include media-breakpoint-only(lg) {
+						height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+					}
+					@include media-breakpoint-only(xl) {
+						height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+					}
+				}
+			}
+			&.col-lg-6 {
+				$ratio: 0.75;
+				$multiplier: 0.5;
+				.video-container {
+					@include media-breakpoint-only(xxs) {
+						/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+						height: calc((100vw - (2 * 20px)) * 0.75);
+					}
+					@include media-breakpoint-only(xs) {
+						/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+						height: calc((100vw - (2 * 25px)) * 0.75);
+					}
+					@include media-breakpoint-only(sm) {
+						height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+					}
+					@include media-breakpoint-only(md) {
+						height: ($container-md - (2 * $p-container-md)) * $ratio;
+					}
+					@include media-breakpoint-only(lg) {
+						height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+					}
+					@include media-breakpoint-only(xl) {
+						height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+					}
+				}
+			}
+			&.col-lg-7 {
+				$ratio: 0.75;
+				$multiplier: 0.58333333;
+				.video-container {
+					@include media-breakpoint-only(xxs) {
+						/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+						height: calc((100vw - (2 * 20px)) * 0.75);
+					}
+					@include media-breakpoint-only(xs) {
+						/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+						height: calc((100vw - (2 * 25px)) * 0.75);
+					}
+					@include media-breakpoint-only(sm) {
+						height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+					}
+					@include media-breakpoint-only(md) {
+						height: ($container-md - (2 * $p-container-md)) * $ratio;
+					}
+					@include media-breakpoint-only(lg) {
+						height: ((($container-lg - (2 * $p-container-lg) + 30) * $multiplier) - 15) * $ratio;
+					}
+					@include media-breakpoint-only(xl) {
+						height: ((($container-xl - (2 * $p-container-xl) + 30) * $multiplier) - 15) * $ratio;
+					}
+				}
+			}
+        }
+    }
+}

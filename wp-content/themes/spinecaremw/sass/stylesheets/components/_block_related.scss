@@ -1,0 +1,46 @@
+.blocks-wrapper {
+    .block-related {
+        &.padded {
+			@include media-breakpoint-down(xs) {
+				
+			}
+            &.above {
+				
+            }
+            &.below {
+				
+            }
+        }
+    }
+}
+.block-related {
+	.container {
+		.row {
+			.articles-container {
+				-ms-flex-pack: center !important;
+				justify-content: center !important;
+			}
+		}
+		h2 {
+			
+		}
+		.article {
+			.image {
+				img {
+					@include media-breakpoint-only(md) {
+						
+					}
+					@include media-breakpoint-down(xs) {
+						
+					}
+				}
+			}
+			h4 {
+				
+			}
+			p {
+				
+			}
+		}
+	}
+}

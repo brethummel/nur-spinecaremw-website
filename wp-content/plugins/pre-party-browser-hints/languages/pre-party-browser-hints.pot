@@ -1,0 +1,704 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Pre* Party Resource Hints\n"
+"POT-Creation-Date: 2021-09-07 12:33-0600\n"
+"PO-Revision-Date: 2021-09-07 12:33-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: pre-party-browser-hints.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#. Plugin Name of the plugin/theme
+#: includes/admin/Dashboard.php:27
+msgid "Pre* Party Resource Hints"
+msgstr ""
+
+#: includes/admin/Dashboard.php:96
+msgid "Request a New Feature or Report a Bug"
+msgstr ""
+
+#: includes/admin/Dashboard.php:102
+msgid "Help make this plugin better!"
+msgstr ""
+
+#: includes/admin/Dashboard.php:103
+msgid "Email address:"
+msgstr ""
+
+#: includes/admin/Dashboard.php:105
+msgid "Submit"
+msgstr ""
+
+#: includes/admin/DisplayHints.php:56
+msgid "URL"
+msgstr ""
+
+#: includes/admin/DisplayHints.php:57
+msgid "Hint Type"
+msgstr ""
+
+#: includes/admin/DisplayHints.php:58
+msgid "As Attr"
+msgstr ""
+
+#: includes/admin/DisplayHints.php:59
+msgid "Type Attr"
+msgstr ""
+
+#: includes/admin/DisplayHints.php:60
+msgid "Crossorigin"
+msgstr ""
+
+#: includes/admin/DisplayHints.php:61
+msgid "Media"
+msgstr ""
+
+#: includes/admin/DisplayHints.php:62
+msgid "Status"
+msgstr ""
+
+#: includes/admin/DisplayHints.php:63
+msgid "Created By"
+msgstr ""
+
+#: includes/admin/DisplayHints.php:82
+msgid "Delete"
+msgstr ""
+
+#: includes/admin/DisplayHints.php:83
+msgid "Enable"
+msgstr ""
+
+#: includes/admin/DisplayHints.php:84
+msgid "Disable"
+msgstr ""
+
+#: includes/admin/DisplayHints.php:115
+msgid "Enter a URL or domain name.."
+msgstr ""
+
+#: includes/admin/DisplayHints.php:144
+msgid "Update Resource Hint"
+msgstr ""
+
+#: includes/admin/LoadAdmin.php:48
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: includes/admin/LoadAdmin.php:158 includes/admin/LoadAdmin.php:173
+msgid "This feature is only available after upgrading to the Pro version."
+msgstr ""
+
+#: includes/admin/LoadAdmin.php:159
+msgid ""
+"Auto Preload will automatically create the proper preload hints "
+"automatically, for each post on your website."
+msgstr ""
+
+#: includes/admin/LoadAdmin.php:174
+msgid ""
+"Auto Prerender will automatically create the proper prerender hints "
+"automatically, for each post on your website.\n"
+"\t\tThis feature works by implementing custom analytics to determine which "
+"page a visitor is most likely to navigate towards after from a given page, "
+"and a prerender hint is created pointing to that destination.\n"
+"\t\tThis prerender hint allows a visitor to download an entire webpage in "
+"the background, allowing the page to load instantly.\n"
+"\t\tFor example, if most visitors navigate to your /shop page from your home "
+"page, a prerender hint will be created for the /shop URL, and that page will "
+"be downloaded while the visitor is on the home page. "
+msgstr ""
+
+#: includes/admin/NewHint.php:37
+msgid "Add New Resource Hint"
+msgstr ""
+
+#: includes/admin/NewHint.php:51
+msgid "Insert Resource Hint"
+msgstr ""
+
+#: includes/admin/NewHint.php:73
+msgid ""
+"Enter a domain name for dns-prefetch and preconnect hints, otherwise enter a "
+"full URL."
+msgstr ""
+
+#: includes/admin/NewHint.php:75
+msgid "Domain or URL:"
+msgstr ""
+
+#: includes/admin/NewHint.php:79
+msgid "Enter valid domain or URL here..."
+msgstr ""
+
+#: includes/admin/NewHint.php:100
+msgid ""
+"Insert domain names from external URL's to perform DNS resolution early."
+msgstr ""
+
+#: includes/admin/NewHint.php:102
+msgid "DNS-Prefetch"
+msgstr ""
+
+#: includes/admin/NewHint.php:112
+msgid ""
+"Insert the full URL of a resource that is likely to be needed on a page "
+"later."
+msgstr ""
+
+#: includes/admin/NewHint.php:114 includes/admin/views/FAQ.php:183
+msgid "Prefetch"
+msgstr ""
+
+#: includes/admin/NewHint.php:124
+msgid ""
+"Insert the full URL of a page/post your visitors are likely to navigate "
+"towards."
+msgstr ""
+
+#: includes/admin/NewHint.php:126 includes/admin/views/FAQ.php:204
+msgid "Prerender"
+msgstr ""
+
+#: includes/admin/NewHint.php:136
+msgid ""
+"Insert domain names from external URL's to perform DNS resolution, initial "
+"connection, and SSL negotiation ahead of time."
+msgstr ""
+
+#: includes/admin/NewHint.php:138 includes/admin/views/FAQ.php:236
+msgid "Preconnect"
+msgstr ""
+
+#: includes/admin/NewHint.php:148
+msgid "Insert the full URL of a resource that is needed on a current page."
+msgstr ""
+
+#: includes/admin/NewHint.php:150 includes/admin/views/FAQ.php:277
+msgid "Preload"
+msgstr ""
+
+#: includes/admin/NewHint.php:186
+msgid ""
+"Crossorigin applies to preconnect and preload hints only. For various "
+"reasons, font files (and others) need to be loaded with the crossorigin "
+"attribute.<a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/"
+"Preloading_content#Cross-origin_fetches\">Source: Mozilla</a>"
+msgstr ""
+
+#: includes/admin/NewHint.php:189
+msgid "Crossorigin?"
+msgstr ""
+
+#: includes/admin/NewHint.php:196
+msgid ""
+"Setting this attribute allows the browser to more accurately: <br/> 1) "
+"prioritize resource loading <br/>2) store in browser cache <br/>3) apply the "
+"correct headers. <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/"
+"Preloading_content#The_basics'>Source: Mozilla</a>"
+msgstr ""
+
+#: includes/admin/NewHint.php:198
+msgid "as:"
+msgstr ""
+
+#: includes/admin/NewHint.php:207
+msgid ""
+"&lt;link&gt; elements can accept a type attribute, which contains the MIME "
+"type of the resource the element points to. This is especially useful when "
+"preloading resources — the browser will use the type attribute value to work "
+"out if it supports that resource, and will only download it if so, ignoring "
+"it if not. <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/"
+"Preloading_content#Including_a_MIME_type\">Source: Mozilla</a>. (This "
+"attribute will attempt to be added automatically.)"
+msgstr ""
+
+#: includes/admin/NewHint.php:208
+msgid "Mime Type:"
+msgstr ""
+
+#: includes/admin/NewHint.php:223
+msgid ""
+"This applies only to the preload resource hint. This can be used to allow "
+"hints to only load on certain devices, screen dimensions, and more. <a href="
+"\"https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/"
+"Using_media_queries\">https://developer.mozilla.org/en-US/docs/Web/CSS/"
+"Media_Queries/Using_media_queries</a>"
+msgstr ""
+
+#: includes/admin/NewHint.php:224
+msgid "Media Attribute"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:118
+msgid "#dns-prefetch-info"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:119
+msgid "#prefetch-info"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:120
+msgid "#preconnect-info"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:121
+msgid "#preload-info"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:122
+msgid "#prerender-info"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:141
+msgid "DNS Prefetch"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:148
+msgid ""
+"As you can see, the typical way DNS lookups occur is when each resource is "
+"requested by the browser. By inserting the below DNS prefetch hints at the "
+"top of the page, the browser will know to perform the DNS resolution before "
+"it is asked:"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:170
+msgid ""
+"The DNS lookups occur before each resource is requested, preventing that "
+"step from slowing down resource delivery. This can improve the loading of "
+"each resource by hundreds of milliseconds or more, which can be particularly "
+"helpful for mobile users."
+msgstr ""
+
+#: includes/admin/views/FAQ.php:171 includes/admin/views/FAQ.php:190
+#: includes/admin/views/FAQ.php:222 includes/admin/views/FAQ.php:264
+#: includes/admin/views/FAQ.php:293
+msgid "More information:"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:185
+msgid ""
+"Link prefetching utilizes browser idle time to download resources that the "
+"user might require in the immediate future. When idle, the browser begins "
+"silently downloading the specified documents and stores them in the browser "
+"cache. When that resource is requested, it can be served immediately, "
+"instead of downloading the entire resource from scratch. Prefetching will "
+"allow an entire resource to be loaded, instead of simply resolving the DNS "
+"as in DNS prefetching."
+msgstr ""
+
+#: includes/admin/views/FAQ.php:187
+msgid ""
+"For example, if you have a CSS, JavaScript, or Google font that will be "
+"requested by a page a user is likely to click on, prefetching this file "
+"allows the browser to download the file ahead of time, improving the future "
+"page load time."
+msgstr ""
+
+#: includes/admin/views/FAQ.php:188
+msgid ""
+"The waterfall chart below indicates when the browser loads a large image "
+"that has been prefetched:"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:193
+msgid "Firefox: Link prefetching FAQ"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:194
+msgid "Wikipedia"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:195
+msgid "W3C Resource Hints: Prefetch"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:208
+msgid ""
+"Since prerendering can be resource intentize, this should only be used if "
+"you are confident a particular page will be visited. Frequently this would "
+"be the most popular link visitors navigate towards, such as FAQ, "
+"information, or service pages."
+msgstr ""
+
+#: includes/admin/views/FAQ.php:217
+msgid "The waterfall chart of the website is below:"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:219
+msgid ""
+"As you can see, after the given browser has finished loading the host URL's "
+"typical contents, the browser will begin loading the prerendered page in the "
+"background. So when a user clicks to navigate to YouTube, that website will "
+"be rendered instantly!"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:225
+msgid "Steve Souders \"Prebrowsing\""
+msgstr ""
+
+#: includes/admin/views/FAQ.php:226
+msgid "W3C: Prerender"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:237
+msgid ""
+"Preconnecting allows the browser to establish a connection to an external "
+"domain before the request has been made."
+msgstr ""
+
+#: includes/admin/views/FAQ.php:238
+msgid ""
+"Typically the three steps involved in establishing a connection (DNS lookup, "
+"initial connection, and SSL negotiation) must be carried out when the "
+"resource is requested by the browser. Preconnecting allows these steps to be "
+"made proactively. This is similar to DNS prefetching, however preconnecting "
+"allows the initial connection and SSL negotiation to be resolved as well, "
+"instead of just the DNS lookup as is the case with DNS prefetching."
+msgstr ""
+
+#: includes/admin/views/FAQ.php:239
+msgid ""
+"This example page </a> loads a Google Font, embedded YouTube iframe video, "
+"and a Google Analytics tracker in the typical manner, without taking "
+"advantage of the preconnect resource hint. A summary of the normal requests "
+"this demo website makes is shown in the chart below, courtesy of <a href="
+"\"https://www.webpagetest.org\">webpagetest.org</a>"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:240
+msgid "Typical HTTPS Socket Negotiation Periods:"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:243
+msgid ""
+"Let's add the corresponding preconnect hints in the top of the web page and "
+"see what happens:"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:260
+msgid "HTTPS Socket Negotiation With Preconnect Enabled:"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:262
+msgid ""
+"As you can see, the three steps required to load resources from external "
+"domains occurs much earlier in the page request, reducing the need for these "
+"to be loaded earlier. The \"crossorigin\" attribute must be used when "
+"preconnecting to fonts, if this is left out only a DNS prefetch will be "
+"performed."
+msgstr ""
+
+#: includes/admin/views/FAQ.php:263
+msgid ""
+"Basically, preconnecting is DNS-prefetching, but also takes care of the "
+"initial connection and SSL negotiation, whereas DNS prefetching solely "
+"handles the DNS lookup."
+msgstr ""
+
+#: includes/admin/views/FAQ.php:266
+msgid "W3C: Preconnect"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:267
+msgid "Eliminating Roundtrips with Preconnect, by Ilya Grigorik"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:280
+msgid ""
+"Let's see what the waterfall chart looks like after the following resource "
+"hints are placed into the top of a web page:"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:291
+msgid "Caution!"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:295
+msgid "W3C: Preload"
+msgstr ""
+
+#: includes/admin/views/FAQ.php:296
+msgid "Prioritizing Your Resources with link rel=\"preload\""
+msgstr ""
+
+#: includes/admin/views/Settings.php:34
+msgid "Save Changes"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:21
+msgid "Disable automatically generated WordPress resource hints?"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:24
+msgid ""
+"This option will remove three resource hints automatically generated by "
+"WordPress, as of 4.8.2."
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:29
+msgid "Send resource hints in HTML head or HTTP header?"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:32
+msgid "HTML &lt;head&gt;"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:33
+msgid "HTTP Header"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:35
+msgid "Send hints in the HTML &lt;head&gt; or the HTTP header."
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:61
+msgid "Enable Auto Preconnect?"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:64
+msgid ""
+"This feature allows preconnect hints to be automatically created. "
+"JavaScript, CSS, and images loaded from external domains will preconnect "
+"automatically."
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:81
+msgid ""
+"Allow unauthenticated users to automatically set preconnect hints via Ajax?"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:86
+msgid ""
+"This plugin has a feature which allows preconnect hints to be automatically "
+"created asynchronously in the background with Ajax by the first user to "
+"visit a page (assuming the user has that option to be reset). There is an "
+"extremely remote possibility that if a visitor knew the hints would be set, "
+"they could choose to manually load many external scripts, which could trick "
+"the plugin script into accepting these as valid preconnect hints. But again "
+"this is a very remote possiblity and only a nuisance, not a vulnerability, "
+"due to the strict sanitization procedures in place."
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:91
+msgid "Reset automatically created preconnect links?"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:95
+msgid ""
+"This will reset automatically created preconnect hints, allowing new "
+"preconnect hints to be generated when your front end is loaded."
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:114
+msgid "Enable Auto Prefetch?"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:119
+msgid ""
+"This allows for navigation links to be automatically prefetched while in "
+"viewport. When navigation (anchor) links are being moused over, this feature "
+"will initiate a prefetch request for the URL in the link. Select No "
+"(default) to disable this feature."
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:124
+msgid "Disable prefetching for logged in users?"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:129
+msgid ""
+"It usually is not necessary for logged in users to prefetch content. This "
+"will save some server resources."
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:134
+msgid "Prefetch initiation delay (seconds):"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:139
+msgid ""
+"Start prefetching after a short delay. Will be started when the browser "
+"becomes idle. Default is 0 seconds."
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:144
+msgid "Ignore these keywords:"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:149
+msgid ""
+"A list of keywords to ignore from prefetching. One keyword per line. You may "
+"use an astericks (*) after a keyword (ex: \"/products*\") to act as a "
+"wildcard, preventing links with that value from being prefetched."
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:154
+msgid "Maximum requests per second:"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:159
+msgid ""
+"Number of prefetch hints that can be created per second. Default is 3 per "
+"second."
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:164
+msgid "Delay in prefetching links on mouse hover (milliseconds)"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:169
+msgid ""
+"Set a short pause after the mouse hovers over a link before the prefetch "
+"hint is created. Default is 50 milliseconds."
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:174
+msgid ""
+"Maximum number of prefetch hints loaded? (Excluding mouse hover or touch "
+"events)"
+msgstr ""
+
+#: includes/admin/views/SettingsView.php:179
+msgid ""
+"Set the maximum number of prefetch hints you would like to be loaded. This "
+"can save some server resources. Default is 10."
+msgstr ""
+
+#: includes/admin/wp-list-table.php:179
+msgid "List View"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:180
+msgid "Excerpt View"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:345
+msgid "No items found."
+msgstr ""
+
+#: includes/admin/wp-list-table.php:535 includes/admin/wp-list-table.php:1370
+msgid "Show more details"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:602
+msgid "Filter by date"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:604
+msgid "All dates"
+msgstr ""
+
+#. translators: 1: month name, 2: 4-digit year
+#: includes/admin/wp-list-table.php:619
+#, php-format
+msgid "%1$s %2$d"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:670
+#, php-format
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/wp-list-table.php:671
+#, php-format
+msgid "%s approved comment"
+msgid_plural "%s approved comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/wp-list-table.php:672
+#, php-format
+msgid "%s pending comment"
+msgid_plural "%s pending comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/wp-list-table.php:678 includes/admin/wp-list-table.php:700
+#: includes/admin/wp-list-table.php:723
+msgid "No comments"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:700
+msgid "No approved comments"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:723
+msgid "No pending comments"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:799 includes/admin/wp-list-table.php:1413
+#, php-format
+msgid "%s item"
+msgid_plural "%s items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/wp-list-table.php:835
+msgid "First page"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:846
+msgid "Previous page"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:853 includes/admin/wp-list-table.php:857
+msgid "Current Page"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:863
+#, php-format
+msgctxt "paging"
+msgid "%1$s of %2$s"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:871
+msgid "Next page"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:882
+msgid "Last page"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:1107
+msgid "Select All"
+msgstr ""
+
+#: includes/admin/wp-list-table.php:1297
+msgid ""
+"This is a global resource hint, and is used on all pages and posts. To "
+"update this hint, please do so from the main Pre* Party plugin page."
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/pre-party-browser-hints/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Take advantage of the browser resource hints DNS-Prefetch, Prerender, "
+"Preconnect, Prefetch, and Preload to improve page load time."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Sam Perrow"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.linkedin.com/in/sam-perrow"
+msgstr ""

@@ -1,0 +1,277 @@
+<?php
+
+/*
+
+Name: Layerslider
+ID: block_layerslider
+Layout ID: eAx3mrufSaVUa
+Subfield ID: eAx3mrufSaVUb
+Group ID: 6568f4d973af4
+
+*/
+
+
+// ======================================= //
+//    DANGER! THIS IS BUILT DYNAMICALLY    //
+// ======================================= // 
+
+
+// Populate template options for posts
+function spr_add_layerslider_files($field) {
+
+		$sliders = glob(get_template_directory() . '/partials/custom/_templates/_layerslider/*');
+
+		// echo('<pre>'); print_r($sliders); echo('</pre>');
+		$field['choices'] = [];
+
+		foreach( $sliders as $slider ) {
+			
+			$folder = strtok(substr(strrchr($slider, '/'), 1), '.');
+			$folderName = ucwords(str_replace('_', ' ', substr($folder, 1)));
+			// echo('<pre>'); echo($folder); echo('</pre>');
+			// echo('<pre>'); echo($folderName); echo('</pre>');
+			
+			$field['choices'][$folder] = $folderName;
+			
+		}
+
+		return $field;
+}
+add_filter('acf/load_field/key=field_6568f4e2e7058', 'spr_add_layerslider_files');
+
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group( array(
+	'key' => 'group_6568f4d973af4',
+	'title' => 'BLOCK: Layerslider',
+	'fields' => array(
+		array(
+			'key' => 'field_6568f4e19c532',
+			'label' => 'Block',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_6568f5df3c7c1',
+			'label' => 'Note',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'message',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => 'Choose a Layerslider template in the settings tab.',
+			'new_lines' => 'wpautop',
+			'esc_html' => 0,
+		),
+		array(
+			'key' => 'field_6568f4e19c61d',
+			'label' => 'Settings',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_6568f4e19c657',
+			'label' => 'Block Display',
+			'name' => 'layerslider_display',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_6568f4e2e2800',
+					'label' => 'Custom Class',
+					'name' => 'custom_class',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6178670b4ade0',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_6568f4e2e2859',
+					'label' => 'Block Name',
+					'name' => 'block_name',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_63acf715515a6',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_6568f4e2e28a4',
+					'label' => 'Display Block',
+					'name' => 'display_block',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6393b3ba45832',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+			),
+		),
+		array(
+			'key' => 'field_6568f4e19c691',
+			'label' => 'Settings',
+			'name' => 'layerslider_settings',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_6568f4e2e701e',
+					'label' => 'Background',
+					'name' => 'background',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'bkgnd-white|light' => 'White',
+						'bkgnd-light|light' => 'Light Grey',
+					),
+					'default_value' => 'bkgnd-white',
+					'return_format' => 'value',
+					'multiple' => 0,
+					'allow_null' => 0,
+					'ui' => 0,
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_6568f4e2e7058',
+					'label' => 'Layerslider File',
+					'name' => 'layerslider_file',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'_single-product' => 'Single-product',
+					),
+					'default_value' => false,
+					'return_format' => 'value',
+					'multiple' => 0,
+					'allow_null' => 0,
+					'ui' => 0,
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => false,
+	'description' => '',
+	'show_in_rest' => 0,
+) );
+
+endif;
+
+?>

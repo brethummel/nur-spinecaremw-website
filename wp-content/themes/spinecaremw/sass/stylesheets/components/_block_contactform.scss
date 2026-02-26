@@ -1,0 +1,277 @@
+.block-contactform {
+    .form-col {
+        form {
+            &.cog-cognito {
+                margin-left: 0px !important;
+                margin-right: 0px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                .cog-form__container {
+                    margin-left: 0px !important;
+                    margin-right: 0px !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    box-shadow: 0px 4px 32px 0px #2A12001F, 0px 0px 4px 0px #00000014 !important;
+                    border-radius: 5px !important;
+                    padding: 48px !important;
+                    >.cog-form__content {
+                        >.cog-body {
+                            >.cog-page {
+                                .cog-row {
+                                    .cog-helptext {
+                                        p {
+                                            font-size: 18px;
+                                            em {
+                                                font-size: 16px !important;
+                                            }
+                                        }
+                                    }
+                                    .cog-content {
+                                        p {
+                                            font-size: 18px;
+                                        }
+                                    }
+                                    .cog-field {
+                                        &.is-error {
+                                            &:after {
+                                                background-color: $c-secondary !important;
+                                                outline-color: $c-secondary !important;
+                                                opacity: 0.065 !important;
+                                                border-radius: 1px !important; 
+                                            }
+                                            .cog-error-message {
+                                                background-color: $c-secondary !important;
+                                            }
+                                            .cog-input {
+                                                input {
+                                                    background-color: $white !important;
+                                                }
+                                            }
+                                        }
+                                        >.cog-label {
+                                            font-family: $f-subheads !important;
+                                            font-size: 18px !important;
+                                            line-height: 1.5 !important;
+                                            font-weight: $f-bold !important;
+                                            color: $charcoal !important;
+                                        }
+                                        .cog-input {
+                                            input,
+                                            textarea {
+                                                font-family: $f-body !important;
+                                                border: none !important;
+                                                background-color: $softwhite !important;
+                                                border-radius: 10px !important;
+                                                color: $charcoal;
+                                                font-size: 18px;
+                                                padding: 10px 20px;
+                                                &::placeholder {
+                                                    color: $slate !important;
+                                                }
+                                            }
+                                        }
+                                        .cog-checkable {
+                                            >.el-checkbox-group,
+                                            >.el-radio-group {
+                                                >.el-checkbox,
+                                                >.el-radio {
+                                                    >.el-checkbox__label,
+                                                    >.el-radio__label {
+                                                        font-size: 16px;
+                                                        padding-left: 28px;
+                                                    }
+                                                    >.el-checkbox__input,
+                                                    >.el-radio__input {
+                                                        &.is-checked {
+                                                            >.el-checkbox__inner,
+                                                            >.el-radio__inner {
+                                                                background-color: $c-secondary !important;
+                                                                &:after {
+                                                                    height: 20px;
+                                                                    width: 20px;
+                                                                    background-color: $softwhite;
+                                                                    border-radius: 50%;
+                                                                    box-shadow: unset !important;
+                                                                }
+                                                            }
+                                                        }
+                                                        >.el-checkbox__inner,
+                                                        >.el-radio__inner {
+                                                            background-color: $softwhite !important;
+                                                            border: none !important;
+                                                            border-radius: 50%;
+                                                            height: 40px;
+                                                            width: 40px;
+                                                            &:after {
+                                                                border: unset !important;
+                                                                margin: unset !important;
+                                                                transform: unset !important;
+                                                                backface-visibility: unset !important;
+                                                                transform-origin: unset !important;
+                                                                transition: all .3s;
+                                                                position: relative;
+                                                                top: 10px;
+                                                                left: 10px;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    >section {
+                                        &.cog-section {
+                                            &:first-child {
+                                                margin-top: 0px !important;
+                                            }
+                                            >.cog-section__inner {
+                                                h2 {
+                                                    font-family: $f-heads !important;
+                                                    font-size: 28px !important;
+                                                    font-style: normal !important;
+                                                    font-weight: $f-regular !important;
+                                                    line-height: 1.21 !important;
+                                                    letter-spacing: -0.9px !important;
+                                                    color: $charcoal !important;
+                                                    margin-bottom: 12px !important;
+                                                    @include media-breakpoint-down(md) {
+                                                        font-size: 26px !important;
+                                                    }
+                                                    @include media-breakpoint-down(sm) {
+                                                        font-size: 24px !important;
+                                                    }
+                                                }
+                                                >.cog-row {
+                                                    >.cog-page__navigation {
+                                                        button {
+                                                            font-size: 16px !important;
+                                                            font-weight: $f-bold !important;
+                                                            letter-spacing: 1px !important;
+                                                            text-transform: uppercase !important;
+                                                            padding: 12.5px 4px 14.5px 4px !important;
+                                                            border-radius: 50px !important;
+                                                            background: linear-gradient(90deg, #FFBF1B 0%, #FF8E3B 100%) !important;
+                                                            color: $black !important;
+                                                            transition: all .4s !important;
+                                                            &:hover {
+                                                                color: $c-secondary !important;
+                                                            }
+                                                            span {
+                                                                padding: 9px 12px 10px 20px !important;
+                                                                border-radius: 50px !important;
+                                                                background-color: $white !important;
+                                                                &:after {
+                                                                    content: "\e701" !important;
+                                                                    color: $c-secondary !important;
+                                                                    font-family: $f-microns !important;
+                                                                    display: inline-block !important;
+                                                                    font-size: 18px !important;
+                                                                    position: relative !important;
+                                                                    top: 2px !important;
+                                                                    margin-left: 5px !important;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .frm_forms {
+            form {
+                label.frm_primary_label {
+					
+                }
+                input, select, textarea {
+                }
+                .frm_blank_field {
+                    input, select, textarea {
+                        &:focus {
+							
+                        }
+                    }
+                }
+                .frm_error {
+                }
+                .frm_submit {
+                    button {
+                        &:hover {
+							
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .info-col {
+        @include media-breakpoint-down(sm) {
+			
+        }
+        .info {
+            @include media-breakpoint-down(sm) {
+				
+            }
+            h4 {
+                @include media-breakpoint-down(sm) {
+					
+                }
+            }
+            p {
+                &.icon {
+					
+                }
+                &:before {
+					
+                }
+                &.phone {
+                    &:before {
+						
+                    }
+                }
+                &.email {
+                    &:before {
+						
+                    }
+                }
+                &.address {
+                    &:before {
+						
+                    }
+                }
+            }
+        }
+    }
+    &.bkgnd-white {
+        .form-col {
+            .frm_forms {
+                form {
+                    input, select, textarea {
+                        &:focus {
+							
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.bkgnd-light {
+        .form-col {
+            .frm_forms {
+                form {
+                    input, select, textarea {
+                        &:focus {
+							
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

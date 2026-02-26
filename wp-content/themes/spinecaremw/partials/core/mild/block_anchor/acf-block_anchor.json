@@ -1,0 +1,62 @@
+[
+    {
+        "key": "group_61d3637348450",
+        "title": "BLOCK: Anchor",
+        "fields": [
+            {
+                "key": "field_61d363b26c8e2",
+                "label": "Note:",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "This block adds an \"invisible\" anchor to the page in the position you place the block so that nav or other buttons can scroll down to that point in the page. No configuration — other than specifying the anchor name — is necessary.",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_61d3637352d6b",
+                "label": "Anchor ID",
+                "name": "rule_class",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": false,
+        "description": "",
+        "show_in_rest": 0
+    }
+]

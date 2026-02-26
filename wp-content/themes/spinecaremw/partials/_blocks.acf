@@ -1,0 +1,523 @@
+<?php
+
+$themedir = get_template_directory();
+$custom = "" . PHP_EOL;
+$admin = "" . PHP_EOL;
+
+require('custom/master_fields/master_fields.acf');
+
+// ======================================= //
+//            MILD (CORE) BLOCKS           //
+// ======================================= // 
+
+$custom .= '// ======================================= //' . PHP_EOL;
+$custom .= '//            MILD (CORE) BLOCKS           //' . PHP_EOL;
+$custom .= '// ======================================= //' . PHP_EOL . PHP_EOL;
+$admin .= '// ======================================= //' . PHP_EOL;
+$admin .= '//            MILD (CORE) BLOCKS           //' . PHP_EOL;
+$admin .= '// ======================================= //' . PHP_EOL . PHP_EOL;
+
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_accordion/block_accordion.acf')) {
+	require('custom/block_accordion/block_accordion.acf');
+	$custom .= '$block_accordion: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_accordion/block_accordion.acf');
+	$custom .= '$block_accordion: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_accordion/_admin_accordion.scss')) {
+	$admin .= "@import 'core/mild/block_accordion/_admin_accordion';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_anchor/block_anchor.acf')) {
+	require('custom/block_anchor/block_anchor.acf');
+	$custom .= '$block_anchor: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_anchor/block_anchor.acf');
+	$custom .= '$block_anchor: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_anchor/_admin_anchor.scss')) {
+	$admin .= "@import 'core/mild/block_anchor/_admin_anchor';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_bio/block_bio.acf')) {
+	require('custom/block_bio/block_bio.acf');
+	$custom .= '$block_bio: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_bio/block_bio.acf');
+	$custom .= '$block_bio: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_bio/_admin_bio.scss')) {
+	$admin .= "@import 'core/mild/block_bio/_admin_bio';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_buttons/block_buttons.acf')) {
+	require('custom/block_buttons/block_buttons.acf');
+	$custom .= '$block_buttons: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_buttons/block_buttons.acf');
+	$custom .= '$block_buttons: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_buttons/_admin_buttons.scss')) {
+	$admin .= "@import 'core/mild/block_buttons/_admin_buttons';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_contactform/block_contactform.acf')) {
+	require('custom/block_contactform/block_contactform.acf');
+	$custom .= '$block_contactform: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_contactform/block_contactform.acf');
+	$custom .= '$block_contactform: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_contactform/_admin_contactform.scss')) {
+	$admin .= "@import 'core/mild/block_contactform/_admin_contactform';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_fullimage/block_fullimage.acf')) {
+	require('custom/block_fullimage/block_fullimage.acf');
+	$custom .= '$block_fullimage: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_fullimage/block_fullimage.acf');
+	$custom .= '$block_fullimage: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_fullimage/_admin_fullimage.scss')) {
+	$admin .= "@import 'core/mild/block_fullimage/_admin_fullimage';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_hero/block_hero.acf')) {
+	require('custom/block_hero/block_hero.acf');
+	$custom .= '$block_hero: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_hero/block_hero.acf');
+	$custom .= '$block_hero: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_hero/_admin_hero.scss')) {
+	$admin .= "@import 'core/mild/block_hero/_admin_hero';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_legal/block_legal.acf')) {
+	require('custom/block_legal/block_legal.acf');
+	$custom .= '$block_legal: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_legal/block_legal.acf');
+	$custom .= '$block_legal: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_legal/_admin_legal.scss')) {
+	$admin .= "@import 'core/mild/block_legal/_admin_legal';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_peoplegrid/block_peoplegrid.acf')) {
+	require('custom/block_peoplegrid/block_peoplegrid.acf');
+	$custom .= '$block_peoplegrid: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_peoplegrid/block_peoplegrid.acf');
+	$custom .= '$block_peoplegrid: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_peoplegrid/_admin_peoplegrid.scss')) {
+	$admin .= "@import 'core/mild/block_peoplegrid/_admin_peoplegrid';" . PHP_EOL;
+}
+// =========================================================================================== //
+$useexcerpts = false;
+// echo('<pre>'); echo('on block_posts!'); echo('</pre>');
+if (array_key_exists('page', $GLOBALS['posttypes'])) {
+	// echo('<pre>'); echo('new posttypes method!'); echo('</pre>');
+	foreach ($GLOBALS['posttypes'] as $t => $type) {
+		if (in_array('excerpts', $type)) { // backwards compatability
+			$useexcerpts = true;
+		} elseif (in_array('post_title', $type)) {
+			$useexcerpts = true;
+		} else {
+			foreach ($type as $term) {
+				if (gettype($term) == 'array') {
+					if (in_array('image', $term) || in_array('title', $term) || in_array('excerpt', $term)) {
+						$useexcerpts = true;
+					}
+				}
+			}
+		}
+	}
+} else { // backwards compatability
+	if (in_array('post', $GLOBALS['posttypes']) || in_array('article', $GLOBALS['posttypes'])) {
+		$useexcerpts = true;
+	}
+}
+// echo('<pre>'); if (!$useexcerpts) { echo('useexcerpts = false'); } else { echo('useexcerpts = ' . $useexcerpts); } echo('</pre>');
+if ($useexcerpts) {
+	// echo('<pre>'); echo('trying to add block_posts!'); echo('</pre>');
+	if (file_exists($themedir . '/partials/custom/block_posts/block_posts.acf')) {
+		require('custom/block_posts/block_posts.acf');
+		$custom .= '$block_posts: true;' . PHP_EOL;
+	} else {
+		require('core/mild/block_posts/block_posts.acf');
+		$custom .= '$block_posts: false;' . PHP_EOL;
+	}
+	if (file_exists($themedir . '/partials/core/mild/block_posts/_admin_posts.scss')) {
+		$admin .= "@import 'core/mild/block_posts/_admin_posts';" . PHP_EOL;
+	}
+} else {
+	$custom .= '$block_posts: false;' . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_published/block_published.php')) {
+	// require('custom/block_peoplegrid/block_peoplegrid.acf');
+	$custom .= '$block_published: true;' . PHP_EOL;
+} else {
+	// require('core/mild/block_published/block_published.acf');
+	$custom .= '$block_published: false;' . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_pullquote/block_pullquote.php')) {
+	require('custom/block_pullquote/block_pullquote.acf');
+	$custom .= '$block_pullquote: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_pullquote/block_pullquote.acf');
+	$custom .= '$block_pullquote: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_pullquote/_admin_pullquote.scss')) {
+	$admin .= "@import 'core/mild/block_pullquote/_admin_pullquote';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_rule/block_rule.acf')) {
+	require('custom/block_rule/block_rule.acf');
+	$custom .= '$block_rule: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_rule/block_rule.acf');
+	$custom .= '$block_rule: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_rule/_admin_rule.scss')) {
+	$admin .= "@import 'core/mild/block_rule/_admin_rule';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_share/block_share.acf')) {
+	require('custom/block_share/block_share.acf');
+	$custom .= '$block_share: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_share/block_share.acf');
+	$custom .= '$block_share: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_share/_admin_share.scss')) {
+	$admin .= "@import 'core/mild/block_share/_admin_share';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_strip/block_strip.acf')) {
+	require('custom/block_strip/block_strip.acf');
+	$custom .= '$block_strip: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_strip/block_strip.acf');
+	$custom .= '$block_strip: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_strip/_admin_strip.scss')) {
+	$admin .= "@import 'core/mild/block_strip/_admin_strip';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_testimonials/block_testimonials.acf')) {
+	require('custom/block_testimonials/block_testimonials.acf');
+	$custom .= '$block_testimonials: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_testimonials/block_testimonials.acf');
+	$custom .= '$block_testimonials: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_testimonials/_admin_testimonials.scss')) {
+	$admin .= "@import 'core/mild/block_testimonials/_admin_testimonials';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_text/block_text.acf')) {
+	require('custom/block_text/block_text.acf');
+	$custom .= '$block_text: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_text/block_text.acf');
+	$custom .= '$block_text: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_text/_admin_text.scss')) {
+	$admin .= "@import 'core/mild/block_text/_admin_text';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_textimage/block_textimage.acf')) {
+	require('custom/block_textimage/block_textimage.acf');
+	$custom .= '$block_textimage: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_textimage/block_textimage.acf');
+	$custom .= '$block_textimage: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_textimage/_admin_textimage.scss')) {
+	$admin .= "@import 'core/mild/block_textimage/_admin_textimage';" . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/custom/block_tiles/block_tiles.acf')) {
+	require('custom/block_tiles/block_tiles.acf');
+	$custom .= '$block_tiles: true;' . PHP_EOL;
+} else {
+	require('core/mild/block_tiles/block_tiles.acf');
+	$custom .= '$block_tiles: false;' . PHP_EOL;
+}
+if (file_exists($themedir . '/partials/core/mild/block_tiles/_admin_tiles.scss')) {
+	$admin .= "@import 'core/mild/block_tiles/_admin_tiles';" . PHP_EOL;
+}
+// =========================================================================================== //
+
+
+// ======================================= //
+//              MEDIUM BLOCKS              //
+// ======================================= //
+
+$custom .= PHP_EOL . PHP_EOL;
+$admin .= PHP_EOL . PHP_EOL;
+$custom .= '// ======================================= //' . PHP_EOL;
+$custom .= '//              MEDIUM BLOCKS              //' . PHP_EOL;
+$custom .= '// ======================================= //' . PHP_EOL . PHP_EOL;
+$admin .= '// ======================================= //' . PHP_EOL;
+$admin .= '//              MEDIUM BLOCKS              //' . PHP_EOL;
+$admin .= '// ======================================= //' . PHP_EOL . PHP_EOL;
+
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/core/medium/block_audioplayer/block_audioplayer.acf')) {
+	if (file_exists($themedir . '/partials/custom/block_audioplayer/block_audioplayer.acf')) {
+		require('custom/block_audioplayer/block_audioplayer.acf');
+		$custom .= '$block_audioplayer: true;' . PHP_EOL;
+	} else {
+		require('core/medium/block_audioplayer/block_audioplayer.acf');
+		$custom .= '$block_audioplayer: false;' . PHP_EOL;
+	}
+	if (file_exists($themedir . '/partials/core/medium/block_audioplayer/_admin_audioplayer.scss')) {
+		$admin .= "@import 'core/medium/block_audioplayer/_admin_audioplayer';" . PHP_EOL;
+	}
+} else {
+	$custom .= '$block_audioplayer: none;' . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/core/medium/block_gallery/block_gallery.acf')) {
+	if (file_exists($themedir . '/partials/custom/block_gallery/block_gallery.acf')) {
+		require('custom/block_gallery/block_gallery.acf');
+		$custom .= '$block_gallery: true;' . PHP_EOL;
+	} else {
+		require('core/medium/block_gallery/block_gallery.acf');
+		$custom .= '$block_gallery: false;' . PHP_EOL;
+	}
+	if (file_exists($themedir . '/partials/core/medium/block_gallery/_admin_gallery.scss')) {
+		$admin .= "@import 'core/medium/block_gallery/_admin_gallery';" . PHP_EOL;
+	}
+} else {
+	$custom .= '$block_gallery: none;' . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/core/medium/block_layerslider/block_layerslider.acf')) {
+	if (file_exists($themedir . '/partials/custom/block_layerslider/block_layerslider.acf')) {
+		require('custom/block_layerslider/block_layerslider.acf');
+		$custom .= '$block_layerslider: true;' . PHP_EOL;
+	} else {
+		require('core/medium/block_layerslider/block_layerslider.acf');
+		$custom .= '$block_layerslider: false;' . PHP_EOL;
+	}
+	if (file_exists($themedir . '/partials/core/medium/block_layerslider/_admin_layerslider.scss')) {
+		$admin .= "@import 'core/medium/block_layerslider/_admin_layerslider';" . PHP_EOL;
+	}
+} else {
+	$custom .= '$block_layerslider: none;' . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/core/medium/block_logogrid/block_logogrid.acf')) {
+	if (file_exists($themedir . '/partials/custom/block_logogrid/block_logogrid.acf')) {
+		require('custom/block_logogrid/block_logogrid.acf');
+		$custom .= '$block_logogrid: true;' . PHP_EOL;
+	} else {
+		require('core/medium/block_logogrid/block_logogrid.acf');
+		$custom .= '$block_logogrid: false;' . PHP_EOL;
+	}
+	if (file_exists($themedir . '/partials/core/medium/block_logogrid/_admin_logogrid.scss')) {
+		$admin .= "@import 'core/medium/block_logogrid/_admin_logogrid';" . PHP_EOL;
+	}
+} else {
+	$custom .= '$block_logogrid: none;' . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/core/medium/block_photostrip/block_photostrip.acf')) {
+	if (file_exists($themedir . '/partials/custom/block_photostrip/block_photostrip.acf')) {
+		require('custom/block_photostrip/block_photostrip.acf');
+		$custom .= '$block_photostrip: true;' . PHP_EOL;
+	} else {
+		require('core/medium/block_photostrip/block_photostrip.acf');
+		$custom .= '$block_photostrip: false;' . PHP_EOL;
+	}
+	if (file_exists($themedir . '/partials/core/medium/block_photostrip/_admin_photostrip.scss')) {
+		$admin .= "@import 'core/medium/block_photostrip/_admin_photostrip';" . PHP_EOL;
+	}
+} else {
+	$custom .= '$block_photostrip: none;' . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/core/medium/block_resources/block_resources.acf')) {
+	if (file_exists($themedir . '/partials/custom/block_resources/block_resources.acf')) {
+		require('custom/block_resources/block_resources.acf');
+		$custom .= '$block_resources: true;' . PHP_EOL;
+	} else {
+		require('core/medium/block_resources/block_resources.acf');
+		$custom .= '$block_resources: false;' . PHP_EOL;
+	}
+	if (file_exists($themedir . '/partials/core/medium/block_resources/_admin_resources.scss')) {
+		$admin .= "@import 'core/medium/block_resources/_admin_resources';" . PHP_EOL;
+	}
+} else {
+	$custom .= '$block_resources: none;' . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/core/medium/block_section/block_section.acf')) {
+	if (file_exists($themedir . '/partials/custom/block_section/block_section.acf')) {
+		require('custom/block_section/block_section.acf');
+		$custom .= '$block_section: true;' . PHP_EOL;
+	} else {
+		require('core/medium/block_section/block_section.acf');
+		$custom .= '$block_section: false;' . PHP_EOL;
+	}
+	if (file_exists($themedir . '/partials/core/medium/block_section/_admin_section.scss')) {
+		$admin .= "@import 'core/medium/block_section/_admin_section';" . PHP_EOL;
+	}
+} else {
+	$custom .= '$block_section: none;' . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/core/medium/block_ticker/block_ticker.acf')) {
+	if (file_exists($themedir . '/partials/custom/block_ticker/block_ticker.acf')) {
+		require('custom/block_ticker/block_ticker.acf');
+		$custom .= '$block_ticker: true;' . PHP_EOL;
+	} else {
+		require('core/medium/block_ticker/block_ticker.acf');
+		$custom .= '$block_ticker: false;' . PHP_EOL;
+	}
+	if (file_exists($themedir . '/partials/core/medium/block_ticker/_admin_ticker.scss')) {
+		$admin .= "@import 'core/medium/block_ticker/_admin_ticker';" . PHP_EOL;
+	}
+} else {
+	$custom .= '$block_ticker: none;' . PHP_EOL;
+}
+// =========================================================================================== //
+
+
+// ======================================= //
+//               SPICY BLOCKS              //
+// ======================================= // 
+
+$custom .= PHP_EOL . PHP_EOL;
+$admin .= PHP_EOL . PHP_EOL;
+$custom .= '// ======================================= //' . PHP_EOL;
+$custom .= '//               SPICY BLOCKS              //' . PHP_EOL;
+$custom .= '// ======================================= //' . PHP_EOL . PHP_EOL;
+$admin .= '// ======================================= //' . PHP_EOL;
+$admin .= '//               SPICY BLOCKS              //' . PHP_EOL;
+$admin .= '// ======================================= //' . PHP_EOL . PHP_EOL;
+
+if (file_exists($themedir . '/partials/core/spicy/block_related/block_related.acf')) {
+	if (file_exists($themedir . '/partials/custom/block_related/block_related.acf')) {
+		require('custom/block_related/block_related.acf');
+		$custom .= '$block_related: true;' . PHP_EOL;
+	} else {
+		require('core/spicy/block_related/block_related.acf');
+		$custom .= '$block_related: false;' . PHP_EOL;
+	}
+	if (file_exists($themedir . '/partials/core/spicy/block_related/_admin_related.scss')) {
+		$admin .= "@import 'core/spicy/block_related/_admin_related';" . PHP_EOL;
+	}
+} else {
+	$custom .= '$block_related: none;' . PHP_EOL;
+}
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/core/spicy/block_map/block_map.acf')) {
+	if (file_exists($themedir . '/partials/custom/block_map/block_map.acf')) {
+		require('custom/block_map/block_map.acf');
+		$custom .= '$block_map: true;' . PHP_EOL;
+	} else {
+		require('core/spicy/block_map/block_map.acf');
+		$custom .= '$block_map: false;' . PHP_EOL;
+	}
+	if (file_exists($themedir . '/partials/core/spicy/block_map/_admin_map.scss')) {
+		$admin .= "@import 'core/spicy/block_map/_admin_map';" . PHP_EOL;
+	}
+} else {
+	$custom .= '$block_map: none;' . PHP_EOL;
+}
+// =========================================================================================== //
+
+
+// ======================================= //
+//              CUSTOM BLOCKS              //
+// ======================================= // 
+
+$custom .= PHP_EOL . PHP_EOL;
+$admin .= PHP_EOL . PHP_EOL;
+$custom .= '// ======================================= //' . PHP_EOL;
+$custom .= '//              CUSTOM BLOCKS              //' . PHP_EOL;
+$custom .= '// ======================================= //' . PHP_EOL . PHP_EOL;
+$admin .= '// ======================================= //' . PHP_EOL;
+$admin .= '//              CUSTOM BLOCKS              //' . PHP_EOL;
+$admin .= '// ======================================= //' . PHP_EOL . PHP_EOL;
+
+require('custom/_custom_blocks.acf');
+
+
+// ======================================= //
+//              PRIVATE BLOCKS             //
+// ======================================= // 
+
+$custom .= PHP_EOL . PHP_EOL;
+$custom .= '// ======================================= //' . PHP_EOL;
+$custom .= '//              PRIVATE BLOCKS             //' . PHP_EOL;
+$custom .= '// ======================================= //' . PHP_EOL . PHP_EOL;
+
+// =========================================================================================== //
+if (file_exists($themedir . '/partials/private/_private_blocks.scss')) {
+	$custom .= '$private_blocks: true;' . PHP_EOL;
+} else {
+	$custom .= '$private_blocks: false;' . PHP_EOL;
+}
+
+require('private/_private_blocks.acf');
+
+// =========================================================================================== //
+
+
+// Write $custom to _custom.scss in order to set
+// variables for the _blocks.scss file to decide
+// whether to load content blocks from the core
+// or to load custom files.
+
+$file = $themedir . '/partials/custom/_custom.scss';
+file_put_contents($file, $custom);
+
+$adminfile = $themedir . '/partials/_blocks_admin.scss';
+file_put_contents($adminfile, $admin);
+
+
+// ======================================= //
+//                USE BLOCKS               //
+// ======================================= // 
+
+$configdate = date(filemtime($themedir . '/config.php')); // get modified date of config.php
+$useblocksdate = date(filemtime($themedir . '/partials/custom/_use_blocks.scss')); // get modified date of _use_blocks.scss
+
+if ($configdate > $useblocksdate) {
+
+	defined("TAB1") or define("TAB1", "\t");
+	defined("TAB2") or define("TAB2", "\t\t");
+	defined("TAB3") or define("TAB3", "\t\t\t");
+	defined("TAB4") or define("TAB4", "\t\t\t\t");
+	defined("TAB5") or define("TAB5", "\t\t\t\t\t");
+	defined("TAB6") or define("TAB6", "\t\t\t\t\t\t");
+
+	$useblocks = $GLOBALS['useblocks'];
+	$use = "";
+	$use .= 'body {' . PHP_EOL . TAB1 . '.acf-tooltip.acf-fc-popup {' . PHP_EOL . TAB2 . 'ul {' . PHP_EOL . TAB3 . 'li {' . PHP_EOL . TAB4 . 'a {' . PHP_EOL;
+	// echo('<pre>');
+	foreach ($useblocks as $k => $block) {
+		if (!$block) {
+			$use .= TAB5 . '&[data-layout="' . $k . '"] {' . PHP_EOL . TAB6 . 'display: none;' . PHP_EOL . TAB5 . '}' . PHP_EOL;
+		}
+	}
+	// echo('</pre>');
+	$use .= TAB4 . '}' . PHP_EOL . TAB3 . '}' . PHP_EOL . TAB2 . '}' . PHP_EOL . TAB1 . '}' . PHP_EOL . '}';
+
+	$useblocksfile = $themedir . '/partials/custom/_use_blocks.scss';
+	file_put_contents($useblocksfile, $use);
+	
+}
+			
+				
+?>

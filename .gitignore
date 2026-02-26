@@ -1,0 +1,50 @@
+# === System / OS ===
+.DS_Store
+Thumbs.db
+
+# === Node / Composer / Build Tools ===
+node_modules/
+vendor/
+
+# === SCSS Cache ===
+scss_cache/
+*.css.map
+
+# === IDE / Editor folders ===
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# === WordPress upload/content folders ===
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/cache/
+wp-content/backups/
+wp-content/ai1wm-backups/
+
+# === WordPress config (if you're copying full WP root) ===
+wp-config.php
+wp-config-sample.php
+.htaccess
+
+# === WordPress XML / JSON exports ===
+*.xml
+*.json
+
+# === Log files ===
+*.log
+debug.log
+
+# === Env files / credentials ===
+.env
+.env.*
+.env.local
+.env.production
+.env.development
+
+# === Backup / temp files ===
+*.bak
+*.tmp
+*.swp
+*.swo

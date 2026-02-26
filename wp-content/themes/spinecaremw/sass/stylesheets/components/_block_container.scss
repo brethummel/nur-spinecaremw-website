@@ -1,0 +1,100 @@
+.block-container {
+	position: relative;
+	.blocks-wrapper {
+		.block {
+			&.padded {
+				
+			}
+			&.below {
+				
+			}
+			&.above {
+				
+			}
+			.container {
+				
+			}
+		}
+	}
+	&.block {
+		&.padded {
+			
+		}
+	}
+	&.full-image {
+		.backgrounds {
+			.row {
+				.col-one-bkgnd {
+				
+				}
+				.col-two-bkgnd {
+				
+				}
+			}
+		}
+		.container {
+			.row {
+				.full-image {
+					
+				}
+			}
+		}
+	}
+	>.container {
+		@include media-breakpoint-down(md) {
+			
+		}
+		>.row {
+			>.col-one,
+			>.col-two {
+				>.content-container {
+					@include media-breakpoint-only(md) {
+						
+					}
+					@include media-breakpoint-only(sm) {
+						
+					}
+					@include media-breakpoint-only(xs) {
+						
+					}
+					@include media-breakpoint-only(xxs) {
+						
+					}
+				}
+			}
+			>.col-one {
+				@include media-breakpoint-up(lg) {
+					
+				}
+				@include media-breakpoint-down(md) {
+					
+				}
+			}
+			>.col-two {
+				@include media-breakpoint-up(lg) {
+					
+				}
+				@include media-breakpoint-down(md) {
+					
+				}
+				&.bkgnd-light {
+					@include media-breakpoint-down(md) {
+						>.content-container {
+							
+						}
+					}
+					@include media-breakpoint-down(xs) {
+						>.content-container {
+							
+						}
+					}
+					@include media-breakpoint-down(xxs) {
+						>.content-container {
+							
+						}
+					}
+				}
+			}
+		}
+	}
+}

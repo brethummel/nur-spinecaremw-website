@@ -1,0 +1,333 @@
+.post-container {
+	margin-bottom: 25px;
+	.post {
+		position: relative;
+		padding: 0px;
+		height: 100%;
+		padding-bottom: 40px;
+		box-shadow: 0px 4px 32px 0px #2A12001F;
+		border-radius: 5px;
+		overflow: hidden;
+		&:hover {
+			.text-container {
+				h3, h4 {
+					a {
+						color: $c-secondary;
+						text-decoration: none;
+					}
+				}
+				p.read-more {
+					a.button.primary {
+						color: $c-secondary;
+						&:after {
+		                    color: $white;
+							background: $c-secondary;
+						}
+					}
+				}
+			}
+		}
+		>a {
+			display: block;
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			top: 0px;
+			left: 0px;
+			z-index: 2;
+		}
+		.image-container {
+			position: relative;
+			width: 100%;
+			height: 200px;
+			@include media-breakpoint-down(sm) {
+				height: 37vw;
+			}
+			@include media-breakpoint-down(xs) {
+				height: 40vw;
+			}
+			.image {
+				width: 100%;
+				height: 100%;
+				background-size: cover;
+				background-position: center center;
+				background-repeat: no-repeat;
+				@include media-breakpoint-down(sm) {
+					height: 37vw;
+				}
+				@include media-breakpoint-down(xs) {
+					height: 40vw;
+				}
+			}
+		}
+		.text-container {
+			padding: 18px 24px 12px 24px;
+			h3, h4 {
+				font-size: 22px;
+				font-weight: $f-bold;
+				line-height: 1.4;
+				margin-top: 4px;
+				margin-bottom: 12px;
+				strong {
+					font-weight: $f-bold;
+					text-decoration: underline;
+				}
+				span.content-match {
+					// display: block;
+					margin-top: 3px;
+					margin-left: 10px;
+					font-size: 15px;
+					font-style: italic;
+					font-weight: $f-regular;
+					color: $c-accent;
+				}
+				a {
+					color: $black;
+					text-decoration: none;
+					transition: all .4s;
+					&:hover {
+						color: $c-secondary;
+						text-decoration: none;
+					}
+				}
+			}
+			p.read-more {
+				position: absolute;
+				width: 100%;
+				height: 62px;
+				bottom: 0px;
+				left: 0px;
+				margin: 0px;
+				padding: 19px 0px 25px 24px;
+				text-transform: uppercase;
+				font-size: 0px;
+				a.button.primary {
+					color: $black;
+					margin: 0px;
+					padding: 0px;
+					font-size: 16px;
+					background: transparent !important;
+					border-radius: 0px !important;
+					box-shadow: none !important;
+					&:after {
+	                    content: "\e701";
+	                    font-family: $f-microns;
+	                    color: $black;
+	                    display: block;
+	                    font-size: 24px;
+						height: 62px;
+						width: 62px;
+						background: #F18A2133;
+						position: absolute;
+						bottom: 0px;
+						right: 0px;
+						border-top-left-radius: 80px;
+						padding: 20px 0px 0px 25px;
+						transition: all .4s;
+					}
+					&:hover {
+						color: $c-secondary;
+						&:after {
+		                    color: $white;
+							background: $c-secondary;
+						}
+					}
+				}
+			}
+			p.type {
+				font-weight: $f-bold;
+				color: $c-accent;
+				margin-bottom: 3px;
+			}
+			p.date {
+				margin-bottom: 4px;
+				font-size: 13px;
+				font-style: italic;
+				color: $grey;
+			}
+		}
+	}
+}
+.abstracts-posters,
+.physician-posts,
+.news-articles {
+	.post-container {
+		margin-bottom: 16px;
+		.post {
+			background-color: $cream;
+			box-shadow: none;
+			padding-bottom: 0px;
+			.text-container {
+				padding-right: 65px;
+				h4 {
+					font-size: 22px;
+					font-weight: $f-bold;
+					line-height: 1.4;
+					margin-top: 4px;
+					margin-bottom: 12px;
+					strong {
+						font-weight: $f-bold;
+						text-decoration: underline;
+					}
+					span.content-match {
+						// display: block;
+						margin-top: 3px;
+						margin-left: 10px;
+						font-size: 15px;
+						font-style: italic;
+						font-weight: $f-regular;
+						color: $c-accent;
+					}
+					+p.attribution {
+						margin-top: -10px;
+					}
+				}
+				p.date {
+					font-size: 14px;
+					text-transform: uppercase;
+					color: $c-secondary;
+					letter-spacing: 1px;
+					font-weight: $f-bold;
+					font-style: normal;
+				}
+				p.attribution {
+					font-size: 18px;
+					font-style: italic;
+					color: $black;
+					margin-bottom: 12px;
+					@include media-breakpoint-down(xs) {
+						padding-right: 15px;
+					}
+				}
+			}
+		}
+	}
+	&.columns {
+		.post-container {
+			.post {
+				.text-container {
+					h4 {
+						+p.attribution {
+							margin-top: -4px !important;
+							line-height: 1.4;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.event,
+.patient-stories {
+	.post {
+		background-color: $white;
+		@include media-breakpoint-up(lg) {
+			display: flex;
+			flex-direction: row;
+			padding-bottom: 0px;
+			.image-container {
+				width: 40%;
+				height: 100%;
+			}
+			.text-container {
+				width: 60%;
+				padding-top: 32px;
+				padding-bottom: 20px;
+				p {
+					&:not(.read-more) {
+						&:not(.webinar) {
+							&:not(.date) {
+								font-size: 16px;
+								line-height: 1.2;
+								padding-right: 62px;
+							}
+						}
+					}
+				}
+			}
+		}
+		.text-container {
+			h4 {
+				font-size: 23px;
+				letter-spacing: -0.9px;
+				line-height: 1.2;
+				display: inline-block;
+				width: 100%;
+				border-bottom: 2px solid $softwhite;
+				padding-bottom: 18px;
+			}
+			p {
+				&.webinar,
+				&.date {
+					font-size: 16px;
+					font-style: normal;
+					text-transform: uppercase;
+					font-weight: $f-bold;
+					color: $slate;
+					margin: 0px 0px 12px 0px;
+					&:before {
+						content: "";
+						width: 16px;
+						height: 16px;
+						background-image: url("images/icon_calendar.png");
+						background-size: cover;
+						background-repeat: no-repeat;
+						display: inline-block;
+						margin-right: 8px;
+						position: relative;
+						top: 1.5px;
+					}
+				}
+				&.webinar {
+					&:before {
+						background-image: url("images/icon_ondemand.png");
+					}
+				}
+			}
+		}
+	}
+}
+.exam-room-resources {
+	.post-container {
+		&.col-lg-6 {
+			$ratio: 0.5625;
+			$multiplier: 0.5;
+			.post {
+				height: auto;
+				.video-container {
+					@include media-breakpoint-only(xxs) {
+						/*height: calc((100vw - (2 * $p-container-xxs)) * $ratio);*/
+						height: calc((100vw - (2 * 20px)) * 0.5625);
+					}
+					@include media-breakpoint-only(xs) {
+						/*height: calc((100vw - (2 * $p-container-xs)) * $ratio);*/
+						height: calc((100vw - (2 * 25px)) * 0.5625);
+					}
+					@include media-breakpoint-only(sm) {
+						height: ($container-sm - (2 * $p-container-sm)) * $ratio;
+					}
+					@include media-breakpoint-only(md) {
+						height: (($container-md - 230px) - (2 * $p-container-md)) * $ratio;
+					}
+					@include media-breakpoint-only(lg) {
+						height: (((($container-lg - 232.5px) - (2 * $p-container-lg)) * $multiplier) - 15) * $ratio;
+					}
+					@include media-breakpoint-only(xl) {
+						height: (((($container-xl - 262.5px) - (2 * $p-container-xl)) * $multiplier) - 15) * $ratio;
+					}
+				}
+			}
+		}
+	}
+	.post {
+		padding-bottom: 0px;
+		.video-container {
+			width: 100%;
+			height: 100%;
+			iframe {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}

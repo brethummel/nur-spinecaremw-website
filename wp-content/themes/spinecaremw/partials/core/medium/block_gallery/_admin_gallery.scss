@@ -1,0 +1,11 @@
+.acf-field[data-name="content_blocks"] {
+	.layout[data-layout="block_gallery"] {
+		.acf-fc-layout-handle {
+			.icon {
+				&:before {
+					background-image: url("partials/core/medium/block_gallery/icon_gallery.png") !important;
+				}
+			}
+		}
+	}
+}

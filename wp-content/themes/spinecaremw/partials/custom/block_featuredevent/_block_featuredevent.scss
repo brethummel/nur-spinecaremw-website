@@ -1,0 +1,76 @@
+.block-featuredevent {
+    position: relative;
+    &.page-title {
+        &:before {
+            background-image: url("images/nura_sun_white.png");
+            background-position: left 10%;
+            bottom: unset !important;
+            background-size: contain;
+            top: -50px;
+            @include media-breakpoint-only(xl) {
+                height: 200%;
+                width: 70%;
+                right: -30%;
+            }
+            @include media-breakpoint-only(lg) {
+                height: 200%;
+                width: 90%;
+                right: -40%;
+            }
+            @include media-breakpoint-only(md) {
+                height: 175%;
+                width: 100%;
+                right: -40%;
+            }
+            @include media-breakpoint-only(sm) {
+                height: 150%;
+                width: 120%;
+                right: -50%;
+                top: -20%;
+            }
+            @include media-breakpoint-down(xs) {
+                height: 150%;
+                width: 140%;
+                right: -70%;
+                top: -25%;
+            }
+        }
+        .posts-container {
+            margin-top: 24px;
+            .post-container {
+                .post {
+                    @include media-breakpoint-up(md) {
+                        display: flex;
+                        flex-direction: row;
+                        padding-bottom: 0px;
+                        .image-container {
+                            width: 50%;
+                            height: 100%;
+                        }
+                        .text-container {
+                            width: 50%;
+                            padding-top: $p-top;
+                            padding-bottom: $p-bottom;
+                            p {
+                                &:not(.read-more) {
+                                    &:not(.webinar) {
+                                        &:not(.date) {
+                                            font-size: 16px;
+                                            line-height: 1.2;
+                                            padding-right: 62px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .text-container {
+                        p {
+                            padding-right: 0px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

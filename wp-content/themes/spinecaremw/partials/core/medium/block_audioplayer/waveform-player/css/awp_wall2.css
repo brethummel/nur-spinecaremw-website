@@ -1,0 +1,617 @@
+
+*{
+	margin:0;
+	padding:0;
+	border:0;
+	outline:none;
+}
+a{ 
+	text-decoration: none; 
+}
+body {
+	background: #333;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+}
+
+canvas{
+    max-width: none!important; 
+}
+
+
+#awp-wrapper{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+	font-family: Helvetica, Arial, sans-serif;
+}
+.awp-player-holder{
+	position:fixed;
+	width:100%;
+	height:75px;
+	bottom:0px;
+	background: #ededed;
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+	display: flex;
+}
+
+.awp-contr-btn-vol-i{
+	font-size: 18px!important;
+}
+.awp-media-time-current{
+	position:relative;
+	width:60px;	
+	height:100%;
+	color:#666;
+	text-align: center;
+	line-height: 75px;
+	font-size: 14px;
+	margin:0;
+	padding: 0;
+}
+
+.awp-waveform-wrap {
+    position:relative;
+	height:100%;
+	overflow: hidden;
+	flex:1;
+	margin: 0 10px;
+}
+.awp-waveform {
+    margin-top: 12px;
+}
+.awp-waveform-preloader{
+	position:absolute;
+	left:50%;
+	top:50%;
+	-webkit-transform: translate(-50%, -50%);
+  	-ms-transform: translate(-50%, -50%);
+  	transform: translate(-50%, -50%);
+  	color:#333;
+	font-size: 18px;
+	pointer-events:none;
+	opacity: 0;
+}
+
+.awp-waveform-img {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events:none;
+}
+.awp-waveform-img-load {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.awp-waveform-img-progress-wrap{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width:0;
+    height: 100%;
+    overflow: hidden;
+    border-right: 3px solid #0000ff;
+}
+.awp-waveform-img-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.awp-waveform-img-load img,
+.awp-waveform-img-progress img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.awp-media-time-total{
+	position:relative;
+	width:60px;	
+	height:100%;
+	color:#666;
+	text-align: center;
+	line-height: 75px;
+	font-size: 14px;
+	margin:0;
+	padding: 0;
+}
+.awp-volume-seekbar{
+	position:absolute;
+	bottom:75px;
+	left:0px;
+	width:50px;
+	height:80px;
+	display:none;
+	cursor: pointer;
+	touch-action: none;
+	background:#ededed !important;
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+}
+.awp-volume-wrapper:hover .awp-volume-seekbar{
+	display: block;
+}
+.awp-volume-bg{
+	position:absolute;
+	width:2px;
+	height:60px;
+	background:#777;
+	left:24px;
+	bottom:10px;
+}
+.awp-volume-level{
+	position:absolute;
+	width:2px;
+	height:60px;
+	background:#fff;
+	left:24px;
+	bottom:10px;
+}
+.awp-volume-seekbar-shadow-hider{
+	position:absolute;
+	width:50px;
+	height:10px;
+	background:#ededed;
+	left:0px;
+	bottom:-5px;
+	pointer-events:none;
+}
+
+
+
+
+.awp-player-title{
+	color:#111;
+	margin:0;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	padding:0;
+	font-size: 16px;
+}
+.awp-player-desc{
+	color:#333;
+	margin:0;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	padding:0;
+	overflow-y: auto;
+    max-height: 200px;
+	font-size: 13px;
+}
+.awp-player-desc::-webkit-scrollbar {
+    width: 5px; 
+    height: 5px; 
+}
+.awp-player-desc::-webkit-scrollbar-thumb {
+    background: #999; 
+}
+.awp-player-desc::-webkit-scrollbar-track {
+    background: #ddd; 
+}
+.awp-share-holder{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	max-height: 300px;
+    transform: translate(-50%, -50%);
+	max-width:400px;
+	width:100%;
+	background:#ededed;
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+	z-index:50;
+	padding:20px 20px 10px 20px;
+	display: none;
+	box-sizing: border-box; 
+}
+
+
+
+
+
+#awp-playlist-list{
+	display:none;
+}
+.awp-playlist-holder{
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	overflow:hidden;
+	height:80%;
+	height: -webkit-calc(100% - 75px);
+    height: -moz-calc(100% - 75px);
+    height: calc(100% - 75px);
+}
+.awp-playlist-inner{
+	height:100%;
+	position: relative;
+}
+.awp-playlist-item{
+	background:#111;
+	overflow: hidden;
+	width: 20%;
+	overflow: hidden;
+}
+
+
+.awp-playlist-item-content {
+	text-align: center;
+	height: 100%;
+	text-decoration: none; 
+}
+.awp-playlist-thumb{
+	display: block;
+	position:relative;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	overflow:hidden;
+}
+.awp-playlist-thumb img{
+	display:block;
+	width:100%;
+	height:auto!important;
+}
+.awp-playlist-thumb-style{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+.awp-playlist-thumb-style{
+	background-image: url('../data/misc/play.png');
+  	background-repeat: no-repeat;
+  	background-position: center;
+  	transition: opacity .2s ease-in; 
+  	opacity: 0;
+}
+.awp-playlist-thumb-style-pause{
+    background-image: url('../data/misc/pause.png')!important;
+}
+.awp-playlist-selected .awp-playlist-thumb-style,
+.awp-playlist-thumb:hover .awp-playlist-thumb-style{
+    opacity: 1;
+}
+.awp-playlist-selected .awp-thumbimg{
+    transform: scale(1.1);
+    transition: all .2s ease-in; 
+    filter: brightness(70%);
+}
+
+
+
+
+
+.awp-playlist-title{
+	font-size:17px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	color:#fff;
+	right: 0;
+	padding:20px;
+	opacity:0;
+	pointer-events:none;
+	-webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out; 
+}
+.awp-playlist-selected .awp-playlist-title{
+	opacity:1;
+	bottom: 10px;
+}
+
+.awp-download, 
+.awp-link {
+    color: #fff!important;
+    font-size: 16px!important;
+    width: 40px;
+    position: relative;
+    text-align: center;
+    float: left;
+    height: 40px;
+}
+.awp-download i, .awp-link i {
+    line-height: 40px;
+    color: inherit;
+    transition: color 0.3s ease-in-out;
+}
+.awp-download:hover, .awp-link:hover{
+	color:#F665CF!important;
+}
+
+
+
+.awp-preloader{
+    position: fixed;
+    width: 80px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.awp-preloader span{
+    display:block;
+    bottom:0px;
+    width: 9px;
+    height: 5px;
+    background:#F665CF;
+    position:absolute;
+    animation: awp_preloader 1.5s  infinite ease-in-out;
+}
+.awp-preloader span:nth-child(2){
+	left:11px;
+	animation-delay: .2s;
+}
+.awp-preloader span:nth-child(3){
+	left:22px;
+	animation-delay: .4s;
+}
+.awp-preloader span:nth-child(4){
+	left:33px;
+	animation-delay: .6s;
+}
+.awp-preloader span:nth-child(5){
+	left:44px;
+	animation-delay: .8s;
+}
+@keyframes awp_preloader {
+    0% {height:5px;transform:translateY(0px);}
+    25% {height:30px;transform:translateY(15px);}
+    50% {height:5px;transform:translateY(0px);}
+    100% {height:5px;transform:translateY(0px);}
+}
+
+
+
+.awp-bottom-controls{
+	position: absolute;
+    top: 0;
+    right: 20px;
+    display: flex;
+    height: 100%;
+}
+.awp-bottom-controls .awp-contr-btn{
+	margin-left: 7px;
+}
+
+
+/* share */
+
+.awp-playback-rate-holder{
+    position: fixed;
+    width: 300px;
+    height: 70px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+    z-index: 10;
+    background:#ededed;
+    display: none;
+}
+.awp-share-holder-inner{
+	height: 30px;
+    position: relative;
+    display: flex;
+}
+.awp-share-close,
+.awp-playback-rate-close{
+    position: absolute!important;
+    width: 40px!important;
+    height: 40px!important;
+    top: 0!important;
+    right: 0!important;
+    left: auto!important;
+}
+.awp-share-item{
+    position:relative;
+    width:25px!important;
+    height:100%;
+    text-align: center;
+    float: left;
+    margin-right: 15px;
+    transition: transform 0.3s;
+}
+.awp-share-item:hover{
+    transform: scale(1.7);
+}
+
+.awp-share-item[data-type="facebook"]:hover i{
+    color: #3b5998!important;
+}
+.awp-share-item[data-type="twitter"]:hover i{
+    color: #00aced!important;
+}
+.awp-share-item[data-type="tumblr"]:hover i{
+    color: #34526f!important;
+}
+.awp-share-item[data-type="whatsapp"]:hover i{
+    color: #25D366!important;
+}
+.awp-share-item[data-type="linkedin"]:hover i{
+    color: #007bb6!important;
+}
+.awp-share-item[data-type="reddit"]:hover i{
+    color: #FF4301!important;
+}
+.awp-share-item[data-type="digg"]:hover i{
+    color: #005be2!important;
+}
+.awp-share-item[data-type="pinterest"]:hover i{
+    color: #cb2027!important;
+}
+
+/* playback rate */
+
+.awp-playback-rate-wrap{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.awp-playback-rate-min,
+.awp-playback-rate-max{
+    font-size: 13px;
+    margin: 0 5px;
+    pointer-events: none;
+    color: #333;
+}
+.awp-playback-rate-holder{
+    width: 350px;
+}
+.awp-playback-rate-seekbar{
+    width:200px;
+    height:30px;
+    position: relative;
+    cursor: pointer;
+    touch-action: none;
+}
+.awp-playback-rate-bg{
+	background:#555;
+    position:absolute;
+    top:13px;
+    left:10px;
+    width:180px;
+    height:3px;
+}
+.awp-playback-rate-level{
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    background-color: #ff33ff;
+}
+
+
+
+
+.awp-tooltip{
+	background: #555;
+	color:#fff!important;
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+	border: 1px solid #ddd;
+
+	position:absolute;
+    text-align:center;
+    z-index:10000;
+    pointer-events:none;
+    display:none;
+    font-size:12px!important;
+    padding:2px 5px !important;
+    line-height:20px !important;
+    white-space:nowrap;
+}
+
+
+
+
+.awp-hidden {
+	opacity: 0; 
+	filter: alpha(opacity=0); 
+}
+.awp-visible {
+	opacity: 1;
+	-webkit-transition: opacity 500ms ease-out;
+	-moz-transition: opacity 500ms ease-out;
+	transition: opacity 500ms ease-out;
+}
+
+
+/* scroll */
+.awp-playlist-inner .mCSB_inside > .mCSB_container {
+    margin-right: 30px;
+}
+
+
+
+
+
+.awp-playlist-icons{
+	position: absolute;
+    right: 0;
+    top: 0;
+}
+.awp-contr-btn{
+	position:relative;
+    left:0;
+    top:0;
+    width:50px;
+    height:100%;
+    float:left;
+    cursor: pointer;
+}
+.awp-contr-btn i{
+	color: #555;
+	transition: color 0.3s ease-in-out; 
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+}
+.awp-download i, .awp-link i{
+	transition: color 0.3s ease-in-out; 
+}
+.awp-btn{
+	display: none;
+	height:100%;
+}
+.awp-icon-hover i{
+	color: #fff!important;
+}
+
+.awp-playlist-icon{
+    font-family: fontAwesome;
+    font-size: 16px;
+    float: right;
+    color: #fff!important;
+    width: 40px;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out; 
+    height: 40px;
+    line-height: 40px;
+}
+.awp-playlist-icon:hover{
+	color:#F665CF!important;
+}
+
+
+
+
+
+@media screen and (max-width: 1100px) {
+  .awp-playlist-item { width: 33.33%; }
+}
+@media screen and (max-width: 600px) {
+  .awp-playlist-item { width: 50%; }
+}
+@media screen and (max-width: 400px) {
+  .awp-playlist-item { width: 100%; }
+}
+
+
+@media only screen and (max-width: 600px) {
+	.awp-media-time-total, .awp-media-time-current{
+		display: none;
+	}
+}
+@media only screen and (max-width: 500px) {
+	.awp-prev-toggle, .awp-next-toggle{
+		display: none;
+	}
+}

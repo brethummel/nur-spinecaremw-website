@@ -1,0 +1,695 @@
+<?php
+
+/*
+
+Name: Testimonials
+ID: block_testimonials
+Layout ID: 610c2688d7300
+Subfield ID: 610c2688d7301
+Group ID: 60d65566bfdfc
+
+*/
+
+// ======================================= //
+//              BLOCK UPDATER              //
+// ======================================= // 
+/*
+
+!!! NEW FIELD NAMES HAVE TO BE UNIQUE !!!
+!!! FIELDS HAVE TO BE THE SAME TYPE !!!
+
+2022-12-28
+=========
+Block Display settings addition, specifically migrating the custom_class field into the Block Display group.
+
+*/
+
+$acf_migration_map = array(
+	'subfield_id' => 'field_610c2688d7301',
+	'2022-12-28' => array(
+		'mode' => '', // reset (overwrite spr_settings), [blank] (leave as is)
+		'fields' => array(
+			'field_617981d0d1c9f' => array(
+				'old' => array('name' => 'custom_class', 'group' => 'false', 'key' => 'field_617981d0d1c9f', 'clone' => 'field_6178670b4ade0'),
+				'new' => array('name' => 'testimonials_display_custom_class', 'group' => 'field_63add53fc7b33', 'key' => 'field_63add549c7b34', 'clone' => 'field_6178670b4ade0'),
+			),
+		)
+	),
+); 
+spr_register_block_changes('block_testimonials', $acf_migration_map);
+
+
+// ======================================= //
+//    DANGER! THIS IS BUILT DYNAMICALLY    //
+// ======================================= // 
+
+$usetypes = ['page'];
+
+// Get post types to select from
+foreach ($GLOBALS['posttypes'] as $t => $type) {
+	if (array_key_exists('page', $GLOBALS['posttypes'])) {
+		if (in_array('excerpts', $type)) { // backwards compatability
+			$method = 'excerpts';
+			$usetypes[] = $t;
+		} elseif (in_array('post_title', $type)) {
+			$method = 'post_title';
+			$usetypes[] = $t;
+		} else {
+			foreach ($type as $term) {
+				if (gettype($term) == 'array') {
+					if (in_array('image', $term) || in_array('title', $term) || in_array('excerpt', $term)) {
+						$method = 'array';
+						$usetypes[] = $t;
+					}
+				}
+			}
+		}
+	} else { // backwards compatability
+		$postobj = get_post_type_object($type);
+		$usetypes[] = $type;
+	}
+}
+$usetypes[] = 'attachment';
+// echo('<pre>'); print_r($usetypes); echo('</pre>');
+// echo('<pre>'); print_r(get_post_types()); echo('</pre>');
+
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+	'key' => 'group_60d65566bfdfc',
+	'title' => 'BLOCK: Testimonials',
+	'fields' => array(
+		array(
+			'key' => 'field_617981c7d1c9e',
+			'label' => 'Block',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_60d65566cee54',
+			'label' => 'Testimonials',
+			'name' => 'testimonials_slides',
+			'aria-label' => '',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => 'field_60d656af88acf',
+			'min' => 1,
+			'max' => 0,
+			'layout' => 'block',
+			'button_label' => 'Add Testimonial',
+			'rows_per_page' => 20,
+			'sub_fields' => array(
+				array(
+					'key' => 'field_60d6560d88acb',
+					'label' => 'Image',
+					'name' => 'image',
+					'aria-label' => '',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_60d65566d6daf',
+								'operator' => '==',
+								'value' => 'image',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'table',
+					'parent_repeater' => 'field_60d65566cee54',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_60d6556926553',
+							'label' => 'Image',
+							'name' => 'image',
+							'aria-label' => '',
+							'type' => 'image',
+							'instructions' => '',
+							'required' => 1,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'return_format' => 'array',
+							'preview_size' => 'thumbnail',
+							'library' => 'all',
+							'min_width' => '',
+							'min_height' => '',
+							'min_size' => '',
+							'max_width' => '',
+							'max_height' => '',
+							'max_size' => '',
+							'mime_types' => '',
+						),
+						array(
+							'key' => 'field_60d6562f88acd_field_60d6227124055',
+							'label' => 'Orientation',
+							'name' => 'orientation',
+							'aria-label' => '',
+							'type' => 'select',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'choices' => array(
+								'right' => 'Right',
+								'left' => 'Left',
+							),
+							'default_value' => 'right',
+							'allow_null' => 0,
+							'multiple' => 0,
+							'ui' => 0,
+							'return_format' => 'value',
+							'ajax' => 0,
+							'placeholder' => '',
+							'_clone' => 'field_60d6562f88acd',
+							'__key' => 'field_60d6227124055',
+							'__name' => 'orientation',
+							'__label' => 'Orientation',
+						),
+					),
+				),
+				array(
+					'key' => 'field_627955ecf4653',
+					'label' => 'Logo',
+					'name' => 'logo',
+					'aria-label' => '',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_60d65566d6daf',
+								'operator' => '==',
+								'value' => 'logo',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'table',
+					'parent_repeater' => 'field_60d65566cee54',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_627955f9f4654',
+							'label' => 'Logo',
+							'name' => 'logo',
+							'aria-label' => '',
+							'type' => 'image',
+							'instructions' => '',
+							'required' => 1,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'return_format' => 'array',
+							'preview_size' => 'thumbnail',
+							'library' => 'all',
+							'min_width' => '',
+							'min_height' => '',
+							'min_size' => '',
+							'max_width' => '',
+							'max_height' => '',
+							'max_size' => '',
+							'mime_types' => '',
+						),
+					),
+				),
+				array(
+					'key' => 'field_60d6567488ace',
+					'label' => 'Quote',
+					'name' => 'quote',
+					'aria-label' => '',
+					'type' => 'textarea',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'maxlength' => '',
+					'rows' => 5,
+					'new_lines' => 'wpautop',
+					'parent_repeater' => 'field_60d65566cee54',
+				),
+				array(
+					'key' => 'field_60d656af88acf',
+					'label' => 'Attribution',
+					'name' => 'attribution',
+					'aria-label' => '',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'table',
+					'parent_repeater' => 'field_60d65566cee54',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_60d656c188ad0',
+							'label' => 'Name',
+							'name' => 'name',
+							'aria-label' => '',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 1,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+							'maxlength' => '',
+						),
+						array(
+							'key' => 'field_60d656cf88ad1',
+							'label' => 'Title',
+							'name' => 'title',
+							'aria-label' => '',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+							'maxlength' => '',
+						),
+						array(
+							'key' => 'field_60d656d688ad2',
+							'label' => 'Company',
+							'name' => 'company',
+							'aria-label' => '',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+							'maxlength' => '',
+						),
+					),
+				),
+				array(
+					'key' => 'field_627a87defd093',
+					'label' => 'Show Button',
+					'name' => 'show_button',
+					'aria-label' => '',
+					'type' => 'true_false',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_627a8360f581a',
+								'operator' => '==',
+								'value' => '1',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'message' => '',
+					'default_value' => 1,
+					'ui' => 1,
+					'ui_on_text' => '',
+					'ui_off_text' => '',
+					'parent_repeater' => 'field_60d65566cee54',
+				),
+				array(
+					'key' => 'field_627a8412f581b',
+					'label' => 'Button',
+					'name' => 'button',
+					'aria-label' => '',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_627a8360f581a',
+								'operator' => '==',
+								'value' => '1',
+							),
+							array(
+								'field' => 'field_627a87defd093',
+								'operator' => '==',
+								'value' => '1',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'block',
+					'parent_repeater' => 'field_60d65566cee54',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_64dsaartapbuv',
+							'label' => 'Button Clone',
+							'name' => 'button',
+							'aria-label' => '',
+							'type' => 'clone',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'clone' => array(
+								0 => 'field_60d3bee962e7b',
+							),
+							'display' => 'seamless',
+							'layout' => 'block',
+							'prefix_label' => 0,
+							'prefix_name' => 0,
+						),
+					),
+				),
+			),
+		),
+		array(
+			'key' => 'field_617981afd1c9d',
+			'label' => 'Settings',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_63add53fc7b33',
+			'label' => 'Block Display',
+			'name' => 'testimonials_display',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_63add549c7b34',
+					'label' => 'Custom Class',
+					'name' => 'custom_class',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6178670b4ade0',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_63add570c7b35',
+					'label' => 'Block Name',
+					'name' => 'block_name',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_63acf715515a6',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_63add586c7b36',
+					'label' => 'Display Block',
+					'name' => 'display_block',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6393b3ba45832',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+			),
+		),
+		array(
+			'key' => 'field_60d65566ced94',
+			'label' => 'Settings',
+			'name' => 'testimonials_settings',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_60d65566d6daf',
+					'label' => 'Style',
+					'name' => 'style',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'quote' => 'Quote',
+						'image' => 'Quote + Image',
+						'logo' => 'Quote + Logo',
+					),
+					'default_value' => 'quote',
+					'allow_null' => 0,
+					'multiple' => 0,
+					'ui' => 0,
+					'return_format' => 'value',
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_60d65566d6dec',
+					'label' => 'Background',
+					'name' => 'background',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'bkgnd-white|light' => 'White',
+						'bkgnd-light|light' => 'Light Grey',
+					),
+					'default_value' => 'bkgnd-white|light',
+					'allow_null' => 0,
+					'multiple' => 0,
+					'ui' => 0,
+					'return_format' => 'value',
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_6266ca487d389',
+					'label' => 'Speed',
+					'name' => 'speed',
+					'aria-label' => '',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => 5000,
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),
+				array(
+					'key' => 'field_627a8360f581a',
+					'label' => 'Include Button',
+					'name' => 'include_button',
+					'aria-label' => '',
+					'type' => 'true_false',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'message' => '',
+					'default_value' => 0,
+					'ui' => 1,
+					'ui_on_text' => '',
+					'ui_off_text' => '',
+				),
+				array(
+					'key' => 'field_6266ca6d7d38a',
+					'label' => 'Display Arrows',
+					'name' => 'display_arrows',
+					'aria-label' => '',
+					'type' => 'true_false',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'message' => '',
+					'default_value' => 0,
+					'ui' => 1,
+					'ui_on_text' => '',
+					'ui_off_text' => '',
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => false,
+	'description' => '',
+	'show_in_rest' => 0,
+));
+
+endif;
+
+?>

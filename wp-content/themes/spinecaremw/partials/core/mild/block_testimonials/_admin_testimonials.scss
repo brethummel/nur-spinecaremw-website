@@ -1,0 +1,11 @@
+.acf-field[data-name="content_blocks"] {
+	.layout[data-layout="block_testimonials"] {
+		.acf-fc-layout-handle {
+			.icon {
+				&:before {
+					background-image: url("partials/core/mild/block_testimonials/icon_testimonials.png") !important;
+				}
+			}
+		}
+	}
+}

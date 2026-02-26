@@ -1,0 +1,133 @@
+.block-peoplegrid {
+    .person {
+        margin-bottom: 45px;
+        .person-container {
+            position: relative;
+            padding-bottom: 40px;
+            height: 100%;
+            .image-container {
+                text-align: center;
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: center top;
+                    border-radius: 300px;
+                    border: 9px solid $white;
+                    box-shadow: 0px 4px 15px 0px #0000001A;
+                    @include media-breakpoint-up(lg) {
+                        height: 240px;
+                        width: 240px;
+                    }
+                    @include media-breakpoint-only(md) {
+                        height: 215px;
+                        width: 215px;
+                    }
+                    @include media-breakpoint-down(sm) {
+                        height: 240px;
+                        width: 240px;
+                    }
+                }
+            }
+            .info-container {
+                text-align: center;
+                h5 {
+                    font-family: $f-heads;
+                    font-size: 28px;
+                    font-style: normal;
+                    font-weight: $f-regular;
+                    line-height: 1.3;
+                    letter-spacing: -0.9px;
+                    text-transform: unset !important;
+                    color: $charcoal;
+                    @include media-breakpoint-down(md) {
+                        font-size: 26px;
+                    }
+                    @include media-breakpoint-down(sm) {
+                        font-size: 24px;
+                    }
+                    a {
+                        color: $charcoal;
+                        text-decoration: none;
+                        &:hover {
+                            color: $c-secondary;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                p.title,
+                p.certifications {
+                    font-size: 18px;
+
+                }
+                p.title {
+                    font-style: normal;
+                    margin-bottom: 12px;
+                    &:before {
+                        content: "";
+                        display: block;
+                        width: 44px;
+                        height: 3px;
+                        background-color: $c-secondary;
+                        margin: 14px auto;
+                    }
+                }
+                p.certifications {
+                    font-weight: $f-bold;
+                }
+                h5 + p {
+                    
+                }
+            }
+            .link-container {
+                text-align: center;
+                position: absolute;
+                width: 100%;
+                left: 0px;
+                bottom: 0px;
+                a {
+                    font-size: 16px;
+                    text-decoration: none;
+                    font-weight: $f-bold;
+                    text-transform: uppercase;
+                    color: $charcoal;
+                    letter-spacing: 1px;
+                    transition: all .4s;
+                    &:after {
+                        content: "\e701";
+                        color: $c-secondary;
+                        font-family: $f-microns;
+                        display: inline-block;
+                        font-size: 18px;
+                        position: relative;
+                        top: 2px;
+                        margin-left: 5px;
+                    }
+                    &:hover {
+                        color: $c-secondary;
+                    }
+                }
+            }
+        }
+        .bio {
+			
+        }
+    }
+    &.light {
+        .person {
+            h5 {
+                a {
+                    &:hover {
+						
+                    }
+                }
+            }
+            p.title {
+                a {
+                    &:hover {
+						
+                    }
+                }
+            }
+        }
+    }
+}

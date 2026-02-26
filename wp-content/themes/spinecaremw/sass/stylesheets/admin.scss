@@ -1,0 +1,15 @@
+
+// admin
+@import '../../partials/core/_admin.scss';
+
+// acf normalizer
+@import 'components/_admin_acf.scss';
+
+// admin blocks
+@import '../../partials/_blocks_admin.scss';
+
+// custom admin blocks
+@import '../../partials/custom/_custom_admin.scss';
+
+// private admin blocks
+@import '../../partials/private/_private_admin.scss';

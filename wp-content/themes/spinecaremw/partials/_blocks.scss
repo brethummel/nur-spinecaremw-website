@@ -1,0 +1,202 @@
+
+@import 'custom/_custom';
+@import 'core/_main';
+
+// ======================================= //
+//            MILD (CORE) BLOCKS           //
+// ======================================= // 
+
+@if $block_accordion {
+	@import 'custom/block_accordion/_block_accordion';
+} @else {
+	@import 'core/mild/block_accordion/_block_accordion';
+}
+@if $block_anchor {
+	@import 'custom/block_anchor/_block_anchor';
+} @else {
+	@import 'core/mild/block_anchor/_block_anchor';
+}
+@if $block_bio {
+	@import 'custom/block_bio/_block_bio';
+} @else {
+	@import 'core/mild/block_bio/_block_bio';
+}
+@if $block_buttons {
+	@import 'custom/block_buttons/_block_buttons';
+} @else {
+	@import 'core/mild/block_buttons/_block_buttons';
+}
+@if $block_contactform {
+	@import 'custom/block_contactform/_block_contactform';
+} @else {
+	@import 'core/mild/block_contactform/_block_contactform';
+}
+@if $block_fullimage {
+	@import 'custom/block_fullimage/_block_fullimage';
+} @else {
+	@import 'core/mild/block_fullimage/_block_fullimage';
+}
+@if $block_hero {
+	@import 'custom/block_hero/_block_hero';
+} @else {
+	@import 'core/mild/block_hero/_block_hero';
+}
+@if $block_legal {
+	@import 'custom/block_legal/_block_legal';
+} @else {
+	@import 'core/mild/block_legal/_block_legal';
+}
+@if $block_peoplegrid {
+	@import 'custom/block_peoplegrid/_block_peoplegrid';
+} @else {
+	@import 'core/mild/block_peoplegrid/_block_peoplegrid';
+}
+@if $block_posts {
+	@import 'custom/block_posts/_block_posts';
+} @else {
+	@import 'core/mild/block_posts/_block_posts';
+}
+@if $block_published {
+	@import 'custom/block_published/_block_published';
+} @else {
+	@import 'core/mild/block_published/_block_published';
+}
+@if $block_pullquote {
+	@import 'custom/block_pullquote/_block_pullquote';
+} @else {
+	@import 'core/mild/block_pullquote/_block_pullquote';
+}
+@if $block_rule {
+	@import 'custom/block_rule/_block_rule';
+} @else {
+	@import 'core/mild/block_rule/_block_rule';
+}
+@if $block_share {
+	@import 'custom/block_share/_block_share';
+} @else {
+	@import 'core/mild/block_share/_block_share';
+}
+@if $block_strip {
+	@import 'custom/block_strip/_block_strip';
+} @else {
+	@import 'core/mild/block_strip/_block_strip';
+}
+@if $block_testimonials {
+	@import 'custom/block_testimonials/_block_testimonials';
+} @else {
+	@import 'core/mild/block_testimonials/_block_testimonials';
+}
+@if $block_text {
+	@import 'custom/block_text/_block_text';
+} @else {
+	@import 'core/mild/block_text/_block_text';
+}
+@if $block_textimage {
+	@import 'custom/block_textimage/_block_textimage';
+} @else {
+	@import 'core/mild/block_textimage/_block_textimage';
+}
+@if $block_tiles {
+	@import 'custom/block_tiles/_block_tiles';
+} @else {
+	@import 'core/mild/block_tiles/_block_tiles';
+}
+
+
+// ======================================= //
+//              MEDIUM BLOCKS              //
+// ======================================= //
+
+@if $block_audioplayer == true {
+	@import 'custom/block_audioplayer/_block_audioplayer';
+} @else {
+	@if $block_audioplayer != none {
+		@import 'core/medium/block_audioplayer/_block_audioplayer';
+	}
+}
+@if $block_gallery == true {
+	@import 'custom/block_gallery/_block_gallery';
+} @else {
+	@if $block_gallery != none {
+		@import 'core/medium/block_gallery/_block_gallery';
+	}
+}
+@if $block_layerslider == true {
+	@import 'custom/block_layerslider/_block_layerslider';
+} @else {
+	@if $block_logogrid != none {
+		@import 'core/medium/block_layerslider/_block_layerslider';
+	}
+}
+@if $block_logogrid == true {
+	@import 'custom/block_logogrid/_block_logogrid';
+} @else {
+	@if $block_logogrid != none {
+		@import 'core/medium/block_logogrid/_block_logogrid';
+	}
+}
+@if $block_photostrip == true {
+	@import 'custom/block_photostrip/_block_photostrip';
+} @else {
+	@if $block_photostrip != none {
+		@import 'core/medium/block_photostrip/_block_photostrip';
+	}
+}
+@if $block_resources == true {
+	@import 'custom/block_resources/_block_resources';
+} @else {
+	@if $block_resources != none {
+		@import 'core/medium/block_resources/_block_resources';
+	}
+}
+@if $block_section == true {
+	@import 'custom/block_section/_block_section';
+} @else {
+	@if $block_section != none {
+		@import 'core/medium/block_section/_block_section';
+	}
+}
+@if $block_ticker == true {
+	@import 'custom/block_ticker/_block_ticker';
+} @else {
+	@if $block_resources != none {
+		@import 'core/medium/block_ticker/_block_ticker';
+	}
+}
+
+
+// ======================================= //
+//               SPICY BLOCKS              //
+// ======================================= // 
+
+@if $block_related == true {
+	@import 'custom/block_related/_block_related';
+} @else {
+	@if $block_related != none {
+		@import 'core/spicy/block_related/_block_related';
+	}
+}
+@if $block_map == true {
+	@import 'custom/block_map/_block_map';
+} @else {
+	@if $block_map != none {
+		@import 'core/spicy/block_map/_block_map';
+	}
+}
+
+
+// ======================================= //
+//              CUSTOM BLOCKS              //
+// ======================================= // 
+
+@import 'custom/_custom_blocks';
+
+
+// ======================================= //
+//             PRIVATE BLOCKS              //
+// ======================================= // 
+
+@if $private_blocks {
+	@import 'private/_private_blocks';
+}
+

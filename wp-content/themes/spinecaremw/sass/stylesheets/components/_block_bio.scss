@@ -1,0 +1,124 @@
+.block-bio {
+    .back-link {
+        margin-bottom: 40px;
+    }
+    .portrait-col {
+        @include media-breakpoint-only(md) {
+            padding-right: 0px;
+        }
+        @include media-breakpoint-only(sm) {
+            margin-bottom: $p-bottom * .5;
+        }
+        @include media-breakpoint-down(xs) {
+            margin-bottom: $p-bottom-xs * .5;
+        }
+        img {
+            width: 100%;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 300px;
+            border: 15px solid $white;
+            box-shadow: 0px 4px 15px 0px #0000001A;
+            @include media-breakpoint-only(xl) {
+                height: 320px;
+            }
+            @include media-breakpoint-only(lg) {
+                height: 280px;
+            }
+            @include media-breakpoint-only(md) {
+                height: 215px;
+                border: 10px solid $white;
+            }
+            @include media-breakpoint-only(sm) {
+                height: 480px;
+            }
+            @include media-breakpoint-only(xs) {
+                height: calc( 100vw - (2 * 25px) );
+            }
+            @include media-breakpoint-only(xxs) {
+                height: calc( 100vw - (2 * 20px) );
+            }
+        }
+    }
+    .bio-col {
+        @include media-breakpoint-up(md) {
+			
+        }
+        .person-container {
+            h3 {
+                font-size: 38px;
+                @include media-breakpoint-only(md) {
+                    font-size: 35px;
+                }
+                @include media-breakpoint-down(sm) {
+                    font-size: 32px;
+                }
+            }
+            p.title,
+            p.certifications {
+                padding-left: 24px;
+                border-left: 3px solid $c-secondary;
+            }
+            p.title {
+                display: block;
+				font-style: normal !important;
+                font-size: 18px;
+                margin-top: 12px;
+                margin-bottom: 0px;
+                padding-bottom: 16px;
+            }
+            p.certifications {
+                font-weight: $f-bold;
+                padding-bottom: 2px;
+                margin-bottom: 12px;
+            }
+        }
+        p.read-more {
+            a {
+                &:after {
+					
+                }
+                &.open {
+                    &:after {
+						
+                    }
+                }
+            }
+        }
+        .bio-container {
+            &.read-more {
+                &:after {
+					
+                }
+                &.open {
+                    &:after {
+						
+                    }
+                }
+                &.bkgnd-light {
+                    &:after {
+						
+                    }
+                }
+                &.bkgnd-white {
+                    &:after {
+						
+                    }
+                }
+                &.bkgnd-primary {
+                    &:after {
+						
+                    }
+                }
+                &.bkgnd-secondary {
+                    &:after {
+						
+                    }
+                }
+            }
+            >.read-more {
+				
+            }
+        }
+    }
+}

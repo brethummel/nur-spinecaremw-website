@@ -1,0 +1,28 @@
+.isc-source-text {
+	position: relative;
+	align-items: center;
+}
+
+details.isc-source-text summary {
+	cursor: pointer;
+	display: inline !important;
+	list-style: none;
+}
+
+details.isc-source-text[open] summary {
+	padding-right: 5px;
+}
+
+details.isc-source-text a {
+	display: inline;
+	color: #fff;
+}
+
+/* Suppress an arrow icon in Safari */
+.isc-source-text summary::-webkit-details-marker {
+	display: none;
+}
+
+.isc-source-text summary::marker {
+	display: none;
+}

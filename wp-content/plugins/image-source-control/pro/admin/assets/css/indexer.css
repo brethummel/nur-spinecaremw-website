@@ -1,0 +1,54 @@
+/**
+ * Index Bot - Styles
+ *
+ * Styles for the ISC Index Bot feature
+ */
+
+#isc-indexer-progress {
+	margin: 20px 0;
+}
+
+.isc-indexer-progress-stats {
+	margin-bottom: 5px;
+	font-weight: 500;
+}
+
+/* Progress bar styles */
+#isc-indexer-progress-bar {
+	width: 100%;
+	height: 24px;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+#isc-indexer-progress-bar::-webkit-progress-bar {
+	background-color: #f0f0f0;
+	border-radius: 4px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+}
+
+#isc-indexer-progress-bar::-webkit-progress-value {
+	background: #F70;
+	border-radius: 4px;
+	transition: width 0.3s ease;
+}
+
+#isc-indexer-progress-bar::-moz-progress-bar {
+	background: #F70;
+	border-radius: 4px;
+}
+
+#isc-indexer-status {
+	display: inline-block;
+	margin-left: 10px;
+	font-weight: 500;
+}
+
+/* Additional spacing for the results section */
+#isc-indexer-results {
+	margin-top: 20px;
+}
+
+#isc-indexer-summary {
+	margin: 20px 0;
+}

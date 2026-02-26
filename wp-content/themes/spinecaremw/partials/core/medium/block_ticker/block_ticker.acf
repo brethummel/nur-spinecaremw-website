@@ -1,0 +1,430 @@
+<?php
+
+/*
+
+Name: Ticker
+ID: block_ticker
+Layout ID: dh8potzk135b1
+Subfield ID: dh8potzk135b2
+Group ID: 634db6c4e0eb5
+
+*/
+
+// ======================================= //
+//              BLOCK UPDATER              //
+// ======================================= // 
+/*
+
+!!! NEW FIELD NAMES HAVE TO BE UNIQUE !!!
+!!! FIELDS HAVE TO BE THE SAME TYPE !!!
+
+2022-12-28
+=========
+Block Display settings addition, specifically migrating the custom_class field into the Block Display group.
+
+*/
+
+$acf_migration_map = array(
+	'subfield_id' => 'field_dh8potzk135b2',
+	'2022-12-28' => array(
+		'mode' => '', // reset (overwrite spr_settings), [blank] (leave as is)
+		'fields' => array(
+			'field_634db6c4e7a4d' => array(
+				'old' => array('name' => 'custom_class', 'group' => 'false', 'key' => 'field_634db6c4e7a4d', 'clone' => 'field_6178670b4ade0'),
+				'new' => array('name' => 'ticker_display_custom_class', 'group' => 'field_f8r538ptdi6dc', 'key' => 'field_f8r538ptdi6dc1', 'clone' => 'field_6178670b4ade0'),
+			),
+		)
+	),
+); 
+spr_register_block_changes('block_ticker', $acf_migration_map);
+
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group( array(
+	'key' => 'group_634db6c4e0eb5',
+	'title' => 'BLOCK: Ticker',
+	'fields' => array(
+		array(
+			'key' => 'field_634db6c4e7999',
+			'label' => 'Block',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_634db789fc376',
+			'label' => 'Content',
+			'name' => 'ticker_content',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'block',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_634dbed9fc377',
+					'label' => 'Text',
+					'name' => 'text_line1',
+					'aria-label' => '',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_634db6c522b69',
+								'operator' => '==',
+								'value' => 'echo',
+							),
+						),
+						array(
+							array(
+								'field' => 'field_634db6c522b69',
+								'operator' => '==',
+								'value' => 'unique',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'maxlength' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+				),
+				array(
+					'key' => 'field_634dbf65fc378',
+					'label' => 'Text',
+					'name' => 'text_line2',
+					'aria-label' => '',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_634db6c522b69',
+								'operator' => '==',
+								'value' => 'unique',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'maxlength' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+				),
+				array(
+					'key' => 'field_64f8b9ee387f6',
+					'label' => 'Text',
+					'name' => 'text_snippets',
+					'aria-label' => '',
+					'type' => 'repeater',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_634db6c522b69',
+								'operator' => '==',
+								'value' => 'single',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'row',
+					'pagination' => 0,
+					'min' => 1,
+					'max' => 0,
+					'collapsed' => '',
+					'button_label' => 'Add Snippet',
+					'rows_per_page' => 20,
+					'sub_fields' => array(
+						array(
+							'key' => 'field_64f8ba13387f7',
+							'label' => 'Text',
+							'name' => 'text',
+							'aria-label' => '',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 1,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'maxlength' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+							'parent_repeater' => 'field_64f8b9ee387f6',
+						),
+					),
+				),
+			),
+		),
+		array(
+			'key' => 'field_634db6c4e7a12',
+			'label' => 'Settings',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_f8r538ptdi6dc',
+			'label' => 'Block Display',
+			'name' => 'ticker_display',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_f8r538ptdi6dc1',
+					'label' => 'Custom Class',
+					'name' => 'custom_class',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6178670b4ade0',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_f8r538ptdi6dc2',
+					'label' => 'Block Name',
+					'name' => 'block_name',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_63acf715515a6',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_f8r538ptdi6dc3',
+					'label' => 'Display Block',
+					'name' => 'display_block',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6393b3ba45832',
+					),
+					'display' => 'seamless',
+					'layout' => '',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+			),
+		),
+		array(
+			'key' => 'field_634db6c4e7a88',
+			'label' => 'Settings',
+			'name' => 'ticker_settings',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_634db6c522b69',
+					'label' => 'Style',
+					'name' => 'style',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'single' => 'One Line',
+						'echo' => 'Two Identical Lines',
+						'unique' => 'Two Unique Lines',
+					),
+					'default_value' => 'single',
+					'return_format' => 'value',
+					'multiple' => 0,
+					'allow_null' => 0,
+					'ui' => 0,
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_64f8b971387f5',
+					'label' => 'Direction',
+					'name' => 'direction',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_634db6c522b69',
+								'operator' => '==',
+								'value' => 'single',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'right' => 'Left to Right',
+						'left' => 'Right to Left',
+					),
+					'default_value' => 'left',
+					'return_format' => 'value',
+					'multiple' => 0,
+					'allow_null' => 0,
+					'ui' => 0,
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_634dc212ae515',
+					'label' => 'Background',
+					'name' => 'background',
+					'aria-label' => '',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'bkgnd-white|light' => 'White',
+						'bkgnd-light|light' => 'Light Grey',
+						'bkgnd-primary|dark' => 'Grey',
+						'bkgnd-secondary|light' => 'Yellow',
+					),
+					'default_value' => 'bkgnd-white|light',
+					'return_format' => 'value',
+					'multiple' => 0,
+					'allow_null' => 0,
+					'ui' => 0,
+					'ajax' => 0,
+					'placeholder' => '',
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => false,
+	'description' => '',
+	'show_in_rest' => 0,
+) );
+
+endif;
+
+?>

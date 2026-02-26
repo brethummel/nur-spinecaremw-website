@@ -1,0 +1,23 @@
+.block-share {
+	padding-top: $p-top *.75 !important;
+	padding-bottom: $p-bottom *.75 !important;
+	@include media-breakpoint-down(xs) {
+		padding-top: $p-top-xs *.75 !important;
+		padding-bottom: $p-bottom-xs *.75 !important;
+	}
+	&.above {
+		margin-top: -10px !important;
+	}
+	&.below {
+		margin-bottom: 0px !important;
+	}
+	.content-container {
+		.swp_social_panel {
+			.swp_share_button {
+				a {
+					color: $white;
+				}
+			}
+		}
+	}
+}

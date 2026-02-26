@@ -1,0 +1,39 @@
+
+======================
+Overview
+======================
+
+Content blocks are organized into three different categories:
+
+1. Mild (Core) Blocks
+2. Medium Blocks
+3. Spicy Blocks
+
+The SpringBoard theme includes the core functionality for content blocks across all three categories, and stores them inside this partials/core folder. The core functionality can be overridden by copying a content block's entire folder to the partials/custom folder, in which case it will load instead of the core block. This allows for client-specific customization of one or many blocks while leaving the original blocks pristine.
+
+Mild blocks are all standard with every usage of SpringBoard. For Medium and Spicy blocks are not standard and would be empty by default. To add a block of one of those types, simply drag it into the , individual block folders can 
+
+
+======================
+_blocks.acf
+======================
+
+The role of _blocks.acf is twofold. First, it loads the ACF fieldsets for each content block, from the partials/custom folder if it finds it there, otherwise from the set of blocks in partials/core. Secondly, if it does find a .acf file for a block inside the partials/custom folder, it adds a sass variable with the block's name and sets it to true, and after loading all .acf files, it writes _custom.scss to the partials/custom folder.
+
+
+======================
+_blocks.php
+======================
+
+The _blocks.php file's job is to add whatever content blocks it discovers in the ACF content_blocks flexible content block to the page template. It first looks for a content block's .php file in the partials/custom folder, and if it doesn't find it there, it'll pull the file from the core set of blocks.
+
+
+======================
+_blocks.scss
+======================
+
+The _blocks.scss file's job is to add a content block's .scss file to be compiled along with the rest of the stylesheet. Because sass can't look to see whether a file exists first, and because the compiler will fail if a non-existent file is loaded, the mechanism for grabbing either the custom block or the core block is a bit different. For each block, it looks to see whether a variable with it's same name is true (meaning a custom block exists for the block) or false, which have been loaded in via partials/custom/_custom.scss. If the variable is true, it loads the .scss file from the partials/custom folder. If not, it loads it from the core.
+
+For Mild and Medium blocks, 
+
+

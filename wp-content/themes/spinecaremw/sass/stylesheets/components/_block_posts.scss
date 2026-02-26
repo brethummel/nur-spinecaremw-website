@@ -1,0 +1,133 @@
+.block-posts {
+    .active-tags {
+        margin-top: -28px;
+        margin-bottom: 28px;
+        h3 {
+            font-size: 22px;
+            a {
+                color: $c-secondary !important;
+                text-decoration: underline;
+                &:hover {
+                    color: $charcoal !important;
+                }
+            }
+        }
+    }
+    .sidebar {
+        .search-bar {
+            >span {
+                background-color: $softwhite;
+                border-top-left-radius: 40px;
+                border-bottom-left-radius: 40px;
+                padding-left: 8px;
+                padding-right: 6px;
+                &:before {
+                    color: $charcoal;
+                }
+            }
+            input {
+                background-color: $softwhite;
+                border-top-right-radius: 40px;
+                border-bottom-right-radius: 40px;
+            }
+            .search-results {
+                border-radius: 5px;
+                p.all-results {
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    a {
+                        text-decoration: none;
+                        &:hover {
+                            text-decoration: none;
+                        }
+                        &:after {
+                            content: "\e701";
+                            color: $c-secondary;
+                            font-family: $f-microns;
+                            display: inline-block;
+                            font-size: 16px;
+                            position: relative;
+                            top: 1.5px;
+                            margin-left: 5px;
+                        }
+                    }
+                }
+            }
+        }
+        .tag-cloud {
+            h4 {
+                font-size: 22px;
+            }
+            ul {
+                list-style: none;
+                padding: 0px;
+                &.tags {
+                    li {
+                        font-size: 15px;
+                        text-transform: uppercase;
+                        letter-spacing: .5px;
+                        font-weight: $f-semibold;
+                        &.current {
+                            a {
+                                color: $c-secondary !important;
+                            }
+                        }
+                        a {
+                            color: $charcoal;
+                            text-decoration: underline;
+                            &:hover {
+                                color: $c-secondary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .view-all {
+        a {
+            font-size: 16px;
+            font-weight: $f-bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all .4s;
+            color: $black !important;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0px;
+            &:hover {
+                color: $c-secondary !important;
+                text-decoration: none;
+            }
+            &:after {
+                content: "\e701";
+                color: $c-secondary;
+                font-family: $f-microns;
+                display: inline-block;
+                font-size: 18px;
+                position: relative;
+                top: 2px;
+                margin-left: 5px;
+            }
+        }
+    }
+}
+.medical-articles {
+    .block-posts {
+        &.physician-posts {
+            .posts-container {
+                // @include media-breakpoint-only(md) {
+                //     -ms-flex: 0 0 66.666667%;
+                //     flex: 0 0 66.666667%;
+                //     max-width: 66.666667%;
+                // }
+                // @include media-breakpoint-up(lg) {
+                //     -ms-flex: 0 0 75%;
+                //     flex: 0 0 75%;
+                //     max-width: 75%;
+                // }
+            }
+        }
+    }
+}

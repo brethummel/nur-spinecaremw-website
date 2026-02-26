@@ -1,0 +1,216 @@
+.block-posts {
+	transition: all .4s;
+	&.padded {
+		padding-bottom: $p-bottom - 25px !important;
+	}
+	.active-tags {
+		margin-bottom: 16px;
+		h3 {
+			span.reset {
+				font-size: 16px;
+				margin-left: 16px;
+			}
+		}
+	}
+	.posts-container {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0px;
+		&.no-flex {
+			display: block !important;
+		}
+		.post-container {
+			transition: all .4s;
+			&.just-loaded {
+				opacity: 0;
+			}
+		}
+	}
+	.sidebar {
+		.search-bar {
+			margin-bottom: 24px;
+			position: relative;
+			>span {
+                background-color: $superlightgrey;
+				display: inline-block;
+				width: 36px;
+				height: 32px;
+				vertical-align: top;
+				padding-left: 8px;
+				padding-right: 6px;
+				&:before {
+					content: "\e744";
+					font-family: $f-microns;
+					font-size: 21px;
+					color: $black;
+					position: relative;
+				}
+			}
+			input {
+				display: inline-block;
+				vertical-align: top;
+				background-color: $superlightgrey;
+				border: none;
+				outline: 0px;
+				width: calc( 100% - 36px );
+				padding: 4px 15px 4px 0px;
+				position: relative;
+			}
+			.search-results {
+				position: absolute;
+				background-color: $white;
+    			box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, .2);
+    			width: 320px;
+    			right: 0px;
+    			top: 37px;
+    			padding: 24px 20px 20px 20px;
+    			display: none;
+    			.loading {
+    				text-align: center;
+    				padding-top: 14px;
+    				padding-bottom: 14px;
+    			}
+    			ul {
+    				list-style: none;
+    				margin: 0px;
+    				padding: 0px;
+    				li {
+    					font-size: 16px;
+    					line-height: 1.3;
+    					margin-bottom: 13px;
+    					display: none;
+    					a {
+    						color: $charcoal;
+    						text-decoration: none;
+    						&:hover {
+    							color: $c-secondary;
+    							text-decoration: underline;
+    						}
+    					}
+    					span.content-match {
+    						// display: block;
+    						margin-top: 3px;
+    						margin-left: 8px;
+    						font-size: 13px;
+    						font-style: italic;
+    						color: $c-accent;
+    					}
+    				}
+    			}
+    			p.no-results {
+					font-size: 16px;
+					line-height: 1.3;
+					margin-top: 0px;
+					margin-bottom: 4px;
+					display: none;
+    			}
+    			p.all-results {
+    				font-size: 14px;
+    				margin-top: 18px;
+    				margin-bottom: 0px;
+    				display: none;
+    				a {
+
+    				}
+    			}
+			}
+		}
+        .tag-cloud {
+            h4 {
+                margin-bottom: 20px;
+            }
+            ul {
+            	list-style: none;
+            	padding: 0px;
+            	&.tags {
+            		li {
+            			line-height: 1.3;
+            			margin-bottom: 16px;
+            		}
+            	}
+            }
+        }
+	}
+	.filter-row {
+		display: flex;
+		justify-content: space-between;
+		@include media-breakpoint-down(sm) {
+			display: block;
+		}
+		h2 {
+			vertical-align: baseline;
+		}
+		.filters {
+			vertical-align: baseline;
+			ul {
+				list-style: none;
+				padding: 0px;
+				li {
+					position: relative;
+					display: inline-block;
+					margin-right: 20px;
+					font-size: 16px;
+					font-weight: $f-medium;
+					cursor: pointer;
+					&:last-of-type {
+						margin-right: 0px;
+					}
+					&:before {
+						position: relative;
+						content: "\E0B6";
+						font-size: 27px;
+                    	font-family: typicons !important;
+						margin-right: 9px;
+						top: 2px;
+						color: $grey;
+						opacity: .5;
+					}
+					&.active {
+						&:before {
+							opacity: .35;
+						}
+						&:after {
+							position: absolute;
+							content: "\E11E";
+							font-size: 22px;
+                    		font-family: typicons !important;
+							top: 5px;
+							left: 1px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.load-more {
+		margin-top: 22px;
+		text-align: center;
+		&.hide {
+			display: none;
+		}
+		p {
+			img {
+				height: 32px;
+				width: 32px;
+			}
+		}
+	}
+	.view-all {
+		margin-top: 20px;
+		a {
+
+		}
+	}
+	.no-results {
+		display: none;
+		p {
+			border-top: 1px solid $grey;
+			padding-top: 22px;
+			font-size: 18px;
+		}
+		&.show {
+			display: block;
+		}
+	}
+}

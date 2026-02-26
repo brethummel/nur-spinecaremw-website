@@ -1,0 +1,11 @@
+.acf-field[data-name="content_blocks"] {
+	.layout[data-layout="block_patientstory"] {
+		.acf-fc-layout-handle {
+			.icon {
+				&:before {
+					background-image: url("partials/custom/block_patientstory/icon_patientstory.png") !important;
+				}
+			}
+		}
+	}
+}

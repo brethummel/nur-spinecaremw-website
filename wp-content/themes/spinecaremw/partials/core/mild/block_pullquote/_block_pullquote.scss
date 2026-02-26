@@ -1,0 +1,35 @@
+.block-pullquote {
+	.container {
+		.row {
+			.quote {
+				text-align: center;
+				@include media-breakpoint-up(lg) {
+					padding: 0px 15%;
+				}
+				p {
+					color: $c-primary;
+					font-size: 20px;
+					&:first-child {
+						&:before {
+							color: $c-primary;
+							content: "\201C";
+							display: block;
+							text-align: center;
+							font-size: 112px;
+							margin-bottom: -100px;
+							margin-top: -50px;
+						}
+					}
+				}
+			}
+			.attribution {
+				text-align: center;
+				p {
+					font-style: italic;
+					margin-top: 16px;
+					margin-bottom: 0px;
+				}
+			}
+		}
+	}
+}

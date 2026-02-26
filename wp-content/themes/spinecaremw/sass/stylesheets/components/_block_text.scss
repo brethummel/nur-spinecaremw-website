@@ -1,0 +1,358 @@
+.blocks-wrapper {  /* The role of .blocks-wrapper is to apply special rules when a block is inside another block */
+    .block-text {
+        &.padded {
+            &.above {
+				
+            }
+            &.below {
+				
+            }
+        }
+    }
+}
+.block-text {
+    &.one-col {
+        &.flex-block {
+            .column-one {
+                .content-container {
+                    border-left: 5px solid $c-secondary;
+                    @include media-breakpoint-down(sm) {
+                        padding: 24px 0px 24px 32px;
+                    }
+                    @include media-breakpoint-up(md) {
+                        padding: 24px 0px 24px 48px;
+                    }
+                    @include media-breakpoint-up(lg) {
+                        -ms-flex: 0 0 90%;
+                        flex: 0 0 90%;
+                        max-width: 90%;
+                    }
+                    ul {
+                        margin-top: 24px;
+                        &:last-child {
+                            margin-bottom: 0px;
+                        }
+                        li {
+                            a {
+                                &:only-child {
+                                    color: $black;
+                                    font-weight: $f-bold;
+                                    transition: all .4s;
+                                    &:hover {
+                                        color: $c-secondary;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.two-col {
+        &.one-fourth {
+            &.bkgnd-light2 { // assumes this is the treatments/conditions Flex Header
+                .column-one {
+                    .content-container {
+                        h2 {
+                            margin-bottom: 32px;
+                            &:after {
+                                content: "";
+                                display: block;
+                                width: 100px;
+                                border-bottom: 4px solid $c-secondary;
+                                margin-top: 18px;
+                            }
+                        }
+                    }
+                }
+                .column-two {
+                    display: flex;
+                    align-items: center;
+                    .content-container {
+                        p {
+                            &:only-child {
+                                padding-bottom: 30px;
+                            }
+                            a {
+                                &:not([href^="tel:"]) {
+                                    &:not([href^="mailto:"]) {
+                                        &:only-child {
+                                            font-size: 16px;
+                                            font-weight: $f-bold;
+                                            letter-spacing: 1px;
+                                            text-transform: uppercase;
+                                            transition: all .4s;
+                                            color: $black;
+                                            text-decoration: none;
+                                            display: inline-block;
+                                            margin-top: 10px;
+                                            &:hover {
+                                                color: $c-secondary;
+                                                text-decoration: none;
+                                            }
+                                            &:after {
+                                                content: "\e701";
+                                                color: $c-secondary;
+                                                font-family: $f-microns;
+                                                display: inline-block;
+                                                font-size: 18px;
+                                                position: relative;
+                                                top: 2px;
+                                                margin-left: 5px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.mid-page-cta {
+        overflow: hidden;
+        position: relative;
+        &:before {
+            content: "";
+            background-image: url("images/nura_sun_tangerine.png");
+            height: 380px;
+            width: 380px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: -3px;
+            left: 20%;
+            opacity: .5;
+            transform: rotate(8deg);
+            @include media-breakpoint-only(xl) {
+                left: 15%;
+            }
+            @include media-breakpoint-only(lg) {
+                left: 10%;
+            }
+            @include media-breakpoint-down(md) {
+                left: -10%;
+            }
+        }
+        &:after {
+            content: "";
+            height: 113px;
+            width: 113px;
+            background-color: $tangerine;
+            border-radius: 100px;
+            position: absolute;
+            top: -65px;
+            left: 60%;
+            @include media-breakpoint-only(xl) {
+                left: 70%;
+            }
+            @include media-breakpoint-only(lg) {
+                left: 70%;
+            }
+            @include media-breakpoint-down(md) {
+                left: 70%;
+            }
+        }
+    }
+    &.also-treats {
+        .container {
+            .row {
+                .content-container {
+                    ul {
+                        // text-align: left;
+                        // list-style: none;
+                        // padding: 0px;
+                        // margin: 40px 0px 0px 0px;
+                        // column-gap: 40px;
+                        // @include media-breakpoint-up(md) {
+                        //     column-count: 3;
+                        // }
+                        // @include media-breakpoint-only(sm) {
+                        //     column-count: 2;
+                        // }
+                        text-align: left;
+                        list-style: none;
+                        padding: 0px;
+                        margin: 40px 0px 0px 0px;
+                        display: grid;
+                        gap: 0px 40px;
+                        @include media-breakpoint-up(md) {
+                            grid-template-columns: repeat(3, 1fr);
+                        }
+                        @include media-breakpoint-only(sm) {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                        li {
+                            border-bottom: 1px solid $softwhite;
+                            line-height: 1.2;
+                            padding-bottom: 15px;
+                            margin-bottom: 12px;
+                            a {
+                                text-decoration: none;
+                                color: $black;
+                                font-weight: $f-bold;
+                                width: 100%;
+                                position: relative;
+                                display: inline-block;
+                                transition: all .4s;
+                                padding-right: 18px;
+                                &:after {
+                                    content: "\e0b0";
+                                    color: $c-secondary;
+                                    font-family: $f-typicons;
+                                    position: absolute;
+                                    top: 2px;
+                                    right: 0px;
+                                }
+                                &:hover {
+                                    color: $c-secondary;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.com-program {
+        background-image: url("images/questions_medication.png");
+    }
+    &.questions-to-ask {
+        background-image: url("images/questions_doctor.png");
+    }
+    &.questions-to-ask,
+    &.com-program {
+        background-repeat: no-repeat;
+        @include media-breakpoint-up(md) {
+            background-size: 600px;
+        }
+        @include media-breakpoint-down(md) {
+            background-position: center bottom;
+        }
+        @include media-breakpoint-only(md) {
+            &.padded {
+                padding-bottom: 630px;
+            }
+        }
+        @include media-breakpoint-only(sm) {
+            background-size: 500px;
+            &.padded {
+                padding-bottom: 530px;
+            }
+        }
+        @include media-breakpoint-down(xs) {
+            background-size: 90vw;
+            &.padded {
+                padding-bottom: 95vw;
+            }
+        }
+        @include media-breakpoint-only(lg) {
+            background-position: calc( 100px + 54vw ) bottom;
+        }
+        @include media-breakpoint-only(xl) {
+            background-position: calc( 180px + 54vw ) bottom;
+        }
+        .column-one {
+            @include media-breakpoint-up(lg) {
+                -ms-flex: 0 0 90%;
+                flex: 0 0 90%;
+                max-width: 90%;
+            }
+            .content-container {
+                ol {
+                    margin-top: 32px;
+                    margin-bottom: 24px;
+                    @include media-breakpoint-up(lg) {
+                        column-count: 2;
+                        column-gap: 40px;
+                    }
+                    @include media-breakpoint-only(lg) {
+                        padding-right: calc( 100px + 3vw );
+                    }
+                    @include media-breakpoint-only(xl) {
+                        padding-right: calc( 80px + 3vw );
+                    }
+                }
+            }
+        }
+    }
+    &.clinical-trials {
+        .column-one {
+            .content-container {
+                h2 {
+                    margin-bottom: 12px;
+                    +h4 {
+                        margin-top: 24px;
+                    }
+                }
+                ul {
+                    list-style: none;
+                    padding: 0px;
+                    margin-bottom: 32px;
+                    li {
+                        a {
+                            color: $charcoal;
+                            &:hover {
+                                color: $c-secondary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.referral-tabs {
+        .column-one {
+            .content-container {
+                ul {
+                    list-style: none;
+                    margin: 32px -4px 0px -4px;
+                    padding: 0px;
+                    font-size: 0px;
+                    li {
+                        display: inline-block;
+                        padding-left: 4px;
+                        padding-right: 4px;
+                        margin-bottom: 0px;
+                        cursor: pointer;
+                        @include media-breakpoint-down(xs) {
+                            width: 100%;
+                        }
+                        @include media-breakpoint-up(sm) {
+                            width: 50%;
+                        }
+                        &.open {
+                            >.tab-text {
+                                border-color: $c-secondary;
+                            }
+                        }
+                        &:hover {
+                            >.tab-text {
+                                color: $c-secondary;
+                                border-color: $c-secondary;
+                            }
+                        }
+                        >.tab-text {
+                            display: block;
+                            border-bottom: 4px solid $tangerine;
+                            padding: 12px 0px 12px 0px;
+                            cursor: pointer;
+                            height: 100%;
+                            width: 100%;
+                            transition: all 0.4s ease;
+                            font-family: $f-nunito;
+                            font-size: 22px;
+                            font-style: normal;
+                            font-weight: $f-semibold;
+                            @include media-breakpoint-down(xs) {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

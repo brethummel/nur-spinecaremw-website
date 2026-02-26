@@ -1,0 +1,42 @@
+.block-rule {
+	padding-top: $p-top *.75 !important;
+	padding-bottom: $p-bottom *.75 !important;
+	@include media-breakpoint-down(xs) {
+		padding-top: $p-top-xs *.75 !important;
+		padding-bottom: $p-bottom-xs *.75 !important;
+	}
+	&.above {
+		margin-top: 0px !important;
+	}
+	&.below {
+		margin-bottom: 0px !important;
+	}
+	hr {
+		border-top: 1px solid $charcoal;
+		margin: 0px;
+		&.light {
+			border-color: $grey;
+			opacity: .35;
+		}
+		&.primary {
+			border-color: $c-primary;
+		}
+		&.secondary {
+			border-color: $c-secondary;
+		}
+		&.tertiary {
+			border-color: $c-tertiary;
+		}
+		&.accent {
+			border-color: $c-accent;
+		}
+		&.accent2 {
+			border-color: $c-accent2;
+		}
+	}
+}
+.block-textimage.full + .block-rule {
+	@include media-breakpoint-down(md) {
+		padding-top: 0px !important;
+	}
+}

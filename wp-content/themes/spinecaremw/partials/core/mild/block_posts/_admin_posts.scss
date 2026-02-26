@@ -1,0 +1,44 @@
+.acf-field[data-name="content_blocks"] {
+	.layout[data-layout="block_posts"] {
+		.acf-field-626dd7ce83db0[data-name="posts_filters"] { // settings > posts_filters
+			.acf-field-626dd7ef83db1 {
+				ul.acf-checkbox-list {
+					li {
+						display: inline-block;
+						vertical-align: top;
+						margin-right: 15px;
+						ul.children {
+							padding: 1px 0px 0px 0px;
+							margin-top: 4px;
+							margin-right: 18px;
+							border-top: 1px solid #eeeeee;
+							li {
+								display: block;
+							}
+						}
+					}
+				}
+			}
+			.acf-field-62992eb7d49a2 {
+				ul.acf-checkbox-list {
+					column-count: 3;
+				}
+			}
+		}
+		.acf-field-662807eb5d49e[data-name="posts_return"] { // settings > posts_return
+			.acf-field-6628083f5d49f {
+				ul.acf-checkbox-list {
+					li {
+						display: inline-block;
+						margin-right: 15px;
+					}
+				}
+			}
+		}
+		.acf-field-66a3d853b4368[data-name="posts_behavior"] { // settings > behavior
+			.acf-field-66a3d872b4369 {
+				
+			}
+		}
+	}
+}

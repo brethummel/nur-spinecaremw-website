@@ -1,0 +1,700 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Audio Waveform Player with Playlist</title>
+       
+        <style type="text/css">
+
+            body{
+                margin: 20px;
+            }
+
+            #waveform-wrap{
+                background-color: #333;
+                display:flex;
+                position: relative;
+            }
+
+            #waveform{
+                position: relative;
+                
+            }
+
+            canvas{
+                max-width: none!important; 
+            }
+
+            .image-waveform-check-wrap{
+                display: none;
+            }
+
+            #loader {
+                border: 10px solid #f3f3f3; /* Light grey */
+                border-top: 10px solid #3498db; /* Blue */
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                margin: 10px;
+                animation: spin 2s linear infinite;
+                display: none;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+
+           #output{
+                font-size: 16px;
+                margin: 10px;
+                height: 100%;
+                border: 1px solid #ddd;
+                display: none;
+           }
+           label{
+                cursor: pointer;
+           }
+           #exportLink{
+                display: none;
+           }
+
+           .options{
+                padding-bottom: 20px;
+           }
+
+           table{
+            margin: 20px 0;
+           }
+
+           table td {
+              border: 1px solid black;
+              padding: 5px;
+            }
+
+            table input{
+                margin-right: 5px;
+            }
+                    
+        </style>
+
+        
+        <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/wavesurfer.js"></script>
+        <script type="text/javascript" src="js/jsmediatags.min.js"></script>
+        <script type="text/javascript">
+
+            jQuery(document).ready(function($){
+
+                "use strict"
+
+                var dataArr = [],
+                processArr = [],
+                len, 
+                counter,
+                createPeakNameSrc = 'filename',
+                overwrite_files,
+                peakType = 'pcm',
+                exportData,
+                loader = $('#loader'),
+                output = $('#output'),
+                exportLink = $('#exportLink'),
+                pcmLength,
+                pcmAccuracy,
+                waveform = $('#waveform'),
+                imageCreateCheck,
+                wavesurfer,
+                imageTimeout = 100
+
+                $('input[name=overwrite_files]').on('change',function() {
+                    if(this.checked){
+                        overwrite_files = this.value;
+                    }
+                }).change();
+
+                $('input[name=createPeakNameSrc]').on('change',function() {
+                    if(this.checked){
+                        createPeakNameSrc = this.value;
+                    }
+                }).change();
+
+                $('input[name=peakType]').on('change',function() {
+                    if(this.checked){
+                        peakType = this.value;
+                    }
+
+                    $('.waveform-data-field').hide()
+                    $('.waveform-image-field').hide()
+
+                    if(peakType == 'pcm'){
+                        $('.waveform-data-field').show()
+                    }else if(peakType == 'peak'){
+                        $('.waveform-data-field').show()
+                    }else if(peakType == 'image'){
+                        $('.waveform-image-field').show()
+                    }
+
+                }).change();
+
+                function createWs(){
+                    console.log('createWs')
+
+                    if(wavesurfer){
+                        wavesurfer.empty();
+                        wavesurfer.cancelAjax();
+                        wavesurfer.destroy()
+                    }
+
+                    if(imageCreateCheck || peakType == 'image'){
+
+                        var waveform_width = $('#waveform-width').val()
+                        if(isEmpty(waveform_width)) waveform_width = 720;
+
+                        var waveform_height = $('#waveform-height').val()
+                        if(isEmpty(waveform_height)) waveform_height = 200;
+
+                        var waveform_bagGap = $('#waveform-bagGap').val()
+                        if(isEmpty(waveform_bagGap)) waveform_bagGap = 0;
+
+                        var waveform_barRadius = $('#waveform-barRadius').val()
+                        if(isEmpty(waveform_barRadius)) waveform_barRadius = 0;
+
+                        var waveform_barWidth = $('#waveform-barWidth').val()
+                        if(isEmpty(waveform_barWidth)) waveform_barWidth = 0;
+
+                        var waveform_waveColor = $('#waveform-waveColor').val()
+                        if(isEmpty(waveform_waveColor)) waveform_waveColor = '#A8DBA8';
+
+                        var waveform_progressColor = $('#waveform-progressColor').val()
+                        if(isEmpty(waveform_progressColor)) waveform_progressColor = '#FF33FF';     
+
+                        waveform.height(Number(waveform_height))
+                        waveform.width(Number(waveform_width))
+
+                        var options = {
+                            container: waveform[0],
+                            waveColor: waveform_waveColor,
+                            progressColor: waveform_progressColor,   
+                            barWidth: Number(waveform_barWidth),
+                            barRadius: Number(waveform_barRadius),
+                            height: Number(waveform_height),
+                            barGap: Number(waveform_bagGap),
+                            pixelRatio:1,
+                        }
+
+                        if(!imageCreateCheck)options.backend = 'MediaElement'
+
+                        wavesurfer = WaveSurfer.create(options);
+
+                    }else{
+
+                        wavesurfer = WaveSurfer.create({
+                            container: waveform[0],
+                            backend: 'MediaElement',/*!important*/
+                        });
+
+                    }
+
+                    wavesurfer.on('ready', function() {
+                        console.log('ready')
+
+                        if(imageCreateCheck){
+                            imageWaveformCheck.prop('disabled', false).val('')
+                            imageCreateCheck = false;
+
+                            audio_input.prop('disabled', false);
+                        }
+
+                    })
+
+                    wavesurfer.on('waveform-ready', function() {
+                        console.log('waveform-ready')
+                        
+                        if(peakType == 'pcm' || peakType == 'peak'){
+
+                            var pcm = wavesurfer.exportPCM(pcmLength, pcmAccuracy, true);
+
+                            pcm.then(function(val) { 
+
+                                if(Array.isArray(val)){
+                                    val = val.toString(); 
+                                }else{
+                                    if(val.charAt(0) == '[')val = val.substr(1); 
+                                    if(val.charAt(val.length-1) == ']')val = val.substr(0, val.length-1); 
+                                }
+
+                                if(peakType == 'pcm'){
+                                
+                                    output.append('<br>Done creating peak: ' + dataArr[counter].peakName);
+
+                                    exportData.push({name: dataArr[counter].peakName, pcm: val})
+                                    
+                                    getPeaks();
+
+                                }else if(peakType == 'peak'){
+
+                                    writePeaks(val, dataArr[counter].peakName);
+
+                                }
+
+                            })
+
+                        }else if(peakType == 'image'){
+
+                            setTimeout(function(){
+                                writeImage(dataArr[counter].peakName)
+                            },imageTimeout)
+
+                        }
+                               
+                    });
+
+                }
+
+                function writeImage(title){
+                    console.log('writeImage')
+
+                    var convas_arr = waveform.find('canvas')
+
+                    var image1 = convas_arr[0].toDataURL("image/png")//.replace("image/png", "image/octet-stream"); 
+                    var image2 = convas_arr[1].toDataURL("image/png")//.replace("image/png", "image/octet-stream"); 
+
+                    
+                   /* var convas_arr = waveform.find('canvas')
+
+                    var image1 = convas_arr[0].toDataURL("image/png").replace("image/png", "image/octet-stream"); 
+                    var image2 = convas_arr[1].toDataURL("image/png").replace("image/png", "image/octet-stream");  
+
+                    var oImg = document.createElement("img");
+                    oImg.setAttribute('src', image1);
+                    document.body.appendChild(oImg);
+
+                    var oImg = document.createElement("img");
+                    oImg.setAttribute('src', image2);
+                    document.body.appendChild(oImg);
+
+                    return*/
+
+                    var postData = [
+                        {name: 'action', value: 'awp_write_image'},
+                        {name: 'image1', value: image1},
+                        {name: 'image2', value: image2},
+                        {name: 'overwrite_files', value: overwrite_files},
+                        {name: 'id', value: title},
+                        {name: 'path', value: null}
+                    ];
+
+                    $.ajax({
+                        url: 'peaks/peaks.php',
+                        type: 'post',
+                        data: postData,
+                        dataType: 'json',
+                    }).done(function(response) {
+
+                        console.log(response);
+                        if(response.message == 'success'){
+                            output.append('<br>Done creating image: ' + dataArr[counter].peakName);
+                        }else if(response.message == 'exist'){
+                            output.append('<br>Image already exist: ' + dataArr[counter].peakName);
+                        }
+
+                        getPeaks();
+
+                    }).fail(function(jqXHR, textStatus, errorThrown) {
+
+                        console.log(jqXHR.responseText);
+                        output.append('<br>Fail creating image: ' + dataArr[counter].peakName);
+                        getPeaks();
+
+                    }); 
+
+                }
+
+                function writePeaks(peaks, title){
+                    console.log('writePeaks')
+
+                    var postData = [
+                        {name: 'action', value: 'awp_write_peaks'},
+                        {name: 'peaks', value: peaks},
+                        {name: 'id', value: title},
+                        {name: 'overwrite_files', value: overwrite_files},
+                        {name: 'path', value: null}
+                    ];
+
+                    $.ajax({
+                        url: 'peaks/peaks.php',
+                        type: 'post',
+                        data: postData,
+                        dataType: 'json',
+                    }).done(function(response) {
+
+                        //console.log(response);
+                        if(response.message == 'success'){
+                            output.append('<br>Done creating peak: ' + dataArr[counter].peakName);
+                        }else if(response.message == 'exist'){
+                            output.append('<br>Peak already exist: ' + dataArr[counter].peakName);
+                        }
+
+                        getPeaks();
+
+                    }).fail(function(jqXHR, textStatus, errorThrown) {
+
+                        console.log(jqXHR.responseText);
+                        output.append('<br>Fail creating peak: ' + dataArr[counter].peakName);
+                        getPeaks();
+
+                    }); 
+
+                }
+
+
+                //waveform check
+
+                var imageWaveformCheck = $("#image-waveform-check").change(function(e) {
+
+                    audio_input.prop('disabled',true);
+                    imageWaveformCheck.prop('disabled',true);
+                 
+                    var file = this.files[0];
+
+                    if (file) {
+
+                        var reader = new FileReader();
+                        
+                        reader.onload = function (evt) {
+                            // Create a Blob providing as first argument a typed array with the file buffer
+                            var blob = new window.Blob([new Uint8Array(evt.target.result)]);
+
+                            imageCreateCheck = true
+                            createWs()
+
+                            // Load the blob into Wavesurfer
+                            wavesurfer.loadBlob(blob);
+                        };
+
+                        reader.onerror = function (evt) {
+                            alert("An error ocurred reading the file: ", evt);
+                        };
+
+                        // Read File as an ArrayBuffer
+                        reader.readAsArrayBuffer(file);
+                    }
+
+                });
+
+
+                var audio_input = $("#audio_input").change(function(e) {
+
+                    pcmLength = $('#waveform-length').val() || 100
+                    pcmAccuracy = $('#waveform-accuracy').val() || 100
+
+                    createWs()
+
+                    audio_input.prop('disabled',true);
+                    imageWaveformCheck.prop('disabled',true);
+                    loader.show();
+                    output.show().html('');
+                    exportLink.hide();
+                    exportData = [];
+
+                    dataArr = [];
+                    len = this.files.length;
+                    var i, fn;
+
+                    for(i=0; i < len; i++){
+                        fn = this.files[i].name;
+                        fn = fn.substr(0,fn.lastIndexOf('.'))
+                        processArr.push({file:this.files[i], peakName: fn});
+                    }
+
+                    if(createPeakNameSrc == 'title'){
+                        getId3();
+                    }else if(createPeakNameSrc == 'filename'){
+                        getFiles();
+                    }
+
+                });
+
+                function getId3(){
+
+                    var data = processArr.shift();
+
+                    jsmediatags.read(data.file, {
+                        onSuccess: function(tag) {
+                            var tags = tag.tags;
+
+                            dataArr.push(data);
+                            dataArr[dataArr.length-1].peakName = tags.title;
+
+                            if(processArr.length){
+                                getId3();
+                            }else{
+                                
+                                output.append('Done reading Id3 tags<br>');
+                                processArr = dataArr.slice();
+                                dataArr = [];
+                                getFiles();
+                            }
+                        },
+                        onError: function(error) {
+                            console.log("ID3 error: ", error.type, error.info);
+                            if(processArr.length){
+                                getId3();
+                            }else{
+
+                                output.append('Done reading Id3 tags<br>');
+                                processArr = dataArr.slice();
+                                dataArr = [];
+                                getFiles();
+                            }
+                        }
+                    });
+
+                }
+
+                function getFiles() {
+
+                    var data = processArr.shift();
+
+                    var title; 
+
+                    var fileReader = new FileReader();
+                    fileReader.onload = function(e){
+
+                        dataArr.push(data);
+                        dataArr[dataArr.length-1].url = e.target.result;
+
+                        if(processArr.length){
+                            getFiles();
+                        }else{
+                            output.append('Done reading all file inputs<br>Started peak creation<br>');
+                            counter = -1; 
+                            len = dataArr.length;
+                            getPeaks(); 
+                        }
+          
+                    } 
+                    fileReader.onerror = function(e){
+                        console.log("fileReader failed", e.name + ": " + e.message);
+
+                        if(processArr.length){
+                            getFiles();
+                        }else{
+                            output.append('Done reading all file inputs<br>Started peak creation<br>');
+                            counter = -1; 
+                            len = dataArr.length;
+                            getPeaks(); 
+                        }   
+                    }                 
+
+                    fileReader.readAsDataURL(data.file);
+                  
+                }
+
+                function getPeaks() {
+
+                    counter++;
+
+                    if(counter == len){
+                        output.append('<br><br>Done creating all peaks!');
+                        dataArr = null;
+                        loader.hide();
+                        audio_input.prop('disabled', false);
+                        imageWaveformCheck.prop('disabled', false);
+
+                        if(peakType == 'pcm'){
+
+                            //Get the file contents
+                             var txtFile = "test.txt";
+                             var file = new File([""], txtFile);
+                             var str = JSON.stringify(exportData);
+
+                             //Save the file contents as a DataURI
+                             var dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(str);
+
+                             var date = new Date().toLocaleString(),
+                              file_name = 'peaks-' + date
+
+                              exportLink.attr('download', file_name)
+
+
+                             //Write it as the href for the link
+                             exportLink.attr('href', dataUri).show();
+
+                        }
+
+                        audio_input.val('')
+
+                    }else{
+
+                        wavesurfer.empty();
+
+                        var url = dataArr[counter].url
+
+                        if(window.location.protocol == 'https:'){
+                            var wurl = url.replace('http://','https://');
+                        }else{
+                            var wurl = url.replace('https://','http://');
+                        }
+
+                        wavesurfer.load(wurl);
+
+                    }
+                }
+
+              
+                
+
+
+
+              
+               
+            });
+
+            function isEmpty(str) {
+                return str.replace(/^\s+|\s+$/g, '').length == 0;
+            }
+
+        </script>
+        
+	</head>
+	<body>
+
+        <p class="info">Run this file on server. Do not change folder structure. This file needs to be located in "content" directory with all other folders and files (css, js, includes, peaks...).
+
+        <br><br>
+
+        1. You can generate peaks in byte array format which you can download in json file ( byte array format in HTML is used with data-peak-array="PEAK_ARRAY_HERE" attribute ). Waveform is later drawn from the data.<br>
+
+        2. You can either generate peak files (which are placed in peak directory). Waveform is later drawn from the data.<br>
+
+        3. You can either generate image files (which are placed in peak directory). Waveform will then use these images. This is useful if you want to use this plugin offline. Since image files are less responsive make sure to choose image size you want respectively.
+
+        <br><br>
+
+        Peak names can be created from audio ID3 title tags (your audio files need to have ID3 title tag embedded) or from audio filenames (without extension). Peak name in HTML is used with data-peak-name="PEAK_NAME_HERE" attribute. Peak name should be made out of safe characters (a-z, A-Z, 0-9).
+
+        <br><br>
+
+       
+
+        <table>
+
+            <tr>
+                <td>Peak type</td>
+                <td> 
+                    <input type="radio" id="radio_pcm" name="peakType" value="pcm" checked="checked"><label for="radio_pcm"> Create byte array in json file</label>
+                    <br>
+                    <input type="radio" id="radio_peak" name="peakType" value="peak"><label for="radio_peak">  Create peak files</label>
+                    <br>
+                    <input type="radio" id="radio_image" name="peakType" value="image"><label for="radio_image">  Create image waveforms</label>
+                </td>
+            </tr>
+
+            <tr class="waveform-data-field">
+                <td>Waveform length</td>
+                <td>
+                    <input type="number" id="waveform-length" placeholder="1024"><label for="waveform-length">The higher the number waveform will have more details, but it will require more recourses to be created. Default 1024</label>
+                </td>
+            </tr>
+
+            <tr class="waveform-data-field">
+                <td>Waveform accuracy</td>
+                <td> 
+                    <input type="number" id="waveform-accuracy" placeholder="10000"><label for="waveform-accuracy">The higher the number waveform will have more details, but it will require more recourses to be created. Default 10000.</label>
+                </td>
+            </tr>
+
+            <tr class="waveform-image-field">
+                <td>Waveform width</td>
+                <td> 
+                    <input type="number" id="waveform-width" placeholder="720"><label for="waveform-width">Waveform image width in px.</label>
+                </td>
+            </tr>
+
+            <tr class="waveform-image-field">
+                <td>Waveform height</td>
+                <td> 
+                    <input type="number" id="waveform-height" placeholder="200"><label for="waveform-height">Waveform image height in px.</label>
+                </td>
+            </tr>
+
+            <tr class="waveform-image-field">
+                <td>Waveform bar gap</td>
+                <td> 
+                    <input type="number" id="waveform-bagGap" placeholder="0"><label for="waveform-bagGap">Spacing between bars in px.</label>
+                </td>
+            </tr>
+
+            <tr class="waveform-image-field">
+                <td>Waveform bar radius</td>
+                <td> 
+                    <input type="number" id="waveform-barRadius" placeholder="0"><label for="waveform-barRadius">The radius that makes bars rounded.</label>
+                </td>
+            </tr>
+
+            <tr class="waveform-image-field">
+                <td>Waveform bar width</td>
+                <td> 
+                    <input type="number" id="waveform-barWidth" placeholder="0"><label for="waveform-barWidth">Width of the bars in px.</label>
+                </td>
+            </tr>
+
+            <tr class="waveform-image-field">
+                <td>Wave color</td>
+                <td> 
+                    <input type="text" id="waveform-waveColor" placeholder="#A8DBA8"><label for="waveform-waveColor">Waveform background color.</label>
+                </td>
+            </tr>
+
+            <tr class="waveform-image-field">
+                <td>Wave progress color</td>
+                <td> 
+                    <input type="text" id="waveform-progressColor" placeholder="#FF33FF"><label for="waveform-progressColor">Waveform progress color.</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Create peak name from</td>
+                <td> 
+                    <input type="radio" id="radio_title" name="createPeakNameSrc" value="title" checked="checked"><label for="radio_title">  Create peak name from ID3 title tag</label><br>
+                    <input type="radio" id="radio_filename" name="createPeakNameSrc" value="filename"><label for="radio_filename"> Create peak name from audio file name</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Overwrite existing files</td>
+                <td> 
+                    <input type="radio" id="radio_overwrite_1" name="overwrite_files" value="1" checked="checked"><label for="radio_overwrite_1"> yes</label>
+                    <br>
+                    <input type="radio" id="radio_overwrite_0" name="overwrite_files" value="0"><label for="radio_overwrite_0"> no</label>
+                </td>
+            </tr>
+
+        </table>
+
+        <div class="image-waveform-check-wrap waveform-image-field">
+            <p>Use this to check how your image waveform will look like with selected parameters (only valid for image waveforms!)</p>
+            <input type='file' id="image-waveform-check" accept="audio/*"/>
+            <div id='waveform-wrap'><div id='waveform'></div></div>
+            <br>
+            <hr>
+        </div>
+
+
+
+
+
+        <p>Upload audio files and wait for peaks to be created. For really large audio files peak creation might take a while.</p>
+        <input type='file' id="audio_input" accept="audio/*" multiple/>
+
+        <div id="loader"></div>
+
+        <div id='output'></div>
+
+        <a href="#" id="exportLink">
+            Download as JSON
+        </a>
+
+	</body>
+</html>

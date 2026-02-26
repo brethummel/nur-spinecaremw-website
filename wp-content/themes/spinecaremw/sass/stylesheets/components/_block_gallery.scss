@@ -1,0 +1,11 @@
+.block-gallery {
+    .image-container,
+    .video-container {
+        border-radius: 5px;
+        +p.caption {
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1.3;
+        }
+    }
+}

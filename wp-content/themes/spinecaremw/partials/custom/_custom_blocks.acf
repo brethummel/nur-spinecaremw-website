@@ -1,0 +1,19 @@
+<?php
+
+// Manually register unique custom blocks that may have been created for the client
+// here, and in both _custom_blocks.php and _custom_blocks.scss. The main _blocks.acf 
+// loads this file.
+
+// ======================================= //
+//              CUSTOM BLOCKS              //
+// ======================================= // 
+
+require('block_alltreatments/block_alltreatments.acf');
+require('block_eventinfo/block_eventinfo.acf');
+require('block_featuredevent/block_featuredevent.acf');
+require('block_gatherup/block_gatherup.acf');
+require('block_patientstory/block_patientstory.acf');
+require('block_tabs/block_tabs.acf');
+
+
+?>

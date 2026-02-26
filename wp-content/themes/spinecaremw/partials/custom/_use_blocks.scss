@@ -1,0 +1,43 @@
+body {
+	.acf-tooltip.acf-fc-popup {
+		ul {
+			li {
+				a {
+					&[data-layout="block_published"] {
+						display: none;
+					}
+					&[data-layout="block_pullquote"] {
+						display: none;
+					}
+					&[data-layout="block_rule"] {
+						display: none;
+					}
+					&[data-layout="block_share"] {
+						display: none;
+					}
+					&[data-layout="block_testimonials"] {
+						display: none;
+					}
+					&[data-layout="block_audioplayer"] {
+						display: none;
+					}
+					&[data-layout="block_layerslider"] {
+						display: none;
+					}
+					&[data-layout="block_logogrid"] {
+						display: none;
+					}
+					&[data-layout="block_photostrip"] {
+						display: none;
+					}
+					&[data-layout="block_ticker"] {
+						display: none;
+					}
+					&[data-layout="block_map"] {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

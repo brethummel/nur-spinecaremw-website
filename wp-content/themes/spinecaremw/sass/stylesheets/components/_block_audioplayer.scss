@@ -1,0 +1,243 @@
+.blocks-wrapper {  /* The role of .blocks-wrapper is to apply special rules when a block is inside another block */
+    .block-audioplayer {
+		
+    }
+}
+.block-audioplayer {
+	.base-color,
+	.progress-color,
+	.cursor-color {
+		
+	}
+	#awp-wrapper {
+		.awp-player-wrap {
+			.awp-player-holder {
+				.row {
+					@include media-breakpoint-down(sm) {
+						
+					}
+				}
+				.mobile-info {
+					.awp-info {
+						.awp-player-artist {
+							
+						}
+						.awp-player-title {
+							
+						}
+					}
+				}
+				.controls {
+					.awp-playback-toggle {
+						i {
+							
+						}
+						.awp-btn-pause {
+							i {
+								
+							}
+						}
+					}
+					.awp-info {
+						.awp-player-artist {
+							
+						}
+						.awp-player-title {
+							
+						}
+					}
+				}
+				.volume {
+					.awp-volume-wrapper {
+						.awp-player-volume {
+							i {
+								
+							}
+						}
+						.awp-volume-seekbar {
+							.awp-volume-bg {
+								.awp-volume-level {
+									
+								}
+							}
+						}
+					}
+				}
+				.waveform {
+					.awp-waveform-wrap {
+						.awp-waveform-preloader {
+
+						}
+						.awp-waveform {
+							wave {
+
+							}
+							canvas {
+								
+							}
+						}
+						.awp-waveform-img-progress-wrap {
+							
+						}
+					}
+					.awp-media-time-total,
+					.awp-media-time-current {
+						
+					}
+					.awp-media-time-total {
+						
+					}
+					.awp-media-time-current {
+						
+					}
+				}
+			}
+		}
+	}
+	#awp-playlist-list {
+		
+	}
+	&.dark {
+		color: $white;
+		.base-color {
+			background-color: rgba(255, 255, 255, .2) !important;
+		}
+		.progress-color {
+			background-color: $white !important;
+		}
+		.cursor-color {
+			background-color: $white !important;
+		}
+		#awp-wrapper {
+			.awp-player-wrap {
+				.awp-player-holder {
+					.awp-playback-toggle {
+						i {
+							color: $white !important;
+						}
+					}
+					.awp-volume-wrapper {
+						.awp-player-volume {
+							i {
+								color: $white !important;
+							}
+						}
+						.awp-volume-seekbar {
+							.awp-volume-bg {
+								background-color: rgba(255, 255, 255, .15) !important;
+								.awp-volume-level {
+									background-color: $white !important;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&.light {
+		color: $charcoal;
+		.base-color {
+			background-color: rgba(0, 0, 0, .2) !important;
+		}
+		&.primary {
+			.progress-color {
+				
+			}
+			.cursor-color {
+				
+			}
+			#awp-wrapper {
+				.awp-player-wrap {
+					.awp-player-holder {
+						.awp-playback-toggle {
+							i {
+								
+							}
+						}
+						.awp-volume-wrapper {
+							.awp-player-volume {
+								i {
+									
+								}
+							}
+							.awp-volume-seekbar {
+								.awp-volume-bg {
+									.awp-volume-level {
+										
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		&.secondary {
+			.progress-color {
+				
+			}
+			.cursor-color {
+				
+			}
+			#awp-wrapper {
+				.awp-player-wrap {
+					.awp-player-holder {
+						.awp-playback-toggle {
+							i {
+								
+							}
+						}
+						.awp-volume-wrapper {
+							.awp-player-volume {
+								i {
+									
+								}
+							}
+							.awp-volume-seekbar {
+								.awp-volume-bg {
+									.awp-volume-level {
+										
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		&.tertiary {
+			.progress-color {
+				
+			}
+			.cursor-color {
+				
+			}
+			#awp-wrapper {
+				.awp-player-wrap {
+					.awp-player-holder {
+						.awp-playback-toggle {
+							i {
+								
+							}
+						}
+						.awp-volume-wrapper {
+							.awp-player-volume {
+								i {
+									
+								}
+							}
+							.awp-volume-seekbar {
+								.awp-volume-bg {
+									.awp-volume-level {
+										
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

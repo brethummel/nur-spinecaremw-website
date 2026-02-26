@@ -1,0 +1,589 @@
+html {
+    body {
+        font-weight: normal;
+        background-color: $superlightgrey;
+        color: $black;
+        .vert-center {
+            align-items: flex-start !important;
+        }
+        .content {
+            // box-shadow: 0px 0px 8px rgba(0, 0, 0, .1);
+            background-color: $c-bkgnd-white;
+        }
+		&.dev-env {
+			&:before {
+				color: $grey !important;
+			}
+		}
+		pre {
+        	color: inherit;
+		}
+        .block {
+            &.bkgnd-grad-orange,
+            &.bkgnd-grad-orange .backgrounds,
+            .bkgnd-grad-orange {
+                background: rgb(245,102,0);
+                background: linear-gradient(0deg, rgba(245,102,0,1) 0%, rgba(245,102,0,0.6) 100%);
+            }
+            &.light,
+			.light {
+                h1 {
+                    color: $c-primary;
+                    a {
+                        color: $c-primary;
+                        &:hover {
+                            color: $c-secondary;
+                        }
+                    }
+                }
+                h2 {
+                    color: $charcoal;
+                    a {
+                        color: $charcoal;
+                        &:hover {
+                            color: $c-secondary;
+                        }
+                    }
+                }
+                h3 {
+                    color: $charcoal;
+                    a {
+                        color: $charcoal;
+                        &:hover {
+                            color: $c-secondary;
+                        }
+                    }
+                }
+                h4 {
+                    color: $charcoal;
+                }
+                h5 {
+                    color: $charcoal;
+                }
+                h6 {
+                    color: $charcoal;
+                }
+                p {
+                    color: $c-primary;
+                }
+                a {
+                    color: $c-secondary;
+                    &:hover {
+                        color: $c-accent;
+                    }
+                    &.button {
+                        color: $white;
+                        &.primary {
+                            color: $black;
+                            &:hover {
+                                color: $c-secondary;
+                            }
+                        }
+                        &.secondary {
+                            background-color: $c-secondary;
+                            color: $white;
+                            &:hover {
+                                color: $white;
+                                background-color: $c-accent;
+                            }
+                        }
+                        &.tertiary {
+                            background-color: $c-tertiary;
+                            color: $white;
+                            &:hover {
+                                color: $white;
+                                background-color: $c-accent;
+                            }
+                        }
+                        &.accent {
+                            background-color: $c-accent;
+                            color: $white;
+                            &:hover {
+                                color: $white;
+                                background-color: $c-secondary;
+                            }
+                        }
+                        &.outline {
+                            border: 1px solid $white;
+                            &:hover {
+                                color: $white;
+                                border: 1px solid $c-accent;
+                                background-color: $c-accent;
+                            }
+                        }
+                    }
+                }
+                form {
+                    button[type=submit] {
+                        background-color: $c-primary !important;
+                        color: $white !important;
+                        &:hover {
+                            background-color: $c-accent !important;
+                            color: $white !important;
+                        }
+                    }
+                }
+            }
+            &.dark,
+			.dark {
+                h1 {
+                    color: $white;
+                    a {
+                        color: $white;
+                        &:hover {
+                            color: $c-tertiary;
+                        }
+                    }
+                }
+                h2 {
+                    color: $white;
+                    a {
+                        color: $white;
+                        &:hover {
+                            color: $c-tertiary;
+                        }
+                    }
+                }
+                h3 {
+                    color: $white;
+                    a {
+                        color: $white;
+                        &:hover {
+                            color: $c-tertiary;
+                        }
+                    }
+                }
+                h4 {
+                    color: $white;
+                }
+                h5 {
+                    color: $white;
+                }
+                h6 {
+                    color: $white;
+                }
+                p {
+                    color: $white;
+                }
+                a {
+                    color: $white;
+                    &:hover {
+                        color: $c-tertiary;
+                    }
+                    &.button {
+                        color: $c-secondary;
+                        &.primary {
+                            color: $black;
+                            box-shadow: 0px 4px 23px 0px #F5660033;
+                            &:hover {
+                                color: $c-secondary;
+                            }
+                        }
+                        &.secondary {
+                            background-color: $c-accent;
+                            color: $white;
+                            &:hover {
+                                color: $white;
+                                background-color: $black;
+                            }
+                        }
+                        &.tertiary {
+                            background-color: $white;
+                            color: $c-tertiary;
+                            &:hover {
+                                color: $c-accent;
+                                background-color: $white;
+                            }
+                        }
+                        &.accent {
+                            background-color: $c-accent;
+                            color: $white;
+                            &:hover {
+                                color: $white;
+                                background-color: $c-secondary;
+                            }
+                        }
+                        &.outline {
+                            border: 1px solid $white;
+                            &:hover {
+                                color: $white;
+                                border: 1px solid $c-accent;
+                                background-color: $c-accent;
+                            }
+                        }
+                    }
+                }
+                form {
+                    button[type=submit] {
+                            background-color: $c-accent !important;
+                            color: $white !important;
+                        &:hover {
+                                color: $white !important;
+                                background-color: $black !important;
+                        }
+                    }
+                }
+            }
+        }
+        h1 {
+            font-family: $f-heads;
+            font-size: 58px;
+            font-style: normal;
+            font-weight: $f-regular;
+            line-height: 1.08;
+            letter-spacing: -0.9px;
+            @include media-breakpoint-only(md) {
+                font-size: 48px;
+            }
+            @include media-breakpoint-down(sm) {
+                font-size: 38px;
+            }
+            sup {
+                top: -1.1em;
+                font-size: 40%;
+            }
+        }
+        h2 {
+            font-family: $f-heads;
+            font-size: 38px;
+            font-style: normal;
+            font-weight: $f-regular;
+            line-height: 1.2;
+            letter-spacing: -0.9px;
+            @include media-breakpoint-only(md) {
+                font-size: 35px;
+            }
+            @include media-breakpoint-down(sm) {
+                font-size: 32px;
+            }
+            sup {
+                top: -1.1em;
+                font-size: 40%;
+            }
+        }
+        h3 {
+            font-family: $f-heads;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: $f-regular;
+            line-height: 1.21;
+            letter-spacing: -0.9px;
+            @include media-breakpoint-down(md) {
+                font-size: 26px;
+            }
+            @include media-breakpoint-down(sm) {
+                font-size: 24px;
+            }
+            sup {
+                top: -1.1em;
+                font-size: 40%;
+            }
+            a {
+                color: $c-primary;
+                &:hover {
+                    color: $c-secondary;
+                    text-decoration: none;
+                }
+            }
+        }
+        h4 {
+            font-family: $f-heads;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: $f-semibold;
+            line-height: 1.5;
+            @include media-breakpoint-only(md) {
+                font-size: 20px;
+            }
+            @include media-breakpoint-down(sm) {
+                font-size: 18px;
+            }
+            sup {
+                top: -1.1em;
+                font-size: 40%;
+            }
+        }
+        h5 {
+            font-family: $f-subheads;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: $f-bold;
+            line-height: 1.5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            @include media-breakpoint-down(sm) {
+                font-size: 18px;
+            }
+            sup {
+                top: -1.1em;
+                font-size: 40%;
+            }
+        }
+        h6 {
+            font-family: $f-heads;
+            font-size: 18px;
+            text-transform: uppercase;
+            @include media-breakpoint-down(sm) {
+                font-size: 18px;
+            }
+            sup {
+                top: -1.1em;
+                font-size: 40%;
+            }
+        }
+        p {
+            font-size: 18px;
+            font-style: normal;
+            font-weight: $f-regular;
+            line-height: 1.5;
+            &:last-child {
+                // margin-bottom: 6px;
+            }
+            &.intro,
+			.intro {
+                font-size: 20px;
+            }
+			&.caption,
+			.caption {
+				font-size: 14px;
+				font-style: italic;
+			}
+			&.button-container {
+				margin-bottom: 0px; 
+			}
+			+ul {
+				margin-top: 8px;
+			}
+        }
+		.block {
+			&.below {
+				p {
+					&:last-child {
+						margin-bottom: 18px !important;
+					}
+				}
+			}
+		}
+		ul,
+        ol {
+			margin-bottom: 30px;
+			li {
+				page-break-inside: avoid;
+				break-inside: avoid-column;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: $f-regular;
+                margin-bottom: 9px;
+				ul {
+					margin-top: 3px;
+					margin-bottom: 6px;
+				}
+			}
+		}
+        ol {
+            list-style: none;
+            counter-reset: steps;
+            margin: 0px;
+            padding: 0px;
+            li {
+                counter-increment: steps;
+                position: relative;
+                padding-left: 46px;
+                margin-bottom: 18px;
+                &:before {
+                    content: counter(steps);
+                    display: inline-grid;
+                    position: absolute;
+                    left: 0px;
+                    width: 28px;
+                    height: 28px;
+                    background: $c-secondary;
+                    color: $white;
+                    font-size: 16px;
+                    border-radius: 60%;
+                    place-items: center;
+                    padding-bottom: 1.5px;
+                }
+            }
+        }
+        h1 + p,
+        h2 + p,
+        h3 + p,
+        h4 + p,
+        h5 + p,
+        h6 + p {
+            margin-top: 18px;
+        }
+		p + h1,
+		p + h2,
+		p + h3,
+		p + h4,
+		p + h5, 
+		p + h6 {
+			margin-top: 36px;
+		}
+        a {
+            text-decoration: underline;
+            &[href^="tel:"],
+            &[href^="mailto:"] {
+                white-space: nowrap;
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+            &.button {
+                display: inline-block;
+                text-decoration: none;
+                margin: 12px 8px 0px 0px;
+                color: $white;
+				line-height: 1.1;
+				&:only-of-type {
+					margin: 12px 0px 0px 0px;
+				}
+				&:last-of-type {
+					margin: 12px 0px 0px 0px;
+				}
+                &:hover {
+                    text-decoration: none;
+                }
+                &.small {
+                    font-size: 14px;
+                    padding: 5px 14px;
+                    border-radius: 20px;
+                }
+                &.medium {
+                    font-size: 16px;
+                    font-weight: $f-bold;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    padding: 12.5px 4px 14.5px 4px;
+                    border-radius: 50px;
+                    transition: all .4s;
+                    span {
+                        padding: 9px 12px 10px 20px;
+                        border-radius: 50px;
+                        background-color: $white;
+                        &:after {
+                            content: "\e701";
+                            color: $c-secondary;
+                            font-family: $f-microns;
+                            display: inline-block;
+                            font-size: 18px;
+                            position: relative;
+                            top: 2px;
+                            margin-left: 5px;
+                        }
+                    }
+                }
+                &.primary {
+                    background: linear-gradient(90deg, #FFBF1B 0%, #FF8E3B 100%);
+                    color: $black;
+                    &:hover {
+                        color: $c-secondary;
+                    }
+                    span {
+
+                    }
+                }
+                &.secondary {
+                    background-color: $c-secondary;
+                    color: $white;
+                    &:hover {
+                        color: $white;
+                        background-color: $c-accent;
+                    }
+                }
+                &.tertiary {
+                    background-color: $c-tertiary;
+                    color: $white;
+                    &:hover {
+                        color: $white;
+                        background-color: $c-accent;
+                    }
+                }
+                &.accent {
+                    background-color: $c-accent;
+                    color: $white;
+                    &:hover {
+                        color: $white;
+                        background-color: $c-secondary;
+                    }
+                }
+                &.outline {
+                    border: 1px solid $white;
+                    &:hover {
+                        color: $white;
+                        border: 1px solid $c-accent;
+                        background-color: $c-accent;
+                    }
+                }
+            }
+        }
+        form {
+            font-family: $f-body !important;
+            font-weight: normal !important;
+            color: $black !important;
+            button[type=submit] {
+                font-size: 16px !important;
+                font-weight: $f-bold !important;
+                letter-spacing: 1px !important;
+                text-transform: uppercase !important;
+                padding: 4.5px 4px 4.5px 4px !important;
+                border: none !important;
+                border-radius: 50px !important;
+                background: linear-gradient(90deg, #FFBF1B 0%, #FF8E3B 100%) !important;
+                transition: all .4s !important;
+                margin-top: 0px !important;
+                &:hover {
+                    >span {
+                        >span {
+                            color: $c-secondary !important;
+                        }
+                    }
+                }
+                >span {
+                    >span {
+                        padding: 9px 12px 10px 20px !important;
+                        border-radius: 50px !important;
+                        background-color: $white !important;
+                        color: $black !important;
+                        transition: all .4s !important;
+                        &:after {
+                            content: "\e701" !important;
+                            color: $c-secondary !important;
+                            font-family: $f-microns !important;
+                            display: inline-block !important;
+                            font-size: 18px !important;
+                            position: relative !important;
+                            top: 2px !important;
+                            margin-left: 5px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .pop-overlay {
+        background-color: rgba(0, 0, 0, .92);
+        .pop-modal {
+            background-color: $white;
+            padding: 60px 50px;
+            min-height: 65vh;
+            max-height: 90vh;
+            margin-top: 6vh;
+            margin-bottom: 6vh;
+            width: 80vw;
+            max-width: 1140px;
+            .pop-close {
+                top: 20px;
+                right: 20px;
+                img {
+                    height: 32px;
+                    width: 32px;
+                }
+            }
+        }
+    }
+    
+}

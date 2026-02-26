@@ -1,0 +1,558 @@
+<?php
+
+// ======================================= //
+//    DANGER! THIS IS BUILT DYNAMICALLY    //
+// ======================================= // 
+
+$usetypes = [];
+
+// Get post types to select from
+foreach ($GLOBALS['posttypes'] as $t => $type) {
+	if (array_key_exists('page', $GLOBALS['posttypes'])) {
+		if (in_array('excerpts', $type)) { // backwards compatability
+			$method = 'excerpts';
+			$usetypes[] = $t;
+		} elseif (in_array('post_title', $type)) {
+			$method = 'post_title';
+			$usetypes[] = $t;
+		} else {
+			foreach ($type as $term) {
+				if (gettype($term) == 'array') {
+					if (in_array('image', $term) || in_array('title', $term) || in_array('excerpt', $term)) {
+						$method = 'array';
+						$usetypes[] = $t;
+					}
+				}
+			}
+		}
+	} else { // backwards compatability
+		$postobj = get_post_type_object($type);
+		$usetypes[] = $type;
+	}
+}
+$usetypes[] = 'attachment';
+
+// echo('<pre>'); print_r($usetypes); echo('</pre>');
+
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group( array(
+	'key' => 'group_60d3a79f7b6e2',
+	'title' => 'FIELDS: Master Fields',
+	'fields' => array(
+		array(
+			'key' => 'field_60d3c35d7cb83',
+			'label' => 'Align Text',
+			'name' => 'align_text',
+			'aria-label' => '',
+			'type' => 'select',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'left' => 'Left',
+				'center' => 'Center',
+				'right' => 'Right',
+			),
+			'default_value' => 'left',
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
+		array(
+			'key' => 'field_60d3bf2362e7c',
+			'label' => 'Include Button',
+			'name' => 'include_button',
+			'aria-label' => '',
+			'type' => 'true_false',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 0,
+			'ui_on_text' => '',
+			'ui_off_text' => '',
+			'ui' => 1,
+		),
+		array(
+			'key' => 'field_60d3c3b27cb84',
+			'label' => 'Pair With',
+			'name' => 'pair_with',
+			'aria-label' => '',
+			'type' => 'select',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'above' => 'Block Above',
+				'below' => 'Block Below',
+			),
+			'default_value' => array(
+			),
+			'allow_null' => 1,
+			'multiple' => 1,
+			'ui' => 1,
+			'ajax' => 0,
+			'return_format' => 'value',
+			'placeholder' => '',
+		),
+		array(
+			'key' => 'field_60d3bee962e7b',
+			'label' => 'Button',
+			'name' => 'button',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'block',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_66671303454db',
+					'label' => 'Button',
+					'name' => '',
+					'aria-label' => '',
+					'type' => 'tab',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'placement' => 'top',
+					'endpoint' => 0,
+					'selected' => 0,
+				),
+				array(
+					'key' => 'field_60d3ccb2ef804',
+					'label' => 'Button',
+					'name' => 'destination',
+					'aria-label' => '',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'table',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_60d3cb8a3558a',
+							'label' => 'Text',
+							'name' => 'text',
+							'aria-label' => '',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 1,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => 'Learn More',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+							'maxlength' => '',
+						),
+						array(
+							'key' => 'field_60d3cb9d3558b',
+							'label' => 'URL',
+							'name' => 'url',
+							'aria-label' => '',
+							'type' => 'url',
+							'instructions' => '',
+							'required' => 1,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_60d3c4e5ff868',
+										'operator' => '==',
+										'value' => 'url',
+									),
+								),
+							),
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+						),
+						array(
+							'key' => 'field_60d3cbcb3558c',
+							'label' => 'Page',
+							'name' => 'page',
+							'aria-label' => '',
+							'type' => 'page_link',
+							'instructions' => '',
+							'required' => 1,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_60d3c4e5ff868',
+										'operator' => '==',
+										'value' => 'page',
+									),
+								),
+							),
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'post_type' => $usetypes,
+							'taxonomy' => '',
+							'allow_archives' => 0,
+							'multiple' => 0,
+							'allow_null' => 0,
+						),
+						array(
+							'key' => 'field_61c3b94473437',
+							'label' => 'Anchor',
+							'name' => 'anchor',
+							'aria-label' => '',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 1,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_60d3c4e5ff868',
+										'operator' => '==',
+										'value' => 'anchor',
+									),
+								),
+							),
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+							'maxlength' => '',
+						),
+						array(
+							'key' => 'field_60d3c68aff869',
+							'label' => 'New Tab?',
+							'name' => 'new_tab',
+							'aria-label' => '',
+							'type' => 'true_false',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_60d3c4e5ff868',
+										'operator' => '==',
+										'value' => 'url',
+									),
+								),
+								array(
+									array(
+										'field' => 'field_60d3c4e5ff868',
+										'operator' => '==',
+										'value' => 'page',
+									),
+								),
+							),
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'message' => '',
+							'default_value' => 0,
+							'ui' => 1,
+							'ui_on_text' => '',
+							'ui_off_text' => '',
+						),
+						array(
+							'key' => 'field_61fc2e9b8b203',
+							'label' => 'Email',
+							'name' => 'email',
+							'aria-label' => '',
+							'type' => 'email',
+							'instructions' => '',
+							'required' => 1,
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_60d3c4e5ff868',
+										'operator' => '==',
+										'value' => 'email',
+									),
+								),
+							),
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+						),
+					),
+				),
+				array(
+					'key' => 'field_666712e5454da',
+					'label' => 'Settings',
+					'name' => '',
+					'aria-label' => '',
+					'type' => 'tab',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'placement' => 'top',
+					'endpoint' => 0,
+					'selected' => 0,
+				),
+				array(
+					'key' => 'field_60d3c4ccff867',
+					'label' => 'Settings',
+					'name' => 'settings',
+					'aria-label' => '',
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'table',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_60d3c4e5ff868',
+							'label' => 'Type',
+							'name' => 'type',
+							'aria-label' => '',
+							'type' => 'select',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'choices' => array(
+								'page' => 'Internal Page',
+								'url' => 'External URL',
+								'anchor' => 'Anchor Tag',
+								'email' => 'Email Address',
+							),
+							'default_value' => 'page',
+							'allow_null' => 0,
+							'multiple' => 0,
+							'ui' => 0,
+							'return_format' => 'value',
+							'ajax' => 0,
+							'placeholder' => '',
+						),
+						array(
+							'key' => 'field_60d3c6bbff86a',
+							'label' => 'Color',
+							'name' => 'color',
+							'aria-label' => '',
+							'type' => 'select',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'choices' => array(
+								'primary' => 'Gradient Outline',
+							),
+							'default_value' => 'primary',
+							'allow_null' => 0,
+							'multiple' => 0,
+							'ui' => 0,
+							'return_format' => 'value',
+							'ajax' => 0,
+							'placeholder' => '',
+						),
+					),
+				),
+			),
+		),
+		array(
+			'key' => 'field_60d6227124055',
+			'label' => 'Orientation',
+			'name' => 'orientation',
+			'aria-label' => '',
+			'type' => 'select',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'right' => 'Right',
+				'left' => 'Left',
+			),
+			'default_value' => 'right',
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
+		array(
+			'key' => 'field_60d6243675506',
+			'label' => 'Image',
+			'name' => 'image',
+			'aria-label' => '',
+			'type' => 'image',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'return_format' => 'array',
+			'preview_size' => 'thumbnail',
+			'library' => 'all',
+			'min_width' => '',
+			'min_height' => '',
+			'min_size' => '',
+			'max_width' => '',
+			'max_height' => '',
+			'max_size' => '',
+			'mime_types' => '',
+		),
+		array(
+			'key' => 'field_6178670b4ade0',
+			'label' => 'Custom Class',
+			'name' => 'custom_class',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_63acf715515a6',
+			'label' => 'Block Name',
+			'name' => 'block_name',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'maxlength' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
+		array(
+			'key' => 'field_6393b3ba45832',
+			'label' => 'Display Block',
+			'name' => 'display_block',
+			'aria-label' => '',
+			'type' => 'true_false',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 1,
+			'ui_on_text' => 'On',
+			'ui_off_text' => 'Off',
+			'ui' => 1,
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'default',
+	'label_placement' => 'left',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => false,
+	'description' => '',
+	'show_in_rest' => 0,
+) );
+
+endif;
+
+?>

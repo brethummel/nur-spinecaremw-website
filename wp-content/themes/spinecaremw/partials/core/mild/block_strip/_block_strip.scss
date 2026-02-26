@@ -1,0 +1,23 @@
+.blocks-wrapper {
+    .block-strip {
+		
+    }
+}
+.block-strip {
+	padding: 20px 0px 18px 0px;
+	h1,
+	h2,
+	h3,
+	h4,
+	p {
+		line-height: 1;
+	}
+	p {
+		&:first-child {
+			margin-top: 6px !important;
+		}
+		&:last-child {
+			margin-bottom: 10px !important;
+		}
+	}
+}

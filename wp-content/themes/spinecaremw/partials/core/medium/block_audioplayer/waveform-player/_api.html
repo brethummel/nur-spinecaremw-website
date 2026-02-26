@@ -1,0 +1,611 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Audio Waveform Player with Playlist</title>
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"><!-- icons -->
+		<link rel="stylesheet" type="text/css" href="css/awp_default.css" />
+        <link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css" media="all" /><!-- playlist scroll -->
+
+
+        <style type="text/css">
+            
+            .test{
+                height: 600px;
+                display: none;
+                background-color: #333;
+            }
+
+            /* api */
+            #api-panel {
+                position:fixed;
+                top:0px;
+                right:0px;
+                height:100%;
+                overflow-y:auto;
+                z-index: 999999;
+                display:none;
+            }
+            #api-panel li a{
+                color:#fff;
+            }
+            #api-panel li a:hover, #api-panel li .current{
+                text-decoration: underline;
+            }
+            #api-panel li.space {
+               margin-bottom: 20px;
+            }
+            .api-panel-inner {
+                padding: 30px;
+                background:#444;
+                font-size: 16px;
+                color:#eee;
+            }
+            .toggle-panel {
+                position:fixed;
+                top:0px;
+                right:0px;
+                width:40px;
+                height:40px;
+                background: #444 url('data/api_open.png') no-repeat center center;
+                z-index: 999999;
+                display: none;
+            }
+            .toggle-panel-close {
+                position:fixed;
+                top:0px;
+                right:0px;
+                width:40px;
+                height:40px;
+                background: #444 url('data/api_close.png') no-repeat center center;
+                z-index: 999999;
+            }
+
+
+        </style>
+        
+        <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/wavesurfer.js"></script>
+        <script type="text/javascript" src="js/jsmediatags.min.js"></script><!-- id3 tags -->
+        <script type="text/javascript" src="js/perfect-scrollbar.min.js"></script><!-- playlist scroll -->
+        <script type="text/javascript" src="js/new_cb.js"></script>
+        <script type="text/javascript" src="js/new.js?1"></script>			
+        <script type="text/javascript">
+
+            var awp_player;  
+
+            jQuery(document).ready(function($){
+
+                var settings = {
+                    instanceName:"api",
+                    sourcePath:"",
+                    playlistList:"#awp-playlist-list",
+                    activePlaylist:"#playlist-onedrive-folder2",
+                    activeItem:0,
+                    volume:0.5,
+                    autoPlay:false,
+                    drawWaveWithoutLoad:false,
+                    randomPlay:false,
+                    loopingOn:true,
+                    autoAdvanceToNextMedia:true,
+                    mediaEndAction:"next",
+                    sck:"",
+                    gdk:"",
+                    useKeyboardNavigationForPlayback:true,
+                    playlistScrollType:'perfect-scrollbar',
+                    usePlaylistScroll:true,
+                    playlistScrollOrientation:"vertical",
+                    playlistScrollTheme:"light",
+                    fbk:"",
+                    useNumbersInPlaylist: true,
+                    numberTitleSeparator: ".  ",
+                    artistTitleSeparator: " - ",
+                    playlistItemContent:"title",
+                    wavesurfer:{
+                        waveColor: '#A8DBA8',
+                        progressColor: '#ff33ff',   
+                        barWidth: 0,
+                        barRadius: 3,
+                        barGap: 1,
+                        cursorColor: '#0000ff',
+                        cursorWidth: 3,
+                        height: 200,
+                     
+                    },
+                    createDownloadIconsInPlaylist:true,
+                    createLinkIconsInPlaylist:true,
+
+                    useContinousPlayback:false,
+
+                    autoPlayInViewport:false,
+
+
+                    s3UrlExpireTime:'+5 seconds',
+                    getThumbFromBucket: true,
+                    s3ThumbExtension: 'jpg',
+                    s3Region: 'us-east-1',
+
+                    useCloudfront:true,
+                    cf_expire:'300',
+
+
+                };
+
+                awp_player = $("#awp-wrapper").awp(settings);
+
+                initApiDemo($);
+
+            }); 
+
+            var api_panel, toggle_api_panel, api_panel_opened;
+            function initApiDemo($){
+                
+                api_panel = $("#api-panel").css("right", 40+"px");
+                
+                toggle_api_panel = $(".toggle-panel").css({cursor:"pointer", display:"block"}).on("click", function(){
+                    if(api_panel_opened){
+                        api_panel.css("display","none");
+                        $(this).removeClass().addClass("toggle-panel");
+                        api_panel_opened=false; 
+                    }else{
+                        api_panel.css("display","block");
+                        $(this).removeClass().addClass("toggle-panel-close");
+                        api_panel_opened=true;
+                    }
+                    return false;   
+                })//.click();
+            }
+
+            //############################################//
+            /* tracks for api */
+            //############################################//s
+
+            /* html tracks */
+
+            var awp_track_list_html1 = [
+
+                '<div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/2/01.mp3" data-artist="Soundroll" data-title="A Way To The Top" data-thumb="media/audio/2/01.jpg" data-link="http://codecanyon.net/user/Tean/portfolio"></li>',
+
+                '<div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/2/02.mp3" data-artist="Soundroll" data-title="Feel Good Journey" data-thumb="media/audio/2/02.jpg" data-download="media/audio/2/02.mp3"></li>',
+
+                '<div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/2/03.mp3" data-artist="Soundroll" data-title="Fight No More" data-thumb="media/audio/2/03.jpg" data-link="http://www.google.com" data-download="media/audio/2/03.mp3"></li>'
+            ];
+
+            /* data tracks */
+
+            var awp_track_list_data1 = [
+
+                {
+                    type: 'audio', 
+                    mp3: 'media/audio/1/Tim_McMorris_-_A_Bright_And_Hopeful_Future.mp3',
+                    artist: 'Tim McMorris',
+                    title: 'A Bright And Hopeful Future', 
+                    thumb: 'media/audio/1/Tim_McMorris_-_A_Bright_And_Hopeful_Future.jpg',
+                    link: 'http://www.google.com',
+                    target: '_blank',
+                    download: 'media/audio/1/Tim_McMorris_-_A_Bright_And_Hopeful_Future.mp3'
+                }, 
+                {
+                    type: 'audio', 
+                    mp3: 'media/audio/1/Tim_McMorris_-_Be_My_Valentine.mp3',
+                    artist: 'Tim McMorris',
+                    title: 'Be My Valentine', 
+                    thumb: 'media/audio/1/Tim_McMorris_-_Be_My_Valentine.jpg'
+                }, 
+                {
+                    type: 'audio', 
+                    mp3: 'media/audio/1/Tim_McMorris_-_Give_Our_Dreams_Their_Wings_To_Fly.mp3',
+                    artist: 'Tim McMorris',
+                    title: 'Give Our Dreams Their Wings To Fly', 
+                    thumb: 'media/audio/1/Tim_McMorris_-_Give_Our_Dreams_Their_Wings_To_Fly.jpg',
+                    playbackRate: 2,
+                    start: 5,
+                    end: 45
+                }
+            ];
+
+            var awp_track_list_data2 = [
+
+                {
+                    type: 'folder', 
+                    path: 'media/audio/1/',
+                    limit: 3,
+                    id3: true 
+                },
+                {
+                    type: 'soundcloud', 
+                    path: 'http://soundcloud.com/computer-magic',
+                    thumbDefault: 'data/default_artwork/music_ph.png',
+                    limit: 3
+                }
+            ];
+
+        </script>
+        
+	</head>
+	<body>
+
+        <p class="test"></p>
+
+        <!-- player code -->   
+        <div id="awp-wrapper">
+
+            <div class="awp-player-wrap">
+
+                <div class="awp-player-thumb-wrapper">
+
+                    <div class="awp-player-thumb"></div>
+
+                    <div class="awp-playback-toggle awp-contr-btn">
+                        <div class="awp-btn awp-btn-play">
+                            <i class="fa fa-play"></i>
+                        </div>
+                        <div class="awp-btn awp-btn-pause">
+                            <i class="fa fa-pause"></i>
+                        </div>
+                    </div>
+
+                    <div class="awp-volume-wrapper">
+                        <div class="awp-player-volume awp-contr-btn awp-volume-toggable">
+                            <div class="awp-btn awp-btn-volume-up">
+                                <i class="fa fa-volume-up"></i>
+                            </div>
+                            <div class="awp-btn awp-btn-volume-down">
+                                <i class="fa fa-volume-down"></i>
+                            </div>
+                            <div class="awp-btn awp-btn-volume-off">
+                                <i class="fa fa-volume-off"></i>
+                            </div>
+                        </div>
+                        <div class="awp-volume-seekbar ">
+                             <div class="awp-volume-bg"><div class="awp-volume-level"></div></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="awp-player-holder">
+
+                    <div class="awp-waveform-wrap">
+                        <div class="awp-waveform awp-hidden"></div>  
+                        <div class="awp-waveform-img awp-hidden"><!-- image waveform backup -->
+                            <div class="awp-waveform-img-load"></div>
+                            <div class="awp-waveform-img-progress-wrap"><div class="awp-waveform-img-progress"></div></div>
+                        </div>
+                        <span class="awp-waveform-preloader"></span>
+                    </div>  
+
+                    <div class="awp-media-time-total awp-hidden">0:00</div>
+                    <div class="awp-media-time-current awp-hidden">0:00</div>
+
+                </div>
+
+            </div>    
+              
+            <div class="awp-playlist-holder">
+                <div class="awp-playlist-filter-msg"><p>NOTHING FOUND!</p></div>
+                <div class="awp-playlist-inner">
+                    <div class="awp-playlist-content">
+                        <!-- playlist items are appended here! --> 
+                    </div>
+                </div>
+                
+                <div class="awp-preloader"></div>
+
+                <div class="awp-bottom-bar">
+
+                    <input class="awp-search-filter" type="text" placeholder="filter...">
+                    <div class="awp-sort-alpha awp-contr-btn" data-tooltip="Alphabetic sort">
+                        <div class="awp-btn awp-sort-alpha-desc">
+                            <i class="fa fa-sort-alpha-desc"></i>
+                        </div>
+                        <div class="awp-btn awp-sort-alpha-asc">
+                            <i class="fa fa-sort-alpha-asc"></i>
+                        </div>
+                    </div>
+
+                    <div class="awp-bottom-controls">
+
+                        <div class="awp-playback-rate-toggle awp-contr-btn" data-tooltip="Speed">
+                            <i class="fa fa-asterisk"></i>
+                        </div>
+
+                        <div class="awp-share-toggle awp-contr-btn" data-tooltip="Share">
+                            <i class="fa fa-share-square-o"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="awp-share-holder">
+
+                <div class="awp-info-data">
+                    <div class="awp-player-title"></div>
+                    <div class="awp-player-desc"></div>
+                </div>
+
+                <div class="awp-share-holder-inner">
+
+                    <div class="awp-share-item awp-contr-btn" data-type="tumblr" data-tooltip="Share on Tumblr"><i class="fa fa-tumblr"></i></div>
+                    <div class="awp-share-item awp-contr-btn" data-type="twitter" data-tooltip="Share on Twitter"><i class="fa fa-twitter"></i></div>
+                    <div class="awp-share-item awp-contr-btn" data-type="facebook" data-tooltip="Share on Facebook"><i class="fa fa-facebook"></i></div> 
+                    <div class="awp-share-item awp-contr-btn" data-type="whatsapp" data-tooltip="Share on WhatsApp"><i class="fa fa-whatsapp"></i></div>
+
+                </div>
+
+                <div class="awp-share-close awp-contr-btn" data-tooltip="Close">
+                    <i class="fa fa-times"></i>
+                </div>
+            </div>
+
+            <div class="awp-playback-rate-holder">
+
+                <div class="awp-playback-rate-wrap">
+                    <div class="awp-playback-rate-min"></div>
+                    <div class="awp-playback-rate-seekbar">
+                         <div class="awp-playback-rate-bg">
+                            <div class="awp-playback-rate-level"></div>
+                         </div>
+                    </div>
+                    <div class="awp-playback-rate-max"></div>
+                </div>
+
+                <div class="awp-playback-rate-close awp-contr-btn" data-tooltip="Close">
+                    <i class="fa fa-times"></i>
+                </div>
+                
+            </div>
+
+            <div class="awp-tooltip"></div>
+        
+        </div>  
+
+
+
+        <!-- PLAYLIST LIST -->
+        <div id="awp-playlist-list">
+
+             <!-- audio playlist -->
+             <div id="playlist-audio1">
+
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/1/Tim_McMorris_-_Successful_Business_Venture.mp3" data-artist="Tim McMorris" data-title="Successful Business Venture" data-thumb="media/audio/1/Tim_McMorris_-_Successful_Business_Venture.jpg"  data-download="media/audio/1/Tim_McMorris_-_Successful_Business_Venture.mp3" data-link="http://codecanyon.net/user/Tean/portfolio"><span class="foo"></span></div> 
+
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/1/Tim_McMorris_-_Happy_Days_Are_Here_To_Stay.mp3" data-artist="Tim McMorris" data-title="Happy Days Are Here To Stay" data-thumb="media/audio/1/Tim_McMorris_-_Happy_Days_Are_Here_To_Stay.jpg"  data-download="media/audio/1/Tim_McMorris_-_Happy_Days_Are_Here_To_Stay.mp3" ></div>
+             
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/1/Tim_McMorris_-_A_Bright_And_Hopeful_Future.mp3" data-artist="Tim McMorris" data-title="A Bright And Hopeful Future" data-thumb="media/audio/1/Tim_McMorris_-_A_Bright_And_Hopeful_Future.jpg"  data-download="media/audio/1/Tim_McMorris_-_A_Bright_And_Hopeful_Future.mp3" data-link="http://codecanyon.net/user/Tean/portfolio" data-peak-load="peaks/Tim_McMorris_-_A_Bright_And_Hopeful_Future.png" data-peak-progress="peaks/Tim_McMorris_-_A_Bright_And_Hopeful_Future_progress.png"></div>
+                 
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/1/Tim_McMorris_-_Give_Our_Dreams_Their_Wings_To_Fly.mp3" data-artist="Tim McMorris" data-title="Give Our Dreams Their Wings To Fly" data-thumb="media/audio/1/Tim_McMorris_-_Give_Our_Dreams_Their_Wings_To_Fly.jpg"  data-download="media/audio/1/Tim_McMorris_-_Give_Our_Dreams_Their_Wings_To_Fly.mp3" data-peak-load="peaks/Tim_McMorris_-_Give_Our_Dreams_Their_Wings_To_Fly.png" data-peak-progress="peaks/Tim_McMorris_-_Give_Our_Dreams_Their_Wings_To_Fly_progress.png"></div>
+
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/1/Tim_McMorris_-_Marketing_Advertising_Music.mp3" data-artist="Tim McMorris" data-title="Marketing Advertising Music" data-thumb="media/audio/1/Tim_McMorris_-_Marketing_Advertising_Music.jpg"  data-download="media/audio/1/Tim_McMorris_-_Marketing_Advertising_Music.mp3" data-peak-load="peaks/Tim_McMorris_-_Marketing_Advertising_Music.png" data-peak-progress="peaks/Tim_McMorris_-_Marketing_Advertising_Music_progress.png"></div>
+
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/1/Tim_McMorris_-_Health_Happiness_Success.mp3" data-artist="Tim McMorris" data-title="Health Happiness Success" data-thumb="media/audio/1/Tim_McMorris_-_Health_Happiness_Success.jpg"  data-download="media/audio/1/Tim_McMorris_-_Health_Happiness_Success.mp3" data-peak-load="peaks/Tim_McMorris_-_Health_Happiness_Success.png" data-peak-progress="peaks/Tim_McMorris_-_Health_Happiness_Success_progress.png"></div> 
+
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/1/Tim_McMorris_-_Be_My_Valentine.mp3" data-artist="Tim McMorris" data-title="Be My Valentine" data-thumb="media/audio/1/Tim_McMorris_-_Be_My_Valentine.jpg"  data-download="media/audio/1/Tim_McMorris_-_Be_My_Valentine.mp3" data-peak-load="peaks/Tim_McMorris_-_Be_My_Valentine.png" data-peak-progress="peaks/Tim_McMorris_-_Be_My_Valentine_progress.png"></div> 
+
+             </div>
+
+             <div id="playlist-audio2">
+
+                <div class="awp-playlist-item" data-type="audio" data-mp3="https://onedrive.live.com/download?cid=A237237B1FB33CFF&resid=A237237B1FB33CFF%21157&authkey=AAEOpycSee6Jd-o" data-artist="Tim" data-title="test" data-remote></div>
+
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/2/01.mp3" data-artist="Soundroll" data-title="A Way To The Top" data-thumb="media/audio/2/01.jpg"></div>
+
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/2/02.mp3" data-artist="Soundroll" data-title="Feel Good Journey" data-thumb="media/audio/2/02.jpg"></div>
+
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/2/03.mp3" data-artist="Soundroll" data-title="Fight No More" data-thumb="media/audio/2/03.jpg" ></div>
+
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/2/04.mp3" data-artist="Soundroll" data-title="Funky Boom" data-thumb="media/audio/2/04.jpg" ></div>
+
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/2/05.mp3" data-artist="Soundroll" data-title="Pump The Club" data-thumb="media/audio/2/05.jpg" ></div>
+
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/2/06.mp3" data-artist="Soundroll" data-title="Driving In My Car" data-thumb="media/audio/2/06.jpg" ></div>
+
+                <div class="awp-playlist-item" data-type="audio" data-mp3="media/audio/2/07.mp3" data-artist="Soundroll" data-title="Speed Of Fire" data-thumb="media/audio/2/07.jpg" ></div>
+
+
+            </div>
+
+            <!-- Soundcloud -->
+            <div id="playlist-soundcloud1">
+                <!-- single track -->  
+                <div class="awp-playlist-item" data-type="soundcloud" data-path="http://soundcloud.com/trance/trance-single-138-bpm-anvil" data-remote></div>
+            </div>  
+
+            <div id="playlist-soundcloud2">
+                <!-- playlist -->
+                <div class="awp-playlist-item" data-type="soundcloud" data-path="https://soundcloud.com/simps1988/sets/mainstage-music-a-state-of" data-remote></div>
+            </div> 
+            
+
+             <!-- podcast playlists -->
+             <div id="playlist-podcast">
+                 <div class="awp-playlist-item" data-type="podcast" data-path="http://www.kingola.com/feed/podcast/" data-limit="5" data-remote></div>
+             </div>
+
+             <!-- folder playlist -->
+             <div id="playlist-folder1">
+                <div class="awp-playlist-item" data-type="folder" data-path="../media/audio/1/" data-id3 data-sort="filename-asc"></div>
+             </div>
+
+             <!-- google drive folder playlist -->
+             <div id="playlist-gdrive-folder1">
+                 <div class="awp-playlist-item" data-type="gdrive_folder" data-path="1jvqNZtENJrYxjoeeqAKUfHnxskk4ObjX" data-remote data-sort="filename-asc"></div> 
+             </div>
+
+             <!-- one drive folder -->
+            <div id="playlist-onedrive-folder">
+                <div class="awp-playlist-item" data-type="onedrive_folder" data-path="https://1drv.ms/u/s!Av88sx97Izeif5Y1OnNBDdRMaEs" data-remote data-sort="filename-asc"></div> 
+            </div>
+
+            <!-- one drive folder -->
+            <div id="playlist-onedrive-folder2">
+                <div class="awp-playlist-item" data-type="onedrive_folder" data-path="https://1drv.ms/u/s!Av88sx97IzeigRVZ628DbG5HR-Jd" data-remote data-sort="filename-asc"></div> 
+            </div>
+
+             <!-- json -->
+             <div id="playlist-json">
+                <div class="awp-playlist-item" data-type="json" data-path="data/json/1.txt"></div>
+             </div>
+
+             <!-- s3 -->
+             <div id="playlist-s3">
+
+                <div class="awp-playlist-item" data-type="s3_audio" data-bucket="ap-trance" data-key="EW-128-BPM-FX-Essentials.mp3" data-title="EW 128 BPM FX Essentials" ></div>
+
+                <div class="awp-playlist-item" data-type="s3_audio" data-bucket="ap-trance" data-key="Trictonez-Essentials-Preview.mp3" data-title="Trictonez Essentials"></div>
+
+                <div class="awp-playlist-item" data-type="s3_audio" data-bucket="ap-trance" data-key="EW-Screech-Preset-Pack-Vol-1.mp3" data-title="EW Screech Preset Pack Vol 1" data-peak-array="0.16,-0.1,0.37,-0.12,0.59,-0.27,0.63,-0.73,0.89,-1,0.51,-0.8,0.85,-0.52,1,-0.95,0.75,-0.47,0.95,-0.84,0.96,-1,0.96,-0.6,0.76,-0.87,0.46,-0.47,0.54,-0.51,0.93,-0.97,0.71,-0.87,0.96,-0.84,0.89,-0.77,0.99,-0.94,0.81,-1,0.64,-0.74,0.71,-1,0.65,-0.92,0.97,-0.83,0.46,-0.65,0.97,-0.91,0.94,-0.45,0.57,-0.96,0.96,-0.08,0.68,-0.62,0.97,-0.7,0.97,-0.95,0.37,-0.91,0.91,-0.19,0.49,-0.99,0.32,-0.89,0.95,-0.44,0.83,-0.85,0.95,-0.85,0.94,-0.65,0.83,-0.93,0.85,-0.84,0.99,-0.87,0.56,-0.93,0.37,-0.47,0.53,-0.39,0.5,-0.7,0.78,-0.7,0.99,-0.82,0.65,-0.74,0.82,-0.82,0.82,-0.97,0.96,-0.62,0.97,-0.97,0.76,-0.9,1,-0.94,0.92,-0.98,0.29,-0.77,0.47,-0.63,0.46,-0.71,0.83,-0.77,0.95,-0.8,0.82,-0.85,0.85,-0.97,0.63,-0.86,0.99,-0.81,0.76,-0.76,0.95,-0.9,0.23,-0.43,0.61,-0.38,0.67,-0.17,0.47,-0.58,0.72,-0.32,0.75,-0.64,0.72,-0.38,0.66,-0.38,0.69,-0.46,0.56,-0.89,0.89,-0.82,0.69,-0.56,0.63,-0.65,0.6,-1,0.87,-0.72,0.71,-0.71,0.44,-0.56,0.83,-0.7,0.73,-0.71,0.64,-0.54,0.59,-0.83,0.71,-0.84,0.49,-0.5,0.75,-0.67,0.6,-0.72,0.73,-0.66,0.48,-0.94,0.81,-0.83,0.63,-0.42,0.61,-0.65,0.48,-0.69"></div>
+
+                <div class="awp-playlist-item" data-type="s3_audio" data-bucket="ap-trance" data-key="EW-Hardstyle-Melodies-Vol-3.mp3" data-title="EW Hardstyle Melodies Vol 3" data-thumb="media/trance/EW-Hardstyle-Melodies-Vol-3.jpg" data-peak-array="0.12,-0.12,0.14,-0.2,0.2,-0.24,0.32,-0.17,0.24,-0.21,0.14,-0.26,0.2,-0.21,0.15,-0.2,0.27,-0.16,0.17,-0.25,0.21,-0.23,0.38,-0.23,0.27,-0.17,0.21,-0.14,0.17,-0.3,0.19,-0.32,0.19,-0.2,0.08,-0.07,0.06,-0.04,0.27,-0.21,0.17,-0.29,0.34,-0.2,0.2,-0.3,0.23,-0.47,0.23,-0.19,0.22,-0.2,0.31,-0.27,0.28,-0.2,0.25,-0.27,0.23,-0.51,0.14,-0.23,0.19,-0.25,0.12,-0.4,0.23,-0.35,0.13,-0.2,0.24,-0.3,0.14,-0.17,0.08,-0.05,0.3,-0.11,0.27,-0.2,0.33,-0.39,0.06,-0.3,0.2,-0.28,0.2,-0.18,0.26,-0.37,0.15,-0.25,0.23,-0.26,0.22,-0.13,0.2,-0.24,0.09,-0.28,0.03,-0.26,0.2,-0.15,0.19,-0.16,0.18,-0.15,0.24,-0.2,0.14,-0.2,0.06,-0.08,0.19,-0.17,0.28,-0.31,0.27,-0.15,0.16,-0.06,0.17,-0.22,0.2,-0.23,0.19,-0.24,0.28,-0.05,0.26,-0.19,0.33,-0.27,0.25,-0.17,0.15,-0.21,0.22,-0.2,0.28,-0.18,0.19,-0.15,0.2,-0.14,0.28,-0.24,0.09,-0.22,0.06,-0.05,0.1,-0.15,0.24,-0.21,0.28,-0.24,0.29,-0.19,0.26,-0.18,0.16,-0.24,0.23,-0.23,0.18,-0.26,0.35,-0.37,0.21,-0.1,0.23,-0.27,0.33,-0.12,0.12,-0.21,0.22,-0.22,0.24,-0.37,0.22,-0.16,0.17,-0.25,0.22,-0.38,0.08,-0.09,0.04,-0.03,0.03,-0.02,0.01,-0.02,0.01,-0.01,0.01,-0.01"></div>
+
+                <div class="awp-playlist-item" data-type="s3_audio" data-bucket="ap-trance" data-key="EW-Hardstyle-Melodies-Vol-2.mp3" data-title="EW Hardstyle Melodies Vol 2" data-thumb="media/trance/EW-Hardstyle-Melodies-Vol-2.jpg" data-peak-array="0.46,-0.46,0.31,-0.33,0.39,-0.34,0.43,-0.38,0.44,-0.18,0.56,-0.4,0.89,-0.25,0.34,-0.38,0.41,-0.23,0.46,-0.31,0.39,-0.32,0.32,-0.72,0.15,-0.74,0.25,-0.56,0.67,-0.51,0.6,-0.41,0.17,-0.55,0.12,-0.13,0.09,-0.09,0.44,-0.25,0.42,-0.32,0.21,-0.51,0.63,-0.22,0.5,-0.71,0.42,-0.31,0.33,-0.52,0.68,-0.54,0.37,-0.58,0.55,-0.6,0.52,-0.38,0.25,-0.23,0.34,-0.15,0.63,-0.56,0.34,-0.77,0.56,-0.25,0.66,-0.21,0.23,-0.23,0.11,-0.06,0.15,-0.44,0.27,-0.44,0.23,-0.38,0.43,-0.49,0.61,-0.27,0.56,-0.29,0.45,-0.27,0.68,-0.36,0.39,-0.38,0.6,-0.47,0.71,-0.19,0.27,-0.23,0.45,-0.47,0.33,-0.5,0.38,-0.8,0.45,-0.75,0.32,-0.79,0.37,-0.14,0.22,-0.18,0.25,-0.38,0.32,-0.41,0.18,-0.48,0.55,-0.37,0.51,-0.47,0.33,-0.16,0.35,-0.84,0.44,-0.64,0.83,-0.78,0.2,-0.46,0.4,-0.48,0.29,-0.62,0.44,-0.29,0.43,-0.3,0.3,-0.6,0.71,-0.5,0.34,-0.38,0.16,-0.33,0.07,-0.09,0.29,-0.27,0.3,-0.42,0.39,-0.37,0.43,-0.42,0.56,-0.39,0.23,-0.28,0.44,-0.43,0.27,-0.34,0.55,-0.46,0.53,-0.49,0.38,-0.41,0.67,-0.51,0.78,-0.17,0.58,-0.49,0.59,-0.35,0.48,-0.31,0.49,-0.4,0.41,-0.18,0.15,-0.07,0.06,-0.08,0.03,-0.02,0.01,-0.01,0.01,-0.01,0,0"></div>
+
+                <div class="awp-playlist-item" data-type="s3_audio" data-bucket="ap-trance" data-key="EW-Hardstyle-Melodies-Vol-1.mp3" data-title="EW Hardstyle Melodies Vol 1" data-thumb="media/trance/EW-Hardstyle-Melodies-Vol-1.jpg" data-peak-array="0.32,-0.57,0.34,-0.39,0.36,-0.17,0.35,-0.37,0.42,-0.28,0.71,-0.31,0.42,-0.31,0.51,-0.28,0.33,-0.39,0.52,-0.69,0.35,-0.56,0.79,-0.94,0.55,-0.55,0.58,-0.41,0.35,-0.5,0.19,-0.48,0.3,-0.54,0.14,-0.2,0.11,-0.1,0.35,-0.45,0.28,-0.32,0.4,-0.28,0.3,-0.45,0.22,-0.22,0.29,-0.44,0.28,-0.5,0.5,-0.43,0.29,-0.5,0.51,-0.22,0.29,-0.38,0.32,-0.54,0.2,-0.32,0.97,-0.52,0.41,-0.42,0.44,-0.48,0.75,-0.39,0.31,-0.12,0.13,-0.12,0.27,-0.56,0.41,-0.72,0.35,-0.17,0.28,-0.78,0.24,-0.74,0.23,-0.56,0.43,-0.69,0.53,-0.27,0.2,-0.44,0.37,-0.22,0.37,-0.21,0.26,-0.32,0.39,-0.23,0.19,-0.43,0.41,-0.25,0.59,-0.47,0.36,-0.52,0.33,-0.18,0.16,-0.17,0.1,-0.58,0.51,-0.46,0.47,-0.4,0.38,-0.52,0.33,-0.44,0.48,-0.34,0.23,-0.51,0.42,-0.73,0.41,-0.32,0.61,-0.18,0.43,-0.37,0.38,-0.31,0.46,-0.2,0.36,-0.53,0.38,-0.76,0.26,-0.51,0.33,-0.69,0.55,-0.34,0.17,-0.11,0.71,-0.32,0.37,-0.24,0.48,-0.56,0.29,-0.55,0.26,-0.67,0.41,-0.41,0.39,-0.32,0.39,-0.23,0.35,-0.51,0.55,-0.39,0.47,-0.4,0.35,-0.35,0.4,-0.74,0.35,-0.23,0.2,-0.59,0.52,-0.16,0.44,-0.37,0.2,-0.57,0.18,-0.12,0.04,-0.1,0.03,-0.02,0.01,-0.01,0,0,0,0"></div>
+
+                <div class="awp-playlist-item" data-type="s3_audio" data-bucket="ap-trance" data-key="EW-Hardstyle-Kick-FX-Pack-Vol-1.mp3" data-title="EW Hardstyle Kick FX Pack Vol 1" data-thumb="media/trance/EW-Hardstyle-Kick-FX-Pack-Vol-1.jpg" data-peak-array="0,0,0.02,-0.02,0.67,-0.75,0.36,-0.77,0.07,-0.6,0.4,-0.75,0.64,-0.6,0.84,-0.74,0.89,-0.74,0.42,-0.37,0.55,-0.3,0.28,-0.18,0.26,-0.54,0.56,-0.34,0.23,-0.4,0.38,-0.45,0.9,-0.65,0.79,-0.99,0.52,-0.59,0.38,-0.57,0.39,-0.42,0.5,-0.36,0.39,-0.5,0.8,-0.95,0.76,-0.64,0.49,-0.65,0.41,-0.33,0.82,-0.79,0.57,-0.56,0.65,-0.65,0.51,-0.6,0.44,-0.46,0.38,-0.43,0.25,-0.39,0.46,-0.45,0.6,-0.27,0.44,-0.47,0.33,-0.22,0.41,-0.45,0.66,-0.68,0.2,-0.46,0.48,-0.39,0.42,-0.45,0.23,-0.24,0.23,-0.45,0.47,-0.16,0.58,-0.52,0.31,-0.56,0.76,-0.21,0.56,-0.43,0.5,-0.73,0.67,-0.57,0.83,-0.77,0.84,-0.97,0.96,-0.61,0.95,-0.72,0.57,-0.75,0.63,-0.81,0.82,-0.88,0.79,-0.67,0.62,-0.93,0.97,-0.91,0.78,-0.56,0.6,-0.53,0.96,-0.46,0.82,-0.27,0.95,-0.43,0.5,-0.84,0.52,-0.65,0.96,-0.37,0.71,-0.74,0.75,-0.87,0.78,-0.36,0.61,-0.45,0.52,-0.89,0.98,-0.99,0.98,-0.62,0.98,-0.9,0.18,-0.62,0.47,-0.73,0.75,-0.96,0.52,-0.59,0.95,-0.78,0.75,-0.67,1,-0.9,0.56,-0.79,0.41,-0.52,0.51,-0.65,0.53,-0.61,0.5,-0.52,1,-0.51,0.64,-0.53,0.46,-0.28,0.2,-0.24,0.25,-0.33,0.31,-0.17,0.35,-0.25,0.06,-0.14,0.06,-0.02,0.04,-0.04"></div>
+
+            </div>
+
+            <!-- s3 bucket -->
+            <div id="playlist-s3-bucket">
+
+                <div class="awp-playlist-item" data-type="s3_bucket_audio" data-bucket="ap-trance" data-sort="filename-asc"></div>
+
+            </div> 
+
+
+            <!-- s3 single audio with cloudfront -->
+             <div id="playlist-s3-cloudfront">
+
+                <div class="awp-playlist-item" data-type="s3_audio" data-bucket="ap_stor" data-key="Trictonez-Essentials-Preview.mp3" data-title="Trictonez-Essentials-Preview.mp3" ></div>
+
+                <div class="awp-playlist-item" data-type="s3_audio" data-bucket="ap_stor" data-key="01.mp3" data-title="01.mp3" ></div>
+
+                <div class="awp-playlist-item" data-type="s3_audio" data-bucket="ap_stor" data-key="adg3com_chuckedknuckles.mp3" data-title="adg3com_chuckedknuckles.mp3" ></div>
+
+            </div>
+
+            <!-- s3 bucket with cloudfront -->
+            <div id="playlist-s3-bucket-cloudfront">
+
+                <div class="awp-playlist-item" data-type="s3_bucket_audio" data-bucket="ap_stor" data-sort="filename-asc"></div>
+
+            </div> 
+
+
+        </div>     
+
+
+        <!-- API -->
+
+        <div id="api-panel">
+            <div class="api-panel-inner">
+                <ul>
+
+                    <li><a href="#" onClick="awp_player.stop(); return false;">stop</a></li>
+                    <li><a href="#" onClick="awp_player.loadPlayMedia(); return false;">Load play current media</a></li>
+                    <li><a href="#" onClick="awp_player.playMedia(); return false;">Play current media</a></li>
+                    <li><a href="#" onClick="awp_player.pauseMedia(); return false;">Pause current media</a></li>
+                    <li><a href="#" onClick="awp_player.togglePlayback(); return false;">Toggle playback</a></li>
+                    <li><a href="#" onClick="awp_player.nextMedia(); return false;">Play next media</a></li>
+                    <li><a href="#" onClick="awp_player.previousMedia(); return false;">Play previous media</a></li>
+                    <li><a href="#" onClick="awp_player.setVolume(0); return false;">Set volume (0)</a></li>
+                    <li><a href="#" onClick="awp_player.setVolume(0.5); return false;">Set volume (0.5)</a></li>
+                    <li><a href="#" onClick="awp_player.setVolume(1); return false;">Set volume (1)</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.toggleMute(); return false;">Toggle mute</a></li>
+
+                    <li><a href="#" onClick="awp_player.seek(0); return false;">seek (0)</a></li>
+                    <li><a href="#" onClick="awp_player.seek(5); return false;">seek (5)</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.seek(15); return false;">seek (15)</a></li>
+
+                    <li><a href="#" onClick="awp_player.seekBackward(10); return false;">seek Backward (10)</a></li>
+                    <li><a href="#" onClick="awp_player.seekForward(10); return false;">seek Forward (10)</a></li>
+
+
+                    <li><a href="#" onClick="awp_player.setPlaybackRate(0.5); return false;">Set playback rate (0.5)</a></li>
+                    <li><a href="#" onClick="awp_player.setPlaybackRate(1); return false;">Set playback rate (1)</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.setPlaybackRate(2); return false;">Set playback rate (2)</a></li>
+
+                    <li><a href="#" onClick="awp_player.toggleRandom(); return false;">Toggle random</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.toggleLoop(); return false;">Toggle loop</a></li>
+
+                    <li><a href="#" onClick="awp_player.destroyMedia(); return false;">Destroy media</a></li>
+                    <li><a href="#" onClick="awp_player.destroyPlaylist(); return false;">Destroy playlist</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.destroyPlugin(); return false;">Destroy plugin</a></li>
+                    
+                 
+                    <!-- load track -->
+                    <li><a href="#" onClick="awp_player.loadMedia('counter', 0); return false;">load track 0</a></li>
+                    <li><a href="#" onClick="awp_player.loadMedia('counter', 1); return false;">load track 1</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.loadMedia('counter', 2); return false;">load track 2</a></li>  
+                    
+                    <li><a href="#" onClick="awp_player.loadMedia('title', 'A Bright And Hopeful Future'); return false;">Load track with title "Tim McMorris - A Bright And Hopeful Future"</a></li>
+                    <li><a href="#" onClick="awp_player.loadMedia('title', 'Be My Valentine'); return false;">Load track with title "Tim McMorris - Be My Valentine"</a></li>
+                    <li><a href="#" onClick="awp_player.loadMedia('title', 'A Way To The Top'); return false;">Load track with title "Soundroll - A Way To The Top"</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.loadMedia('title', 'Feel Good Journey'); return false;">Load track with title "Soundroll - Feel Good Journey"</a></li>
+
+                    <!-- load playlist -->
+                    <li><a href="#" onClick="awp_player.loadPlaylist('playlist-audio1'); return false;">Load playlist-audio1</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.loadPlaylist('playlist-soundcloud-1'); return false;">Load playlist-soundcloud-1</a></li>
+
+                    <!-- add track -->
+                    <!-- html tracks -->
+                    <li><a href="#" onClick="awp_player.addTrack('html', awp_track_list_html1[0], false, 0); return false;">Add track, position 0</a></li>
+                    <li><a href="#" onClick="awp_player.addTrack('html', awp_track_list_html1[1], false, 1); return false;">Add track, position 1</a></li>
+                    <li><a href="#" onClick="awp_player.addTrack('html', awp_track_list_html1[2], false, 2); return false;">Add track, position 2</a></li>
+                    <li><a href="#" onClick="awp_player.addTrack('html', awp_track_list_html1[1], true, 1); return false;">Add track, play it, position 1</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.addTrack('html', awp_track_list_html1[1]); return false;">Add track, position end</a></li>  
+
+                    <li><a href="#" onClick="awp_player.addTrack('html', awp_track_list_html1, false, 0); return false;">Add track array, position 0</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.addTrack('html', awp_track_list_html1, true, 2); return false;">Add track array, play it, position 2</a></li>
+
+                    <!-- data tracks -->
+                    <li><a href="#" onClick="awp_player.addTrack('data', awp_track_list_data1[0], false, 0); return false;">Add track, position 0</a></li>
+                    <li><a href="#" onClick="awp_player.addTrack('data', awp_track_list_data1[1], true, 1); return false;">Add track, play it, position 1</a></li>
+                    <li><a href="#" onClick="awp_player.addTrack('data', awp_track_list_data1[2], false, 2); return false;">Add track, position 2</a></li>
+                    <li><a href="#" onClick="awp_player.addTrack('data', awp_track_list_data1[2], false, 0); return false;">Add track, position 0</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.addTrack('data', awp_track_list_data1[2], false, 0); return false;">Add track, position 0</a></li>
+
+                    <li class="space"><a href="#" onClick="awp_player.addTrack('data', awp_track_list_data1, false, 0); return false;">Add track array, position 0</a></li>
+                    
+
+                    <!-- input audio -->
+                    <li><a href="#" onClick="awp_player.inputAudio(awp_track_list_data1[0]); return false;">Input track "Tim McMorris - A Bright And Hopeful Future"</a></li>
+                    <li><a href="#" onClick="awp_player.inputAudio(awp_track_list_data1[1]); return false;">Input track "Tim McMorris - Be My Valentine"</a></li>
+                    <li><a href="#" onClick="awp_player.inputAudio(awp_track_list_data1[1]); return false;">Input track "Tim McMorris - Give Our Dreams Their Wings To Fly"</a></li>
+
+
+                    <!-- remove track -->
+                    <li><a href="#" onClick="awp_player.removeTrack(0); return false;">Remove track 0</a></li>
+                    <li><a href="#" onClick="awp_player.removeTrack(1); return false;">Remove track 1</a></li>
+                    <li><a href="#" onClick="awp_player.removeTrack(2); return false;">Remove track 2</a></li>
+                    <li><a href="#" onClick="awp_player.removeTrack(3); return false;">Remove track 3</a></li>
+                    <li><a href="#" onClick="awp_player.removeTrack(awp_player.getPlaylistLength()-1); return false;">Remove last track in playlist</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.destroyPlaylist(); return false;">Remove all tracks</a></li>
+                    
+                    <li><a href="#" onClick="awp_player.removeTrack('A Bright And Hopeful Future'); return false;">Remove track with title "Tim McMorris - A Bright And Hopeful Future"</a></li>
+                    <li><a href="#" onClick="awp_player.removeTrack('Be My Valentine'); return false;">Remove track with title "Tim McMorris - Be My Valentine"</a></li>
+                    <li><a href="#" onClick="awp_player.removeTrack('Give Our Dreams Their Wings To Fly'); return false;">Remove track with title "Tim McMorris - Give Our Dreams Their Wings To Fly"</a></li>
+                    <li><a href="#" onClick="awp_player.removeTrack('A Way To The Top'); return false;">Remove track with title "Soundroll - A Way To The Top"</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.removeTrack('Feel Good Journey'); return false;">Remove track with title "Soundroll - Feel Good Journey"</a></li>
+
+                    <!-- sort -->
+                    <li><a href="#" onClick="awp_player.sort('title'); return false;">Sort title ascending</a></li>
+                    <li><a href="#" onClick="awp_player.sort('title', true); return false;">Sort title descending</a></li>
+                    <li class="space"><a href="#" onClick="awp_player.sort('random'); return false;">Sort random</a></li>
+
+                </ul>
+            </div>
+        </div>
+         
+        <div class="toggle-panel"></div>
+             
+           
+		
+	</body>
+</html>

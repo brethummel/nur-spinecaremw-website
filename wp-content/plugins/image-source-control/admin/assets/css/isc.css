@@ -1,0 +1,180 @@
+/**
+ * PAGE HEADER
+ */
+/**
+ * Branded Page Header
+ */
+#isc-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #c3c4c7;
+    padding: 22px 0px;
+    margin-left: -20px;
+    background: #fff;
+}
+
+#isc-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+#isc-header img {
+    display: inline;
+    margin: 0;
+    margin-left: 20px;
+}
+
+#isc-header h1 {
+    display: inline;
+    margin: 0 20px 0 0;
+    font-weight: 300;
+    margin-left: 10px;
+    line-height: 30px;
+    vertical-align: top;
+}
+
+#isc-header .header-action {
+    margin-left: 10px;
+    border: 1px solid #1B183A;
+    font-weight: 400;
+    color: #1B183A;
+    background: #fff;
+}
+
+#isc-header .header-action .dashicons {
+    line-height: 30px;
+    margin-left: -5px;
+    padding-right: 5px;
+}
+
+#isc-header #isc-header-links {
+    margin-right: 20px;
+}
+
+#isc-header-links a {
+    display: inline-block;
+    padding: .5em .75em;
+    border-radius: .5em;
+    color: #FFF;
+    background-color: #0080FF;
+    margin-left: 1em;
+    text-decoration: none;
+}
+
+#isc-header-links a.isc-get-pro {
+    background-color: #F70;
+    font-weight: bold;
+}
+
+/**
+ * SETTINGS
+ */
+.isc-settings-highlighted label { font-weight: bold; }
+.isc-settings-highlighted .isc-empty-label { margin-left: 1.7em;  }
+.isc-settings-highlighted .description { margin-left: 1.7em; margin-bottom: .5em; }
+#isc-settings-licenses textarea { width: 40em; height: 7em; }
+#isc-section-wrapper .hndle { cursor: text; user-select: all; }
+#isc-section-wrapper .postbox-header .dashicons-no-alt { cursor: pointer; margin-right: 8px; }
+#thumbnail-size-select { vertical-align: baseline;}
+
+#isc-settings-caption-position-options-wrapper:not(.hidden) {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+#isc-settings-caption-pos-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+#isc-settings-caption-pos-options button {
+    background: rgba(241, 241, 241, 0.7); /* #f1f1f1 with 70% opacity */
+    flex-basis: calc(100% / 3);
+    height: 25px;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 4px;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#isc-settings-caption-pos-options button.center {
+    flex-basis: 100%; /* the center button takes the whole width */
+}
+
+#isc-settings-caption-pos-options button.selected {
+    background: transparent;
+}
+
+#isc-settings-caption-pos-options button span::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 4px;
+    line-height: 4px;
+    background-color: #fff;
+    box-shadow: -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;
+}
+
+#isc-settings-caption-pos-options button:not(.selected) span {
+    background: transparent;
+    opacity: .5;
+}
+
+#isc-settings-caption-preview {
+    position: absolute;
+    top: 0;
+    left: 120px;
+}
+
+#isc-settings-caption-preview iframe {
+    border: 1px solid #ddd;
+}
+
+#source-pretext-buttons:not(.hidden) {
+    display: inline-block;
+}
+#source-pretext-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    font-size: 16px;
+}
+
+#source-pretext-buttons button {
+    color: #000;
+}
+
+/**
+ * Meta field in media view
+ */
+.compat-attachment-fields input[type="text"] { width: 100%; }
+.compat-attachment-fields th { vertical-align: top; }
+
+/**
+ * Tables
+ */
+.isc-table tr:hover { background-color: #ddd;}
+
+/**
+ * SOURCES PAGE
+ */
+.isc-table:not(.isc-table-debug-list) thead th:first-of-type { width: 20%; }
+.isc-table-debug-list th { width: 50%; }
+.isc-table img.attachment-60x60 { width: 60px; height: auto; }
+#isc-section-wrapper .isc-table { border: 0; }
+
+/**
+ + Miscellaneous
+ */
+.isc-get-pro { font-weight: bold; color: #F70; }

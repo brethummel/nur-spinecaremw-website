@@ -1,0 +1,207 @@
+{
+	"mapwidth": "960",
+	"mapheight": "600",
+	"styles": [
+		{
+			"class": "default",
+			"base": {
+				"fill": "#495360"
+			}
+		},
+		{
+			"class": "blueish",
+			"base": {
+				"fill": "#0769AD",
+				"fill-opacity": "0.4"
+			},
+			"hover": {
+				"fill-opacity": "0.8"
+			},
+			"active": {
+				"fill": "#054979",
+				"fill-opacity": "1"
+			}
+		}
+	],
+	"groups": [
+		{
+			"id": "offices",
+			"title": "Offices",
+			"color": "#f23543",
+			"toggle": "true",
+			"switchoff": "true",
+			"legend": "true",
+			"hide": "false"
+		},
+		{
+			"id": "test",
+			"title": "Test",
+			"about": "A lovely group",
+			"color": "#C91965",
+			"legend": "true",
+			"hide": "false",
+			"toggle": "true",
+			"switchoff": "false"
+		},
+		{
+			"id": "states",
+			"title": "States",
+			"color": "#495360",
+			"toggle": "false",
+			"legend": "true",
+			"style": "blueish"
+		}
+	],
+	"levels": [
+		{
+			"id":"usa",
+			"title":"United States",
+			"map":"maps/usa.svg",
+			"locations": [
+				{
+					"id": "center",
+					"title": "Center",
+					"about": "Location for testing",
+					"description": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>",
+					"link": "http://www.mapplic.com/",
+					"pin": "pin-icon",
+					"label": "images/house.svg",
+					"x": "0.5",
+					"y": "0.5"
+				},
+				{
+					"id": "test",
+					"title": "Test",
+					"about": "Location for testing",
+					"description": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>",
+					"link": "http://www.mapplic.com/",
+					"pin": "pin-image",
+					"label": "images/thumb1.jpg",
+					"category": "states",
+					"x": "0.5",
+					"y": "0.8"
+				},
+				{
+					"id": "wa",
+					"title": "Washington",
+					"about": "The evergreen what",
+					"description": "<p>The Evergreen State</p>",
+					"link": "http://en.wikipedia.org/wiki/Washington_(state)",
+					"pin": "hidden",
+					"category": ["states"],
+					"x": "0.1331",
+					"y": "0.0971"
+				},
+				{
+					"id": "ca-sanfrancisco",
+					"title": "San Francisco",
+					"about": "Location with image",
+					"description": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>",
+					"link": "http://www.mapplic.com/",
+					"action": "external",
+					"label": "SF",
+					"pin": "pin-classic pin-label",
+					"category": "test",
+					"x": "0.0390",
+					"y": "0.4093"
+				},
+				{
+					"id": "newyork",
+					"title": "New York City",
+					"description": "<p>The big apple</p>",
+					"label": "NY",
+					"pin": "pin-classic pin-label",
+					"category": "offices",
+					"x": "0.8827",
+					"y": "0.3322",
+					"reveal": "2"
+				},
+				{
+					"id": "il",
+					"title": "Illinois",
+					"description": "<p>Three U.S. presidents have been elected while living in Illinois</p>",
+					"link": "http://en.wikipedia.org/wiki/Illinois",
+					"pin": "hidden",
+					"category": "states",
+					"x": "0.6209",
+					"y": "0.4316"
+				},
+				{
+					"id": "ny",
+					"title": "New York",
+					"description": "New York is a state in the Northeastern and Mid-Atlantic regions of the United States.",
+					"link": "http://en.wikipedia.org/wiki/NewYork",
+					"pin": "hidden",
+					"category": "states",
+					"x": "0.8472",
+					"y": "0.2680"
+				},
+				{
+					"id": "ma",
+					"title": "Massachusetts",
+					"description": "<p>Officially the Commonwealth of Massachusetts, is a state in the New England region of the northeastern United States.</p>",
+					"link": "http://en.wikipedia.org/wiki/Massachusetts",
+					"pin": "hidden",
+					"category": "states",
+					"x": "0.9049",
+					"y": "0.2625"
+				},
+				{
+					"id": "ga",
+					"title": "Georgia",
+					"description": "Georgia is known as the Peach State and the Empire State of the South.",
+					"link": "#header",
+					"pin": "hidden",
+					"category": "states",
+					"x": "0.7517",
+					"y": "0.6885"
+				},
+				{
+					"id": "fl",
+					"title": "Florida",
+					"description": "<p>The state capital is Tallahassee, the largest city is Jacksonville, and the largest metropolitan area is the Miami metropolitan area.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+					"link": "http://en.wikipedia.org/wiki/Georgia_(U.S._state)",
+					"pin": "hidden",
+					"category": "states",
+					"x": "0.8001",
+					"y": "0.8486",
+					"zoom": "2"
+				},
+				{
+					"id": "tx",
+					"title": "Texas",
+					"description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+					"link": "http://en.wikipedia.org/wiki/Texas",
+					"pin": "hidden",
+					"action": "external",
+					"category": "statexs",
+					"x": "0.4512",
+					"y": "0.79",
+					"zoom": "2"
+				},
+				{
+					"id": "ca-losangeles",
+					"title": "Los Angeles",
+					"description": "<p>The city of Angels</p>",
+					"label": "LA",
+					"pin": "pin-classic pin-label",
+					"category": "offices",
+					"x": "0.0892",
+					"y": "0.5742",
+					"zoom": "2"
+				},
+				{
+					"id": "ca",
+					"title": "California",
+					"description": "<p>California state.</p>",
+					"link": "http://en.wikipedia.org/wiki/California",
+					"pin": "hidden no-fill",
+					"action": "reveal",
+					"category": "states",
+					"x": "0.0718",
+					"y": "0.4546"
+				}
+			]
+		}
+	]
+}

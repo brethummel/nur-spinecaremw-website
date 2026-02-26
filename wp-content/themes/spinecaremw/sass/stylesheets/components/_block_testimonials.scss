@@ -1,0 +1,79 @@
+.block-testimonials {
+    &.image {
+		.slides-container {
+			.slides {
+				.slide {
+					.text-col {
+						@include media-breakpoint-down(sm) {
+							
+						}
+						.quote {
+
+						}
+					}
+				}
+			}
+		}
+    }
+    &.quote {
+        .dots {
+			
+        }
+		.slides-container {
+			.slides {
+				.slide {
+					.text-col {
+						.quote {
+
+						}
+					}
+				}
+			}
+		}
+    }
+	.slides-container {
+		.slides {
+			.slide {
+				.image-col {
+
+				}
+				.text-col {
+					.quote {
+						@include media-breakpoint-down(md) {
+							
+						}
+						&:before {
+							
+						}
+						&:after {
+							
+						}
+					}
+					p.attribution {
+						.name {
+							
+						}
+						.title {
+							
+						}
+					}
+				}
+			}
+		}
+	}
+    .dots {
+        ul.slick-dots {
+            li {
+                &.slick-active {
+					
+                }
+                button {
+					
+                }
+                &:before {
+					
+                }
+            }
+        }
+    }
+}

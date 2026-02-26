@@ -1,0 +1,66 @@
+.block-ticker {
+	position: relative;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	overflow: hidden;
+	&.dark { 
+		.line-text {
+			color: $white;
+		}
+	}
+	&.light {
+		.line-text {
+			color: $black;
+		}
+	}
+	&.single {
+		.line-text {
+			font-size: 0px;
+			span {
+				font-size: 16px;
+				&:before {
+					content: "\2022";
+					margin-left: 8px;
+					margin-right: 8px;
+				}
+			}
+		}
+		.eocjs-newsticker {
+			.eocjs-newsticker-container {
+				height: 20px;
+			}
+			.eocjs-newsticker-one {
+				height: 20px;
+			}
+		}
+	}
+	&.echo,
+	&.unique {
+		.line-text {
+			
+		}
+		.eocjs-newsticker {
+			.eocjs-newsticker-container {
+				height: 20px;
+			}
+			.eocjs-newsticker-one,
+			.eocjs-newsticker-two {
+				height: 20px;
+			}
+		}
+	}
+	.eocjs-newsticker {
+		.eocjs-newsticker-container {
+			position: relative;
+			overflow: hidden;
+		}
+		.eocjs-newsticker-one,
+		.eocjs-newsticker-two {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			white-space: nowrap;
+			line-height: 1;
+		}
+	}
+}

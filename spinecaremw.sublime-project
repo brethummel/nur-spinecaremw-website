@@ -1,0 +1,29 @@
+{
+	"folders":
+	[
+		{
+			"path": "wp-content/themes/spinecaremw",
+		},
+	],
+	"settings": {
+		"drivesyncenabled": true,
+		"drivesyncconfirmstart": true,
+		"drivesyncconfirmstop": true,
+		"drivesynctasks": [
+			{
+				"id": "bfcwebsite",
+				"source": "/Users/brethummel/Repository/Bret's Dung/nur/NUR003 - Midwestern Interventional Spine Specialists/",
+				"dest": "/Users/brethummel/Library/CloudStorage/GoogleDrive-bret@discovercurious.com/Shared Drives/Curious Clients/Nura Pain Clinics/Midwest Interventional Spine Specialists/Website",
+				"interval": 1800,
+				"delete": true,
+				"excludes": [
+					".git/",
+					"node_modules/",
+					"wp-content/uploads/",
+					"wp-content/cache/"
+				],
+				"log": "/Users/brethummel/Library/Logs/drivesync-spinecaremwwebsite.log"
+			}
+		]
+	}
+}

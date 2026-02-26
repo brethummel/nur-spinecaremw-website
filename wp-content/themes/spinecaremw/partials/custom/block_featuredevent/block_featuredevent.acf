@@ -1,0 +1,253 @@
+<?php
+
+/*
+
+Name: Featured Event
+ID: block_featuredevent
+Layout ID: 8h05woloo6cdq1
+Subfield ID: 8h05woloo6cdq2
+Group ID: 66ba517f0fe6e
+
+*/
+
+// ======================================= //
+//              BLOCK UPDATER              //
+// ======================================= // 
+/*
+
+!!! NEW FIELD NAMES HAVE TO BE UNIQUE !!!
+!!! FIELDS HAVE TO BE THE SAME TYPE !!!
+
+2022-12-28
+=========
+Block Display settings addition, specifically migrating the custom_class field into the Block Display group.
+
+*/
+
+// $acf_migration_map = array(
+// 	'subfield_id' => 'field_610ad192d353f',
+// 	'2022-12-28' => array(
+// 		'mode' => '', // reset (overwrite spr_settings), [blank] (leave as is)
+// 		'fields' => array(
+// 			'field_617867ccb00cf' => array(
+// 				'old' => array('name' => 'custom_class', 'group' => 'false', 'key' => 'field_617867ccb00cf', 'clone' => 'field_6178670b4ade0'),
+// 				'new' => array('name' => 'hero_display_custom_class', 'group' => 'field_63ad2557c9311', 'key' => 'field_63ad2f5cc9312', 'clone' => 'field_6178670b4ade0'),
+// 			),
+// 		)
+// 	),
+// ); 
+// spr_register_block_changes('block_hero', $acf_migration_map);
+
+acf_add_local_field_group( array(
+	'key' => 'group_66ba517f0fe6e',
+	'title' => 'BLOCK: Featured Event',
+	'fields' => array(
+		array(
+			'key' => 'field_66ba517f18c63',
+			'label' => 'Block',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+			'selected' => 0,
+		),
+		array(
+			'key' => 'field_66ba55163aaee',
+			'label' => 'Title',
+			'name' => 'featuredevent_title',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'maxlength' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
+		array(
+			'key' => 'field_66ba517f18c9a',
+			'label' => 'Event',
+			'name' => 'featuredevent_event',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_66ba52ef3aaed',
+					'label' => 'Featured Event',
+					'name' => 'pick',
+					'aria-label' => '',
+					'type' => 'post_object',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'post_type' => array(
+						0 => 'event',
+					),
+					'post_status' => array(
+						0 => 'publish',
+					),
+					'taxonomy' => '',
+					'return_format' => 'id',
+					'multiple' => 0,
+					'allow_null' => 0,
+					'bidirectional' => 0,
+					'ui' => 1,
+					'bidirectional_target' => array(
+					),
+				),
+			),
+		),
+		array(
+			'key' => 'field_66ba517f18d09',
+			'label' => 'Settings',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+			'selected' => 0,
+		),
+		array(
+			'key' => 'field_66ba517f18d40',
+			'label' => 'Block Display',
+			'name' => 'featuredevent_display',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'table',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_66ba517f33e09',
+					'label' => 'Custom Class',
+					'name' => 'custom_class',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6178670b4ade0',
+					),
+					'display' => 'seamless',
+					'layout' => 'block',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_66ba517f33e40',
+					'label' => 'Block Name',
+					'name' => 'block_name',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_63acf715515a6',
+					),
+					'display' => 'seamless',
+					'layout' => 'block',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+				array(
+					'key' => 'field_66ba517f33e77',
+					'label' => 'Display Block',
+					'name' => 'display_block',
+					'aria-label' => '',
+					'type' => 'clone',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'clone' => array(
+						0 => 'field_6393b3ba45832',
+					),
+					'display' => 'seamless',
+					'layout' => 'block',
+					'prefix_label' => 0,
+					'prefix_name' => 0,
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => false,
+	'description' => '',
+	'show_in_rest' => 0,
+) );
+
+?>

@@ -1,0 +1,219 @@
+.block-alltreatments {
+    background-color: $softwhite;
+    position: relative;
+    padding-top: 0px !important;
+    padding-bottom: $p-bottom * .3 !important;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 32px;
+        width: 100%;
+        background-color: $white;
+    }
+    .category-container {
+        margin-bottom: 30px;
+        &.medical-cannabis {
+            .category {
+                h3 {
+                    &:before {
+                        background-image: url("images/icon-medical-cannabis.png");
+                    }
+                }
+            }
+        }
+        &.injections {
+            .category {
+                h3 {
+                    &:before {
+                        background-image: url("images/icon-injections.png");
+                    }
+                }
+            }
+        }
+        &.interventional-procedures {
+            .category {
+                h3 {
+                    &:before {
+                        background-image: url("images/icon-interventional-procedures.png");
+                    }
+                }
+            }
+        }
+        &.neurostimulation {
+            .category {
+                h3 {
+                    &:before {
+                        background-image: url("images/icon-neurostimulation.png");
+                    }
+                }
+            }
+        }
+        &.targeted-drug-delivery {
+            .category {
+                h3 {
+                    &:before {
+                        background-image: url("images/icon-targeted-drug-delivery.png");
+                    }
+                }
+            }
+        }
+        &.comprehensive-care {
+            .category {
+                h3 {
+                    &:before {
+                        background-image: url("images/icon-comprehensive-care.png");
+                    }
+                }
+            }
+        }
+        &.back-and-neck-pain {
+            .category {
+                h3 {
+                    &:before {
+                background-image: url("images/icon-back-and-neck-pain.png");
+                    }
+                }
+            }
+        }
+        &.arm-and-leg-pain {
+            .category {
+                h3 {
+                    &:before {
+                        background-image: url("images/icon-arm-and-leg-pain.png");
+                    }
+                }
+            }
+        }
+        &.general-body-pain {
+            .category {
+                h3 {
+                    &:before {
+                        background-image: url("images/icon-general-body-pain.png");
+                    }
+                }
+            }
+        }
+        &.head-and-face-pain {
+            .category {
+                h3 {
+                    &:before {
+                        background-image: url("images/icon-head-and-face-pain.png");
+                    }
+                }
+            }
+        }
+        &.cancer-pain {
+            .category {
+                h3 {
+                    &:before {
+                        background-image: url("images/icon-cancer-pain.png");
+                    }
+                }
+            }
+        }
+        &.open {
+            .category {
+                h3 {
+                    @include media-breakpoint-down(sm) {
+                        &:after {
+                            background-image: url("images/icon_minus.png");
+                        }
+                    }
+                }
+                ul {
+                    @include media-breakpoint-down(sm) {
+                        display: block;
+                    }
+                }
+            }
+        }
+        .category {
+            background-color: $white;
+            border-radius: 5px;
+            padding: 32px 26px;
+            height: 100%;
+            box-shadow: 0px 4px 32px 0px #2A12001F, 0px 0px 4px 0px #00000014;
+            h3 {
+                @include media-breakpoint-down(sm) {
+                    padding-right: 40px;
+                    position: relative;
+                    cursor: pointer;
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        background-image: url("images/icon_plus.png");
+                        top: 2px;
+                        right: 0px;
+                        width: 32px;
+                        height: 32px;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                }
+                @include media-breakpoint-only(lg) {
+                    font-size: 27px;
+                }
+                @include media-breakpoint-up(md) {
+                    padding-left: 40px;
+                    position: relative;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 2px;
+                        left: -2px;
+                        width: 32px;
+                        height: 32px;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+            ul {
+                text-align: left;
+                list-style: none;
+                padding: 0px;
+                margin: 30px 0px 0px 0px;
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                }
+                @include media-breakpoint-up(md) {
+                    display: block !important;
+                }
+                li {
+                    display: inline-block;
+                    border-bottom: 1px solid $softwhite;
+                    line-height: 1.2;
+                    width: 100%;
+                    padding-bottom: 15px;
+                    margin-bottom: 12px;
+                    &:last-child {
+                        border-bottom: none;
+                        margin-bottom: -22px;
+                    }
+                    a {
+                        text-decoration: none;
+                        color: $black;
+                        font-weight: $f-semibold;
+                        width: 100%;
+                        position: relative;
+                        display: inline-block;
+                        transition: all .4s;
+                        padding-right: 18px;
+                        &:after {
+                            content: "\e0b0";
+                            color: $c-secondary;
+                            font-family: $f-typicons;
+                            position: absolute;
+                            right: 0px;
+                        }
+                        &:hover {
+                            color: $c-secondary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

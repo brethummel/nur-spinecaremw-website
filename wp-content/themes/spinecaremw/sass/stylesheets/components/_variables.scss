@@ -1,0 +1,126 @@
+
+// ======================================= //
+//               CONTAINERS                //
+// ======================================= //
+
+$container-xl: 1140px;
+$container-lg: 960px;
+$container-md: 720px;
+$container-sm: 540px;
+
+// Set to true to set a max-width on the content/footer,
+// or false to stretch container edge to edge
+$max-container: false;
+
+// For content blocks with images that scale to fit,
+// this max-height limits the height of the content block
+// for extremely wide browser sizes.
+$max-panel-height: 800px;
+
+
+// ======================================= //
+//                 PADDING                 //
+// ======================================= //
+
+$p-top: 65px;
+$p-bottom: 65px;
+$p-top-xs: 12vw;
+$p-bottom-xs: 12vw;
+
+$p-container-xl: 60px;
+$p-container-lg: 30px;
+$p-container-md: 30px;
+$p-container-sm: 30px;
+$p-container-xs: 25px;
+$p-container-xxs: 20px;
+
+
+// ======================================= //
+//                 COLORS                  //
+// ======================================= //
+
+// define color names here
+$yellow: #ffce35;
+$brightorange: #f56600;
+$orange: #ff8023;
+$tangerine: #ffc080;
+$wheat: #fce8d3;
+$cream: #fff6ee;
+$softwhite: #f3f1ed;
+$white: white;
+$black: black;
+$slate: #8c827b;
+
+// standard set of greys, customize as necessary
+$footergrey: #FBF9F5;
+$superlightgrey: $softwhite;
+$lightgrey: #c5c5c5;
+$grey: $slate;
+$darkgrey: #424042;
+$charcoal: #424042;
+
+// define key colors
+$c-primary: $black;
+$c-secondary: $brightorange;
+$c-tertiary: $yellow;
+$c-accent: $orange;
+$c-accent2: $yellow;
+    
+$c-bkgnd-white: $white;
+$c-bkgnd-light: $superlightgrey;
+$c-bkgnd-light2: $cream;
+$c-bkgnd-primary: $brightorange;
+$c-bkgnd-secondary: $c-secondary;
+$c-bkgnd-tertiary: $footergrey;
+$c-bkgnd-accent: $c-accent;
+$c-bkgnd-accent2: $c-accent2;
+
+// BE SURE TO UPDATE partials/custom/_custom_colors.php
+// WITH APPROPRIATE COLOR NAMES FOR THE BACKGROUND SELECTS
+
+
+// ======================================= //
+//                  FONTS                  //
+// ======================================= //
+
+// font families
+$f-microns: 'microns';
+$f-typicons: 'typicons';
+$f-nunito: 'Nunito Sans', Arial, sans-serif;
+$f-myriad: myriad-pro, Arial, sans-serif;
+
+// font definition
+$f-nav: $f-myriad;
+$f-heads: $f-nunito;
+$f-subheads: $f-myriad;
+$f-body: $f-myriad;
+
+$f-light: 400;
+$f-book: 400;
+$f-regular: 400;
+$f-medium: 500;
+$f-semibold: 600;
+$f-bold: 700;
+
+
+// ======================================= //
+//               UTILITIES                 //
+// ======================================= //
+
+@function st($n) { // strip units from a number
+  @if type-of($n) == 'number' and not unitless($n) {
+    @return $n / ($n * 0 + 1);
+  }
+  @else {
+    @return $n;
+  }
+}
+
+// Stretch Children
+// makes all child divs stretch to the same height, for Safari/IE depends on parent container having a set height
+// to use, add "@include stretchChildren" to the parent element
+@mixin stretchChildren {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}

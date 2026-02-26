@@ -1,0 +1,66 @@
+
+@import "./bootstrap-4.0.0/scss/_functions.scss";
+@import "./bootstrap-4.0.0/scss/_variables.scss";
+
+/* set the overriding variables */
+$grid-breakpoints: (
+    xxs: 0,
+    xs: 360px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+);
+
+$container-max-widths: (
+    xs: 330px,
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px
+);
+
+
+@import "./bootstrap-4.0.0/scss/mixins/_breakpoints.scss";
+
+// libraries
+@import './_slick.scss';
+
+// utilties
+// @import 'components/normalize.scss'; // this is handled by Bootstrap 4
+@import 'components/_variables.scss';
+
+// global elements
+@import 'components/_header.scss';
+@import 'components/_main.scss';
+@import 'components/_footer.scss';
+@import 'components/_post.scss';
+
+// content blocks
+@import '../../partials/_blocks.scss';
+
+// customizations
+@import 'components/_block_accordion.scss';
+@import 'components/_block_audioplayer.scss';
+@import 'components/_block_bio.scss';
+@import 'components/_block_buttons.scss';
+@import 'components/_block_contactform.scss';
+@import 'components/_block_container.scss';
+@import 'components/_block_fullimage.scss';
+@import 'components/_block_gallery.scss';
+@import 'components/_block_hero.scss';
+@import 'components/_block_legal.scss';
+@import 'components/_block_peoplegrid.scss';
+@import 'components/_block_posts.scss';
+@import 'components/_block_related.scss';
+@import 'components/_block_resources.scss';
+@import 'components/_block_rule.scss';
+@import 'components/_block_section.scss';
+@import 'components/_block_strip.scss';
+@import 'components/_block_testimonials.scss';
+@import 'components/_block_text.scss';
+@import 'components/_block_textimage.scss';
+@import 'components/_block_tiles.scss';
+
+// block customizations
+@import 'components/_block_customizations.scss'

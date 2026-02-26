@@ -1,0 +1,12 @@
+.blocks-wrapper {  /* The role of .blocks-wrapper is to apply special rules when a block is inside another block */
+    .block-buttons {
+		
+    }
+}
+.block-buttons {
+	.buttons {
+		.button {
+			margin-top: 0px;
+		}
+	}
+}

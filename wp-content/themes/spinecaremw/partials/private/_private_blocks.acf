@@ -1,0 +1,18 @@
+<?php
+
+// Manually register unique custom blocks that may have been created for the client
+// here, and in both _custom_blocks.php and _custom_blocks.scss. The main _blocks.acf 
+// loads this file.
+
+// ======================================= //
+//              PRIVATE BLOCKS              //
+// ======================================= // 
+
+require('file_transcript/file_transcript.acf');
+require('footer_links/footer_links.acf');
+require('megadrop_settings/megadrop_settings.acf');
+require('post_settings/post_settings.acf');
+require('resources_settings/resources_settings.acf');
+
+
+?>

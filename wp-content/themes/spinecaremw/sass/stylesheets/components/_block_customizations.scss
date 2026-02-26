@@ -1,0 +1,136 @@
+.home {
+	.block-hero {
+    	&.marquee {
+    		&:first-child {
+    			.title {
+    				.text-container {
+	        			@include media-breakpoint-up(md) {
+	    					&:after {
+	    						content: "";
+	    						// background-image: url("images/badge_top_doctor.png");
+	    						// height: 130px;
+	    						// width: 130px;
+	    						background-image: url("images/badge_booktoday.png");
+	    						height: 130px;
+	    						width: 130px;
+	    						background-size: cover;
+	    						background-position: center center;
+	    						background-repeat: no-repeat;
+	    						order: 4;
+	    						margin-top: 32px;
+	    					}
+    					}
+    				}
+    			}
+    			@include media-breakpoint-down(sm) {
+    				&:after {
+    					content: "";
+	    				// background-image: url("images/badge_top_doctor_reversed.png");
+	    				background-image: url("images/badge_booktoday_reversed.png");
+						background-size: contain;
+						background-position: center center;
+						background-repeat: no-repeat;
+    					display: block;
+    					position: relative;
+    					width: 100%;
+    					height: 170px;
+    					background-color: $darkgrey;
+    					@include media-breakpoint-down(xs) {
+    						height: 140px;
+    					}
+    				}
+    			}
+    		}
+    	}
+	}
+}
+.locations {
+	.block-hero {
+    	&.marquee {
+    		&:first-child {
+    			&.top {
+	        		@include media-breakpoint-only(sm) {
+    					background-position: center -25% !important;
+    				}
+	        		@include media-breakpoint-down(xs) {
+    					background-position: center -20px !important;
+    				}
+    			}
+    		}
+    	}
+    }
+    .block-contactform {
+    	&.map {
+    		.map-col {
+        		@include media-breakpoint-down(sm) {
+        			padding: 0px !important;
+		        	margin-bottom: 20px !important;
+        		}
+    			#map {
+    				height: 100%;
+    				iframe {
+    					height: 100%;
+    				}
+    			}
+    		}
+    		.info-col {
+    			background-color: $white;
+    			box-shadow: 0px 4px 32px 0px #2A12001F, 0px 0px 4px 0px #00000014;
+        		@include media-breakpoint-down(sm) {
+        			padding-top: 0px !important;
+        		}
+    			.info {
+	    			padding: 33px 23px;
+    				h4 {
+            			font-size: 38px;
+    				}
+    			}
+    		}
+    	}
+    }
+}
+.treatments,
+.conditions {
+	.block {
+		&.bkgnd-white {
+			&.block-section {
+				.block-text {
+					+.block-related,
+					+.block-gallery {
+						padding-top: 0px !important;
+					}
+					+script {
+						+.block-accordion {
+							padding-top: $p-top * .25 !important;
+							padding-bottom: $p-bottom !important;
+						}
+					}
+				}
+			}
+			+.bkgnd-white {
+				&.block-text {
+					padding-top: $p-top * .4;
+				}
+				&.block-section {
+					padding-top: $p-top * .4;
+					.block-text {
+						+.block-related {
+							padding-top: 0px !important;
+						}
+					}
+				}
+				&.block-textimage {
+					.image-col {
+						.image-container,
+						.video-container {
+							margin-top: $p-top * .4;
+						}
+					}
+					.text-col {
+						padding-top: $p-top * .4;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,416 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"impr",
+				"!important"
+			],
+			[
+				"imp",
+				"!important"
+			],
+			[
+				"i",
+				"!important"
+			],
+			[
+				"echo",
+				"echo\techo-html"
+			],
+			[
+				"w",
+				"wrap"
+			],
+			[
+				"pre",
+				"pre()\tpre-php"
+			],
+			[
+				"inf-",
+				"info-map"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"eq",
+				"eqtypessrc"
+			],
+			[
+				"inner",
+				"innerText"
+			],
+			[
+				"block_find",
+				"block_findservice_ajax"
+			],
+			[
+				"c",
+				"column"
+			],
+			[
+				"white",
+				"ghostwhite"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ui:",
+				"UI: Select Theme"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"ui: cu",
+				"UI: Customize Color Scheme"
+			],
+			[
+				":",
+				"UI: Select Color Scheme"
+			],
+			[
+				"ui",
+				"UI: Customize Color Scheme"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"material theme: acti",
+				"Material Theme: Activate theme"
+			],
+			[
+				"Package Control: list pa",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"install git",
+				"Package Control: Install Package"
+			],
+			[
+				"package contro",
+				"Package Control: Install Package"
+			],
+			[
+				"Install",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR003 - Midwestern Interventional Spine Specialists/Development/wp-content/themes/spinecaremw"
+	],
+	"file_history":
+	[
+		"/Volumes/Archive/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_variables.scss",
+		"/Volumes/Archive/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_training/block_training.acf",
+		"/Volumes/Archive/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_text/_block_text.scss",
+		"/Volumes/Archive/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_customizations.scss",
+		"/Volumes/Archive/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/header-content.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_training/block_training.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/private/functions/dup_block_for_posts.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/config.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/_blocks.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/single-post.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/header.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/footer.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/js/global.js",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_customizations.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/_templates/_posts/posts_singlet-default.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/private/post_settings/post_settings.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/private/post_settings/post_settings.json",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_header.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/header-content.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/_templates/_posts/_posts_singlet.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_post.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_training/_block_training.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_admin.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/_core_mirror/partials/functions/CHANGELOG.md",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/_core_mirror/.gitignore",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/_core_mirror/partials/functions/ui_tinymce.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/_core_mirror/partials/_springboard.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/functions/CHANGELOG.md",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/functions/ui_tinymce.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/admin/js/admin.js",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_contactform/block_contactform.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/style.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/functions/ui_global_info.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_featuredpullquote/_block_featuredpullquote.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_container.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_storysidebar/block_storysidebar.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_main.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_storysidebar/_block_storysidebar.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_storysidebar/block_storysidebar.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_asking/block_asking.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_asking/block_asking.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_asking/_block_asking.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_asking/_admin_asking.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_asking/block_asking.js",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_featuredpullquote/block_featuredpullquote.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_featuredpullquote/block_featuredpullquote.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_strip/acf-block_strip.json",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_featuredpullquote/_admin_featuredpullquote.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/_custom_colors.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_hero/_block_hero.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_pullquote/block_pullquote.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_logogrid.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_section/_block_section.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/medium/block_section/_block_section.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/functions/ui_utilities.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_posts.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_contactform/_block_contactform.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/index.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/functions.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/_springboard.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_variables.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_tabs/_block_tabs.scss",
+		"/Users/brethummel/Library/Application Support/Sublime Text/Packages/User/SFTP.errors.log",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/kajabi.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/_content_blocks.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sftp-config.json",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/footer-content.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/style.css",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_buttons.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/js/header.js",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_section.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_tiles/block_tiles.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_tiles.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_training/block_training.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_training/acf-block_training.json",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_legal.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/private/_private_blocks.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/private/featured_items/featured_items.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/_custom_blocks.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/_custom_blocks.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/_custom_blocks.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/_custom_admin.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_testimonials/block_testimonials.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_testimonials.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/medium/block_logogrid/acf-block_logogrid.json",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/medium/block_logogrid/block_logogrid.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_text.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_footer.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_testimonials/block_testimonials.js",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_hero/block_hero.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/header_kajabi.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_checkout/block_checkout.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_checkout/block_checkout.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_checkout/_block_checkout.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_textimage.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_hero/block_hero.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_accordion.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/medium/block_logogrid/block_logogrid.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_hero/acf-block_hero.json",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_training/block_section.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_training/_admin_section.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/_custom.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/_blocks_admin.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_section/block_section.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_section/block_section.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_contactform.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/admin.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/_main.scss",
+		"/Users/brethummel/Library/Application Support/Sublime Text/Packages/User/pre-php.sublime-snippet",
+		"/Users/brethummel/Library/Application Support/Sublime Text/Packages/User/pre-html.sublime-snippet",
+		"/Users/brethummel/Library/Application Support/Sublime Text/Packages/User/pre.sublime-snippet",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_text/block_text.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_fullimage.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_hero/block_hero.acf",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_hero/acf-block_hero.json",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/images/milestone_mastery_logo.svg",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/images/milestone_logo.svg",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_hero/_block_hero.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_block_hero.scss",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_accordion/block_accordion.php",
+		"/Users/brethummel/Repository/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_accordion/block_accordion.js",
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/header.php",
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/index.php",
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/functions.php",
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/sass/stylesheets/components/_header.scss",
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/partials/_blocks.scss",
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/partials/custom/block_gallery/block_gallery.php",
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/partials/custom/block_gallery/block_gallery.acf"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 127.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 49.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SFTP":
+	{
+		"height": 108.0,
+		"history":
+		[
+		]
+	},
+	"output.find_results":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"pinned_build_system": "",
+	"project": "spinecaremw.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"/Volumes/Archive/Bret's Dung/alu/ALU002 - Aluminate Website/5 - Development/alu002.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 371.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

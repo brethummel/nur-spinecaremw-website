@@ -1,0 +1,17 @@
+
+
+// This file is intended to allow for the inclusion of styles meant for any custom
+// blocks that live OUTSIDE the content_blocks construct. Manually register unique 
+// custom admin blocks that may have been created for the client here.
+
+
+// ======================================= //
+//             CUSTOM BLOCKS              //
+// ======================================= // 
+
+@import 'block_alltreatments/_admin_alltreatments';
+@import 'block_eventinfo/_admin_eventinfo';
+@import 'block_featuredevent/_admin_featuredevent';
+@import 'block_gatherup/_admin_gatherup';
+@import 'block_patientstory/_admin_patientstory';
+@import 'block_tabs/_admin_tabs';

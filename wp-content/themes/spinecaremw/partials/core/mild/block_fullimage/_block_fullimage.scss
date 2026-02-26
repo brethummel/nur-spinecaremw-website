@@ -1,0 +1,192 @@
+.block-fullimage {
+	&.carousel {
+		&.full-width {
+			font-size: 0px;
+			.slides {
+				z-index: 2;
+				.slide {
+					img {
+						max-height: $max-panel-height;
+						width: 100% !important;
+						object-fit: cover;
+						object-position: center center;
+					}
+				}
+			}
+			.dots {
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				width: 100%;
+				height: 50px;
+				z-index: 5;
+				ul.slick-dots {
+					text-align: center;
+					margin: 0px auto;
+					padding: 0px 0px 10px 0px;
+					list-style: none;
+					position: relative;
+					li {
+						margin: 0px 6px;
+						padding: 0px;
+						display: inline-block;
+						height: 8px;
+						width: 8px;
+						border-radius: 8px;
+						cursor: pointer;
+						background-color: $white;
+						opacity: .35;
+						&.slick-active {
+							opacity: 1;
+						}
+						button {
+							display: none !important;
+						}
+						&:before {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+	&.image {
+		&.full-width {
+			max-height: $max-panel-height;
+			overflow: hidden;
+			img {
+				max-height: $max-panel-height;
+				width: 100% !important;
+				object-fit: cover;
+				object-position: center center;
+			}
+		}
+		&.scale {
+			img {
+				max-width: 100% !important;
+				height: auto !important;
+				min-height: unset !important;
+			}
+		}
+		img {
+			@include media-breakpoint-down(sm) {
+				height: (($container-sm - ($p-container-sm * 2) + 30px)) - 30px !important;
+				object-fit: cover;
+				object-position: center center;
+			}
+			@include media-breakpoint-down(xs) {
+				height: 86.7vw !important;
+				object-fit: cover;
+				object-position: center center;
+			}
+		}
+	}
+    &.text {
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        @include media-breakpoint-down(xs) {
+            padding-top: $p-top-xs;
+            padding-bottom: $p-bottom-xs;
+            .text-container {
+                width: 100%;
+            }
+        }
+        @include media-breakpoint-only(sm) {
+            padding-top: $p-top;
+            padding-bottom: $p-bottom;
+            .text-container {
+                width: 100%;
+            }
+        }
+        @include media-breakpoint-only(md) {
+            padding-top: $p-top * 1.5;
+            padding-bottom: $p-bottom * 1.5;
+            .text-container {
+                width: 100%;
+            }
+        }
+        @include media-breakpoint-only(lg) {
+            padding-top: $p-top * 2;
+            padding-bottom: $p-bottom * 2;
+            .text-container {
+                width: 85%;
+            }
+        }
+        @include media-breakpoint-only(xl) {
+            padding-top: $p-top * 2;
+            padding-bottom: $p-bottom * 2;
+            .text-container {
+                width: 75%;
+            }
+        }
+        .text-container {
+            padding: $p-top;
+            margin: 0px auto;
+			@include media-breakpoint-down(xs) {
+				padding: $p-top-xs;
+			}
+            &.bkgnd-white {
+                background-color: $c-bkgnd-white;
+            }
+            &.bkgnd-light {
+                background-color: $c-bkgnd-light;
+            }
+            &.bkgnd-light2 {
+                background-color: $c-bkgnd-light;
+            }
+            &.bkgnd-primary {
+                background-color: $c-bkgnd-primary;
+            }
+            &.bkgnd-secondary {
+                background-color: $c-bkgnd-secondary;
+            }
+        }
+    }
+    &.video {
+        .video-container {
+            &.oembed {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                @include media-breakpoint-down(xs) {
+                    height: calc( (100vw - 60px) * .5625 );
+                }
+                @include media-breakpoint-only(sm) {
+                    height: ($container-sm - (2 * $p-container-sm)) * .5625;
+                }
+                @include media-breakpoint-only(md) {
+                    height: ($container-md - (2 * $p-container-md)) * .5625;
+                }
+                @include media-breakpoint-only(lg) {
+                    height: ($container-lg - (2 * $p-container-lg)) * .5625;
+                }
+                @include media-breakpoint-only(xl) {
+                    height: ($container-xl - (2 * $p-container-xl)) * .5625;
+                }
+                iframe {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            &.lightbox {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .play-button {
+                    position: absolute;
+                    width: 20%;
+                }
+            }
+        }
+    }
+	.caption-container {
+		padding-top: 14px;
+		margin-bottom: 30px;
+	}
+	+ .block.padded.above {
+		margin-top: -20px !important;
+	}
+}

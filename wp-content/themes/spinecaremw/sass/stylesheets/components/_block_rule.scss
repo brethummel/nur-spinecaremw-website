@@ -1,0 +1,30 @@
+.block-rule {
+	&.above {
+		
+	}
+	&.below {
+		
+	}
+	hr {
+		&.primary {
+			
+		}
+		&.secondary {
+			
+		}
+		&.tertiary {
+			
+		}
+		&.accent {
+			
+		}
+		&.accent2 {
+			
+		}
+	}
+}
+.block-textimage.full + .block-rule {
+	@include media-breakpoint-down(md) {
+		
+	}
+}

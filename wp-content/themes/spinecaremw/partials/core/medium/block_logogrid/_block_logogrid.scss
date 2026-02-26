@@ -1,0 +1,75 @@
+.blocks-wrapper {  /* The role of .blocks-wrapper is to apply special rules when a block is inside another block */
+    .block-logogrid {
+		
+    }
+}
+.block-logogrid {
+	.logo-container {
+		margin-bottom: 40px;
+		&.col-lg-fifths {
+			@include media-breakpoint-up(lg) {
+				-ms-flex: 0 0 20%;
+				flex: 0 0 20%;
+				max-width: 20%;
+			}
+		}
+		&.col-lg-eighths {
+			@include media-breakpoint-up(lg) {
+				-ms-flex: 0 0 12.5%;
+				flex: 0 0 12.5%;
+				max-width: 12.5%;
+			}
+			.logo {
+				padding: 6px;
+			}
+		}
+		.logo {
+			position: relative;
+			padding: 30px;
+			@include media-breakpoint-down(md) {
+				padding: 20px;
+			}
+			a {
+				display: block;
+				position: relative;
+				p {
+					position: absolute;
+					left: 0px;
+					width: 100%;
+					text-decoration: underline;
+				}
+				&:hover {
+					img {
+						
+					}
+					p {
+						color: $c-primary;
+						text-decoration: underline;
+						opacity: 1;
+					}
+				}
+			}
+			img {
+				height: 100%;
+				width: 100%;
+				transition: all .5s;
+			}
+			p {
+				font-weight: $f-bold;
+				text-align: center;
+				margin-top: 8px;
+				color: $c-primary;
+				transition: opacity .5s;
+				opacity: 0;
+			}
+			&:hover {
+				img {
+					
+				}
+				p {
+					
+				}
+			}
+		}
+	}
+}

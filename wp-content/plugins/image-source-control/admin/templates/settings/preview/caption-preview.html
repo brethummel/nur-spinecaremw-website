@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		// Parse the position and pretext parameters from GET.
+		var urlParams = new URLSearchParams(window.location.search);
+		var caption_position = urlParams.get('position');
+		var caption_pretext = urlParams.get('pretext');
+
+		// Create the isc_front_data object.
+		var isc_front_data = {
+			caption_position: caption_position,
+			caption_style: {
+				'position': 'absolute',
+				'font-size': '0.9em',
+				'background-color': '#333',
+				'color': '#fff',
+				'opacity': '0.70',
+				'padding': '0 0.15em',
+				'text-shadow': 'none',
+				'display': 'block'
+			}
+		};
+
+		// Use a path relative to the current HTML file's location for including the JavaScript file.
+		var script = document.createElement('script');
+		script.src = './../../../../public/assets/js/captions.js';
+		document.head.appendChild(script);
+	</script>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+        .isc-source {
+            position: relative;
+            display: inline-block;
+			line-height: initial;
+        }
+
+        .isc-source img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+	</style>
+</head>
+<body>
+<div class="isc-source">
+	<img id="preview_image" src="">
+	<span class="isc-source-text"></span>
+</div>
+<script>
+	document.getElementById('preview_image').src = './../../../../admin/templates/settings/preview/image-for-position-preview.jpg';
+	document.querySelector('.isc-source-text').textContent = caption_pretext + 'Jane Doe';
+</script>
+</body>
+</html>
