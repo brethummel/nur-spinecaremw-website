@@ -140,7 +140,7 @@
             content: "";
             height: 113px;
             width: 113px;
-            background-color: $tangerine;
+            background-color: $c-tangerine;
             border-radius: 100px;
             position: absolute;
             top: -65px;
@@ -336,7 +336,7 @@
                         }
                         >.tab-text {
                             display: block;
-                            border-bottom: 4px solid $tangerine;
+                            border-bottom: 4px solid $c-tangerine;
                             padding: 12px 0px 12px 0px;
                             cursor: pointer;
                             height: 100%;

@@ -59,6 +59,546 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "wp-content/themes/spinecaremw/sass/stylesheets/components/_variables.scss",
+			"settings":
+			{
+				"buffer_size": 5650,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": "\n$"
+					},
+					"AgAAABcEAAAAAAAAGAQAAAAAAAAAAAAAGAQAAAAAAAAZBAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFwQAAAAAAAAXBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": "purple:"
+					},
+					"BwAAABkEAAAAAAAAGgQAAAAAAAAAAAAAGgQAAAAAAAAbBAAAAAAAAAAAAAAbBAAAAAAAABwEAAAAAAAAAAAAABwEAAAAAAAAHQQAAAAAAAAAAAAAHQQAAAAAAAAeBAAAAAAAAAAAAAAeBAAAAAAAAB8EAAAAAAAAAAAAAB8EAAAAAAAAIAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGQQAAAAAAAAZBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAACAEAAAAAAAAIQQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAIAQAAAAAAAAgBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					1,
+					"paste",
+					null,
+					"AQAAACEEAAAAAAAAKAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAIQQAAAAAAAAhBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAACgEAAAAAAAAKQQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAKAQAAAAAAAAoBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					14,
+					1,
+					"insert",
+					{
+						"characters": "\n$lich"
+					},
+					"BgAAACkEAAAAAAAAKgQAAAAAAAAAAAAAKgQAAAAAAAArBAAAAAAAAAAAAAArBAAAAAAAACwEAAAAAAAAAAAAACwEAAAAAAAALQQAAAAAAAAAAAAALQQAAAAAAAAuBAAAAAAAAAAAAAAuBAAAAAAAAC8EAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAKQQAAAAAAAApBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					15,
+					2,
+					"left_delete",
+					null,
+					"AgAAAC4EAAAAAAAALgQAAAAAAAABAAAAaC0EAAAAAAAALQQAAAAAAAABAAAAYw",
+					"AQAAAAAAAAABAAAALwQAAAAAAAAvBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					16,
+					1,
+					"insert",
+					{
+						"characters": "ghtpurple"
+					},
+					"CQAAAC0EAAAAAAAALgQAAAAAAAAAAAAALgQAAAAAAAAvBAAAAAAAAAAAAAAvBAAAAAAAADAEAAAAAAAAAAAAADAEAAAAAAAAMQQAAAAAAAAAAAAAMQQAAAAAAAAyBAAAAAAAAAAAAAAyBAAAAAAAADMEAAAAAAAAAAAAADMEAAAAAAAANAQAAAAAAAAAAAAANAQAAAAAAAA1BAAAAAAAAAAAAAA1BAAAAAAAADYEAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAALQQAAAAAAAAtBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					17,
+					1,
+					"insert",
+					{
+						"characters": ":"
+					},
+					"AQAAADYEAAAAAAAANwQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAANgQAAAAAAAA2BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					18,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAADcEAAAAAAAAOAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAANwQAAAAAAAA3BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					19,
+					1,
+					"paste",
+					null,
+					"AQAAADgEAAAAAAAAPgQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOAQAAAAAAAA4BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					20,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAD4EAAAAAAAAPwQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAPgQAAAAAAAA+BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					23,
+					1,
+					"insert",
+					{
+						"characters": "#"
+					},
+					"AQAAADgEAAAAAAAAOQQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOAQAAAAAAAA4BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					33,
+					1,
+					"paste",
+					null,
+					"AQAAAC0GAAAAAAAA3g8AAAAAAAACAAAAOwo",
+					"AQAAAAAAAAABAAAALQYAAAAAAAAvBgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					34,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAN4PAAAAAAAA3w8AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA3g8AAAAAAADeDwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					37,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AgAAAC0GAAAAAAAALgYAAAAAAAAAAAAA4A8AAAAAAADgDwAAAAAAAAQAAAAgICAg",
+					"AQAAAAAAAAABAAAALQYAAAAAAAAtBgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					42,
+					1,
+					"paste",
+					null,
+					"AQAAABkMAAAAAAAAaQwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGQwAAAAAAAAZDAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					45,
+					1,
+					"insert",
+					{
+						"characters": "light"
+					},
+					"BQAAAC4MAAAAAAAALwwAAAAAAAAAAAAALwwAAAAAAAAwDAAAAAAAAAAAAAAwDAAAAAAAADEMAAAAAAAAAAAAADEMAAAAAAAAMgwAAAAAAAAAAAAAMgwAAAAAAAAzDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAALgwAAAAAAAAuDAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					50,
+					1,
+					"insert",
+					{
+						"characters": "light"
+					},
+					"BQAAAEAMAAAAAAAAQQwAAAAAAAAAAAAAQQwAAAAAAABCDAAAAAAAAAAAAABCDAAAAAAAAEMMAAAAAAAAAAAAAEMMAAAAAAAARAwAAAAAAAAAAAAARAwAAAAAAABFDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQAwAAAAAAABADAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					53,
+					1,
+					"insert",
+					{
+						"characters": "light"
+					},
+					"BQAAAE4MAAAAAAAATwwAAAAAAAAAAAAATwwAAAAAAABQDAAAAAAAAAAAAABQDAAAAAAAAFEMAAAAAAAAAAAAAFEMAAAAAAAAUgwAAAAAAAAAAAAAUgwAAAAAAABTDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATgwAAAAAAABODAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					56,
+					1,
+					"insert",
+					{
+						"characters": "light"
+					},
+					"BQAAAGgMAAAAAAAAaQwAAAAAAAAAAAAAaQwAAAAAAABqDAAAAAAAAAAAAABqDAAAAAAAAGsMAAAAAAAAAAAAAGsMAAAAAAAAbAwAAAAAAAAAAAAAbAwAAAAAAABtDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAaAwAAAAAAABoDAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					65,
+					1,
+					"paste",
+					null,
+					"AQAAAEoEAAAAAAAAUQQAAAAAAAAHAAAAI2ZmY2UzNQ",
+					"AQAAAAAAAAABAAAASgQAAAAAAABRBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					68,
+					1,
+					"left_delete",
+					null,
+					"AQAAAFIEAAAAAAAAUgQAAAAAAABhAAAACiRicmlnaHRvcmFuZ2U6ICNmNTY2MDA7CiRvcmFuZ2U6ICNmZjgwMjM7CiR0YW5nZXJpbmU6ICNmZmMwODA7CiR3aGVhdDogI2ZjZThkMzsKJGNyZWFtOiAjZmZmNmVlOw",
+					"AQAAAAAAAAABAAAAswQAAAAAAABSBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					75,
+					1,
+					"paste",
+					null,
+					"AQAAACEEAAAAAAAAKAQAAAAAAAAHAAAAIzYxNGM4MQ",
+					"AQAAAAAAAAABAAAAIQQAAAAAAAAoBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					80,
+					1,
+					"insert",
+					{
+						"characters": "purple"
+					},
+					"BgAAAIEFAAAAAAAAggUAAAAAAAAMAAAAYnJpZ2h0b3JhbmdlggUAAAAAAACDBQAAAAAAAAAAAACDBQAAAAAAAIQFAAAAAAAAAAAAAIQFAAAAAAAAhQUAAAAAAAAAAAAAhQUAAAAAAACGBQAAAAAAAAAAAACGBQAAAAAAAIcFAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAgQUAAAAAAACNBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					94,
+					1,
+					"paste",
+					null,
+					"AQAAAKsFAAAAAAAAsQUAAAAAAAAGAAAAb3Jhbmdl",
+					"AQAAAAAAAAABAAAAqwUAAAAAAACxBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					99,
+					1,
+					"insert",
+					{
+						"characters": "c-"
+					},
+					"AgAAACkQAAAAAAAAKhAAAAAAAAAAAAAAKhAAAAAAAAArEAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAKRAAAAAAAAApEAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					110,
+					1,
+					"insert",
+					{
+						"characters": "c-secondary"
+					},
+					"CwAAAEUQAAAAAAAARhAAAAAAAAAMAAAAYnJpZ2h0b3JhbmdlRhAAAAAAAABHEAAAAAAAAAAAAABHEAAAAAAAAEgQAAAAAAAAAAAAAEgQAAAAAAAASRAAAAAAAAAAAAAASRAAAAAAAABKEAAAAAAAAAAAAABKEAAAAAAAAEsQAAAAAAAAAAAAAEsQAAAAAAAATBAAAAAAAAAAAAAATBAAAAAAAABNEAAAAAAAAAAAAABNEAAAAAAAAE4QAAAAAAAAAAAAAE4QAAAAAAAATxAAAAAAAAAAAAAATxAAAAAAAABQEAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARRAAAAAAAABREAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					122,
+					1,
+					"paste",
+					null,
+					"AQAAAJcFAAAAAAAAogUAAAAAAAAGAAAAeWVsbG93",
+					"AQAAAAAAAAABAAAAlwUAAAAAAACdBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					129,
+					1,
+					"insert",
+					{
+						"characters": "er"
+					},
+					"AgAAAG4QAAAAAAAAbxAAAAAAAAAJAAAAc2Vjb25kYXJ5bxAAAAAAAABwEAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdxAAAAAAAABuEAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					130,
+					2,
+					"left_delete",
+					null,
+					"AgAAAG8QAAAAAAAAbxAAAAAAAAABAAAAcm4QAAAAAAAAbhAAAAAAAAABAAAAZQ",
+					"AQAAAAAAAAABAAAAcBAAAAAAAABwEAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					131,
+					1,
+					"insert",
+					{
+						"characters": "tertiary"
+					},
+					"CAAAAG4QAAAAAAAAbxAAAAAAAAAAAAAAbxAAAAAAAABwEAAAAAAAAAAAAABwEAAAAAAAAHEQAAAAAAAAAAAAAHEQAAAAAAAAchAAAAAAAAAAAAAAchAAAAAAAABzEAAAAAAAAAAAAABzEAAAAAAAAHQQAAAAAAAAAAAAAHQQAAAAAAAAdRAAAAAAAAAAAAAAdRAAAAAAAAB2EAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbhAAAAAAAABuEAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					156,
+					1,
+					"paste",
+					null,
+					"AQAAABcEAAAAAAAAKQQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFwQAAAAAAAAXBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					159,
+					1,
+					"insert",
+					{
+						"characters": "bright"
+					},
+					"BgAAABkEAAAAAAAAGgQAAAAAAAAAAAAAGgQAAAAAAAAbBAAAAAAAAAAAAAAbBAAAAAAAABwEAAAAAAAAAAAAABwEAAAAAAAAHQQAAAAAAAAAAAAAHQQAAAAAAAAeBAAAAAAAAAAAAAAeBAAAAAAAAB8EAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGQQAAAAAAAAZBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					167,
+					1,
+					"paste",
+					null,
+					"AQAAADkEAAAAAAAAQAQAAAAAAAAHAAAAIzgwMDA4MA",
+					"AQAAAAAAAAABAAAAOQQAAAAAAABABAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					185,
+					1,
+					"paste",
+					null,
+					"AQAAAHwKAAAAAAAAiAoAAAAAAAAFAAAAYmxhY2s",
+					"AQAAAAAAAAABAAAAfAoAAAAAAACBCgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					190,
+					1,
+					"paste",
+					null,
+					"AQAAAIYLAAAAAAAA1gsAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAhgsAAAAAAACGCwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					194,
+					1,
+					"insert",
+					{
+						"characters": "bright"
+					},
+					"BgAAAJsLAAAAAAAAnAsAAAAAAAAAAAAAnAsAAAAAAACdCwAAAAAAAAAAAACdCwAAAAAAAJ4LAAAAAAAAAAAAAJ4LAAAAAAAAnwsAAAAAAAAAAAAAnwsAAAAAAACgCwAAAAAAAAAAAACgCwAAAAAAAKELAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAmwsAAAAAAACbCwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					197,
+					1,
+					"insert",
+					{
+						"characters": "bright"
+					},
+					"BgAAAK4LAAAAAAAArwsAAAAAAAAAAAAArwsAAAAAAACwCwAAAAAAAAAAAACwCwAAAAAAALELAAAAAAAAAAAAALELAAAAAAAAsgsAAAAAAAAAAAAAsgsAAAAAAACzCwAAAAAAAAAAAACzCwAAAAAAALQLAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAArgsAAAAAAACuCwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					200,
+					1,
+					"insert",
+					{
+						"characters": "bright"
+					},
+					"BgAAANILAAAAAAAA0wsAAAAAAAAAAAAA0wsAAAAAAADUCwAAAAAAAAAAAADUCwAAAAAAANULAAAAAAAAAAAAANULAAAAAAAA1gsAAAAAAAAAAAAA1gsAAAAAAADXCwAAAAAAAAAAAADXCwAAAAAAANgLAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA0gsAAAAAAADSCwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					203,
+					1,
+					"insert",
+					{
+						"characters": "bright"
+					},
+					"BgAAAL0LAAAAAAAAvgsAAAAAAAAAAAAAvgsAAAAAAAC/CwAAAAAAAAAAAAC/CwAAAAAAAMALAAAAAAAAAAAAAMALAAAAAAAAwQsAAAAAAAAAAAAAwQsAAAAAAADCCwAAAAAAAAAAAADCCwAAAAAAAMMLAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAvQsAAAAAAAC9CwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					206,
+					1,
+					"insert",
+					{
+						"characters": "bright"
+					},
+					"BgAAAJkFAAAAAAAAmgUAAAAAAAAAAAAAmgUAAAAAAACbBQAAAAAAAAAAAACbBQAAAAAAAJwFAAAAAAAAAAAAAJwFAAAAAAAAnQUAAAAAAAAAAAAAnQUAAAAAAACeBQAAAAAAAAAAAACeBQAAAAAAAJ8FAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAmQUAAAAAAACZBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					216,
+					1,
+					"paste",
+					null,
+					"AQAAAM4FAAAAAAAA2QUAAAAAAAAGAAAAeWVsbG93",
+					"AQAAAAAAAAABAAAAzgUAAAAAAADUBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					221,
+					1,
+					"left_delete",
+					null,
+					"AQAAALUFAAAAAAAAtQUAAAAAAAAFAAAAbGlnaHQ",
+					"AQAAAAAAAAABAAAAugUAAAAAAAC1BQAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "wp-content/themes/spinecaremw/sass/stylesheets/components/_header.scss",
+			"settings":
+			{
+				"buffer_size": 20606,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					11,
+					1,
+					"insert",
+					{
+						"characters": "c-"
+					},
+					"AgAAAEIMAAAAAAAAQwwAAAAAAAAAAAAAQwwAAAAAAABEDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQgwAAAAAAABCDAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					20,
+					1,
+					"insert",
+					{
+						"characters": "c-"
+					},
+					"AgAAAOouAAAAAAAA6y4AAAAAAAAAAAAA6y4AAAAAAADsLgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA6i4AAAAAAADqLgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					29,
+					1,
+					"insert",
+					{
+						"characters": "c-"
+					},
+					"AgAAAFJDAAAAAAAAU0MAAAAAAAAAAAAAU0MAAAAAAABUQwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUkMAAAAAAABSQwAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "wp-content/themes/spinecaremw/partials/custom/_templates/_posts/_posts_singlet.scss",
+			"settings":
+			{
+				"buffer_size": 6809,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"",
+					null,
+					"AQAAADUMAAAAAAAAPQwAAAAAAAAGAAAAJGNyZWFt",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "wp-content/themes/spinecaremw/partials/custom/block_patientstory/_block_patientstory.scss",
+			"settings":
+			{
+				"buffer_size": 5254,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"",
+					null,
+					"AwAAAGQMAAAAAAAAbAwAAAAAAAAGAAAAJGNyZWFtmwgAAAAAAACjCAAAAAAAAAYAAAAkY3JlYW1aBwAAAAAAAGIHAAAAAAAABgAAACRjcmVhbQ",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "wp-content/themes/spinecaremw/partials/custom/block_tabs/_block_tabs.scss",
+			"settings":
+			{
+				"buffer_size": 4896,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"",
+					null,
+					"AQAAAF0PAAAAAAAAaQ8AAAAAAAAKAAAAJHRhbmdlcmluZQ",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "wp-content/themes/spinecaremw/sass/stylesheets/components/_block_text.scss",
+			"settings":
+			{
+				"buffer_size": 12995,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"",
+					null,
+					"AgAAAAwwAAAAAAAAGDAAAAAAAAAKAAAAJHRhbmdlcmluZQoVAAAAAAAAFhUAAAAAAAAKAAAAJHRhbmdlcmluZQ",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -144,10 +684,15 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/brethummel/Repository/Bret's Dung/nur/NUR003 - Midwestern Interventional Spine Specialists/Development/wp-content/themes/spinecaremw"
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR003 - Midwestern Interventional Spine Specialists/Development/wp-content/themes/spinecaremw",
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR003 - Midwestern Interventional Spine Specialists/Development/wp-content/themes/spinecaremw/_core_mirror",
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR003 - Midwestern Interventional Spine Specialists/Development/wp-content/themes/spinecaremw/sass",
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR003 - Midwestern Interventional Spine Specialists/Development/wp-content/themes/spinecaremw/sass/stylesheets"
 	],
 	"file_history":
 	[
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR003 - Midwestern Interventional Spine Specialists/Development/wp-content/themes/spinecaremw/sftp-config.json",
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR003 - Midwestern Interventional Spine Specialists/Development/spinecaremw.sublime-project",
 		"/Volumes/Archive/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/sass/stylesheets/components/_variables.scss",
 		"/Volumes/Archive/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/custom/block_training/block_training.acf",
 		"/Volumes/Archive/Bret's Dung/cur/CUR012 - Milestone Consulting Group Website/5 - Development/wp-content/themes/milestone/partials/core/mild/block_text/_block_text.scss",
@@ -273,19 +818,18 @@
 		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/index.php",
 		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/functions.php",
 		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/sass/stylesheets/components/_header.scss",
-		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/partials/_blocks.scss",
-		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/partials/custom/block_gallery/block_gallery.php",
-		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/partials/custom/block_gallery/block_gallery.acf"
+		"/Users/brethummel/Repository/Bret's Dung/nur/NUR001 - Nura Website/5 - Development/wp-content/themes/nura-2024/partials/_blocks.scss"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 55.0
 	},
 	"find_in_files":
 	{
 		"height": 127.0,
 		"where_history":
 		[
+			"<project filters>"
 		]
 	},
 	"find_state":
@@ -293,6 +837,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"$tangerine",
+			"$wheat",
+			"$cream",
+			"cream"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -300,6 +848,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"$c-tangerine",
+			"$c-wheat",
+			"$c-cream"
 		],
 		"reverse": false,
 		"scrollbar_highlights": true,
@@ -314,6 +865,211 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "wp-content/themes/spinecaremw/sass/stylesheets/components/_variables.scss",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5650,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1375,
+								1375
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 457.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "wp-content/themes/spinecaremw/sass/stylesheets/components/_header.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20606,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17681,
+								17681
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 10739.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "wp-content/themes/spinecaremw/partials/custom/_templates/_posts/_posts_singlet.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6809,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "wp-content/themes/spinecaremw/partials/custom/block_patientstory/_block_patientstory.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1273,
+								1273
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "wp-content/themes/spinecaremw/partials/custom/block_tabs/_block_tabs.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4896,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "wp-content/themes/spinecaremw/sass/stylesheets/components/_block_text.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12995,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],

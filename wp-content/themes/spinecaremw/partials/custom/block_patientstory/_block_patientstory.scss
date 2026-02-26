@@ -57,14 +57,14 @@
             }
             .content-col {
                 .content-container {
-                    background-color: $cream;
+                    background-color: $c-cream;
                     border-radius: 5px;
                     position: relative;
                     @include media-breakpoint-down(md) {
                         padding: 40px 48px 48px 98px;
                         &:before {
                             content: "";
-                            background-color: $cream;
+                            background-color: $c-cream;
                             height: 215px;
                             width: 100%;
                             position: absolute;
@@ -87,7 +87,7 @@
                         padding: 48px 48px 48px 6px;
                         &:before {
                             content: "";
-                            background-color: $cream;
+                            background-color: $c-cream;
                             height: 100%;
                             width: 266px;
                             position: absolute;

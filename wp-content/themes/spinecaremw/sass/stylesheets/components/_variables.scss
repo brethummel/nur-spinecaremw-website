@@ -40,12 +40,10 @@ $p-container-xxs: 20px;
 // ======================================= //
 
 // define color names here
-$yellow: #ffce35;
-$brightorange: #f56600;
-$orange: #ff8023;
-$tangerine: #ffc080;
-$wheat: #fce8d3;
-$cream: #fff6ee;
+$brightpurple: #800080;
+$purple: #614c81;
+$lightpurple: #9c87bc;
+$yellow: #ffcc00;
 $softwhite: #f3f1ed;
 $white: white;
 $black: black;
@@ -61,16 +59,50 @@ $charcoal: #424042;
 
 // define key colors
 $c-primary: $black;
-$c-secondary: $brightorange;
-$c-tertiary: $yellow;
-$c-accent: $orange;
+$c-secondary: $brightpurple;
+$c-tertiary: $purple;
+$c-accent: $lightpurple;
 $c-accent2: $yellow;
-    
+
+// catch all for remnants from other projects
+@if variable-exists(green) { $c-green: $green; } @else { $c-green: $black }
+@if variable-exists(pine) { $c-pine: $pine; } @else { $c-pine: $black }
+@if variable-exists(red) { $c-red: $red; } @else { $c-red: $black }
+@if variable-exists(darkred) { $c-darkred: $darkred; } @else { $c-darkred: $black }
+@if variable-exists(pink) { $c-pink: $pink; } @else { $c-pink: $black }
+@if variable-exists(fuscia) { $c-fuscia: $fuscia; } @else { $c-fuscia: $black }
+@if variable-exists(darkfuscia) { $c-darkfuscia: $darkfuscia; } @else { $c-darkfuscia: $black }
+@if variable-exists(lightblue) { $c-lightblue: $lightblue; } @else { $c-lightblue: $black }
+@if variable-exists(blue) { $c-blue: $blue; } @else { $c-blue: $black }
+@if variable-exists(darkblue) { $c-darkblue: $darkblue; } @else { $c-darkblue: $black }
+@if variable-exists(cyan) { $c-cyan: $cyan; } @else { $c-cyan: $black }
+@if variable-exists(teal) { $c-teal: $teal; } @else { $c-teal: $black }
+@if variable-exists(darkteal) { $c-darkteal: $darkteal; } @else { $c-darkteal: $black }
+@if variable-exists(brightorange) { $c-brightorange: $brightorange; } @else { $c-brightorange: $brightpurple }
+@if variable-exists(orange) { $c-orange: $orange; } @else { $c-orange: $black }
+@if variable-exists(tangerine) { $c-tangerine: $tangerine; } @else { $c-tangerine: $black }
+@if variable-exists(yellow) { $c-yellow: $yellow; } @else { $c-yellow: $black }
+@if variable-exists(brightpurple) { $c-brightpurple: $brightpurple; } @else { $c-brightpurple: $black }
+@if variable-exists(purple) { $c-purple: $purple; } @else { $c-purple: $black }
+@if variable-exists(lightpurple) { $c-lightpurple: $lightpurple; } @else { $c-lightpurple: $black }
+@if variable-exists(softwhite) { $c-softwhite: $softwhite; } @else { $c-softwhite: $white }
+@if variable-exists(offwhite) { $c-offwhite: $offwhite; } @else { $c-offwhite: $white }
+@if variable-exists(cream) { $c-cream: $cream; } @else { $c-cream: $white }
+@if variable-exists(wheat) { $c-wheat: $wheat; } @else { $c-wheat: $white }
+@if variable-exists(white) { $c-white: $white; } @else { $c-white: $white }
+@if variable-exists(slate) { $c-slate: $slate; } @else { $c-slate: $grey }
+@if variable-exists(lightgrey) { $c-lightgrey: $lightgrey; } @else { $c-lightgrey: $grey }
+@if variable-exists(grey) { $c-grey: $grey; } @else { $c-grey: $grey }
+@if variable-exists(gray) { $c-grey: $gray; } @else { $c-grey: $grey }
+@if variable-exists(darkgrey) { $c-darkgrey: $darkgrey; } @else { $c-darkgrey: $grey }
+@if variable-exists(charcoal) { $c-charcoal: $charcoal; } @else { $c-charcoal: $grey }
+@if variable-exists(black) { $c-black: $black; } @else { $c-black: $black }
+
 $c-bkgnd-white: $white;
 $c-bkgnd-light: $superlightgrey;
-$c-bkgnd-light2: $cream;
-$c-bkgnd-primary: $brightorange;
-$c-bkgnd-secondary: $c-secondary;
+$c-bkgnd-light2: $c-cream;
+$c-bkgnd-primary: $c-secondary;
+$c-bkgnd-secondary: $c-tertiary;
 $c-bkgnd-tertiary: $footergrey;
 $c-bkgnd-accent: $c-accent;
 $c-bkgnd-accent2: $c-accent2;
